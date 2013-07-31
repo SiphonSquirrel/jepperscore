@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>jepperscore</groupId>
+		<artifactId>jepperscore-parent</artifactId>
+		<relativePath>../pom.xml</relativePath>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+
+	<groupId>jepperscore.scrapers</groupId>
+	<artifactId>scrapers-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<name>JepperScore :: Scrapers :: Parent</name>
+	<description>Top level project for JepperScore Scrapers</description>
+
+	<modules>
+		<module>ut2004</module>
+	</modules>
+</project>
