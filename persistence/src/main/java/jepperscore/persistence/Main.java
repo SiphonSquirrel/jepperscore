@@ -1,5 +1,10 @@
 package jepperscore.persistence;
 
+/**
+ * This class connects to ActiveMQ and sets up the persistence layer.
+ * @author Chuck
+ *
+ */
 public class Main {
 
 	/**
