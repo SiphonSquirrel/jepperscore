@@ -12,6 +12,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import jepperscore.dao.model.Event;
+import jepperscore.dao.model.Round;
 import jepperscore.dao.transport.TransportMessage;
 
 import org.slf4j.Logger;
@@ -20,9 +21,9 @@ import org.slf4j.LoggerFactory;
 /**
  * This class implements the {@link MessageListener} interface for ActiveMQ to
  * provide an endpoint to save messages to a database.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class PersistenceListener implements MessageListener {
 	/**
@@ -32,14 +33,14 @@ public class PersistenceListener implements MessageListener {
 			.getLogger(PersistenceListener.class);
 
 	/**
-	 * This is the {@link JAXBContext} for use with the {@link Messages} class.
+	 * This is the {@link JAXBContext} for use with the {@link Message} class.
 	 */
 	private final JAXBContext jaxbContext;
 
 	/**
 	 * This is the default constructor. It initializes a {@link JAXBContext} for
-	 * unmarshalling the {@link Messages} class.
-	 * 
+	 * unmarshalling the {@link Message} class.
+	 *
 	 * @throws JAXBException
 	 */
 	public PersistenceListener() throws JAXBException {
@@ -48,9 +49,10 @@ public class PersistenceListener implements MessageListener {
 
 	@Override
 	public void onMessage(Message message) {
-		if (message == null)
+		if (message == null) {
 			return;
-		
+		}
+
 		if (message instanceof TextMessage) {
 			TextMessage textMessage = (TextMessage) message;
 
@@ -60,8 +62,21 @@ public class PersistenceListener implements MessageListener {
 				TransportMessage transportMessage = (TransportMessage) unmarshaller
 						.unmarshal(new StringReader(textMessage.getText()));
 
-				if (transportMessage.getEvent() != null) {
-					onEvent(transportMessage.getEvent());
+				if (transportMessage != null) {
+					Event event = transportMessage.getEvent();
+					Round round = transportMessage.getRound();
+
+					if (event != null) {
+						onEvent(event);
+					}
+					else if (round != null) {
+						onRound(round);
+					}
+					else {
+						LOG.warn("Unable to determine message contents.");
+					}
+				} else {
+					LOG.warn("Unable to unmarshall TransportMessage.");
 				}
 			} catch (JAXBException | JMSException e) {
 				LOG.error(e.getMessage(), e);
@@ -72,10 +87,19 @@ public class PersistenceListener implements MessageListener {
 
 	/**
 	 * This function is called when the persistence listener receives an event.
-	 * 
-	 * @param e
+	 *
+	 * @param e The event.
 	 */
 	protected void onEvent(@Nonnull Event e) {
+
+	}
+
+	/**
+	 * This function is called when the persistence listener receives a round.
+	 *
+	 * @param r The round.
+	 */
+	protected void onRound(@Nonnull Round r) {
 
 	}
 

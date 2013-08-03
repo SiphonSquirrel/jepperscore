@@ -1,11 +1,15 @@
 package jepperscore.dao.model;
 
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * This class represents the extended details of an event.
  * @author Chuck
  *
  */
@@ -17,40 +21,67 @@ public class EventCode {
 	 */
 	@XmlAttribute(required=true)
 	private String code;
-	
+
 	/**
 	 * The object of the event.
 	 */
 	@XmlAttribute(required=false)
 	private String object;
-	
+
 	/**
 	 * Reserved for future use.
-	 */	
+	 */
 	@XmlAttribute(required=false)
 	private String extra;
 
+	/**
+	 * @return The code of the event.
+	 */
+	@Nonnull
 	public String getCode() {
+		if (code == null) {
+			return "";
+		}
 		return code;
 	}
 
-	public void setCode(String code) {
+	/**
+	 * Sets the extended code for the event.
+	 * @param code The code.
+	 */
+	public void setCode(@Nonnull String code) {
 		this.code = code;
 	}
 
+	/**
+	 * @return The object (weapon, capture point, etc.) used during the event.
+	 */
+	@CheckForNull
 	public String getObject() {
 		return object;
 	}
 
-	public void setObject(String object) {
+	/**
+	 * Sets the object (weapon, capture point, etc.) used during the event.
+	 * @param object The object used.
+	 */
+	public void setObject(@Nullable String object) {
 		this.object = object;
 	}
 
+	/**
+	 * @return Extra information that does not have a place, but might be important or interesting later.
+	 */
+	@CheckForNull
 	public String getExtra() {
 		return extra;
 	}
 
-	public void setExtra(String extra) {
+	/**
+	 * Sets extra information that may be interesting later.
+	 * @param extra The extra information.
+	 */
+	public void setExtra(@Nullable String extra) {
 		this.extra = extra;
 	}
 }
