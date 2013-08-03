@@ -12,7 +12,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import jepperscore.dao.model.Event;
-import jepperscore.dao.transport.Messages;
+import jepperscore.dao.transport.TransportMessage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,24 +43,25 @@ public class PersistenceListener implements MessageListener {
 	 * @throws JAXBException
 	 */
 	public PersistenceListener() throws JAXBException {
-		jaxbContext = JAXBContext.newInstance(Messages.class);
+		jaxbContext = JAXBContext.newInstance(TransportMessage.class);
 	}
 
 	@Override
 	public void onMessage(Message message) {
+		if (message == null)
+			return;
+		
 		if (message instanceof TextMessage) {
 			TextMessage textMessage = (TextMessage) message;
 
 			try {
 				Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
-				Messages messageCollection = (Messages) unmarshaller
+				TransportMessage transportMessage = (TransportMessage) unmarshaller
 						.unmarshal(new StringReader(textMessage.getText()));
 
-				if (messageCollection.getEvent() != null) {
-					for (Event e : messageCollection.getEvent()) {
-						onEvent(e);
-					}
+				if (transportMessage.getEvent() != null) {
+					onEvent(transportMessage.getEvent());
 				}
 			} catch (JAXBException | JMSException e) {
 				LOG.error(e.getMessage(), e);

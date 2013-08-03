@@ -15,7 +15,7 @@ import javax.xml.bind.Marshaller;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.dao.model.Event;
-import jepperscore.dao.transport.Messages;
+import jepperscore.dao.transport.TransportMessage;
 import jepperscore.persistence.PersistenceListener;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -131,11 +131,11 @@ public class PersistenceListenerTests {
 		TestablePersistenceListener listener = new TestablePersistenceListener();
 		consumer.setMessageListener(listener);
 
-		Messages collection = new Messages();
+		TransportMessage collection = new TransportMessage();
 		Event event1 = new Event();
-		collection.getEvent().add(event1);
+		collection.setEvent(event1);
 
-		JAXBContext jaxbContext = JAXBContext.newInstance(Messages.class);
+		JAXBContext jaxbContext = JAXBContext.newInstance(TransportMessage.class);
 		Marshaller marshaller = jaxbContext.createMarshaller();
 
 		StringWriter writer = new StringWriter();
