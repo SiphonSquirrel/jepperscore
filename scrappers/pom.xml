@@ -19,5 +19,6 @@
 	<modules>
 		<module>bf1942</module>
 		<module>ut2004</module>
+		<module>scraper-common</module>
 	</modules>
 </project>
