@@ -18,6 +18,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Alias {
 	/**
+	 * An identifying id.
+	 */
+	@XmlAttribute(required=true)
+	private String id;
+	
+	/**
 	 * The alias.
 	 */
 	@XmlAttribute(required=true)
@@ -34,6 +40,21 @@ public class Alias {
 	 */
 	@XmlElement(required=true)
 	private Game game;
+
+	/**
+	 * @return The id of the alias.
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * Sets the ID.
+	 * @param id The ID of the alias.
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	/**
 	 * @return The alias.
