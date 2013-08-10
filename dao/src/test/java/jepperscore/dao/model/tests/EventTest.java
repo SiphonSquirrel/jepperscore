@@ -34,7 +34,7 @@ public class EventTest {
 
 	/**
 	 * Tests the unmarshalling of a simple {@link Event}.
-	 * @throws JAXBException
+	 * @throws JAXBException when there is a problem unmarshalling the document.
 	 */
 	@Test
 	public void testSimpleUnmarshalling() throws JAXBException {

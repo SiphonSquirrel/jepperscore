@@ -117,7 +117,7 @@ public class Event {
 
 	/**
 	 * Sets the event text associated with the event.
-	 * @param eventText
+	 * @param eventText The event text.
 	 */
 	public void setEventText(@Nullable String eventText) {
 		this.eventText = eventText;

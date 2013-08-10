@@ -12,29 +12,59 @@ import java.util.Map;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 import jepperscore.scraper.common.query.QueryClientListener;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This class tests the {@link GamespyQueryClient}.
+ * @author Chuck
+ *
+ */
 public class GamespyQueryClientTest {
 
+	/**
+	 * This class stands up a fake gamespy test server.
+	 * @author Chuck
+	 *
+	 */
 	private static class GamespyTestServer implements Runnable {
+		/**
+		 * The logger for this class.
+		 */
 		private static final Logger LOG = LoggerFactory
 				.getLogger(GamespyTestServer.class);
 
+		/**
+		 * The UDP socket.
+		 */
 		private DatagramSocket server;
+		
+		/**
+		 * Responses to registered requests.
+		 */
 		private Map<String, String> responses = new HashMap<String, String>();
 
+		/**
+		 * This constructor creates the server on a random port.
+		 * @throws SocketException If there was an issue creating the server.
+		 */
 		public GamespyTestServer() throws SocketException {
 			server = new DatagramSocket(0);
 		}
 
+		/**
+		 * @return The port the server was started on.
+		 */
 		public int getPort() {
 			return server.getLocalPort();
 		}
 
+		/**
+		 * This method matches a request to a response.
+		 * @param request The request.
+		 * @param response The response to provide.
+		 */
 		public void setResponse(String request, String response) {
 			responses.put(request, response);
 		}
@@ -66,20 +96,15 @@ public class GamespyQueryClientTest {
 
 	}
 
-	private DatagramSocket socket;
-
+	/**
+	 * Keeps track if a response was received.
+	 */
 	private boolean gotReponse;
 
-	@Before
-	public void setUp() throws Exception {
-		socket = new DatagramSocket(0);
-	}
-
-	@After
-	public void tearDown() throws Exception {
-		socket.close();
-	}
-
+	/**
+	 * This function tests the info request.
+	 * @throws Exception If there was a problem during the test.
+	 */
 	@Test
 	public void testInfo() throws Exception {
 		final Object lockObject = new Object();
@@ -100,7 +125,10 @@ public class GamespyQueryClientTest {
 			@Override
 			public void queryClient(QueryCallbackInfo info) {
 				queryClient.stop();
+				
 				synchronized (lockObject) {
+					assertEquals("|OoPS| Clan TO:AoT v315 Public Server-240", info.getServerMetadata().getServerName());
+					
 					gotReponse = true;
 					lockObject.notifyAll();
 				}
@@ -109,7 +137,7 @@ public class GamespyQueryClientTest {
 		synchronized (lockObject) {
 			queryClient.start();
 			lockObject.wait(60000);
-			assertTrue(gotReponse);
+			assertTrue("Reponse Timed out", gotReponse);
 		}
 	}
 

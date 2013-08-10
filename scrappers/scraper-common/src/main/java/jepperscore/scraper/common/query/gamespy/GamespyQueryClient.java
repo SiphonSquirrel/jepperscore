@@ -1,14 +1,13 @@
 package jepperscore.scraper.common.query.gamespy;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import jepperscore.dao.model.ServerMetadata;
 import jepperscore.scraper.common.query.AbstractQueryClient;
 
 import org.slf4j.Logger;
@@ -33,6 +32,11 @@ public class GamespyQueryClient extends AbstractQueryClient {
 	 * The info message.
 	 */
 	private static final byte[] INFO_MESSAGE = "\\info\\".getBytes();
+
+	/**
+	 * This is the query id tag used to join multiple query responses.
+	 */
+	private static final String QUERYID_TAG = "\\queryid\\";
 
 	/**
 	 * The query port.
@@ -78,36 +82,61 @@ public class GamespyQueryClient extends AbstractQueryClient {
 			DatagramPacket recvPacket = new DatagramPacket(recvBuffer,
 					recvBuffer.length);
 
-			Map<Float, byte[]> data = new TreeMap<Float, byte[]>();
-			int totalSize = 0;
+			Map<Float, String> data = new TreeMap<Float, String>();
 			while (true) {
 				try {
 					socket.receive(recvPacket);
-					data.put(0.0f, recvPacket.getData());
-					totalSize += recvPacket.getLength();
+
+					String stringData = new String(recvPacket.getData());
+					int pos = stringData.indexOf(QUERYID_TAG);
+
+					if (pos > 0) {
+						int idStart = pos + QUERYID_TAG.length();
+						int pos2 = stringData.indexOf("\\", idStart);
+						if (pos2 > 0) {
+							String id = stringData.substring(idStart, pos2);
+							data.put(Float.parseFloat(id),
+									stringData.substring(0, pos));
+						}
+					}
 					socket.setSoTimeout(10);
 				} catch (IOException e) {
 					break;
 				}
 			}
 
-			ByteArrayOutputStream entireMessage = new ByteArrayOutputStream(
-					totalSize);
-			for (byte[] buf : data.values()) {
-				entireMessage.write(buf);
+			StringBuilder entireMessage = new StringBuilder();
+			for (String str : data.values()) {
+				entireMessage.append(str);
 			}
 
-			String message = new String(entireMessage.toByteArray(), 1,
-					entireMessage.size() - 1);
+			String message = entireMessage.toString();
 			String[] messageArray = message.split("\\\\");
 
-			Map<String, String> values = new HashMap<String, String>();
+			ServerMetadata serverMetadata = new ServerMetadata();
 
-			for (int i = 0; i < messageArray.length; i += 2) {
-				values.put(messageArray[i], messageArray[i + 1]);
+			for (int i = 1; i < messageArray.length - 1; i += 2) {
+				String key = messageArray[i];
+				String value = messageArray[i + 1];
+
+				switch (key) {
+				case "hostname":
+					serverMetadata.setServerName(value);
+					break;
+				case "final":
+				case "queryId":
+					break;
+				default:
+					serverMetadata.getMetadata().put(key, value);
+					break;
+				}
 			}
-			
+
 			GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
+
+			info.setRawResponse(message);
+			info.setServerMetadata(serverMetadata);
+
 			makeCallbacks(info);
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);

@@ -5,7 +5,6 @@ package jepperscore.scraper.bf1942.tests;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
@@ -49,6 +48,9 @@ public class LogStreamerTest {
 	 */
 	private Session session;
 
+	/**
+	 * The current ActiveMQ topic.
+	 */
 	private Topic eventTopic;
 
 	/**
@@ -86,7 +88,7 @@ public class LogStreamerTest {
 	 *             If a problem occurs during the test.
 	 */
 	@Test
-	public void testLogStreamer() throws IOException, Exception {
+	public void testLogStreamer() throws Exception {
 		final List<Message> messages = new LinkedList<Message>();
 		
 		PipedOutputStream os = new PipedOutputStream();

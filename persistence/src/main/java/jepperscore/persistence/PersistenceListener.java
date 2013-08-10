@@ -41,7 +41,7 @@ public class PersistenceListener implements MessageListener {
 	 * This is the default constructor. It initializes a {@link JAXBContext} for
 	 * unmarshalling the {@link Message} class.
 	 *
-	 * @throws JAXBException
+	 * @throws JAXBException When there is a problem creating an instance of the {@link JAXBContext}.
 	 */
 	public PersistenceListener() throws JAXBException {
 		jaxbContext = JAXBContext.newInstance(TransportMessage.class);

@@ -102,8 +102,10 @@ public class LogStreamer implements Runnable {
 	/**
 	 * This constructor points the log streamer at a log file.
 	 * 
-	 * @param logFile
-	 *            The log file to watch.
+	 * @param stream
+	 *            The log stream to watch.
+	 * @param session The ActiveMQ {@link Session} to use.
+	 * @param producer The ActiveMQ {@link MessageProducer} to use.
 	 */
 	public LogStreamer(@Nonnull InputStream stream, @Nonnull Session session,
 			@Nonnull MessageProducer producer) {
@@ -233,8 +235,8 @@ public class LogStreamer implements Runnable {
 	/**
 	 * Parses the events from the XML document.
 	 * 
-	 * @param doc
-	 *            The document to parse the events from.
+	 * @param topElement
+	 *            The element to parse the events from.
 	 */
 	private void parseEvents(Element topElement) {
 		NodeList nodes = topElement.getChildNodes();
@@ -354,7 +356,11 @@ public class LogStreamer implements Runnable {
 	private String parseName(String name) {
 		return name;
 	}
-
+	
+	/**
+	 * This function sends a message to ActiveMQ. 
+	 * @param transportMessage The message to send.
+	 */
 	private void sendMessage(TransportMessage transportMessage) {
 		try {
 			Marshaller marshaller = jaxbContext.createMarshaller();

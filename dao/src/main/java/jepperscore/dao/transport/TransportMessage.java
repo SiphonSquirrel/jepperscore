@@ -125,8 +125,8 @@ public class TransportMessage {
 	}
 
 	/**
-	 * @param event
-	 *            The event.
+	 * @param alias
+	 *            The alias.
 	 */
 	public void setAlias(@Nullable Alias alias) {
 		this.alias = alias;

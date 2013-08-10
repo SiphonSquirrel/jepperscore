@@ -8,7 +8,7 @@ package jepperscore.persistence;
 public class Main {
 
 	/**
-	 * @param args
+	 * @param args Command line arguments passed to the function.
 	 */
 	public static void main(String[] args) {
 

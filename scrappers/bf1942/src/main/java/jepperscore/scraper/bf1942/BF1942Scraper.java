@@ -10,7 +10,7 @@ import jepperscore.scraper.common.ScraperStatus;
  * @author Chuck
  *
  */
-public class BF1942Scraper implements Scraper {
+public class BF1942Scraper implements Scraper, Runnable {
 
 	/**
 	 * The status of the scraper.
@@ -37,6 +37,12 @@ public class BF1942Scraper implements Scraper {
 	public void stop() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
