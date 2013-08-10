@@ -1,5 +1,6 @@
 package jepperscore.scrapers.ut2004;
 
+import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
 
 /**
@@ -8,7 +9,7 @@ import jepperscore.scraper.common.ScraperStatus;
  *
  */
 public class UT2004Scraper implements Scraper {
-	
+
 	/**
 	 * The status of the scraper.
 	 */
