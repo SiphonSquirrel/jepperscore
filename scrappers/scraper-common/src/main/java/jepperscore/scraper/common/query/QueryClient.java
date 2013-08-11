@@ -16,16 +16,17 @@ public interface QueryClient {
 	 * Stops the query client.
 	 */
 	void stop();
-	
+
 	/**
 	 * Registers the listener.
+	 * @param queryType The type of query to do.
 	 * @param listener The listener to register.
 	 */
-	void registerListener(QueryClientListener listener);
-	
+	void registerListener(String queryType, QueryClientListener listener);
+
 	/**
 	 * Unregisters the listener.
-	 * @param listener The listener to unregister.
+	 * @param queryType The type of query to do.
 	 */
-	void unregisterListener(QueryClientListener listener);
+	void unregisterListener(String queryType);
 }

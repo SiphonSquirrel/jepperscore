@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -16,9 +17,9 @@ import org.slf4j.LoggerFactory;
 /**
  * This class queries using the GameSpy protocol.
  * http://int64.org/docs/gamestat-protocols/gamespy.html
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class GamespyQueryClient extends AbstractQueryClient {
 
@@ -29,14 +30,14 @@ public class GamespyQueryClient extends AbstractQueryClient {
 			.getLogger(GamespyQueryClient.class);
 
 	/**
-	 * The info message.
-	 */
-	private static final byte[] INFO_MESSAGE = "\\info\\".getBytes();
-
-	/**
 	 * This is the query id tag used to join multiple query responses.
 	 */
 	private static final String QUERYID_TAG = "\\queryid\\";
+
+	/**
+	 * The character set to use when translating from bytes to string.
+	 */
+	private Charset charset;
 
 	/**
 	 * The query port.
@@ -55,7 +56,7 @@ public class GamespyQueryClient extends AbstractQueryClient {
 
 	/**
 	 * This constructor sets up the query client.
-	 * 
+	 *
 	 * @param host
 	 *            The host to query.
 	 * @param port
@@ -68,13 +69,17 @@ public class GamespyQueryClient extends AbstractQueryClient {
 
 		address = InetAddress.getByName(host);
 		socket = new DatagramSocket();
+
+		setCharset(Charset.forName("UTF-8"));
 	}
 
 	@Override
-	protected void query() {
+	protected void query(String queryType) {
 		byte[] recvBuffer = new byte[1024 * 8];
-		DatagramPacket packet = new DatagramPacket(INFO_MESSAGE,
-				INFO_MESSAGE.length, address, port);
+		byte[] sendBuffer = ("\\" + queryType + "\\").getBytes(getCharset());
+
+		DatagramPacket packet = new DatagramPacket(sendBuffer,
+				sendBuffer.length, address, port);
 		try {
 			socket.setSoTimeout(1000);
 			socket.send(packet);
@@ -87,17 +92,20 @@ public class GamespyQueryClient extends AbstractQueryClient {
 				try {
 					socket.receive(recvPacket);
 
-					String stringData = new String(recvPacket.getData());
+					String stringData = new String(recvPacket.getData(), 0, recvPacket.getLength(),
+							getCharset());
 					int pos = stringData.indexOf(QUERYID_TAG);
 
 					if (pos > 0) {
 						int idStart = pos + QUERYID_TAG.length();
 						int pos2 = stringData.indexOf("\\", idStart);
-						if (pos2 > 0) {
-							String id = stringData.substring(idStart, pos2);
-							data.put(Float.parseFloat(id),
-									stringData.substring(0, pos));
+						if (pos2 < 0) {
+							pos2 = stringData.length();
 						}
+
+						String id = stringData.substring(idStart, pos2);
+						data.put(Float.parseFloat(id),
+								stringData.substring(0, pos));
 					}
 					socket.setSoTimeout(10);
 				} catch (IOException e) {
@@ -115,7 +123,7 @@ public class GamespyQueryClient extends AbstractQueryClient {
 
 			ServerMetadata serverMetadata = new ServerMetadata();
 
-			for (int i = 1; i < messageArray.length - 1; i += 2) {
+			for (int i = 1; i < (messageArray.length - 1); i += 2) {
 				String key = messageArray[i];
 				String value = messageArray[i + 1];
 
@@ -124,7 +132,7 @@ public class GamespyQueryClient extends AbstractQueryClient {
 					serverMetadata.setServerName(value);
 					break;
 				case "final":
-				case "queryId":
+				case "queryid":
 					break;
 				default:
 					serverMetadata.getMetadata().put(key, value);
@@ -137,10 +145,25 @@ public class GamespyQueryClient extends AbstractQueryClient {
 			info.setRawResponse(message);
 			info.setServerMetadata(serverMetadata);
 
-			makeCallbacks(info);
+			makeCallbacks(queryType, info);
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
+	}
+
+	/**
+	 * @return The charset used to translate bytes to/from strings.
+	 */
+	public Charset getCharset() {
+		return charset;
+	}
+
+	/**
+	 * @param charset
+	 *            The charset used to translate bytes to/from strings.
+	 */
+	public void setCharset(Charset charset) {
+		this.charset = charset;
 	}
 
 }

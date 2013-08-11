@@ -1,10 +1,11 @@
 package jepperscore.scraper.common.query;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class works as a base class for query clients.
+ *
  * @author Chuck
  *
  */
@@ -13,18 +14,18 @@ public abstract class AbstractQueryClient implements QueryClient, Runnable {
 	/**
 	 * This is a collection of registered listeners.
 	 */
-	private Set<QueryClientListener> listeners = new HashSet<QueryClientListener>();
-	
+	private Map<String, QueryClientListener> listeners = new ConcurrentHashMap<String, QueryClientListener>();
+
 	/**
 	 * This is used to keep track of the thread that was started by this class.
 	 */
-	private Thread thread = null;
-	
+	private volatile Thread thread = null;
+
 	/**
 	 * How long, in milliseconds to wait until querying again.
 	 */
 	private int period = 250;
-	
+
 	@Override
 	public synchronized void start() {
 		if (thread == null) {
@@ -40,47 +41,62 @@ public abstract class AbstractQueryClient implements QueryClient, Runnable {
 			thread = null;
 		}
 	}
-	
+
 	@Override
-	public synchronized void registerListener(QueryClientListener listener) {
-		listeners.add(listener);
+	public synchronized void registerListener(String queryType,
+			QueryClientListener listener) {
+		listeners.put(queryType, listener);
 	}
-	
+
 	@Override
-	public synchronized void unregisterListener(QueryClientListener listener) {
-		listeners.remove(listener);
+	public synchronized void unregisterListener(String queryType) {
+		listeners.remove(queryType);
 	}
-	
+
 	/**
 	 * Sets the query period.
-	 * @param period The time in milliseconds between query calls.
+	 *
+	 * @param period
+	 *            The time in milliseconds between query calls.
 	 */
 	public void setQueryPeriod(int period) {
 		this.period = period;
 	}
-	
+
 	/**
 	 * Queries the game server.
+	 *
+	 * @param queryType
+	 *            The type of query to do.
 	 */
-	protected abstract void query();
-	
+	protected abstract void query(String queryType);
+
 	/**
 	 * Makes callbacks to all registered {@link QueryClientListener}.
-	 * @param info The info sent to all registered listeners.
+	 *
+	 * @param queryType
+	 *            The type of query.
+	 * @param info
+	 *            The info sent to all registered listeners.
 	 */
-	protected synchronized void makeCallbacks(QueryCallbackInfo info) {
-		for (QueryClientListener listener : listeners) {
+	protected synchronized void makeCallbacks(String queryType,
+			QueryCallbackInfo info) {
+		QueryClientListener listener = listeners.get(queryType);
+		if (listener != null) {
 			listener.queryClient(info);
 		}
 	}
-	
+
 	/**
 	 * This method handles the query polling.
 	 */
 	@Override
 	public void run() {
 		while (thread == Thread.currentThread()) {
-			query();
+
+			for (String queryType : listeners.keySet()) {
+				query(queryType);
+			}
 			try {
 				Thread.sleep(period);
 			} catch (InterruptedException e) {
@@ -89,5 +105,5 @@ public abstract class AbstractQueryClient implements QueryClient, Runnable {
 			}
 		}
 	}
-	
+
 }

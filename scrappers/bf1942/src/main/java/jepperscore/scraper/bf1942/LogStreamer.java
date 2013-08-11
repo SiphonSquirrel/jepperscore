@@ -37,9 +37,9 @@ import org.xml.sax.SAXException;
 
 /**
  * This class reads the BF1942 logs, and streams the events.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class LogStreamer implements Runnable {
 
@@ -101,11 +101,13 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * This constructor points the log streamer at a log file.
-	 * 
+	 *
 	 * @param stream
 	 *            The log stream to watch.
-	 * @param session The ActiveMQ {@link Session} to use.
-	 * @param producer The ActiveMQ {@link MessageProducer} to use.
+	 * @param session
+	 *            The ActiveMQ {@link Session} to use.
+	 * @param producer
+	 *            The ActiveMQ {@link MessageProducer} to use.
 	 */
 	public LogStreamer(@Nonnull InputStream stream, @Nonnull Session session,
 			@Nonnull MessageProducer producer) {
@@ -130,7 +132,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * Returns the latest XML snippet from the log file.
-	 * 
+	 *
 	 * @return The XML snippet.
 	 * @throws IOException
 	 *             When a problem occurs reading the newest entries.
@@ -166,7 +168,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * Closes any hanging tags left open by the beginning of a snippet.
-	 * 
+	 *
 	 * @param newData
 	 *            The new XML string to close the tags for.
 	 * @return The XML string with all the tags closed.
@@ -234,7 +236,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * Parses the events from the XML document.
-	 * 
+	 *
 	 * @param topElement
 	 *            The element to parse the events from.
 	 */
@@ -271,7 +273,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * Searches the player map for the passed id.
-	 * 
+	 *
 	 * @param id
 	 *            The id to search for.
 	 * @return The player.
@@ -283,15 +285,35 @@ public class LogStreamer implements Runnable {
 		if (retVal == null) {
 			retVal = new Alias();
 			retVal.setId(sessionUUID + "-bot-" + id);
+			retVal.setName("Bot " + id);
 		}
 
 		return retVal;
 	}
 
 	/**
+	 * Returns the text of an element.
+	 *
+	 * @param element
+	 *            The element to parse.
+	 * @return The text.
+	 */
+	private String getElementText(@Nonnull Element element) {
+		StringBuilder sb = new StringBuilder();
+		NodeList childern = element.getChildNodes();
+		for (int i = 0; i < childern.getLength(); i++) {
+			Node child = childern.item(i);
+			if (child.getNodeType() == Node.TEXT_NODE) {
+				sb.append(child.getNodeValue());
+			}
+		}
+		return sb.toString();
+	}
+
+	/**
 	 * The function finds the passed element name with the name attribute =
 	 * name.
-	 * 
+	 *
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -311,7 +333,7 @@ public class LogStreamer implements Runnable {
 				Element parameter = (Element) child;
 
 				if (parameter.getAttribute("name").equals(name)) {
-					return parameter.getNodeValue();
+					return getElementText(parameter);
 				}
 			}
 		}
@@ -320,7 +342,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * The function finds the <bf:param> with the name attribute = name.
-	 * 
+	 *
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -334,7 +356,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * The function finds the <bf:statparam> with the name attribute = name.
-	 * 
+	 *
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -347,19 +369,10 @@ public class LogStreamer implements Runnable {
 	}
 
 	/**
-	 * Parses the special characters out of the name.
-	 * 
-	 * @param name
-	 *            The unparsed name.
-	 * @return The parsed name.
-	 */
-	private String parseName(String name) {
-		return name;
-	}
-	
-	/**
-	 * This function sends a message to ActiveMQ. 
-	 * @param transportMessage The message to send.
+	 * This function sends a message to ActiveMQ.
+	 *
+	 * @param transportMessage
+	 *            The message to send.
 	 */
 	private void sendMessage(TransportMessage transportMessage) {
 		try {
@@ -376,7 +389,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * This function handles the parsed events.
-	 * 
+	 *
 	 * @param eventElement
 	 *            The event element to parse.
 	 */
@@ -403,7 +416,7 @@ public class LogStreamer implements Runnable {
 			}
 
 			if (victimId != null) {
-				newEvent.setAttacker(getPlayer(victimId));
+				newEvent.setVictim(getPlayer(victimId));
 			}
 			switch (scoreType) {
 			case "Kill":
@@ -412,7 +425,20 @@ public class LogStreamer implements Runnable {
 					weapon = "killed";
 				}
 
-				newEvent.setEventText(String.format("%s [%s] %s"));
+				String attackerName = "";
+				if ((newEvent.getAttacker() != null)
+						&& (newEvent.getAttacker().getName() != null)) {
+					attackerName = newEvent.getAttacker().getName();
+				}
+
+				String victimName = "";
+				if ((newEvent.getVictim() != null)
+						&& (newEvent.getVictim().getName() != null)) {
+					victimName = newEvent.getVictim().getName();
+				}
+
+				newEvent.setEventText(String.format("%s [%s] %s", attackerName,
+						weapon, victimName));
 				eventCode.setObject(weapon);
 				newEvent.setEventCode(eventCode);
 				break;
@@ -446,7 +472,7 @@ public class LogStreamer implements Runnable {
 
 	/**
 	 * This function handles the parsed round stats element.
-	 * 
+	 *
 	 * @param roundStatsElement
 	 *            The round stats element to parse.
 	 */
@@ -461,8 +487,7 @@ public class LogStreamer implements Runnable {
 				if ("bf:playerstat".equals(element.getNodeName())) {
 					String playerId = element.getAttribute("playerid");
 					Alias player = getPlayer(playerId);
-					player.setName(parseName(getRoundStatsParameter(element,
-							"name")));
+					player.setName(getRoundStatsParameter(element, "name"));
 
 					String scoreString = getRoundStatsParameter(element,
 							"score");

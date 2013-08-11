@@ -13,17 +13,23 @@ import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.Round;
 import jepperscore.dao.model.Score;
+import jepperscore.dao.model.ServerMetadata;
 
 /**
  * This class provides the XML message for sending events or alias across the
  * wire.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 @XmlRootElement(name = "message")
 @XmlAccessorType(XmlAccessType.NONE)
 public class TransportMessage {
+	/**
+	 * ServerMetadata of the message.
+	 */
+	private ServerMetadata serverMetadata;
+
 	/**
 	 * Round of the message.
 	 */
@@ -47,13 +53,16 @@ public class TransportMessage {
 	/**
 	 * @return The message content.
 	 */
-	@XmlElements(value = { @XmlElement(name = "round", type = Round.class),
+	@XmlElements(value = { @XmlElement(name = "serverMetadata", type = ServerMetadata.class),
+			@XmlElement(name = "round", type = Round.class),
 			@XmlElement(name = "event", type = Event.class),
 			@XmlElement(name = "alias", type = Alias.class),
 			@XmlElement(name = "score", type = Score.class) })
 	@CheckForNull
 	public Object getMessageContent() {
-		if (round != null) {
+		if (getServerMetadata() != null) {
+			return getServerMetadata();
+		} else if (round != null) {
 			return round;
 		} else if (event != null) {
 			return event;
@@ -68,12 +77,14 @@ public class TransportMessage {
 
 	/**
 	 * Sets the message content.
-	 * 
+	 *
 	 * @param content
 	 *            The content of the message.
 	 */
 	public void setMessageContent(@Nonnull Object content) {
-		if (content instanceof Round) {
+		if (content instanceof ServerMetadata) {
+			setServerMetadata((ServerMetadata) content);
+		} else if (content instanceof Round) {
 			round = (Round) content;
 		} else if (content instanceof Event) {
 			event = (Event) content;
@@ -82,6 +93,20 @@ public class TransportMessage {
 		} else if (content instanceof Score) {
 			score = (Score) content;
 		}
+	}
+
+	/**
+	 * @return The server metadata.
+	 */
+	public ServerMetadata getServerMetadata() {
+		return serverMetadata;
+	}
+
+	/**
+	 * @param serverMetadata The server metadata to set.
+	 */
+	public void setServerMetadata(ServerMetadata serverMetadata) {
+		this.serverMetadata = serverMetadata;
 	}
 
 	/**

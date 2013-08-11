@@ -1,6 +1,7 @@
 package jepperscore.scraper.common.query.gamespy;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -39,7 +40,7 @@ public class GamespyQueryClientTest {
 		 * The UDP socket.
 		 */
 		private DatagramSocket server;
-		
+
 		/**
 		 * Responses to registered requests.
 		 */
@@ -120,15 +121,15 @@ public class GamespyQueryClientTest {
 
 		final GamespyQueryClient queryClient = new GamespyQueryClient(
 				"localhost", server.getPort());
-		queryClient.registerListener(new QueryClientListener() {
+		queryClient.registerListener("info", new QueryClientListener() {
 
 			@Override
 			public void queryClient(QueryCallbackInfo info) {
 				queryClient.stop();
-				
+
 				synchronized (lockObject) {
 					assertEquals("|OoPS| Clan TO:AoT v315 Public Server-240", info.getServerMetadata().getServerName());
-					
+
 					gotReponse = true;
 					lockObject.notifyAll();
 				}
