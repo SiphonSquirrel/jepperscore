@@ -44,7 +44,7 @@ public class Main implements MessageListener {
 	private JAXBContext jaxbContext;
 
 	/**
-	 * The main function for the JepperConsole app.
+	 * The main function.
 	 * @param args [Active MQ Connection String]
 	 */
 	public static void main(String[] args) {

@@ -14,7 +14,8 @@ import jepperscore.scraper.common.ScraperStatus;
 public class Main {
 
 	/**
-	 * @param args
+	 * The main function.
+	 * @param args [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [QueryPort]
 	 */
 	public static void main(String[] args) {
 		if (args.length != 4) {
