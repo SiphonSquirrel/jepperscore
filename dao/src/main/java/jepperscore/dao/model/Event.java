@@ -155,4 +155,22 @@ public class Event {
 	public void setRound(@Nonnull Round round) {
 		this.round = round;
 	}
+
+	/**
+	 * @return The event text with the placeholders parsed.
+	 */
+	@Nonnull
+	public String getParsedEventText() {
+		String text = getEventText();
+
+		if (getAttacker() != null) {
+			text = text.replaceAll("\\{attacker\\}", getAttacker().getName());
+		}
+
+		if (getVictim() != null) {
+			text = text.replaceAll("\\{victim\\}", getVictim().getName());
+		}
+
+		return text;
+	}
 }

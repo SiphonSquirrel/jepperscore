@@ -47,6 +47,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 	/**
 	 * This class listens to the query client.
+	 *
 	 * @author Chuck
 	 *
 	 */
@@ -59,7 +60,9 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 		/**
 		 * Default constructor.
-		 * @throws JMSException When there is a problem creating the producer.
+		 *
+		 * @throws JMSException
+		 *             When there is a problem creating the producer.
 		 */
 		public BF1942InfoQueryListener() throws JMSException {
 			producer = session.createProducer(eventTopic);
@@ -74,6 +77,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 				ServerMetadata serverMetadata = info.getServerMetadata();
 				if (serverMetadata != null) {
 					TransportMessage transport = new TransportMessage();
+					transport.setServerMetadata(serverMetadata);
 					sendMessage(marshaller, transport);
 				}
 
@@ -106,10 +110,14 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 		/**
 		 * This function sends a message to ActiveMQ.
-		 * @param marshaller The marshaller to use.
-		 * @param transportMessage The message to send.
+		 *
+		 * @param marshaller
+		 *            The marshaller to use.
+		 * @param transportMessage
+		 *            The message to send.
 		 */
-		private void sendMessage(Marshaller marshaller, TransportMessage transportMessage) {
+		private void sendMessage(Marshaller marshaller,
+				TransportMessage transportMessage) {
 			try {
 				StringWriter writer = new StringWriter();
 				marshaller.marshal(transportMessage, writer);
@@ -244,6 +252,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 		if (thread == null) {
 			status = ScraperStatus.Initializing;
 			try {
+				LOG.info("Starting query client on {}:{}", new Object[] { host,
+						queryPort });
 				queryClient = new GamespyQueryClient(host, queryPort);
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
@@ -311,6 +321,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 				if (!logFile.equals(lastLog)) {
 					lastLog = logFile;
 
+					LOG.info("Opening log file {}", new Object[] { logFile.getAbsolutePath() });
+
 					try (InputStream is = new FileInputStream(logFile)) {
 						LogStreamer streamer = new LogStreamer(is, session,
 								session.createProducer(eventTopic));
@@ -318,8 +330,9 @@ public class BF1942Scraper implements Scraper, Runnable {
 					} catch (IOException | JMSException e) {
 						LOG.error(e.getMessage(), e);
 					}
-				}
-				else {
+
+					LOG.info("Closing log file {}", new Object[] { logFile.getAbsolutePath() });
+				} else {
 					try {
 						Thread.sleep(500);
 					} catch (InterruptedException e) {

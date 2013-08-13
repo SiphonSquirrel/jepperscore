@@ -419,31 +419,46 @@ public class LogStreamer implements Runnable {
 				newEvent.setVictim(getPlayer(victimId));
 			}
 			switch (scoreType) {
-			case "Kill":
+			case "TK":
+			case "Kill": {
 				String weapon = getEventParameter(eventElement, "weapon");
 				if ("(none)".equals(weapon)) {
 					weapon = "killed";
 				}
 
-				String attackerName = "";
-				if ((newEvent.getAttacker() != null)
-						&& (newEvent.getAttacker().getName() != null)) {
-					attackerName = newEvent.getAttacker().getName();
+				String prefix = "";
+				if (scoreType.equals("TK")) {
+					prefix = "TK:";
+					eventCode.setCode("teamkill");
+				}
+				else {
+					eventCode.setCode("kill");
 				}
 
-				String victimName = "";
-				if ((newEvent.getVictim() != null)
-						&& (newEvent.getVictim().getName() != null)) {
-					victimName = newEvent.getVictim().getName();
-				}
-
-				newEvent.setEventText(String.format("%s [%s] %s", attackerName,
-						weapon, victimName));
+				newEvent.setEventText(String.format(
+						"{attacker} [%s%s] {victim}", prefix, weapon));
 				eventCode.setObject(weapon);
 				newEvent.setEventCode(eventCode);
 				break;
+			}
+
+			case "Attack": {
+				String point = "An unknown point";
+				newEvent.setEventText(String.format(
+						"%s was captured by {attacker}", point));
+				eventCode.setCode("objective");
+				eventCode.setObject(point);
+				newEvent.setEventCode(eventCode);
+				break;
+			}
+
+			case "Death":
 			case "DeathNoMsg":
 				// Not important, ignore.
+				break;
+
+			default:
+				LOG.info("Unhandled score type: " + scoreType);
 				break;
 			}
 
@@ -455,7 +470,10 @@ public class LogStreamer implements Runnable {
 		case "beginMedPack":
 		case "endMedPack":
 		case "enterVehicle":
+		case "exitVehicle":
 		case "destroyVehicle":
+		case "beginRepair":
+		case "endRepair":
 			break;
 
 		default:

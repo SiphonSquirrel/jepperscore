@@ -18,6 +18,7 @@
 		<module>dao</module>
 		<module>persistence</module>
 		<module>scrappers</module>
+		<module>jepperconsole</module>
 		<module>billboard</module>
 	</modules>
 
