@@ -17,9 +17,10 @@
 	<description>Top level project for JepperScore Scrapers</description>
 
 	<modules>
-		<module>bf1942</module>
-		<module>ut2004</module>
 		<module>scraper-common</module>
+		<module>bf1942</module>
+		<module>etqw</module>
+		<module>ut2004</module>
 	</modules>
 
 	<dependencies>

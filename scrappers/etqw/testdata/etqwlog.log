@@ -1,0 +1,2236 @@
+2013-08-15 21:43:25 : log file 'logs/etqwlog.log' opened on 2013-8-15, 21:43:25
+2013-08-15 21:43:25 : si_version: ETQW 1.5.12642.33243  win-x86 Apr 30 2008 14:18:50
+2013-08-15 21:43:25 : g_version: 
+2013-08-15 21:43:25 : Unknown command 'path'
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game000.pk4 with checksum 0x3efd73a5
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game001.pk4 with checksum 0xa02f1c18
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game002.pk4 with checksum 0x87457e61
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak000.pk4 with checksum 0x442eb08b
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak001.pk4 with checksum 0x10e16e6
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak002.pk4 with checksum 0x8dbe7353
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak003.pk4 with checksum 0x99dfcabb
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak004.pk4 with checksum 0x7e49f838
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak005.pk4 with checksum 0x5ccc7213
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak006.pk4 with checksum 0x9edf1b7d
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak007.pk4 with checksum 0x74a1a2f
+2013-08-15 21:43:25 : Loaded pk4 C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak008.pk4 with checksum 0x71a93b80
+2013-08-15 21:43:25 : Current search path:
+2013-08-15 21:43:25 : C:\Users\User\Documents\id Software\Enemy Territory - QUAKE Wars/base
+2013-08-15 21:43:25 : C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher/base
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server/base
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak008.pk4 (2653 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak007.pk4 (1585 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak006.pk4 (266 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak005.pk4 (3588 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak004.pk4 (26 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak003.pk4 (26 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak002.pk4 (26 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak001.pk4 (26 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\pak000.pk4 (775 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game002.pk4 (3 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game001.pk4 (11 files)
+2013-08-15 21:43:25 : C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game000.pk4 (3 files)
+2013-08-15 21:43:25 : game DLL: 0x0 in pak: 0x0
+2013-08-15 21:43:25 : Addon pk4s:
+2013-08-15 21:43:25 : file system initialized.
+2013-08-15 21:43:25 : --------------------------------------
+2013-08-15 21:43:25 : ----- Initializing Decls -----
+2013-08-15 21:43:25 : Decompressing the global token cache...2013-08-15 21:43:26 : 3566Kb
+2013-08-15 21:43:29 : ------------------------------
+2013-08-15 21:43:29 : execing 'etqwdedconfig.cfg'
+2013-08-15 21:43:29 : execing 'localization/english/defaultbinds.cfg'
+2013-08-15 21:43:29 : execing 'etqwdedbinds.cfg'
+2013-08-15 21:43:29 : couldn't exec 'autoexec.cfg'
+2013-08-15 21:43:29 : Vendor:80EE Device:BEEF
+2013-08-15 21:43:29 : ------- Initializing renderSystem --------
+2013-08-15 21:43:29 : renderSystem initialized.
+2013-08-15 21:43:29 : --------------------------------------
+2013-08-15 21:43:29 : 72 strings read from localization/english/strings/bindings.lang
+2013-08-15 21:43:29 : 486 strings read from localization/english/strings/chat.lang
+2013-08-15 21:43:29 : 884 strings read from localization/english/strings/code.lang
+2013-08-15 21:43:29 : 2187 strings read from localization/english/strings/game.lang
+2013-08-15 21:43:29 : 3208 strings read from localization/english/strings/guis.lang
+2013-08-15 21:43:29 : 3384 strings read from localization/english/strings/lifestats.lang
+2013-08-15 21:43:29 : 3522 strings read from localization/english/strings/loadtips.lang
+2013-08-15 21:43:29 : 3861 strings read from localization/english/strings/locations.lang
+2013-08-15 21:43:29 : 4386 strings read from localization/english/strings/maps.lang
+2013-08-15 21:43:29 : 4453 strings read from localization/english/strings/tasks.lang
+2013-08-15 21:43:29 : Couldn't open journal files
+2013-08-15 21:43:29 : ----- Initializing Sound System ------
+2013-08-15 21:43:29 : sound system initialized.
+2013-08-15 21:43:29 : --------------------------------------
+2013-08-15 21:43:29 : 
+------- Input Initialization -------
+2013-08-15 21:43:29 : Initializing DirectInput8...
+2013-08-15 21:43:29 : mouse: Couldn't set DI coop level
+2013-08-15 21:43:29 : ...calling LoadLibrary( 'xinput1_3.dll' ): 2013-08-15 21:43:29 : failed
+2013-08-15 21:43:29 : ...initializing DirectInput
+2013-08-15 21:43:29 : ...found 0 controllers
+2013-08-15 21:43:29 : controllers: DirectInput initialized.
+2013-08-15 21:43:29 : ------------------------------------
+2013-08-15 21:43:29 : -------- Initializing Session --------
+2013-08-15 21:43:29 : ----------------- BSE Init ------------------
+2013-08-15 21:43:29 : --------- BSE Created Successfully ----------
+2013-08-15 21:43:29 : session initialized
+2013-08-15 21:43:29 : --------------------------------------
+2013-08-15 21:43:29 : found DLL in pak file: C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game000.pk4/gamex86.dll
+2013-08-15 21:43:29 : copy gamex86.dll to C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\gamex86.dll
+2013-08-15 21:43:30 : game using MMX & SSE & SSE2 & SSE3 for SIMD processing
+2013-08-15 21:43:30 : enabled Flush-To-Zero mode
+2013-08-15 21:43:30 : enabled Denormals-Are-Zero mode
+2013-08-15 21:43:30 : --------- Initializing Game ----------
+2013-08-15 21:43:30 : gamename: baseETQW-1
+2013-08-15 21:43:30 : gamedate: May  8 2008
+2013-08-15 21:43:31 : Initializing global UI namespaces
+2013-08-15 21:43:31 : ...23 namespaces
+...240 properties
+2013-08-15 21:43:31 : Initializing event system
+2013-08-15 21:43:31 : ...903 event definitions
+2013-08-15 21:43:31 : Initializing class hierarchy
+2013-08-15 21:43:31 : ...163 classes, 198660 bytes for event callbacks
+2013-08-15 21:43:31 : game initialized.
+2013-08-15 21:43:31 : --------------------------------------
+2013-08-15 21:43:31 : ------------- Initialized in 05 -------------
+2013-08-15 21:43:31 : --- Common Initialization Complete ---
+2013-08-15 21:43:31 : execing 'LanParty.cfg'
+2013-08-15 21:43:31 : net_serverPunkbusterEnabled is read only.
+2013-08-15 21:43:31 : WARNING: Couldn't load image: levelshots/refinery
+2013-08-15 21:43:31 : WARNING: Failed to load image program: 'levelshots/refinery'
+2013-08-15 21:43:31 : WARNING: idDeclLocal::ParseLocal Failed to Parse decl 'levelshots/refinery' in file 'materials/levelshots.mtr' line 0
+2013-08-15 21:43:31 : WARNING: Couldn't load image: levelshots/campaigns/africa
+2013-08-15 21:43:31 : WARNING: Failed to load image program: 'levelshots/campaigns/africa'
+2013-08-15 21:43:31 : WARNING: idDeclLocal::ParseLocal Failed to Parse decl 'levelshots/campaigns/africa' in file 'materials/levelshots.mtr' line 0
+2013-08-15 21:43:31 : WARNING: Couldn't load image: levelshots/slipgate
+2013-08-15 21:43:31 : WARNING: Failed to load image program: 'levelshots/slipgate'
+2013-08-15 21:43:31 : WARNING: idDeclLocal::ParseLocal Failed to Parse decl 'levelshots/slipgate' in file 'materials/levelshots.mtr' line 0
+2013-08-15 21:43:31 : WARNING: Couldn't load image: levelshots/island
+2013-08-15 21:43:31 : WARNING: Failed to load image program: 'levelshots/island'
+2013-08-15 21:43:31 : WARNING: idDeclLocal::ParseLocal Failed to Parse decl 'levelshots/island' in file 'materials/levelshots.mtr' line 0
+2013-08-15 21:43:31 : Server spawned on port 27733.
+2013-08-15 21:43:31 : --------- Map Initialization ---------
+2013-08-15 21:43:31 : Map: maps/refinery.entities
+2013-08-15 21:43:32 : ----------- Game Map Init ------------
+2013-08-15 21:43:36 : found DLL in pak file: C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game000.pk4/compiledscriptx86.dll
+2013-08-15 21:43:36 : copy compiledscriptx86.dll to C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll
+2013-08-15 21:43:37 : Loaded 'C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll'
+2013-08-15 21:43:37 :   266 classes
+2013-08-15 21:43:37 :   84 global functions
+2013-08-15 21:43:37 : ----------- Loading Map AAS ------------
+2013-08-15 21:43:37 : [Load AAS Binary]
+2013-08-15 21:43:37 : loading 'maps/refinery.aas_playerb'
+2013-08-15 21:43:37 : [Load AAS Binary]
+2013-08-15 21:43:37 : loading 'maps/refinery.aas_vehicleb'
+2013-08-15 21:43:37 : collision data:
+2013-08-15 21:43:37 :    187 models
+2013-08-15 21:43:37 : 243918 vertices (2858 kB)
+2013-08-15 21:43:37 : 347171 edges (6780 kB)
+2013-08-15 21:43:37 : 140256 polygons (8766 kB)
+2013-08-15 21:43:37 : 478703 polygon edges (934 kB)
+2013-08-15 21:43:37 :   5475 brushes (171 kB)
+2013-08-15 21:43:37 :  32890 brush planes (513 kB)
+2013-08-15 21:43:37 :  79201 nodes (2165 kB)
+2013-08-15 21:43:37 : 307617 polygon refs (2403 kB)
+2013-08-15 21:43:37 :   5986 brush refs (46 kB)
+2013-08-15 21:43:37 :  96128 internal edges
+2013-08-15 21:43:37 :   1973 sharp edges
+2013-08-15 21:43:37 :      0 contained polygons removed
+2013-08-15 21:43:37 :      0 polygons merged
+2013-08-15 21:43:37 :  24901 kB total memory used
+2013-08-15 21:43:37 : 492 msec to load collision data.
+2013-08-15 21:43:37 :     3 KB passage memory used to build PVS
+2013-08-15 21:43:37 :     5 msec to calculate PVS
+2013-08-15 21:43:37 :    69 areas
+2013-08-15 21:43:37 :   106 portals
+2013-08-15 21:43:37 :     7 areas visible on average
+2013-08-15 21:43:37 :   828 bytes PVS data
+2013-08-15 21:43:38 : Spawning entities
+2013-08-15 21:43:39 : ...936 entities spawned, 0 inhibited
+
+2013-08-15 21:43:39 : ----------- Loading Map Bot Actions ------------
+2013-08-15 21:43:39 : --------------------------------------
+2013-08-15 21:43:39 : ----- idRenderModelManagerLocal::EndLevelLoad -----
+2013-08-15 21:43:39 :     0 purged from previous
+2013-08-15 21:43:39 :  1599 kept from previous
+2013-08-15 21:43:39 :   378 new loaded
+2013-08-15 21:43:39 : all models loaded in   0.0 seconds
+2013-08-15 21:43:39 : ---------------------------------------------------
+2013-08-15 21:43:39 : -----------------------------------
+2013-08-15 21:43:39 :   8001 msec to load maps/refinery.entities
+2013-08-15 21:43:40 : Loaded map in     8 seconds
+2013-08-15 21:43:40 : hitch (100 msec)
+2013-08-15 21:43:40 : client 0 connected.
+2013-08-15 21:43:40 : SpawnPlayer: 0
+2013-08-15 21:43:40 : Mr. BreakIt! entered the game.
+2013-08-15 21:43:40 : Mr. BreakIt! joined the GDF
+2013-08-15 21:43:40 : hitch (100 msec)
+2013-08-15 21:43:40 : hitch (100 msec)
+2013-08-15 21:43:43 : client 1 connected.
+2013-08-15 21:43:43 : SpawnPlayer: 1
+2013-08-15 21:43:43 : Herr Boehme entered the game.
+2013-08-15 21:43:43 : Herr Boehme joined the Strogg
+2013-08-15 21:43:46 : client 2 connected.
+2013-08-15 21:43:46 : SpawnPlayer: 2
+2013-08-15 21:43:46 : Berrett entered the game.
+2013-08-15 21:43:46 : Berrett joined the Strogg
+2013-08-15 21:43:49 : client 3 connected.
+2013-08-15 21:43:49 : SpawnPlayer: 3
+2013-08-15 21:43:49 : Iplantbombgoboom entered the game.
+2013-08-15 21:43:49 : Iplantbombgoboom joined the GDF
+2013-08-15 21:43:53 : client 4 connected.
+2013-08-15 21:43:53 : SpawnPlayer: 4
+2013-08-15 21:43:53 : Stroggs Gone Wild! entered the game.
+2013-08-15 21:43:53 : Stroggs Gone Wild! joined the GDF
+2013-08-15 21:43:56 : client 5 connected.
+2013-08-15 21:43:56 : SpawnPlayer: 5
+2013-08-15 21:43:56 : Lucron entered the game.
+2013-08-15 21:43:56 : Lucron joined the Strogg
+2013-08-15 21:43:59 : client 6 connected.
+2013-08-15 21:43:59 : SpawnPlayer: 6
+2013-08-15 21:43:59 : nameless n00b entered the game.
+2013-08-15 21:43:59 : nameless n00b joined the Strogg
+2013-08-15 21:44:02 : client 7 connected.
+2013-08-15 21:44:02 : SpawnPlayer: 7
+2013-08-15 21:44:02 : L0s3r entered the game.
+2013-08-15 21:44:02 : L0s3r joined the GDF
+2013-08-15 21:44:04 : client 8 connected.
+2013-08-15 21:44:04 : SpawnPlayer: 8
+2013-08-15 21:44:04 : Mallard entered the game.
+2013-08-15 21:44:04 : Mallard joined the GDF
+2013-08-15 21:44:07 : client 9 connected.
+2013-08-15 21:44:07 : SpawnPlayer: 9
+2013-08-15 21:44:07 : shady character entered the game.
+2013-08-15 21:44:07 : shady character joined the Strogg
+2013-08-15 21:44:10 : client 10 connected.
+2013-08-15 21:44:10 : SpawnPlayer: 10
+2013-08-15 21:44:10 : Mr. Camper entered the game.
+2013-08-15 21:44:10 : Mr. Camper joined the GDF
+2013-08-15 21:44:13 : client 11 connected.
+2013-08-15 21:44:13 : SpawnPlayer: 11
+2013-08-15 21:44:13 : I'm a bot entered the game.
+2013-08-15 21:44:13 : I'm a bot joined the Strogg
+2013-08-15 21:44:15 : client 12 connected.
+2013-08-15 21:44:15 : SpawnPlayer: 12
+2013-08-15 21:44:15 : J4M entered the game.
+2013-08-15 21:44:15 : J4M joined the GDF
+2013-08-15 21:44:18 : client 13 connected.
+2013-08-15 21:44:18 : SpawnPlayer: 13
+2013-08-15 21:44:18 : Baby Soldat entered the game.
+2013-08-15 21:44:18 : Baby Soldat joined the Strogg
+2013-08-15 21:44:21 : client 14 connected.
+2013-08-15 21:44:21 : SpawnPlayer: 14
+2013-08-15 21:44:21 : Ragebot entered the game.
+2013-08-15 21:44:21 : Ragebot joined the Strogg
+2013-08-15 21:44:25 : client 15 connected.
+2013-08-15 21:44:25 : SpawnPlayer: 15
+2013-08-15 21:44:25 : Sweetie entered the game.
+2013-08-15 21:44:25 : Sweetie joined the GDF
+2013-08-15 21:44:28 : client 16 connected.
+2013-08-15 21:44:28 : SpawnPlayer: 16
+2013-08-15 21:44:28 : WolfGang entered the game.
+2013-08-15 21:44:28 : WolfGang joined the GDF
+2013-08-15 21:44:31 : client 17 connected.
+2013-08-15 21:44:31 : SpawnPlayer: 17
+2013-08-15 21:44:31 : Rix entered the game.
+2013-08-15 21:44:31 : Rix joined the Strogg
+2013-08-15 21:44:34 : client 18 connected.
+2013-08-15 21:44:34 : SpawnPlayer: 18
+2013-08-15 21:44:34 : O'RLY entered the game.
+2013-08-15 21:44:34 : O'RLY joined the Strogg
+2013-08-15 21:44:37 : client 19 connected.
+2013-08-15 21:44:37 : SpawnPlayer: 19
+2013-08-15 21:44:37 : Happy Goon entered the game.
+2013-08-15 21:44:37 : Happy Goon joined the GDF
+2013-08-15 21:44:37 : [Respawn] WolfGang
+2013-08-15 21:45:27 : sending challenge 0x28ea90 to 192.168.200.140:51692
+2013-08-15 21:45:28 : challenge from 192.168.200.140:51692 (guid: 0000000000000000) connecting with 1055 ping
+2013-08-15 21:45:28 : sending connect response to 192.168.200.140:51692 (guid: 0000000000000000)
+2013-08-15 21:45:28 : client 20 connected.
+2013-08-15 21:45:38 : SpawnPlayer: 20
+2013-08-15 21:45:39 : Rukus entered the game.
+2013-08-15 21:45:40 : client 12 
+2013-08-15 21:45:40 : J4M 
+2013-08-15 21:45:40 : client 12 disconnected.
+2013-08-15 21:45:40 : [Respawn] L0s3r
+2013-08-15 21:45:41 : [Respawn] WolfGang
+2013-08-15 21:45:58 : Berrett [Hog] O'RLY
+2013-08-15 21:46:01 : Mallard [LAW] Lucron
+2013-08-15 21:46:04 : Berrett [Hyperblaster] Mallard
+2013-08-15 21:46:08 : I'm a bot [Stroybomb] Sweetie
+2013-08-15 21:46:09 : Ragebot [Stroybomb] I'm a bot
+2013-08-15 21:46:09 : [Stroybomb] Ragebot
+2013-08-15 21:46:10 : Berrett [Hog] Mr. BreakIt!
+2013-08-15 21:46:14 : [Hog] Berrett
+2013-08-15 21:46:18 : Rix [Lacerator] Happy Goon
+2013-08-15 21:46:24 : Herr Boehme [Desecrator] I'm a bot
+2013-08-15 21:46:25 : Stroggs Gone Wild! [Tank Gun] Lucron
+2013-08-15 21:46:28 : Stroggs Gone Wild! [Tank Gun] shady character
+2013-08-15 21:46:28 : Stroggs Gone Wild! [Tank Gun] Rix
+2013-08-15 21:46:34 : Mr. Camper [Assault Rifle] Baby Soldat
+2013-08-15 21:46:41 : shady character [Hog] L0s3r
+2013-08-15 21:46:52 : Berrett [Lacerator] Iplantbombgoboom
+2013-08-15 21:46:57 : Stroggs Gone Wild! [Tank Gun] Berrett
+2013-08-15 21:46:58 : O'RLY [Lacerator] Happy Goon
+2013-08-15 21:47:02 : Mr. BreakIt! [Assault Rifle] shady character
+2013-08-15 21:47:03 : Sweetie [Assault Rifle] Rix
+2013-08-15 21:47:04 : WolfGang [Rocket Launcher] Mr. BreakIt!
+2013-08-15 21:47:15 : Herr Boehme [Plasma Cannon] Mr. Camper
+2013-08-15 21:47:16 : Sweetie [Assault Rifle] O'RLY
+2013-08-15 21:47:26 : Herr Boehme [Plasma Cannon] Mallard
+2013-08-15 21:47:28 : Baby Soldat [Lacerator] Sweetie
+2013-08-15 21:47:29 : Berrett [Hyperblaster] Iplantbombgoboom
+2013-08-15 21:47:30 : Berrett [Hyperblaster] Happy Goon
+2013-08-15 21:47:30 : Stroggs Gone Wild! [Tank Gun] Lucron
+2013-08-15 21:47:35 : Rix [Lacerator] WolfGang
+2013-08-15 21:47:38 : Herr Boehme [Plasma Cannon] L0s3r
+2013-08-15 21:47:47 : Mr. BreakIt! [Assault Rifle] Rix
+2013-08-15 21:47:47 : Mr. Camper [Assault Rifle] Baby Soldat
+2013-08-15 21:47:47 : Herr Boehme [Plasma Cannon] Stroggs Gone Wild!
+2013-08-15 21:47:48 : O'RLY [Plasma Cannon] Mr. Camper
+2013-08-15 21:47:53 : Berrett [Lacerator] Mr. BreakIt!
+2013-08-15 21:47:57 : Herr Boehme [Plasma Cannon] Iplantbombgoboom
+2013-08-15 21:48:01 : Herr Boehme [Plasma Cannon] Happy Goon
+2013-08-15 21:48:01 : Herr Boehme [Plasma Cannon] Sweetie
+2013-08-15 21:48:05 : L0s3r [Pistol] Ragebot
+2013-08-15 21:48:09 : WolfGang [AA Missile] O'RLY
+2013-08-15 21:48:20 : shady character [Railgun] Mr. Camper
+2013-08-15 21:48:28 : Berrett [Lacerator] Mallard
+2013-08-15 21:48:29 : Berrett [Lacerator] Rix
+2013-08-15 21:48:33 : Iplantbombgoboom [Assault Rifle] Berrett
+2013-08-15 21:48:34 : Mr. BreakIt! [Assault Rifle] shady character
+2013-08-15 21:48:39 : Stroggs Gone Wild! [Assault Rifle] Lucron
+2013-08-15 21:48:42 : Herr Boehme [Plasma Cannon] Mr. BreakIt!
+2013-08-15 21:48:45 : L0s3r [Shotgun] Lucron
+2013-08-15 21:48:49 : [Stroybomb] O'RLY
+2013-08-15 21:48:52 : Ragebot [Lacerator] WolfGang
+2013-08-15 21:49:01 : Herr Boehme [Plasma Cannon] Mallard
+2013-08-15 21:49:04 : Ragebot [Lacerator] Happy Goon
+2013-08-15 21:49:05 : Herr Boehme [Plasma Cannon] L0s3r
+2013-08-15 21:49:05 : Berrett [Blaster] Iplantbombgoboom
+2013-08-15 21:49:07 : [Obliterator] nameless n00b
+2013-08-15 21:49:09 : Herr Boehme [Plasma Cannon] Stroggs Gone Wild!
+2013-08-15 21:49:10 : Mr. Camper [Assault Rifle] Berrett
+2013-08-15 21:49:15 : Mr. BreakIt! [Assault Rifle] nameless n00b
+2013-08-15 21:49:21 : O'RLY [Plasma Cannon] Mr. Camper
+2013-08-15 21:49:24 : shady character [Railgun] Sweetie
+2013-08-15 21:49:29 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 21:49:32 : O'RLY [Strocket] Happy Goon
+2013-08-15 21:49:33 : O'RLY [Plasma Cannon] Iplantbombgoboom
+2013-08-15 21:49:34 : O'RLY [Plasma Cannon] Stroggs Gone Wild!
+2013-08-15 21:49:44 : Ragebot [Lacerator] WolfGang
+2013-08-15 21:49:45 : Berrett [Lacerator] Baby Soldat
+2013-08-15 21:49:46 : I'm a bot [Plasma Cannon] Sweetie
+2013-08-15 21:49:46 : O'RLY [Plasma Cannon] Mallard
+2013-08-15 21:49:47 : L0s3r [Shotgun] Lucron
+2013-08-15 21:49:48 : Rix [Lacerator] L0s3r
+2013-08-15 21:49:53 : Rukus joined the GDF
+2013-08-15 21:49:53 : [Respawn] WolfGang
+2013-08-15 21:49:54 : Mr. Camper [Armadillo] Iplantbombgoboom
+2013-08-15 21:49:54 : Herr Boehme [Plasma Cannon] Mr. Camper
+2013-08-15 21:49:55 : Mr. BreakIt! [Assault Rifle] Ragebot
+2013-08-15 21:50:04 : O'RLY [Plasma Cannon] Happy Goon
+2013-08-15 21:50:04 : shady character [Railgun] Mr. BreakIt!
+2013-08-15 21:50:07 : nameless n00b [Obliterator] Stroggs Gone Wild!
+2013-08-15 21:50:14 : Herr Boehme [Plasma Cannon] Mr. Camper
+2013-08-15 21:50:16 : Baby Soldat [Blaster] Mallard
+2013-08-15 21:50:23 : Sweetie [Pistol] nameless n00b
+2013-08-15 21:50:23 : Rukus [Rocket Launcher] Stroggs Gone Wild!
+2013-08-15 21:50:25 : All Stats Cleared
+2013-08-15 21:50:25 : [Load AAS Binary]
+2013-08-15 21:50:25 : loading 'maps/refinery.aas_playerb'
+2013-08-15 21:50:25 : [Load AAS Binary]
+2013-08-15 21:50:25 : loading 'maps/refinery.aas_vehicleb'
+2013-08-15 21:50:26 : Spawning entities
+2013-08-15 21:50:26 : ...936 entities spawned, 0 inhibited
+
+2013-08-15 21:50:26 : hitch (100 msec)
+2013-08-15 21:50:26 : hitch (34 msec)
+2013-08-15 21:50:51 : Herr Boehme [Lacerator] Rukus
+2013-08-15 21:50:57 : I'm a bot [Violator Beacon] Ragebot
+2013-08-15 21:50:58 : Herr Boehme [Shrap Grenade] Baby Soldat
+2013-08-15 21:51:01 : I'm a bot [Violator] Herr Boehme
+2013-08-15 21:51:01 : Rix [Lacerator] Happy Goon
+2013-08-15 21:51:02 : [Violator] I'm a bot
+2013-08-15 21:51:13 : Stroggs Gone Wild! [MG] Lucron
+2013-08-15 21:51:14 : O'RLY [Lacerator] Mr. Camper
+2013-08-15 21:51:16 : Stroggs Gone Wild! [MG] O'RLY
+2013-08-15 21:51:17 : Rix [Shrap Grenade] Stroggs Gone Wild!
+2013-08-15 21:51:19 : Berrett [Lacerator] Iplantbombgoboom
+2013-08-15 21:51:21 : O'RLY [Violator] Rix
+2013-08-15 21:51:22 : O'RLY [Violator] Berrett
+2013-08-15 21:51:24 : nameless n00b [Plasma Cannon] Herr Boehme
+2013-08-15 21:51:29 : Sweetie [Tank Gun] nameless n00b
+2013-08-15 21:51:32 : [Deployable] crushed Ragebot
+2013-08-15 21:51:36 : shady character [Railgun] Rukus
+2013-08-15 21:51:37 : Sweetie [Tank Gun] Baby Soldat
+2013-08-15 21:51:37 : Sweetie [Tank Gun] shady character
+2013-08-15 21:51:45 : WolfGang [MG] O'RLY
+2013-08-15 21:51:48 : WolfGang [GPMG] Rix
+2013-08-15 21:51:49 : Herr Boehme [Hyperblaster] WolfGang
+2013-08-15 21:51:50 : Mallard [Spikes Backstab] Herr Boehme
+2013-08-15 21:52:05 : Lucron [Lacerator] Mallard
+2013-08-15 21:52:05 : WARNING: Thread 'FireThreadFake_sdScriptEntity_gameplay_strogg_shield_generator_trigger_56': idPhysics_RigidBody::SetClipModel: unbalanced inertia tensor for entity 'idProjectile_RigidBody_projectile_scud_64' type 'idProjectile_RigidBody'
+2013-08-15 21:52:16 : I'm a bot [Plasma Cannon] L0s3r
+2013-08-15 21:52:19 : I'm a bot [Plasma Cannon] Rukus
+2013-08-15 21:52:24 : I'm a bot [Plasma Cannon] Stroggs Gone Wild!
+2013-08-15 21:52:41 : I'm a bot [Plasma Cannon] WolfGang
+2013-08-15 21:52:46 : Lucron [Lacerator] Iplantbombgoboom
+2013-08-15 21:52:49 : I'm a bot [Plasma Cannon] Mr. BreakIt!
+2013-08-15 21:52:50 : Vehicle Explosion Mallard
+2013-08-15 21:52:59 : Lucron [Lacerator] Sweetie
+2013-08-15 21:53:01 : Happy Goon [AA Missile] Rix
+2013-08-15 21:53:04 : Mr. Camper [Tank Gun] I'm a bot
+2013-08-15 21:53:06 : L0s3r [Sniper Rifle] shady character
+2013-08-15 21:53:10 : WolfGang [MG] Lucron
+2013-08-15 21:53:11 : Herr Boehme [Hyperblaster] Mallard
+2013-08-15 21:53:11 : Herr Boehme [Hyperblaster] WolfGang
+2013-08-15 21:53:12 : Ragebot [Lacerator] Herr Boehme
+2013-08-15 21:53:15 : Iplantbombgoboom [APT] Ragebot
+2013-08-15 21:53:17 : Baby Soldat [Shrap Grenade] Mr. BreakIt!
+2013-08-15 21:53:21 : Iplantbombgoboom [Assault Rifle] Baby Soldat
+2013-08-15 21:53:21 : Iplantbombgoboom [Assault Rifle] L0s3r
+2013-08-15 21:53:24 : Iplantbombgoboom [APT] O'RLY
+2013-08-15 21:53:40 : Mr. Camper [Tank Gun] Berrett
+2013-08-15 21:53:40 : Mr. Camper [Tank Gun] shady character
+2013-08-15 21:53:44 : Mr. Camper [Tank Gun] nameless n00b
+2013-08-15 21:53:45 : Berrett [Proximity Mine] Mr. BreakIt!
+2013-08-15 21:53:45 : Berrett [Proximity Mine] Mallard
+2013-08-15 21:53:47 : Mr. Camper [Tank Gun] Rix
+2013-08-15 21:53:47 : Mr. Camper [Tank Gun] I'm a bot
+2013-08-15 21:53:48 : O'RLY [Lacerator] L0s3r
+2013-08-15 21:53:49 : Happy Goon got fried by the Strogg Energy Shield
+2013-08-15 21:53:50 : O'RLY [Lacerator] WolfGang
+2013-08-15 21:53:51 : Mr. Camper [Tank Gun] Lucron
+2013-08-15 21:53:51 : I'm a bot [Violator] Baby Soldat
+2013-08-15 21:53:55 : I'm a bot [Violator] Rukus
+2013-08-15 21:54:06 : Herr Boehme [Hyperblaster] Sweetie
+2013-08-15 21:54:10 : [Explosion] nameless n00b
+2013-08-15 21:54:10 : [Explosion] Berrett
+2013-08-15 21:54:10 : [Explosion] O'RLY
+2013-08-15 21:54:16 : Sweetie [Assault Rifle] Herr Boehme
+2013-08-15 21:54:17 : Rukus [Machine Pistol] shady character
+2013-08-15 21:54:27 : Ragebot [Lacerator] L0s3r
+2013-08-15 21:54:28 : I'm a bot [Lacerator] Mr. BreakIt!
+2013-08-15 21:54:29 : Rukus [Frag Grenade] Rix
+2013-08-15 21:54:33 : Lucron [Lacerator] Stroggs Gone Wild!
+2013-08-15 21:54:33 : Mr. Camper [Titan] Mallard
+2013-08-15 21:54:37 : Mr. Camper [Tank Gun] Lucron
+2013-08-15 21:54:37 : Mr. Camper [Tank Gun] Baby Soldat
+2013-08-15 21:54:37 : Mr. Camper [Tank Gun] Ragebot
+2013-08-15 21:54:47 : I'm a bot [Lacerator] WolfGang
+2013-08-15 21:54:49 : L0s3r [Scoped Assault Rifle] Herr Boehme
+2013-08-15 21:54:50 : Berrett [Lacerator] Sweetie
+2013-08-15 21:54:54 : Mr. Camper [Tank Gun] nameless n00b
+2013-08-15 21:55:00 : O'RLY [Lacerator] Mr. BreakIt!
+2013-08-15 21:55:03 : hitch (40 msec)
+2013-08-15 21:55:03 : Mr. Camper [Tank Gun] shady character
+2013-08-15 21:55:05 : WARNING: Thread 'idWeapon__67': Tried to run a GUI command on the server
+2013-08-15 21:55:06 : O'RLY [Lacerator] Stroggs Gone Wild!
+2013-08-15 21:55:06 : Lucron [Lacerator] Mallard
+2013-08-15 21:55:07 : Rix [Lacerator] Mr. Camper
+2013-08-15 21:55:07 : O'RLY [Lacerator] L0s3r
+2013-08-15 21:55:09 : O'RLY [Lacerator] Mr. BreakIt!
+2013-08-15 21:55:12 : Rix [Lacerator] Rukus
+2013-08-15 21:55:19 : Sweetie [MG] Herr Boehme
+2013-08-15 21:55:25 : WolfGang [Scoped Assault Rifle] Berrett
+2013-08-15 21:55:25 : Baby Soldat [Lacerator] WolfGang
+2013-08-15 21:55:29 : nameless n00b [Lightning Pistol] Sweetie
+2013-08-15 21:55:31 : shady character [Railgun] Rukus
+2013-08-15 21:55:33 : Mr. BreakIt! [Scoped Assault Rifle] nameless n00b
+2013-08-15 21:55:33 : shady character [Railgun] Mr. BreakIt!
+2013-08-15 21:55:45 : WARNING: Thread 'idWeapon__67': Tried to run a GUI command on the server
+2013-08-15 21:55:45 : Lucron [Lacerator] L0s3r
+2013-08-15 21:55:47 : Mallard [Third Eye Camera] Lucron
+2013-08-15 21:55:48 : Mallard [Scoped Assault Rifle] Herr Boehme
+2013-08-15 21:55:50 : Mr. Camper [Vampire] Mr. BreakIt!
+2013-08-15 21:55:51 : shady character [Railgun] Iplantbombgoboom
+2013-08-15 21:55:52 : Baby Soldat [Lacerator] Stroggs Gone Wild!
+2013-08-15 21:55:54 : Berrett [APT] Mallard
+2013-08-15 21:55:55 : Rix [Lacerator] O'RLY
+2013-08-15 21:55:55 : O'RLY [Violator Beacon] I'm a bot
+2013-08-15 21:55:56 : Berrett [Lacerator] Mr. Camper
+2013-08-15 21:55:56 : Rix [Lacerator] L0s3r
+2013-08-15 21:56:06 : O'RLY [Lacerator] WolfGang
+2013-08-15 21:56:13 : nameless n00b [Lightning Pistol] Sweetie
+2013-08-15 21:56:14 : L0s3r [Scoped Assault Rifle] shady character
+2013-08-15 21:56:15 : Berrett [APT] Mallard
+2013-08-15 21:56:16 : Rix [Lacerator] L0s3r
+2013-08-15 21:56:16 : Rukus [Rocket Launcher] O'RLY
+2013-08-15 21:56:19 : Rix [Lacerator] Stroggs Gone Wild!
+2013-08-15 21:56:20 : Happy Goon [Assault Rifle] nameless n00b
+2013-08-15 21:56:26 : Rukus [Rocket Launcher] Rix
+2013-08-15 21:56:34 : Rukus [Rocket Launcher] Lucron
+2013-08-15 21:56:35 : Sweetie [Assault Rifle] Herr Boehme
+2013-08-15 21:56:42 : I'm a bot [Lacerator] WolfGang
+2013-08-15 21:56:43 : Baby Soldat [Lacerator] Mallard
+2013-08-15 21:56:49 : Baby Soldat [Lacerator] Mr. BreakIt!
+2013-08-15 21:56:51 : Rukus [Rocket Launcher] Berrett
+2013-08-15 21:56:54 : Iplantbombgoboom [Assault Rifle] Ragebot
+2013-08-15 21:56:54 : Iplantbombgoboom [Assault Rifle] I'm a bot
+2013-08-15 21:56:56 : nameless n00b [Obliterator] Mr. Camper
+2013-08-15 21:56:57 : Happy Goon [Vampire] L0s3r
+2013-08-15 21:56:58 : I'm a bot [Violator] Rukus
+2013-08-15 21:57:00 : Sweetie [Assault Rifle] Baby Soldat
+2013-08-15 21:57:01 : I'm a bot [Violator] Sweetie
+2013-08-15 21:57:07 : nameless n00b [Lightning Pistol] Mr. BreakIt!
+2013-08-15 21:57:09 : Mr. Camper [Assault Rifle] Lucron
+2013-08-15 21:57:10 : O'RLY [Lacerator] Iplantbombgoboom
+2013-08-15 21:57:21 : Happy Goon [Assault Rifle] Herr Boehme
+2013-08-15 21:57:26 : Happy Goon [Assault Rifle] Rix
+2013-08-15 21:57:27 : shady character [Blaster] Mallard
+2013-08-15 21:57:30 : Stroggs Gone Wild! [Assault Rifle] nameless n00b
+2013-08-15 21:57:41 : Rukus [Rocket Launcher] I'm a bot
+2013-08-15 21:57:45 : Stroggs Gone Wild! [Assault Rifle] shady character
+2013-08-15 21:57:45 : Berrett [Proximity Mine] L0s3r
+2013-08-15 21:57:46 : Baby Soldat [Lacerator] WolfGang
+2013-08-15 21:57:53 : Baby Soldat [Lacerator] Sweetie
+2013-08-15 21:57:54 : [Deployable] crushed Rix
+2013-08-15 21:57:54 : [Deployable] crushed Ragebot
+2013-08-15 21:57:55 : Iplantbombgoboom [Frag Grenade] Lucron
+2013-08-15 21:57:55 : Iplantbombgoboom [Frag Grenade] Stroggs Gone Wild!
+2013-08-15 21:57:55 : Iplantbombgoboom [Frag Grenade] Berrett
+2013-08-15 21:57:56 : O'RLY [Lacerator] Iplantbombgoboom
+2013-08-15 21:57:57 : Baby Soldat [Lacerator] WolfGang
+2013-08-15 21:57:58 : O'RLY [Lacerator] Mr. Camper
+2013-08-15 21:57:58 : Baby Soldat [Proximity Mine] Mr. BreakIt!
+2013-08-15 21:57:58 : [Proximity Mine] Baby Soldat
+2013-08-15 21:57:59 : O'RLY [Lacerator] Happy Goon
+2013-08-15 21:58:06 : O'RLY [Lacerator] Mallard
+2013-08-15 21:58:14 : Stroggs Gone Wild! [Assault Rifle] Herr Boehme
+2013-08-15 21:58:24 : Stroggs Gone Wild! [Assault Rifle] nameless n00b
+2013-08-15 21:58:38 : I'm a bot [Shrap Grenade] Baby Soldat
+2013-08-15 21:58:38 : Berrett [Lacerator] L0s3r
+2013-08-15 21:58:41 : Stroggs Gone Wild! [Frag Grenade] Berrett
+2013-08-15 21:58:41 : O'RLY [Lacerator] Stroggs Gone Wild!
+2013-08-15 21:58:42 : I'm a bot [Lacerator] Mr. BreakIt!
+2013-08-15 21:58:44 : Ragebot [Lacerator] WolfGang
+2013-08-15 21:58:46 : I'm a bot [Lacerator] Mallard
+2013-08-15 21:58:47 : shady character [Scrambler Grenade] O'RLY
+2013-08-15 21:58:50 : Lucron [Lacerator] Rukus
+2013-08-15 21:58:52 : O'RLY [Violator] Ragebot
+2013-08-15 21:58:53 : nameless n00b [Obliterator] Iplantbombgoboom
+2013-08-15 21:58:54 : O'RLY [Violator] shady character
+2013-08-15 21:58:54 : O'RLY [Violator] Lucron
+2013-08-15 21:59:08 : Herr Boehme [Hyperblaster] Sweetie
+2013-08-15 21:59:09 : Rix [Plasma Cannon] L0s3r
+2013-08-15 21:59:11 : Rix [Plasma Cannon] Stroggs Gone Wild!
+2013-08-15 21:59:17 : [Tormentor] O'RLY
+2013-08-15 21:59:17 : WolfGang [Scoped Assault Rifle] nameless n00b
+2013-08-15 21:59:18 : I'm a bot [Lacerator] WolfGang
+2013-08-15 21:59:28 : Ragebot [Lacerator] shady character
+2013-08-15 21:59:29 : Baby Soldat [Lacerator] Rukus
+2013-08-15 21:59:29 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 21:59:30 : Herr Boehme [Hyperblaster] Mallard
+2013-08-15 21:59:31 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 21:59:32 : shady character [Scrambler Grenade] Lucron
+2013-08-15 21:59:35 : Mr. Camper [Tank Gun] Rix
+2013-08-15 21:59:40 : L0s3r [Scoped Assault Rifle] I'm a bot
+2013-08-15 21:59:50 : Mr. Camper [Tank Gun] nameless n00b
+2013-08-15 21:59:51 : Sweetie [Assault Rifle] Berrett
+2013-08-15 21:59:54 : WolfGang [Scoped Assault Rifle] Ragebot
+2013-08-15 21:59:54 : Baby Soldat [Lacerator] WolfGang
+2013-08-15 21:59:55 : Baby Soldat [Lacerator] Sweetie
+2013-08-15 21:59:56 : Herr Boehme [Hyperblaster] L0s3r
+2013-08-15 22:00:00 : Baby Soldat [Lacerator] Stroggs Gone Wild!
+2013-08-15 22:00:02 : [Violator Beacon] O'RLY
+2013-08-15 22:00:07 : Rix [Lacerator] Mallard
+2013-08-15 22:00:09 : Iplantbombgoboom [Assault Rifle] Rix
+2013-08-15 22:00:11 : Mr. BreakIt! [Scoped Assault Rifle] Baby Soldat
+2013-08-15 22:00:14 : I'm a bot [Lacerator] Iplantbombgoboom
+2013-08-15 22:00:14 : Mr. Camper [Tank Gun] WolfGang
+2013-08-15 22:00:17 : WARNING: Thread 'idWeapon__41': Tried to run a GUI command on the server
+2013-08-15 22:00:25 : I'm a bot [Lacerator] Mr. BreakIt!
+2013-08-15 22:00:27 : I'm a bot [Lacerator] Rukus
+2013-08-15 22:00:34 : nameless n00b [Obliterator] Happy Goon
+2013-08-15 22:00:35 : Ragebot [Lacerator] Mr. Camper
+2013-08-15 22:00:38 : O'RLY [Lacerator] L0s3r
+2013-08-15 22:00:39 : O'RLY [Lacerator] Mallard
+2013-08-15 22:00:41 : Lucron [Lacerator] Stroggs Gone Wild!
+2013-08-15 22:00:42 : Herr Boehme [Hyperblaster] Sweetie
+2013-08-15 22:00:43 : Herr Boehme [Hyperblaster] Mallard
+2013-08-15 22:00:43 : O'RLY [Lacerator] L0s3r
+2013-08-15 22:00:45 : I'm a bot [Violator] nameless n00b
+2013-08-15 22:00:47 : Berrett [Lacerator] WolfGang
+2013-08-15 22:00:51 : Lucron [Lacerator] Rukus
+2013-08-15 22:01:05 : Iplantbombgoboom [GPMG] Herr Boehme
+2013-08-15 22:01:08 : Berrett [Lacerator] Mr. BreakIt!
+2013-08-15 22:01:11 : L0s3r [Scoped Assault Rifle] nameless n00b
+2013-08-15 22:01:20 : L0s3r [Scoped Assault Rifle] O'RLY
+2013-08-15 22:01:23 : Herr Boehme [Hyperblaster] Mallard
+2013-08-15 22:01:24 : Ragebot [Lacerator] Rukus
+2013-08-15 22:01:24 : Herr Boehme [Hyperblaster] Sweetie
+2013-08-15 22:01:25 : WARNING: Thread 'idWeapon__41': Tried to run a GUI command on the server
+2013-08-15 22:01:26 : Berrett [Lacerator] L0s3r
+2013-08-15 22:01:26 : WolfGang [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:01:26 : Mr. BreakIt! [Third Eye Camera] I'm a bot
+2013-08-15 22:01:26 : Mr. BreakIt! [Third Eye Camera] shady character
+2013-08-15 22:01:31 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 22:01:37 : Lucron [Lacerator] WolfGang
+2013-08-15 22:01:45 : Berrett [APT] Mr. Camper
+2013-08-15 22:01:48 : Stroggs Gone Wild! [Assault Rifle] nameless n00b
+2013-08-15 22:01:48 : Rukus [Rocket Launcher] Ragebot
+2013-08-15 22:01:55 : Stroggs Gone Wild! [Assault Rifle] Baby Soldat
+2013-08-15 22:01:55 : Berrett [Lacerator] Mallard
+2013-08-15 22:01:56 : Sweetie [Assault Rifle] Berrett
+2013-08-15 22:01:56 : Rukus [Rocket Launcher] Lucron
+2013-08-15 22:01:59 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:02:01 : I'm a bot [Lacerator] O'RLY
+2013-08-15 22:02:01 : WolfGang [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:02:02 : Rukus [Rocket Launcher] Rix
+2013-08-15 22:02:03 : Stroggs Gone Wild! [Assault Rifle] I'm a bot
+2013-08-15 22:02:04 : shady character [Railgun] Mallard
+2013-08-15 22:02:05 : Ragebot [Lacerator] Sweetie
+2013-08-15 22:02:12 : nameless n00b [Obliterator] Mr. BreakIt!
+2013-08-15 22:02:14 : I'm a bot [Violator] WolfGang
+2013-08-15 22:02:18 : Happy Goon [Assault Rifle] shady character
+2013-08-15 22:02:27 : Mallard [Scoped Assault Rifle] Ragebot
+2013-08-15 22:02:29 : Mallard [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:02:32 : I'm a bot [Lacerator] Mr. BreakIt!
+2013-08-15 22:02:35 : I'm a bot [Lacerator] WolfGang
+2013-08-15 22:02:37 : I'm a bot [Lacerator] Iplantbombgoboom
+2013-08-15 22:02:41 : nameless n00b [Lightning Pistol] L0s3r
+2013-08-15 22:02:42 : Berrett [Lacerator] Stroggs Gone Wild!
+2013-08-15 22:02:42 : L0s3r [EMP Grenade] I'm a bot
+2013-08-15 22:02:43 : O'RLY [Shrap Grenade] Berrett
+2013-08-15 22:02:45 : Mr. BreakIt! [Scoped Assault Rifle] nameless n00b
+2013-08-15 22:02:48 : Mallard [Scoped Assault Rifle] O'RLY
+2013-08-15 22:02:48 : shady character [Blaster] Mallard
+2013-08-15 22:02:50 : Happy Goon [Assault Rifle] Rix
+2013-08-15 22:02:50 : Lucron [Lacerator] Mr. BreakIt!
+2013-08-15 22:02:56 : Lucron [Lacerator] Happy Goon
+2013-08-15 22:03:01 : Lucron [Lacerator] Sweetie
+2013-08-15 22:03:04 : Herr Boehme [Hyperblaster] L0s3r
+2013-08-15 22:03:05 : [Shrap Grenade] Baby Soldat
+2013-08-15 22:03:05 : Baby Soldat [Shrap Grenade] Ragebot
+2013-08-15 22:03:05 : WolfGang [Scoped Assault Rifle] shady character
+2013-08-15 22:03:05 : Berrett [APT] WolfGang
+2013-08-15 22:03:05 : Lucron [Lacerator] Mr. Camper
+2013-08-15 22:03:07 : Herr Boehme [Hyperblaster] Stroggs Gone Wild!
+2013-08-15 22:03:08 : Iplantbombgoboom [Assault Rifle] I'm a bot
+2013-08-15 22:03:09 : Iplantbombgoboom [Assault Rifle] Lucron
+2013-08-15 22:03:10 : Berrett [APT] Iplantbombgoboom
+2013-08-15 22:03:15 : Herr Boehme [Hyperblaster] L0s3r
+2013-08-15 22:03:24 : Happy Goon [Assault Rifle] Herr Boehme
+2013-08-15 22:03:37 : nameless n00b [Lightning Pistol] Mallard
+2013-08-15 22:03:41 : Iplantbombgoboom [Assault Rifle] nameless n00b
+2013-08-15 22:03:42 : WolfGang [Scoped Assault Rifle] shady character
+2013-08-15 22:03:46 : Baby Soldat [Lacerator] WolfGang
+2013-08-15 22:03:49 : Baby Soldat [Lacerator] Stroggs Gone Wild!
+2013-08-15 22:03:50 : Baby Soldat [Proximity Mine] Ragebot
+2013-08-15 22:03:50 : [Proximity Mine] Baby Soldat
+2013-08-15 22:03:50 : Baby Soldat [Proximity Mine] Berrett
+2013-08-15 22:03:51 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:03:52 : Berrett [Shrap Grenade] WolfGang
+2013-08-15 22:03:52 : Berrett [Shrap Grenade] Rix
+2013-08-15 22:03:53 : I'm a bot [Lacerator] Sweetie
+2013-08-15 22:03:53 : Lucron [Lacerator] L0s3r
+2013-08-15 22:03:53 : I'm a bot [Violator Beacon] Lucron
+2013-08-15 22:03:53 : Stroggs Gone Wild! [Assault Rifle] I'm a bot
+2013-08-15 22:03:55 : [Frag Grenade] Sweetie
+2013-08-15 22:04:03 : Stroggs Gone Wild! [Assault Rifle] Herr Boehme
+2013-08-15 22:04:04 : WARNING: Thread 'idWeapon__65': Tried to run a GUI command on the server
+2013-08-15 22:04:19 : WARNING: Thread 'FireThread_sdScriptEntity_gameplay_strogg_shield_generator_trigger_56': idPhysics_RigidBody::SetClipModel: unbalanced inertia tensor for entity 'idProjectile_RigidBody_projectile_scud_82' type 'idProjectile_RigidBody'
+2013-08-15 22:04:29 : Rukus [Frag Grenade] Rix
+2013-08-15 22:04:32 : [SSM] shady character
+2013-08-15 22:04:32 : Herr Boehme [Hyperblaster] Rukus
+2013-08-15 22:04:34 : [Respawn] L0s3r
+2013-08-15 22:04:49 : O'RLY [Plasma Cannon] Sweetie
+2013-08-15 22:05:01 : O'RLY [Plasma Cannon] L0s3r
+2013-08-15 22:05:04 : [Respawn] Mallard
+2013-08-15 22:05:09 : Stroggs Gone Wild! [Assault Rifle] Mr. BreakIt!
+2013-08-15 22:05:15 : Baby Soldat [Lacerator] Mr. Camper
+2013-08-15 22:05:17 : Rukus [Machine Pistol] O'RLY
+2013-08-15 22:05:23 : WolfGang [Spikes Backstab] Berrett
+2013-08-15 22:05:33 : L0s3r [GPMG] shady character
+2013-08-15 22:05:37 : Rukus [Machine Pistol] nameless n00b
+2013-08-15 22:05:38 : Lucron [Proximity Mine] Rukus
+2013-08-15 22:05:39 : Lucron [Proximity Mine] Sweetie
+2013-08-15 22:05:42 : Lucron [Lacerator] Iplantbombgoboom
+2013-08-15 22:05:44 : [Respawn] Iplantbombgoboom
+2013-08-15 22:05:46 : L0s3r [GPMG] Lucron
+2013-08-15 22:05:47 : Rix [Lacerator] Mr. Camper
+2013-08-15 22:05:49 : WolfGang [Spikes Backstab] Berrett
+2013-08-15 22:05:51 : Rix [Lacerator] Sweetie
+2013-08-15 22:05:53 : Rix [Lacerator] Happy Goon
+2013-08-15 22:05:54 : Happy Goon [Frag Grenade] I'm a bot
+2013-08-15 22:05:57 : Happy Goon [Frag Grenade] Mr. BreakIt!
+2013-08-15 22:05:57 : Happy Goon [Frag Grenade] Rix
+2013-08-15 22:05:57 : L0s3r [GPMG] shady character
+2013-08-15 22:05:58 : WolfGang [Scoped Assault Rifle] O'RLY
+2013-08-15 22:05:58 : Ragebot [Lacerator] L0s3r
+2013-08-15 22:06:00 : Mallard [GPMG] Baby Soldat
+2013-08-15 22:06:09 : Herr Boehme [Hyperblaster] WolfGang
+2013-08-15 22:06:17 : Stroggs Gone Wild! [Assault Rifle] Mallard
+2013-08-15 22:06:18 : Herr Boehme [Hyperblaster] Stroggs Gone Wild!
+2013-08-15 22:06:20 : Baby Soldat [Lacerator] Mr. BreakIt!
+2013-08-15 22:06:21 : Mr. Camper [Assault Rifle] Baby Soldat
+2013-08-15 22:06:27 : Berrett [Lacerator] Rukus
+2013-08-15 22:06:35 : Stroggs Gone Wild! [Assault Rifle] I'm a bot
+2013-08-15 22:06:36 : [Shrap Grenade] Ragebot
+2013-08-15 22:06:36 : Sweetie [Frag Grenade] Herr Boehme
+2013-08-15 22:06:37 : Ragebot [Shrap Grenade] Stroggs Gone Wild!
+2013-08-15 22:06:39 : shady character [Blaster] Happy Goon
+2013-08-15 22:06:39 : Berrett [Proximity Mine] Iplantbombgoboom
+2013-08-15 22:06:39 : Berrett [Proximity Mine] Rix
+2013-08-15 22:06:40 : L0s3r [GPMG] shady character
+2013-08-15 22:06:41 : L0s3r [GPMG] Berrett
+2013-08-15 22:06:44 : Berrett [APT] Mr. BreakIt!
+2013-08-15 22:06:45 : Sweetie [Assault Rifle] O'RLY
+2013-08-15 22:06:51 : Stroggs Gone Wild! [Assault Rifle] Baby Soldat
+2013-08-15 22:06:52 : Berrett [Proximity Mine] L0s3r
+2013-08-15 22:06:56 : Sweetie [Assault Rifle] Rix
+2013-08-15 22:06:57 : Ragebot [Lacerator] WolfGang
+2013-08-15 22:07:02 : nameless n00b [Lightning Pistol] Sweetie
+2013-08-15 22:07:06 : Herr Boehme [Hyperblaster] Happy Goon
+2013-08-15 22:07:06 : Mallard [GPMG] Herr Boehme
+2013-08-15 22:07:08 : Mr. Camper [Assault Rifle] Mallard
+2013-08-15 22:07:10 : Mr. Camper [Assault Rifle] Berrett
+2013-08-15 22:07:10 : Mr. Camper [Frag Grenade] Happy Goon
+2013-08-15 22:07:11 : Stroggs Gone Wild! [Assault Rifle] O'RLY
+2013-08-15 22:07:13 : nameless n00b [Lightning Pistol] Stroggs Gone Wild!
+2013-08-15 22:07:13 : O'RLY [Shrap Grenade] shady character
+2013-08-15 22:07:14 : Ragebot [Lacerator] Mr. Camper
+2013-08-15 22:07:17 : [Shrap Grenade] Ragebot
+2013-08-15 22:07:17 : Ragebot [Shrap Grenade] Lucron
+2013-08-15 22:07:22 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:07:26 : Mr. BreakIt! [Assault Rifle] I'm a bot
+2013-08-15 22:07:32 : nameless n00b [Lightning Pistol] Mr. BreakIt!
+2013-08-15 22:07:40 : Lucron [Lacerator] Mr. Camper
+2013-08-15 22:07:43 : Rix [Lacerator] L0s3r
+2013-08-15 22:07:46 : WolfGang [Scoped Assault Rifle] Rix
+2013-08-15 22:07:46 : Herr Boehme [Hyperblaster] WolfGang
+2013-08-15 22:07:56 : Stroggs Gone Wild! [Assault Rifle] Berrett
+2013-08-15 22:07:59 : Mallard [GPMG] Rix
+2013-08-15 22:07:59 : shady character [Blaster] Mallard
+2013-08-15 22:07:59 : shady character [Blaster] O'RLY
+2013-08-15 22:08:00 : Sweetie [Assault Rifle] shady character
+2013-08-15 22:08:08 : Herr Boehme [Hyperblaster] WolfGang
+2013-08-15 22:08:09 : I'm a bot [Lacerator] Mallard
+2013-08-15 22:08:10 : Happy Goon [Assault Rifle] I'm a bot
+2013-08-15 22:08:17 : nameless n00b [Lightning Pistol] Sweetie
+2013-08-15 22:08:17 : Stroggs Gone Wild! [Assault Rifle] Baby Soldat
+2013-08-15 22:08:18 : Mr. BreakIt! [Assault Rifle] nameless n00b
+2013-08-15 22:08:18 : shady character [Railgun] O'RLY
+2013-08-15 22:08:22 : Mr. BreakIt! [Assault Rifle] Ragebot
+2013-08-15 22:08:23 : Happy Goon [Assault Rifle] Berrett
+2013-08-15 22:08:28 : Lucron [Proximity Mine] Mr. BreakIt!
+2013-08-15 22:08:29 : Happy Goon [Assault Rifle] shady character
+2013-08-15 22:08:31 : Iplantbombgoboom [Assault Rifle] Lucron
+2013-08-15 22:08:34 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:08:37 : Happy Goon [Assault Rifle] Herr Boehme
+2013-08-15 22:08:43 : nameless n00b [Lightning Pistol] Happy Goon
+2013-08-15 22:08:46 : I'm a bot [Lacerator] Rukus
+2013-08-15 22:08:50 : Rukus [Frag Grenade] Baby Soldat
+2013-08-15 22:08:51 : [Obliterator] nameless n00b
+2013-08-15 22:08:59 : Berrett [Lacerator] Stroggs Gone Wild!
+2013-08-15 22:09:02 : Ragebot [Lacerator] L0s3r
+2013-08-15 22:09:03 : Ragebot [Lacerator] Mr. Camper
+2013-08-15 22:09:07 : Sweetie [Frag Grenade] WolfGang
+2013-08-15 22:09:07 : [Frag Grenade] Sweetie
+2013-08-15 22:09:08 : Rukus [Rocket Launcher] Berrett
+2013-08-15 22:09:08 : Rukus [Rocket Launcher] Mallard
+2013-08-15 22:09:08 : [Rocket Launcher] Rukus
+2013-08-15 22:09:11 : I'm a bot [Shrap Grenade] Lucron
+2013-08-15 22:09:13 : Mr. BreakIt! [Assault Rifle] O'RLY
+2013-08-15 22:09:16 : Ragebot [Lacerator] Iplantbombgoboom
+2013-08-15 22:09:17 : Mr. BreakIt! [Assault Rifle] I'm a bot
+2013-08-15 22:09:21 : Lucron [Lacerator] Happy Goon
+2013-08-15 22:09:24 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 22:09:27 : Stroggs Gone Wild! [Assault Rifle] Herr Boehme
+2013-08-15 22:09:27 : Baby Soldat [Shrap Grenade] Lucron
+2013-08-15 22:09:31 : Ragebot [Lacerator] Stroggs Gone Wild!
+2013-08-15 22:09:33 : I'm a bot [Lacerator] L0s3r
+2013-08-15 22:09:37 : nameless n00b [Lightning Pistol] Rix
+2013-08-15 22:09:37 : nameless n00b [Lightning Pistol] Mr. Camper
+2013-08-15 22:09:45 : [Fall] Baby Soldat
+2013-08-15 22:09:52 : Sweetie [Assault Rifle] shady character
+2013-08-15 22:09:56 : WARNING: Thread 'idWeapon__55': sdRepairDrone::Spawn Couldn't find water Damage Type ''
+2013-08-15 22:09:58 : Berrett [Proximity Mine] WolfGang
+2013-08-15 22:09:59 : Lucron [Lacerator] Rukus
+2013-08-15 22:10:04 : Herr Boehme [Hyperblaster] Mallard
+2013-08-15 22:10:04 : Iplantbombgoboom [Assault Rifle] Herr Boehme
+2013-08-15 22:10:05 : Sweetie [Assault Rifle] Berrett
+2013-08-15 22:10:05 : Lucron [Lacerator] Happy Goon
+2013-08-15 22:10:08 : L0s3r [GPMG] Lucron
+2013-08-15 22:10:09 : Iplantbombgoboom [Assault Rifle] nameless n00b
+2013-08-15 22:10:17 : Mr. Camper [Assault Rifle] Lucron
+2013-08-15 22:10:18 : shady character [Blaster] Iplantbombgoboom
+2013-08-15 22:10:21 : WARNING: Thread 'idWeapon__55': sdRepairDrone::Spawn Couldn't find water Damage Type ''
+2013-08-15 22:10:24 : Mr. BreakIt! [Assault Rifle] O'RLY
+2013-08-15 22:10:28 : hitch (58 msec)
+2013-08-15 22:10:28 : hitch (46 msec)
+2013-08-15 22:10:58 : client 20 connected.
+2013-08-15 22:10:58 : --------- Game Map Shutdown ----------
+2013-08-15 22:10:58 : WARNING: Thread '': Tried to run a GUI command on the server
+2013-08-15 22:10:58 : WARNING: Thread '': Tried to run a GUI command on the server
+2013-08-15 22:10:58 : WARNING: Thread '': Tried to run a GUI command on the server
+2013-08-15 22:10:58 : WARNING: Thread '': Tried to run a GUI command on the server
+2013-08-15 22:10:58 : --------------------------------------
+2013-08-15 22:10:59 : --------- Map Initialization ---------
+2013-08-15 22:10:59 : Map: maps/slipgate
+2013-08-15 22:11:00 : ----------- Game Map Init ------------
+2013-08-15 22:11:03 : found DLL in pak file: C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game000.pk4/compiledscriptx86.dll
+2013-08-15 22:11:03 : copy compiledscriptx86.dll to C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll
+2013-08-15 22:11:03 : Loaded 'C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll'
+2013-08-15 22:11:03 :   266 classes
+2013-08-15 22:11:03 :   84 global functions
+2013-08-15 22:11:03 : ----------- Loading Map AAS ------------
+2013-08-15 22:11:03 : [Load AAS Binary]
+2013-08-15 22:11:03 : loading 'maps/slipgate.aas_playerb'
+2013-08-15 22:11:04 : [Load AAS Binary]
+2013-08-15 22:11:04 : loading 'maps/slipgate.aas_vehicleb'
+2013-08-15 22:11:04 : collision data:
+2013-08-15 22:11:04 :    158 models
+2013-08-15 22:11:04 : 309337 vertices (3625 kB)
+2013-08-15 22:11:04 : 449145 edges (8772 kB)
+2013-08-15 22:11:04 : 184328 polygons (11520 kB)
+2013-08-15 22:11:04 : 624798 polygon edges (1220 kB)
+2013-08-15 22:11:04 :   7722 brushes (241 kB)
+2013-08-15 22:11:04 :  47220 brush planes (737 kB)
+2013-08-15 22:11:04 : 122918 nodes (3361 kB)
+2013-08-15 22:11:04 : 456719 polygon refs (3568 kB)
+2013-08-15 22:11:04 :   9684 brush refs (75 kB)
+2013-08-15 22:11:04 : 119718 internal edges
+2013-08-15 22:11:04 :   2462 sharp edges
+2013-08-15 22:11:04 :      0 contained polygons removed
+2013-08-15 22:11:04 :      0 polygons merged
+2013-08-15 22:11:04 :  33386 kB total memory used
+2013-08-15 22:11:04 : 783 msec to load collision data.
+2013-08-15 22:11:04 :     4 KB passage memory used to build PVS
+2013-08-15 22:11:04 :     6 msec to calculate PVS
+2013-08-15 22:11:04 :    55 areas
+2013-08-15 22:11:04 :   120 portals
+2013-08-15 22:11:04 :     8 areas visible on average
+2013-08-15 22:11:04 :   440 bytes PVS data
+2013-08-15 22:11:04 : Spawning entities
+2013-08-15 22:11:06 : ...1258 entities spawned, 0 inhibited
+
+2013-08-15 22:11:06 : ----------- Loading Map Bot Actions ------------
+2013-08-15 22:11:06 : --------------------------------------
+2013-08-15 22:11:06 : ----- idRenderModelManagerLocal::EndLevelLoad -----
+2013-08-15 22:11:06 :     0 purged from previous
+2013-08-15 22:11:06 :  1328 kept from previous
+2013-08-15 22:11:06 :    92 new loaded
+2013-08-15 22:11:06 : all models loaded in   0.0 seconds
+2013-08-15 22:11:06 : ---------------------------------------------------
+2013-08-15 22:11:06 : -----------------------------------
+2013-08-15 22:11:06 :   7456 msec to load maps/slipgate
+2013-08-15 22:11:07 : Loaded map in     9 seconds
+2013-08-15 22:11:07 : SpawnPlayer: 0
+2013-08-15 22:11:07 : Mr. BreakIt! joined the GDF
+2013-08-15 22:11:07 : Mr. BreakIt! entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 1
+2013-08-15 22:11:07 : Herr Boehme joined the Strogg
+2013-08-15 22:11:07 : Herr Boehme entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 2
+2013-08-15 22:11:07 : Berrett joined the Strogg
+2013-08-15 22:11:07 : Berrett entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 3
+2013-08-15 22:11:07 : Iplantbombgoboom joined the GDF
+2013-08-15 22:11:07 : Iplantbombgoboom entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 4
+2013-08-15 22:11:07 : Stroggs Gone Wild! joined the GDF
+2013-08-15 22:11:07 : Stroggs Gone Wild! entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 5
+2013-08-15 22:11:07 : Lucron joined the Strogg
+2013-08-15 22:11:07 : Lucron entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 6
+2013-08-15 22:11:07 : nameless n00b joined the Strogg
+2013-08-15 22:11:07 : nameless n00b entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 7
+2013-08-15 22:11:07 : L0s3r joined the GDF
+2013-08-15 22:11:07 : L0s3r entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 8
+2013-08-15 22:11:07 : Mallard joined the GDF
+2013-08-15 22:11:07 : Mallard entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 9
+2013-08-15 22:11:07 : shady character joined the Strogg
+2013-08-15 22:11:07 : shady character entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 10
+2013-08-15 22:11:07 : Mr. Camper joined the GDF
+2013-08-15 22:11:07 : Mr. Camper entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 11
+2013-08-15 22:11:07 : I'm a bot joined the Strogg
+2013-08-15 22:11:07 : I'm a bot entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 13
+2013-08-15 22:11:07 : Baby Soldat joined the Strogg
+2013-08-15 22:11:07 : Baby Soldat entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 14
+2013-08-15 22:11:07 : Ragebot joined the Strogg
+2013-08-15 22:11:07 : Ragebot entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 15
+2013-08-15 22:11:07 : Sweetie joined the GDF
+2013-08-15 22:11:07 : Sweetie entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 16
+2013-08-15 22:11:07 : WolfGang joined the GDF
+2013-08-15 22:11:07 : WolfGang entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 17
+2013-08-15 22:11:07 : Rix joined the Strogg
+2013-08-15 22:11:07 : Rix entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 18
+2013-08-15 22:11:07 : O'RLY joined the Strogg
+2013-08-15 22:11:07 : O'RLY entered the game.
+2013-08-15 22:11:07 : SpawnPlayer: 19
+2013-08-15 22:11:07 : Happy Goon joined the GDF
+2013-08-15 22:11:07 : Happy Goon entered the game.
+2013-08-15 22:11:07 : hitch (100 msec)
+2013-08-15 22:11:07 : client 12 connected.
+2013-08-15 22:11:07 : SpawnPlayer: 12
+2013-08-15 22:11:07 : Tribal Lord entered the game.
+2013-08-15 22:11:07 : Tribal Lord joined the GDF
+2013-08-15 22:11:07 : hitch (100 msec)
+2013-08-15 22:11:08 : hitch (86 msec)
+2013-08-15 22:11:19 : SpawnPlayer: 20
+2013-08-15 22:11:19 :  joined the GDF
+2013-08-15 22:11:19 : client 4 
+2013-08-15 22:11:19 : Stroggs Gone Wild! 
+2013-08-15 22:11:19 : client 4 disconnected.
+2013-08-15 22:11:19 : [Respawn] Mr. BreakIt!
+2013-08-15 22:11:21 : Rukus entered the game.
+2013-08-15 22:11:22 : [Respawn] L0s3r
+2013-08-15 22:11:23 : [Respawn] Mallard
+2013-08-15 22:11:24 : [Respawn] Tribal Lord
+2013-08-15 22:11:54 : nameless n00b [Lightning Pistol] Sweetie
+2013-08-15 22:12:03 : Mallard [Scoped Assault Rifle] nameless n00b
+2013-08-15 22:12:04 : WolfGang [Silenced Machine Pistol] Baby Soldat
+2013-08-15 22:12:05 : [Frag Grenade] Mr. BreakIt!
+2013-08-15 22:12:06 : Happy Goon [Airstrike Marker] L0s3r
+2013-08-15 22:12:06 : [Airstrike Marker] Happy Goon
+2013-08-15 22:12:10 : WARNING: Thread 'DoTeleportation_sdScriptEntity_Projectile_projectile_teleporter_36': Tried to run a GUI command on the server
+2013-08-15 22:12:11 : Happy Goon [Vampire] WolfGang
+2013-08-15 22:12:11 : Happy Goon [Vampire] Tribal Lord
+2013-08-15 22:12:16 : Iplantbombgoboom [MG] O'RLY
+2013-08-15 22:12:36 : Sweetie [Assault Rifle] Berrett
+2013-08-15 22:12:37 : Herr Boehme [Plasma Cannon] Mr. BreakIt!
+2013-08-15 22:12:43 : shady character [Railgun] Mallard
+2013-08-15 22:12:44 : WolfGang [Scoped Assault Rifle] shady character
+2013-08-15 22:12:45 : Herr Boehme [Plasma Cannon] WolfGang
+2013-08-15 22:12:58 : Herr Boehme [Plasma Cannon] Happy Goon
+2013-08-15 22:13:03 : Sweetie [Assault Rifle] Ragebot
+2013-08-15 22:13:10 : Lucron [Blaster] Tribal Lord
+2013-08-15 22:13:11 : Sweetie [Pistol] Lucron
+2013-08-15 22:13:17 : Berrett [Lacerator] Sweetie
+2013-08-15 22:13:27 : Mallard [Silenced Machine Pistol] Baby Soldat
+2013-08-15 22:13:30 : Mr. BreakIt! [Shotgun] O'RLY
+2013-08-15 22:13:30 : All Stats Cleared
+2013-08-15 22:13:30 : [Load AAS Binary]
+2013-08-15 22:13:30 : loading 'maps/slipgate.aas_playerb'
+2013-08-15 22:13:30 : [Load AAS Binary]
+2013-08-15 22:13:30 : loading 'maps/slipgate.aas_vehicleb'
+2013-08-15 22:13:30 : Spawning entities
+2013-08-15 22:13:31 : ...1258 entities spawned, 0 inhibited
+
+2013-08-15 22:13:31 : hitch (100 msec)
+2013-08-15 22:14:06 : Iplantbombgoboom [Assault Rifle] shady character
+2013-08-15 22:14:14 : Herr Boehme [Hyperblaster] WolfGang
+2013-08-15 22:14:19 : Iplantbombgoboom [Assault Rifle] Herr Boehme
+2013-08-15 22:14:21 : L0s3r [Sniper Rifle] Rix
+2013-08-15 22:14:34 : Ragebot [Lacerator] Rukus
+2013-08-15 22:14:37 : Ragebot [Lacerator] Sweetie
+2013-08-15 22:14:38 : Mallard [Scoped Assault Rifle] Ragebot
+2013-08-15 22:14:40 : Iplantbombgoboom [Assault Rifle] I'm a bot
+2013-08-15 22:14:51 : Lucron [Lacerator] Mallard
+2013-08-15 22:14:51 : Lucron [Lacerator] Happy Goon
+2013-08-15 22:14:52 : WARNING: Waiting on BotThread
+
+2013-08-15 22:14:52 : WARNING: Waiting on BotThread
+
+2013-08-15 22:14:54 : Lucron [Proximity Mine] WolfGang
+2013-08-15 22:14:57 : Baby Soldat [Lacerator] L0s3r
+2013-08-15 22:14:58 : Tribal Lord [GPMG] Lucron
+2013-08-15 22:14:59 : Baby Soldat [Lacerator] Mr. BreakIt!
+2013-08-15 22:15:00 : Tribal Lord [GPMG] Baby Soldat
+2013-08-15 22:15:02 : Herr Boehme [Hyperblaster] Happy Goon
+2013-08-15 22:15:13 : nameless n00b [Plasma Cannon] Iplantbombgoboom
+2013-08-15 22:15:15 : Tribal Lord [GPMG] O'RLY
+2013-08-15 22:15:17 : shady character [Railgun] Mr. Camper
+2013-08-15 22:15:19 : Mr. Camper [Vampire] nameless n00b
+2013-08-15 22:15:20 : Mr. Camper [Vampire] Berrett
+2013-08-15 22:15:24 : Baby Soldat [Lacerator] Tribal Lord
+2013-08-15 22:15:29 : Mallard [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:15:32 : Rix [Lacerator] Mallard
+2013-08-15 22:15:36 : Mallard [EMP Grenade] Sweetie
+2013-08-15 22:15:36 : Ragebot [Lacerator] Mallard
+2013-08-15 22:15:40 : Lucron [AVT] Happy Goon
+2013-08-15 22:15:45 : Rix [Lacerator] L0s3r
+2013-08-15 22:15:45 : I'm a bot [Lacerator] WolfGang
+2013-08-15 22:15:59 : Mr. Camper [MG] O'RLY
+2013-08-15 22:16:02 : WARNING: Waiting on BotThread
+
+2013-08-15 22:16:02 : WARNING: Waiting on BotThread
+
+2013-08-15 22:16:03 : O'RLY [Shrap Grenade] I'm a bot
+2013-08-15 22:16:07 : O'RLY [Violator] Lucron
+2013-08-15 22:16:07 : [Shrap Grenade] Ragebot
+2013-08-15 22:16:08 : O'RLY [Violator] Rukus
+2013-08-15 22:16:10 : I'm a bot [Violator] Mr. Camper
+2013-08-15 22:16:12 : L0s3r [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:16:22 : Rix [Lacerator] Tribal Lord
+2013-08-15 22:16:32 : Lucron [Proximity Mine] WolfGang
+2013-08-15 22:16:32 : Lucron [Proximity Mine] Rix
+2013-08-15 22:16:32 : nameless n00b [Obliterator] Mr. BreakIt!
+2013-08-15 22:16:33 : O'RLY [Plasma Cannon] Happy Goon
+2013-08-15 22:16:41 : nameless n00b [Obliterator] Mr. Camper
+2013-08-15 22:16:42 : Berrett [APT] Mallard
+2013-08-15 22:16:48 : Berrett [Shrap Grenade] Tribal Lord
+2013-08-15 22:16:49 : Lucron [Proximity Mine] L0s3r
+2013-08-15 22:16:49 : Berrett [Lacerator] WolfGang
+2013-08-15 22:16:57 : Berrett [Lacerator] Iplantbombgoboom
+2013-08-15 22:17:00 : Mr. BreakIt! [MG] Berrett
+2013-08-15 22:17:05 : Herr Boehme [Hyperblaster] Happy Goon
+2013-08-15 22:17:06 : client 20 Disconnected.
+2013-08-15 22:17:06 : Rukus Disconnected.
+2013-08-15 22:17:06 : client 20 disconnected.
+2013-08-15 22:17:08 : client 4 connected.
+2013-08-15 22:17:08 : SpawnPlayer: 4
+2013-08-15 22:17:08 : Major Pain entered the game.
+2013-08-15 22:17:08 : Major Pain joined the GDF
+2013-08-15 22:17:33 : hitch (47 msec)
+2013-08-15 22:17:40 : hitch (39 msec)
+2013-08-15 22:17:44 : hitch (36 msec)
+2013-08-15 22:19:05 : hitch (54 msec)
+2013-08-15 22:19:33 : hitch (39 msec)
+2013-08-15 22:31:20 : sending challenge 0x18ac1be8 to 192.168.200.140:57996
+2013-08-15 22:31:21 : challenge from 192.168.200.140:57996 (guid: 0000000000000000) connecting with 1055 ping
+2013-08-15 22:31:21 : sending connect response to 192.168.200.140:57996 (guid: 0000000000000000)
+2013-08-15 22:31:21 : client 20 connected.
+2013-08-15 22:31:31 : SpawnPlayer: 20
+2013-08-15 22:31:32 : Rukus entered the game.
+2013-08-15 22:31:33 : WolfGang [Scoped Assault Rifle] shady character
+2013-08-15 22:31:34 : client 16 
+2013-08-15 22:31:34 : WolfGang 
+2013-08-15 22:31:34 : client 16 disconnected.
+2013-08-15 22:31:35 : Rix [Lacerator] Mr. BreakIt!
+2013-08-15 22:31:42 : Tribal Lord [GPMG] Herr Boehme
+2013-08-15 22:31:44 : nameless n00b [Obliterator] Sweetie
+2013-08-15 22:31:49 : Mr. Camper [Assault Rifle] I'm a bot
+2013-08-15 22:31:49 : Happy Goon [Assault Rifle] nameless n00b
+2013-08-15 22:31:52 : Rix [Lacerator] L0s3r
+2013-08-15 22:31:52 : Mr. Camper [Assault Rifle] Mallard
+2013-08-15 22:31:54 : Mr. Camper [Assault Rifle] Ragebot
+2013-08-15 22:32:00 : Rix [Lacerator] Tribal Lord
+2013-08-15 22:32:01 : Happy Goon [Assault Rifle] Rix
+2013-08-15 22:32:07 : Baby Soldat [Lacerator] Happy Goon
+2013-08-15 22:32:13 : Major Pain [Assault Rifle] Baby Soldat
+2013-08-15 22:32:13 : Rukus joined the GDF
+2013-08-15 22:32:18 : Lucron [AVT] Sweetie
+2013-08-15 22:32:21 : Lucron [Lacerator] Iplantbombgoboom
+2013-08-15 22:32:22 : Herr Boehme [Hyperblaster] Mr. Camper
+2013-08-15 22:32:23 : [Deployable] crushed Sweetie
+2013-08-15 22:32:25 : Mallard [Scoped Assault Rifle] Lucron
+2013-08-15 22:32:28 : Berrett [Lacerator] Tribal Lord
+2013-08-15 22:32:33 : Herr Boehme [Hyperblaster] L0s3r
+2013-08-15 22:32:39 : Rukus [Husky] Herr Boehme
+2013-08-15 22:32:42 : Ragebot [Lacerator] Rukus
+2013-08-15 22:32:43 : Ragebot [Lacerator] Mallard
+2013-08-15 22:32:43 : Happy Goon [Assault Rifle] Ragebot
+2013-08-15 22:32:50 : Tribal Lord [Rocket Launcher] Rix
+2013-08-15 22:32:52 : Baby Soldat [Lacerator] Happy Goon
+2013-08-15 22:32:54 : I'm a bot [Plasma Mortar] Mr. BreakIt!
+2013-08-15 22:32:54 : Major Pain [Frag Grenade] nameless n00b
+2013-08-15 22:32:59 : O'RLY [Plasma Cannon] Major Pain
+2013-08-15 22:33:03 : Lucron [Lacerator] Sweetie
+2013-08-15 22:33:04 : Mr. Camper [MG] O'RLY
+2013-08-15 22:33:04 : Mr. Camper [MG] I'm a bot
+2013-08-15 22:33:04 : Baby Soldat [Lacerator] Tribal Lord
+2013-08-15 22:33:05 : Berrett [Lacerator] L0s3r
+2013-08-15 22:33:08 : Mr. Camper [MG] Baby Soldat
+2013-08-15 22:33:15 : Iplantbombgoboom [Assault Rifle] Lucron
+2013-08-15 22:33:21 : Mr. Camper [MG] shady character
+2013-08-15 22:33:25 : Tribal Lord [Machine Pistol] Berrett
+2013-08-15 22:33:29 : Mr. Camper [MG] Herr Boehme
+2013-08-15 22:33:31 : Lucron [AVT] Major Pain
+2013-08-15 22:33:32 : hitch (58 msec)
+2013-08-15 22:34:03 : client 20 connected.
+2013-08-15 22:34:03 : --------- Game Map Shutdown ----------
+2013-08-15 22:34:03 : --------------------------------------
+2013-08-15 22:34:04 : --------- Map Initialization ---------
+2013-08-15 22:34:04 : Map: maps/island
+2013-08-15 22:34:05 : ----------- Game Map Init ------------
+2013-08-15 22:34:07 : found DLL in pak file: C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game000.pk4/compiledscriptx86.dll
+2013-08-15 22:34:07 : copy compiledscriptx86.dll to C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll
+2013-08-15 22:34:08 : Loaded 'C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll'
+2013-08-15 22:34:08 :   266 classes
+2013-08-15 22:34:08 :   84 global functions
+2013-08-15 22:34:08 : ----------- Loading Map AAS ------------
+2013-08-15 22:34:08 : [Load AAS Binary]
+2013-08-15 22:34:08 : loading 'maps/island.aas_playerb'
+2013-08-15 22:34:08 : [Load AAS Binary]
+2013-08-15 22:34:08 : loading 'maps/island.aas_vehicleb'
+2013-08-15 22:34:09 : collision data:
+2013-08-15 22:34:09 :    123 models
+2013-08-15 22:34:09 : 214171 vertices (2509 kB)
+2013-08-15 22:34:09 : 358076 edges (6993 kB)
+2013-08-15 22:34:09 : 167382 polygons (10461 kB)
+2013-08-15 22:34:09 : 544296 polygon edges (1063 kB)
+2013-08-15 22:34:09 :   2315 brushes (72 kB)
+2013-08-15 22:34:09 :  13864 brush planes (216 kB)
+2013-08-15 22:34:09 :  61501 nodes (1681 kB)
+2013-08-15 22:34:09 : 327181 polygon refs (2556 kB)
+2013-08-15 22:34:09 :   2479 brush refs (19 kB)
+2013-08-15 22:34:09 :  92721 internal edges
+2013-08-15 22:34:09 :  21982 sharp edges
+2013-08-15 22:34:09 :      0 contained polygons removed
+2013-08-15 22:34:09 :      0 polygons merged
+2013-08-15 22:34:09 :  25766 kB total memory used
+2013-08-15 22:34:09 : 518 msec to load collision data.
+2013-08-15 22:34:09 :     1 KB passage memory used to build PVS
+2013-08-15 22:34:09 :     3 msec to calculate PVS
+2013-08-15 22:34:09 :    38 areas
+2013-08-15 22:34:09 :    78 portals
+2013-08-15 22:34:09 :     8 areas visible on average
+2013-08-15 22:34:09 :   304 bytes PVS data
+2013-08-15 22:34:09 : Spawning entities
+2013-08-15 22:34:10 : WARNING: Thread '': Tried to run a GUI command on the server
+2013-08-15 22:34:10 : ...723 entities spawned, 0 inhibited
+
+2013-08-15 22:34:10 : ----------- Loading Map Bot Actions ------------
+2013-08-15 22:34:10 : --------------------------------------
+2013-08-15 22:34:10 : ----- idRenderModelManagerLocal::EndLevelLoad -----
+2013-08-15 22:34:10 :     2 purged from previous
+2013-08-15 22:34:10 :  1152 kept from previous
+2013-08-15 22:34:10 :    37 new loaded
+2013-08-15 22:34:10 : all models loaded in   0.0 seconds
+2013-08-15 22:34:10 : ---------------------------------------------------
+2013-08-15 22:34:10 : -----------------------------------
+2013-08-15 22:34:10 :   6178 msec to load maps/island
+2013-08-15 22:34:11 : Loaded map in     8 seconds
+2013-08-15 22:34:11 : SpawnPlayer: 0
+2013-08-15 22:34:11 : Mr. BreakIt! joined the GDF
+2013-08-15 22:34:11 : Mr. BreakIt! entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 1
+2013-08-15 22:34:11 : Herr Boehme joined the Strogg
+2013-08-15 22:34:11 : Herr Boehme entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 2
+2013-08-15 22:34:11 : Berrett joined the Strogg
+2013-08-15 22:34:11 : Berrett entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 3
+2013-08-15 22:34:11 : Iplantbombgoboom joined the GDF
+2013-08-15 22:34:11 : Iplantbombgoboom entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 4
+2013-08-15 22:34:11 : Major Pain joined the GDF
+2013-08-15 22:34:11 : Major Pain entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 5
+2013-08-15 22:34:11 : Lucron joined the Strogg
+2013-08-15 22:34:11 : Lucron entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 6
+2013-08-15 22:34:11 : nameless n00b joined the Strogg
+2013-08-15 22:34:11 : nameless n00b entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 7
+2013-08-15 22:34:11 : L0s3r joined the GDF
+2013-08-15 22:34:11 : L0s3r entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 8
+2013-08-15 22:34:11 : Mallard joined the GDF
+2013-08-15 22:34:11 : Mallard entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 9
+2013-08-15 22:34:11 : shady character joined the Strogg
+2013-08-15 22:34:11 : shady character entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 10
+2013-08-15 22:34:11 : Mr. Camper joined the GDF
+2013-08-15 22:34:11 : Mr. Camper entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 11
+2013-08-15 22:34:11 : I'm a bot joined the Strogg
+2013-08-15 22:34:11 : I'm a bot entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 12
+2013-08-15 22:34:11 : Tribal Lord joined the GDF
+2013-08-15 22:34:11 : Tribal Lord entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 13
+2013-08-15 22:34:11 : Baby Soldat joined the Strogg
+2013-08-15 22:34:11 : Baby Soldat entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 14
+2013-08-15 22:34:11 : Ragebot joined the Strogg
+2013-08-15 22:34:11 : Ragebot entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 15
+2013-08-15 22:34:11 : Sweetie joined the GDF
+2013-08-15 22:34:11 : Sweetie entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 17
+2013-08-15 22:34:11 : Rix joined the Strogg
+2013-08-15 22:34:11 : Rix entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 18
+2013-08-15 22:34:11 : O'RLY joined the Strogg
+2013-08-15 22:34:11 : O'RLY entered the game.
+2013-08-15 22:34:11 : SpawnPlayer: 19
+2013-08-15 22:34:11 : Happy Goon joined the GDF
+2013-08-15 22:34:11 : Happy Goon entered the game.
+2013-08-15 22:34:11 : hitch (100 msec)
+2013-08-15 22:34:11 : client 16 connected.
+2013-08-15 22:34:11 : SpawnPlayer: 16
+2013-08-15 22:34:11 : Senior Roper entered the game.
+2013-08-15 22:34:11 : Senior Roper joined the GDF
+2013-08-15 22:34:11 : hitch (100 msec)
+2013-08-15 22:34:11 : [Respawn] L0s3r
+2013-08-15 22:34:12 : hitch (66 msec)
+2013-08-15 22:34:20 : SpawnPlayer: 20
+2013-08-15 22:34:20 :  joined the GDF
+2013-08-15 22:34:21 : client 8 
+2013-08-15 22:34:21 : Mallard 
+2013-08-15 22:34:21 : client 8 disconnected.
+2013-08-15 22:34:21 : Rukus entered the game.
+2013-08-15 22:34:48 : Major Pain [Assault Rifle] Lucron
+2013-08-15 22:34:48 : Herr Boehme [Hyperblaster] Happy Goon
+2013-08-15 22:34:53 : Major Pain [Assault Rifle] Herr Boehme
+2013-08-15 22:34:53 : Tribal Lord [Machine Pistol] Ragebot
+2013-08-15 22:34:57 : I'm a bot [Lacerator] Tribal Lord
+2013-08-15 22:34:58 : L0s3r [Assault Rifle] I'm a bot
+2013-08-15 22:35:02 : Mr. Camper [Assault Rifle] shady character
+2013-08-15 22:35:05 : Lucron [Lacerator] Sweetie
+2013-08-15 22:35:08 : Baby Soldat [Lacerator] L0s3r
+2013-08-15 22:35:09 : Mr. BreakIt! [Shotgun] Mr. Camper
+2013-08-15 22:35:09 : Herr Boehme [Lightning Pistol] Mr. BreakIt!
+2013-08-15 22:35:10 : Baby Soldat [Lacerator] Major Pain
+2013-08-15 22:35:18 : I'm a bot [Lacerator] Senior Roper
+2013-08-15 22:35:18 : Lucron [Shrap Grenade] Iplantbombgoboom
+2013-08-15 22:35:22 : Berrett [Lacerator] Happy Goon
+2013-08-15 22:35:24 : All Stats Cleared
+2013-08-15 22:35:24 : [Load AAS Binary]
+2013-08-15 22:35:24 : loading 'maps/island.aas_playerb'
+2013-08-15 22:35:24 : [Load AAS Binary]
+2013-08-15 22:35:24 : loading 'maps/island.aas_vehicleb'
+2013-08-15 22:35:24 : Spawning entities
+2013-08-15 22:35:24 : WARNING: Thread '': Tried to run a GUI command on the server
+2013-08-15 22:35:24 : ...723 entities spawned, 0 inhibited
+
+2013-08-15 22:35:24 : hitch (100 msec)
+2013-08-15 22:35:53 : Major Pain [Assault Rifle] Baby Soldat
+2013-08-15 22:35:57 : Iplantbombgoboom [Assault Rifle] Berrett
+2013-08-15 22:35:57 : [Frag Grenade] Mr. Camper
+2013-08-15 22:35:58 : Mr. Camper [Vampire] Major Pain
+2013-08-15 22:35:58 : Mr. Camper [Vampire] Iplantbombgoboom
+2013-08-15 22:35:58 : Mr. Camper [Vampire] Senior Roper
+2013-08-15 22:35:58 : Mr. Camper [Vampire] Sweetie
+2013-08-15 22:35:58 : Mr. Camper [Vampire] L0s3r
+2013-08-15 22:36:03 : shady character [Railgun] Rukus
+2013-08-15 22:36:14 : Lucron [Lacerator] Tribal Lord
+2013-08-15 22:36:19 : shady character [Railgun] Mr. BreakIt!
+2013-08-15 22:36:24 : shady character [Railgun] Rukus
+2013-08-15 22:36:28 : shady character [Railgun] Sweetie
+2013-08-15 22:36:32 : Senior Roper [MG] Baby Soldat
+2013-08-15 22:36:36 : Senior Roper [MG] shady character
+2013-08-15 22:36:56 : [Violator] O'RLY
+2013-08-15 22:36:57 : O'RLY [Violator] I'm a bot
+2013-08-15 22:36:58 : Lucron [Lacerator] Mr. Camper
+2013-08-15 22:36:58 : O'RLY [Violator] Lucron
+2013-08-15 22:37:07 : Iplantbombgoboom [Assault Rifle] Berrett
+2013-08-15 22:37:10 : Tribal Lord [Rocket Launcher] Baby Soldat
+2013-08-15 22:37:15 : [Frag Grenade] L0s3r
+2013-08-15 22:37:18 : Sweetie [Scoped Assault Rifle] shady character
+2013-08-15 22:37:27 : Lucron [Proximity Mine] Major Pain
+2013-08-15 22:37:27 : Lucron [Proximity Mine] Mr. BreakIt!
+2013-08-15 22:37:27 : Lucron [Proximity Mine] Senior Roper
+2013-08-15 22:37:27 : Lucron [Proximity Mine] Iplantbombgoboom
+2013-08-15 22:37:36 : O'RLY [Lacerator] Tribal Lord
+2013-08-15 22:37:46 : Ragebot [Lacerator] L0s3r
+2013-08-15 22:37:50 : Berrett [Lacerator] Rukus
+2013-08-15 22:37:50 : WARNING: Thread 'idWeapon__70': Tried to run a GUI command on the server
+2013-08-15 22:37:53 : Tribal Lord [Rocket Launcher] Baby Soldat
+2013-08-15 22:38:01 : Senior Roper [Assault Rifle] Berrett
+2013-08-15 22:38:08 : Baby Soldat [Lacerator] Sweetie
+2013-08-15 22:38:09 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:38:09 : [Shrap Grenade] Baby Soldat
+2013-08-15 22:38:17 : Herr Boehme [Hyperblaster] Major Pain
+2013-08-15 22:38:25 : Lucron [APT] Tribal Lord
+2013-08-15 22:38:26 : Tribal Lord [Rocket Launcher] I'm a bot
+2013-08-15 22:38:35 : L0s3r [Assault Rifle] nameless n00b
+2013-08-15 22:38:35 : Herr Boehme [Hyperblaster] Senior Roper
+2013-08-15 22:38:39 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 22:38:41 : Ragebot [Lacerator] Senior Roper
+2013-08-15 22:38:41 : L0s3r [Assault Rifle] Herr Boehme
+2013-08-15 22:38:50 : Ragebot [Lacerator] L0s3r
+2013-08-15 22:38:50 : Iplantbombgoboom [Assault Rifle] Rix
+2013-08-15 22:38:53 : nameless n00b [Lightning Pistol] Senior Roper
+2013-08-15 22:38:54 : Berrett [Lacerator] Sweetie
+2013-08-15 22:38:55 : nameless n00b [Lightning Pistol] Major Pain
+2013-08-15 22:38:58 : Lucron [APT] Tribal Lord
+2013-08-15 22:38:59 : O'RLY [Lacerator] Iplantbombgoboom
+2013-08-15 22:39:00 : Happy Goon [Assault Rifle] Lucron
+2013-08-15 22:39:04 : shady character [Railgun] Happy Goon
+2013-08-15 22:39:14 : Iplantbombgoboom [Assault Rifle] Berrett
+2013-08-15 22:39:23 : Iplantbombgoboom [Assault Rifle] Baby Soldat
+2013-08-15 22:39:25 : [Respawn] Berrett
+2013-08-15 22:39:36 : Major Pain [Assault Rifle] Ragebot
+2013-08-15 22:39:38 : [Obliterator] nameless n00b
+2013-08-15 22:39:38 : nameless n00b [Obliterator] Senior Roper
+2013-08-15 22:39:39 : Tribal Lord [Rocket Launcher] Baby Soldat
+2013-08-15 22:39:39 : L0s3r [Assault Rifle] O'RLY
+2013-08-15 22:39:41 : Lucron [APT] Tribal Lord
+2013-08-15 22:39:41 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:39:41 : Mr. Camper [Assault Rifle] Herr Boehme
+2013-08-15 22:39:43 : Berrett [Lacerator] Major Pain
+2013-08-15 22:39:46 : Lucron [Lacerator] L0s3r
+2013-08-15 22:39:47 : Mr. Camper [Frag Grenade] Mr. BreakIt!
+2013-08-15 22:39:47 : Mr. Camper [Frag Grenade] Berrett
+2013-08-15 22:39:51 : Rix [Lacerator] Iplantbombgoboom
+2013-08-15 22:39:52 : Lucron [Lacerator] Mr. Camper
+2013-08-15 22:39:52 : I'm a bot [Lacerator] Senior Roper
+2013-08-15 22:40:01 : Happy Goon [Assault Rifle] shady character
+2013-08-15 22:40:13 : Sweetie [Scoped Assault Rifle] Lucron
+2013-08-15 22:40:22 : Mr. Camper [Assault Rifle] Baby Soldat
+2013-08-15 22:40:23 : WARNING: Thread 'idWeapon__70': Tried to run a GUI command on the server
+2013-08-15 22:40:25 : I'm a bot [Lacerator] Sweetie
+2013-08-15 22:40:32 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:40:35 : Tribal Lord [Machine Pistol] Berrett
+2013-08-15 22:40:37 : Herr Boehme [Hyperblaster] Mr. Camper
+2013-08-15 22:40:37 : Mr. BreakIt! [Shotgun] Herr Boehme
+2013-08-15 22:40:40 : O'RLY [Lacerator] Tribal Lord
+2013-08-15 22:40:40 : Mr. BreakIt! [Shotgun] Rix
+2013-08-15 22:40:41 : Happy Goon [Frag Grenade] L0s3r
+2013-08-15 22:40:41 : Happy Goon [Assault Rifle] I'm a bot
+2013-08-15 22:40:42 : [Shrap Grenade] Ragebot
+2013-08-15 22:40:43 : I'm a bot [Shrap Grenade] Senior Roper
+2013-08-15 22:40:43 : I'm a bot [Shrap Grenade] Happy Goon
+2013-08-15 22:40:44 : I'm a bot [Shrap Grenade] Iplantbombgoboom
+2013-08-15 22:40:44 : O'RLY [Lacerator] Sweetie
+2013-08-15 22:40:53 : L0s3r [Assault Rifle] shady character
+2013-08-15 22:40:57 : I'm a bot [Lacerator] L0s3r
+2013-08-15 22:40:58 : I'm a bot [Lacerator] Major Pain
+2013-08-15 22:41:00 : Herr Boehme [Hyperblaster] Mr. Camper
+2013-08-15 22:41:00 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 22:41:10 : Sweetie [Tank Gun] Herr Boehme
+2013-08-15 22:41:15 : Happy Goon [Assault Rifle] I'm a bot
+2013-08-15 22:41:27 : L0s3r [Assault Rifle] shady character
+2013-08-15 22:41:28 : Iplantbombgoboom [Armadillo] Rix
+2013-08-15 22:41:28 : Iplantbombgoboom [Armadillo] O'RLY
+2013-08-15 22:41:29 : I'm a bot [Violator] Ragebot
+2013-08-15 22:41:30 : [Violator] I'm a bot
+2013-08-15 22:41:31 : I'm a bot [Violator] Major Pain
+2013-08-15 22:41:32 : Ragebot [Shrap Grenade] Sweetie
+2013-08-15 22:41:33 : I'm a bot [Violator] Mr. BreakIt!
+2013-08-15 22:41:34 : I'm a bot [Violator] L0s3r
+2013-08-15 22:41:35 : Lucron [Shrap Grenade] Iplantbombgoboom
+2013-08-15 22:41:52 : Tribal Lord [Machine Pistol] nameless n00b
+2013-08-15 22:42:03 : Mr. Camper [Vampire] Iplantbombgoboom
+2013-08-15 22:42:04 : Baby Soldat [Lacerator] Tribal Lord
+2013-08-15 22:42:21 : Berrett [Proximity Mine] Mr. Camper
+2013-08-15 22:42:21 : Mr. BreakIt! [Frag Grenade] Senior Roper
+2013-08-15 22:42:24 : Herr Boehme [Hyperblaster] Major Pain
+2013-08-15 22:42:26 : Lucron [Lacerator] Mr. BreakIt!
+2013-08-15 22:42:26 : [Shrap Grenade] Lucron
+2013-08-15 22:42:26 : Baby Soldat [Lacerator] Sweetie
+2013-08-15 22:42:27 : [Shrap Grenade] Berrett
+2013-08-15 22:42:27 : Berrett [Shrap Grenade] Baby Soldat
+2013-08-15 22:42:28 : Herr Boehme [Hyperblaster] L0s3r
+2013-08-15 22:42:30 : Sweetie [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:42:35 : nameless n00b [Obliterator] Happy Goon
+2013-08-15 22:42:39 : Iplantbombgoboom [MG] O'RLY
+2013-08-15 22:42:45 : I'm a bot [Lacerator] Sweetie
+2013-08-15 22:42:55 : Iplantbombgoboom [Assault Rifle] Lucron
+2013-08-15 22:42:57 : Iplantbombgoboom [Assault Rifle] nameless n00b
+2013-08-15 22:42:57 : Ragebot [Lacerator] Iplantbombgoboom
+2013-08-15 22:43:00 : [Armadillo] Happy Goon
+2013-08-15 22:43:15 : WARNING: Thread 'sdScriptEntity_deployable_ssm_101': idPhysics_RigidBody::SetClipModel: unbalanced inertia tensor for entity 'idProjectile_RigidBody_projectile_deployable_ssm_77' type 'idProjectile_RigidBody'
+2013-08-15 22:43:21 : Mr. BreakIt! [Tank Gun] Rix
+2013-08-15 22:43:22 : Berrett [Lacerator] Major Pain
+2013-08-15 22:43:24 : Mr. BreakIt! [Tank Gun] Berrett
+2013-08-15 22:43:28 : Mr. Camper [Hammer] Mr. BreakIt!
+2013-08-15 22:43:28 : Mr. Camper [Hammer] L0s3r
+2013-08-15 22:43:28 : Mr. Camper [Hammer] Tribal Lord
+2013-08-15 22:43:28 : Mr. Camper [Hammer] Senior Roper
+2013-08-15 22:43:28 : Mr. Camper [Hammer] Sweetie
+2013-08-15 22:43:28 : [Hammer] Mr. Camper
+2013-08-15 22:43:29 : Herr Boehme [Strocket] Happy Goon
+2013-08-15 22:43:41 : Lucron [Lacerator] Iplantbombgoboom
+2013-08-15 22:43:45 : Herr Boehme [Strocket] Major Pain
+2013-08-15 22:43:55 : Mr. BreakIt! [GPMG] Berrett
+2013-08-15 22:43:56 : Mr. BreakIt! [GPMG] Rix
+2013-08-15 22:43:59 : Sweetie [Scoped Assault Rifle] Mr. BreakIt!
+2013-08-15 22:44:07 : Happy Goon [Assault Rifle] Sweetie
+2013-08-15 22:44:10 : Happy Goon [Assault Rifle] Baby Soldat
+2013-08-15 22:44:12 : Happy Goon [Assault Rifle] nameless n00b
+2013-08-15 22:44:17 : Herr Boehme [Plasma Cannon] Rukus
+2013-08-15 22:44:29 : Iplantbombgoboom [Frag Grenade] Tribal Lord
+2013-08-15 22:44:34 : L0s3r [Assault Rifle] shady character
+2013-08-15 22:44:35 : Lucron [Lacerator] Senior Roper
+2013-08-15 22:44:39 : Sweetie [Scoped Assault Rifle] Lucron
+2013-08-15 22:44:39 : Senior Roper [Frag Grenade] Mr. BreakIt!
+2013-08-15 22:44:42 : Sweetie [Scoped Assault Rifle] I'm a bot
+2013-08-15 22:44:49 : Tribal Lord [Rocket Launcher] Herr Boehme
+2013-08-15 22:44:50 : Baby Soldat [Proximity Mine] Iplantbombgoboom
+2013-08-15 22:44:56 : Mr. BreakIt! [GPMG] Ragebot
+2013-08-15 22:44:57 : Sweetie [Scoped Assault Rifle] Rix
+2013-08-15 22:44:58 : Berrett [Shrap Grenade] L0s3r
+2013-08-15 22:44:58 : Berrett [Shrap Grenade] Major Pain
+2013-08-15 22:44:59 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 22:45:00 : [Shrap Grenade] Berrett
+2013-08-15 22:45:01 : Ragebot [Lacerator] Sweetie
+2013-08-15 22:45:01 : O'RLY [Lacerator] Iplantbombgoboom
+2013-08-15 22:45:02 : O'RLY [Rail Howitzer] Mr. Camper
+2013-08-15 22:45:06 : O'RLY [Rail Howitzer] Senior Roper
+2013-08-15 22:45:06 : O'RLY [Rail Howitzer] Tribal Lord
+2013-08-15 22:45:18 : shady character [Railgun] Happy Goon
+2013-08-15 22:45:28 : Iplantbombgoboom [Armadillo] Tribal Lord
+2013-08-15 22:45:36 : Lucron [APT] Mr. BreakIt!
+2013-08-15 22:45:39 : Iplantbombgoboom [Armadillo] Lucron
+2013-08-15 22:45:45 : Lucron [APT] Senior Roper
+2013-08-15 22:45:47 : Baby Soldat [Proximity Mine] Major Pain
+2013-08-15 22:45:50 : O'RLY [Lacerator] Sweetie
+2013-08-15 22:45:51 : Iplantbombgoboom [Assault Rifle] Rix
+2013-08-15 22:45:52 : Ragebot [Lacerator] Iplantbombgoboom
+2013-08-15 22:46:02 : WARNING: Thread 'idWeapon__66': sdRepairDrone::Spawn Couldn't find water Damage Type ''
+2013-08-15 22:46:05 : I'm a bot [Rail Howitzer] Tribal Lord
+2013-08-15 22:46:06 : I'm a bot [Rail Howitzer] Rukus
+2013-08-15 22:46:08 : I'm a bot [Rail Howitzer] Major Pain
+2013-08-15 22:46:08 : L0s3r [Tank Gun] nameless n00b
+2013-08-15 22:46:12 : L0s3r [Tank Gun] Ragebot
+2013-08-15 22:46:15 : L0s3r [Tank Gun] Berrett
+2013-08-15 22:46:15 : L0s3r [Tank Gun] Baby Soldat
+2013-08-15 22:46:17 : Lucron [Lacerator] Iplantbombgoboom
+2013-08-15 22:46:17 : I'm a bot [Rail Howitzer] L0s3r
+2013-08-15 22:46:21 : Mr. BreakIt! [GPMG] Lucron
+2013-08-15 22:46:29 : shady character [Railgun] Mr. Camper
+2013-08-15 22:46:31 : Happy Goon [Rocket Artillery] Mr. BreakIt!
+2013-08-15 22:46:31 : Happy Goon [Rocket Artillery] Sweetie
+2013-08-15 22:46:34 : Happy Goon [Rocket Artillery] Senior Roper
+2013-08-15 22:46:42 : I'm a bot [Lacerator] Tribal Lord
+2013-08-15 22:46:49 : I'm a bot [Lacerator] Happy Goon
+2013-08-15 22:46:51 : Mr. Camper [Assault Rifle] I'm a bot
+2013-08-15 22:46:57 : Mr. BreakIt! [GPMG] shady character
+2013-08-15 22:46:58 : Iplantbombgoboom [Assault Rifle] nameless n00b
+2013-08-15 22:46:59 : Baby Soldat [Lacerator] Major Pain
+2013-08-15 22:47:02 : Mr. Camper [Assault Rifle] Lucron
+2013-08-15 22:47:15 : Berrett [Lacerator] Senior Roper
+2013-08-15 22:47:16 : Berrett [Lacerator] Iplantbombgoboom
+2013-08-15 22:47:23 : Ragebot [Lacerator] L0s3r
+2013-08-15 22:47:24 : I'm a bot [Lacerator] Iplantbombgoboom
+2013-08-15 22:47:25 : Happy Goon [Assault Rifle] Berrett
+2013-08-15 22:47:25 : Tribal Lord [Machine Pistol] Baby Soldat
+2013-08-15 22:47:28 : Herr Boehme [Hyperblaster] Tribal Lord
+2013-08-15 22:47:28 : Sweetie [Scoped Assault Rifle] O'RLY
+2013-08-15 22:47:34 : Mr. BreakIt! [GPMG] Rix
+2013-08-15 22:47:36 : Mr. BreakIt! [GPMG] Ragebot
+2013-08-15 22:47:38 : Herr Boehme [Hyperblaster] Mr. BreakIt!
+2013-08-15 22:47:38 : Berrett [Proximity Mine] Happy Goon
+2013-08-15 22:47:39 : Lucron [Lacerator] Sweetie
+2013-08-15 22:47:43 : I'm a bot [Violator] Lucron
+2013-08-15 22:47:43 : I'm a bot [Violator] Berrett
+2013-08-15 22:47:49 : Major Pain [LAW] shady character
+2013-08-15 22:47:59 : Herr Boehme [Hyperblaster] Iplantbombgoboom
+2013-08-15 22:47:59 : L0s3r [Assault Rifle] Ragebot
+2013-08-15 22:48:02 : nameless n00b [Obliterator] Major Pain
+2013-08-15 22:48:03 : Rix [Lacerator] L0s3r
+2013-08-15 22:48:11 : O'RLY [Lacerator] Mr. BreakIt!
+2013-08-15 22:48:13 : Rix [Lacerator] Tribal Lord
+2013-08-15 22:48:14 : Happy Goon [Assault Rifle] Herr Boehme
+2013-08-15 22:48:14 : O'RLY [Lacerator] Sweetie
+2013-08-15 22:48:19 : WARNING: Thread 'sdScriptEntity_deployable_ssm_101': idPhysics_RigidBody::SetClipModel: unbalanced inertia tensor for entity 'idProjectile_RigidBody_projectile_deployable_ssm_86' type 'idProjectile_RigidBody'
+2013-08-15 22:48:20 : Senior Roper [Minigun] Berrett
+2013-08-15 22:48:21 : [Shrap Grenade] nameless n00b
+2013-08-15 22:48:28 : Iplantbombgoboom [Armadillo] L0s3r
+2013-08-15 22:48:30 : Mr. Camper [Assault Rifle] Lucron
+2013-08-15 22:48:31 : Mr. Camper [Hammer] Major Pain
+2013-08-15 22:48:31 : [Hammer] Mr. Camper
+2013-08-15 22:48:31 : Mr. Camper [Hammer] Mr. BreakIt!
+2013-08-15 22:48:31 : Mr. Camper [Hammer] Happy Goon
+2013-08-15 22:48:39 : Senior Roper [Tank Gun] Baby Soldat
+2013-08-15 22:48:41 : Vehicle Explosion Senior Roper
+2013-08-15 22:48:48 : Sweetie [Scoped Assault Rifle] Berrett
+2013-08-15 22:48:53 : I'm a bot [Lacerator] Tribal Lord
+2013-08-15 22:48:55 : Ragebot [Lacerator] Iplantbombgoboom
+2013-08-15 22:48:57 : Sweetie [Scoped Assault Rifle] I'm a bot
+2013-08-15 22:49:16 : Ragebot [Lacerator] Happy Goon
+2013-08-15 22:49:19 : Herr Boehme [Hyperblaster] Mr. BreakIt!
+2013-08-15 22:49:21 : O'RLY [Lacerator] L0s3r
+2013-08-15 22:49:22 : O'RLY [Lacerator] Happy Goon
+2013-08-15 22:49:22 : Rix [Lacerator] Sweetie
+2013-08-15 22:49:25 : shady character [Railgun] Rukus
+2013-08-15 22:49:33 : Tribal Lord [Rocket Launcher] Berrett
+2013-08-15 22:49:39 : Baby Soldat [Lacerator] Iplantbombgoboom
+2013-08-15 22:49:53 : Happy Goon [Assault Rifle] Baby Soldat
+2013-08-15 22:49:54 : L0s3r [Assault Rifle] Lucron
+2013-08-15 22:49:56 : [Rocket Launcher] Tribal Lord
+2013-08-15 22:49:56 : Tribal Lord [Rocket Launcher] nameless n00b
+2013-08-15 22:49:56 : Ragebot [Lacerator] Major Pain
+2013-08-15 22:50:00 : L0s3r [Assault Rifle] shady character
+2013-08-15 22:50:03 : Lucron [Lacerator] Mr. BreakIt!
+2013-08-15 22:50:04 : Sweetie [Scoped Assault Rifle] Lucron
+2013-08-15 22:50:08 : Happy Goon [Assault Rifle] Ragebot
+2013-08-15 22:50:14 : Iplantbombgoboom [Assault Rifle] Rix
+2013-08-15 22:50:14 : Sweetie [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:50:15 : O'RLY [Lacerator] Iplantbombgoboom
+2013-08-15 22:50:18 : O'RLY [Lacerator] Happy Goon
+2013-08-15 22:50:23 : WARNING: Thread 'sdScriptEntity_deployable_ssm_101': idPhysics_RigidBody::SetClipModel: unbalanced inertia tensor for entity 'idProjectile_RigidBody_projectile_deployable_ssm_131' type 'idProjectile_RigidBody'
+2013-08-15 22:50:24 : Major Pain [Assault Rifle] Baby Soldat
+2013-08-15 22:50:25 : L0s3r [Assault Rifle] O'RLY
+2013-08-15 22:50:27 : Berrett [Proximity Mine] Tribal Lord
+2013-08-15 22:50:30 : nameless n00b [Lightning Pistol] Iplantbombgoboom
+2013-08-15 22:50:30 : Ragebot [Lacerator] Major Pain
+2013-08-15 22:50:32 : Rix [Lacerator] L0s3r
+2013-08-15 22:50:33 : Ragebot [Lacerator] Sweetie
+2013-08-15 22:50:33 : Iplantbombgoboom [Frag Grenade] Ragebot
+2013-08-15 22:50:33 : [Shrap Grenade] Berrett
+2013-08-15 22:50:34 : nameless n00b [Lightning Pistol] Tribal Lord
+2013-08-15 22:50:36 : Sweetie [EMP Grenade] Herr Boehme
+2013-08-15 22:50:36 : [Hammer] Mr. Camper
+2013-08-15 22:50:36 : Mr. Camper [Hammer] Mr. BreakIt!
+2013-08-15 22:50:39 : Senior Roper [LAW] O'RLY
+2013-08-15 22:50:51 : Berrett [APT] Happy Goon
+2013-08-15 22:50:56 : Tribal Lord [Armadillo] Sweetie
+2013-08-15 22:50:58 : Senior Roper [LAW] Lucron
+2013-08-15 22:51:11 : Iplantbombgoboom [Assault Rifle] Baby Soldat
+2013-08-15 22:51:14 : Mr. BreakIt! [GPMG] Berrett
+2013-08-15 22:51:16 : Rix [Lacerator] Iplantbombgoboom
+2013-08-15 22:51:17 : nameless n00b [Obliterator] Mr. BreakIt!
+2013-08-15 22:51:17 : Rix [Shrap Grenade] Tribal Lord
+2013-08-15 22:51:18 : Sweetie [Scoped Assault Rifle] Herr Boehme
+2013-08-15 22:51:24 : I'm a bot [Lacerator] Major Pain
+2013-08-15 22:51:33 : Ragebot [Lacerator] Sweetie
+2013-08-15 22:51:43 : Iplantbombgoboom [Assault Rifle] Berrett
+2013-08-15 22:51:48 : [Anansi] Senior Roper
+2013-08-15 22:51:52 : Mr. BreakIt! [GPMG] Lucron
+2013-08-15 22:51:54 : L0s3r [Minigun] Herr Boehme
+2013-08-15 22:51:59 : Baby Soldat [Lacerator] Iplantbombgoboom
+2013-08-15 22:51:59 : L0s3r [Tank Gun] Baby Soldat
+2013-08-15 22:52:10 : Mr. Camper [Assault Rifle] Rix
+2013-08-15 22:52:11 : I'm a bot [Lacerator] Tribal Lord
+2013-08-15 22:52:17 : Sweetie [Spikes Backstab] shady character
+2013-08-15 22:52:19 : nameless n00b [Obliterator] Mr. BreakIt!
+2013-08-15 22:52:21 : O'RLY [Lacerator] Happy Goon
+2013-08-15 22:52:27 : Ragebot [Lacerator] Major Pain
+2013-08-15 22:52:27 : Iplantbombgoboom [Assault Rifle] Berrett
+2013-08-15 22:52:31 : L0s3r [Tank Gun] Lucron
+2013-08-15 22:52:32 : Mr. Camper [Assault Rifle] I'm a bot
+2013-08-15 22:52:39 : L0s3r [Tank Gun] Baby Soldat
+2013-08-15 22:52:40 : nameless n00b [Lightning Pistol] Mr. Camper
+2013-08-15 22:52:43 : Rix [Lacerator] Senior Roper
+2013-08-15 22:52:51 : L0s3r [Tank Gun] Ragebot
+2013-08-15 22:52:54 : Rix [Lacerator] Iplantbombgoboom
+2013-08-15 22:52:55 : Herr Boehme [Hyperblaster] Sweetie
+2013-08-15 22:53:01 : O'RLY [Lacerator] Tribal Lord
+2013-08-15 22:53:02 : WARNING: Thread 'sdScriptEntity_deployable_ssm_101': idPhysics_RigidBody::SetClipModel: unbalanced inertia tensor for entity 'idProjectile_RigidBody_projectile_deployable_ssm_86' type 'idProjectile_RigidBody'
+2013-08-15 22:53:04 : I'm a bot [Lacerator] Mr. BreakIt!
+2013-08-15 22:53:15 : Mr. Camper [Hammer] Lucron
+2013-08-15 22:53:15 : Mr. Camper [Hammer] Major Pain
+2013-08-15 22:53:15 : Mr. Camper [Hammer] Baby Soldat
+2013-08-15 22:53:18 : L0s3r [Tank Gun] I'm a bot
+2013-08-15 22:53:22 : I'm a bot [Violator] Mr. Camper
+2013-08-15 22:53:23 : L0s3r [Minigun] Berrett
+2013-08-15 22:53:31 : L0s3r [Tank Gun] shady character
+2013-08-15 22:53:39 : Ragebot [Lacerator] Mr. BreakIt!
+2013-08-15 22:53:41 : Herr Boehme [Hyperblaster] Happy Goon
+2013-08-15 22:53:41 : Happy Goon [Rocket Artillery] Lucron
+2013-08-15 22:53:42 : Tribal Lord [Rocket Launcher] Herr Boehme
+2013-08-15 22:53:46 : L0s3r [Tank Gun] Ragebot
+2013-08-15 22:53:49 : L0s3r [Tank Gun] Berrett
+2013-08-15 22:53:53 : Sweetie [Scoped Assault Rifle] Rix
+2013-08-15 22:53:54 : O'RLY [Lacerator] Tribal Lord
+2013-08-15 22:53:55 : Baby Soldat [Lacerator] Sweetie
+2013-08-15 22:54:05 : Major Pain [Assault Rifle] Baby Soldat
+2013-08-15 22:54:09 : Berrett [Lacerator] Iplantbombgoboom
+2013-08-15 22:54:14 : L0s3r [Tank Gun] I'm a bot
+2013-08-15 22:54:17 : L0s3r [Minigun] Lucron
+2013-08-15 22:54:17 : Herr Boehme [Hyperblaster] Major Pain
+2013-08-15 22:54:17 : Mr. BreakIt! [GPMG] Rix
+2013-08-15 22:54:17 : I'm a bot [Shrap Grenade] Mr. BreakIt!
+2013-08-15 22:54:25 : Happy Goon [Assault Rifle] nameless n00b
+2013-08-15 22:54:28 : L0s3r [Tank Gun] Baby Soldat
+2013-08-15 22:54:28 : Sweetie [Scoped Assault Rifle] Ragebot
+2013-08-15 22:54:30 : Tribal Lord [Rocket Launcher] Mr. Camper
+2013-08-15 22:54:43 : Iplantbombgoboom [Assault Rifle] Rix
+2013-08-15 22:54:46 : Berrett [Lacerator] Iplantbombgoboom
+2013-08-15 22:54:46 : Tribal Lord [Machine Pistol] Berrett
+2013-08-15 22:54:50 : Tribal Lord [Machine Pistol] O'RLY
+2013-08-15 22:54:51 : L0s3r [Tank Gun] Lucron
+2013-08-15 22:54:52 : Sweetie [Knife Backstab] Herr Boehme
+2013-08-15 22:54:53 : Baby Soldat [Proximity Mine] Tribal Lord
+2013-08-15 22:55:00 : Rix [Lacerator] Sweetie
+2013-08-15 22:55:00 : Major Pain [Assault Rifle] nameless n00b
+2013-08-15 22:55:01 : O'RLY [Lacerator] Major Pain
+2013-08-15 22:55:05 : O'RLY [Lacerator] Mr. BreakIt!
+2013-08-15 22:55:06 : O'RLY [Shrap Grenade] I'm a bot
+2013-08-15 22:55:12 : L0s3r [Tank Gun] Baby Soldat
+2013-08-15 22:55:15 : L0s3r [Tank Gun] Herr Boehme
+2013-08-15 22:55:18 : L0s3r [Tank Gun] Ragebot
+2013-08-15 22:55:28 : hitch (65 msec)
+2013-08-15 22:55:56 : client 0 
+2013-08-15 22:55:56 : Mr. BreakIt! 
+2013-08-15 22:55:56 : client 0 disconnected.
+2013-08-15 22:55:56 : client 1 
+2013-08-15 22:55:56 : Herr Boehme 
+2013-08-15 22:55:56 : client 1 disconnected.
+2013-08-15 22:55:56 : client 2 
+2013-08-15 22:55:56 : Berrett 
+2013-08-15 22:55:56 : client 2 disconnected.
+2013-08-15 22:55:56 : client 3 
+2013-08-15 22:55:56 : Iplantbombgoboom 
+2013-08-15 22:55:56 : client 3 disconnected.
+2013-08-15 22:55:56 : client 4 
+2013-08-15 22:55:56 : Major Pain 
+2013-08-15 22:55:56 : client 4 disconnected.
+2013-08-15 22:55:56 : client 5 
+2013-08-15 22:55:56 : Lucron 
+2013-08-15 22:55:56 : client 5 disconnected.
+2013-08-15 22:55:56 : client 6 
+2013-08-15 22:55:56 : nameless n00b 
+2013-08-15 22:55:56 : client 6 disconnected.
+2013-08-15 22:55:56 : client 7 
+2013-08-15 22:55:56 : L0s3r 
+2013-08-15 22:55:56 : client 7 disconnected.
+2013-08-15 22:55:56 : client 9 
+2013-08-15 22:55:56 : shady character 
+2013-08-15 22:55:56 : client 9 disconnected.
+2013-08-15 22:55:56 : client 10 
+2013-08-15 22:55:56 : Mr. Camper 
+2013-08-15 22:55:56 : client 10 disconnected.
+2013-08-15 22:55:56 : client 11 
+2013-08-15 22:55:56 : I'm a bot 
+2013-08-15 22:55:56 : client 11 disconnected.
+2013-08-15 22:55:56 : client 12 
+2013-08-15 22:55:56 : Tribal Lord 
+2013-08-15 22:55:56 : client 12 disconnected.
+2013-08-15 22:55:56 : client 13 
+2013-08-15 22:55:56 : Baby Soldat 
+2013-08-15 22:55:56 : client 13 disconnected.
+2013-08-15 22:55:56 : client 14 
+2013-08-15 22:55:56 : Ragebot 
+2013-08-15 22:55:56 : client 14 disconnected.
+2013-08-15 22:55:56 : client 15 
+2013-08-15 22:55:56 : Sweetie 
+2013-08-15 22:55:56 : client 15 disconnected.
+2013-08-15 22:55:56 : client 16 
+2013-08-15 22:55:56 : Senior Roper 
+2013-08-15 22:55:56 : client 16 disconnected.
+2013-08-15 22:55:56 : client 17 
+2013-08-15 22:55:56 : Rix 
+2013-08-15 22:55:56 : client 17 disconnected.
+2013-08-15 22:55:56 : client 18 
+2013-08-15 22:55:56 : O'RLY 
+2013-08-15 22:55:56 : client 18 disconnected.
+2013-08-15 22:55:56 : client 19 
+2013-08-15 22:55:56 : Happy Goon 
+2013-08-15 22:55:56 : client 19 disconnected.
+2013-08-15 22:55:56 : client 20 connected.
+2013-08-15 22:55:56 : --------- Game Map Shutdown ----------
+2013-08-15 22:55:56 : --------------------------------------
+2013-08-15 22:55:57 : --------- Map Initialization ---------
+2013-08-15 22:55:57 : Map: maps/valley.entities
+2013-08-15 22:55:58 : ----------- Game Map Init ------------
+2013-08-15 22:56:01 : found DLL in pak file: C:\Program Files (x86)\id Software\Enemy Territory - QUAKE Wars Lite Server\base\game000.pk4/compiledscriptx86.dll
+2013-08-15 22:56:01 : copy compiledscriptx86.dll to C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll
+2013-08-15 22:56:01 : Loaded 'C:\Users\User\AppData\Local\id Software\Enemy Territory - QUAKE Wars\serverlauncher\base\compiledscriptx86.dll'
+2013-08-15 22:56:01 :   266 classes
+2013-08-15 22:56:01 :   84 global functions
+2013-08-15 22:56:02 : ----------- Loading Map AAS ------------
+2013-08-15 22:56:02 : [Load AAS Binary]
+2013-08-15 22:56:02 : loading 'maps/valley.aas_playerb'
+2013-08-15 22:56:02 : [Load AAS Binary]
+2013-08-15 22:56:02 : loading 'maps/valley.aas_vehicleb'
+2013-08-15 22:56:03 : collision data:
+2013-08-15 22:56:03 :    129 models
+2013-08-15 22:56:03 : 255472 vertices (2993 kB)
+2013-08-15 22:56:03 : 403829 edges (7887 kB)
+2013-08-15 22:56:03 : 182770 polygons (11423 kB)
+2013-08-15 22:56:03 : 595667 polygon edges (1163 kB)
+2013-08-15 22:56:03 :   2798 brushes (87 kB)
+2013-08-15 22:56:03 :  16816 brush planes (262 kB)
+2013-08-15 22:56:03 :  86301 nodes (2359 kB)
+2013-08-15 22:56:03 : 386176 polygon refs (3017 kB)
+2013-08-15 22:56:03 :   3453 brush refs (26 kB)
+2013-08-15 22:56:03 : 103134 internal edges
+2013-08-15 22:56:03 :    851 sharp edges
+2013-08-15 22:56:03 :      0 contained polygons removed
+2013-08-15 22:56:03 :      0 polygons merged
+2013-08-15 22:56:03 :  29447 kB total memory used
+2013-08-15 22:56:03 : 587 msec to load collision data.
+2013-08-15 22:56:03 :     3 KB passage memory used to build PVS
+2013-08-15 22:56:03 :     4 msec to calculate PVS
+2013-08-15 22:56:03 :    54 areas
+2013-08-15 22:56:03 :   120 portals
+2013-08-15 22:56:03 :     7 areas visible on average
+2013-08-15 22:56:03 :   432 bytes PVS data
+2013-08-15 22:56:03 : Spawning entities
+2013-08-15 22:56:04 : ...991 entities spawned, 0 inhibited
+
+2013-08-15 22:56:04 : ----------- Loading Map Bot Actions ------------
+2013-08-15 22:56:04 : --------------------------------------
+2013-08-15 22:56:04 : ----- idRenderModelManagerLocal::EndLevelLoad -----
+2013-08-15 22:56:04 :     0 purged from previous
+2013-08-15 22:56:04 :  1550 kept from previous
+2013-08-15 22:56:04 :    76 new loaded
+2013-08-15 22:56:04 : all models loaded in   0.0 seconds
+2013-08-15 22:56:04 : ---------------------------------------------------
+2013-08-15 22:56:04 : -----------------------------------
+2013-08-15 22:56:04 :   6457 msec to load maps/valley.entities
+2013-08-15 22:56:05 : Loaded map in     8 seconds
+2013-08-15 22:56:05 : hitch (100 msec)
+2013-08-15 22:56:05 : client 8 connected.
+2013-08-15 22:56:05 : SpawnPlayer: 8
+2013-08-15 22:56:05 : n00bie entered the game.
+2013-08-15 22:56:05 : n00bie joined the GDF
+2013-08-15 22:56:05 : hitch (100 msec)
+2013-08-15 22:56:06 : hitch (100 msec)
+2013-08-15 22:56:08 : client 21 connected.
+2013-08-15 22:56:08 : SpawnPlayer: 21
+2013-08-15 22:56:08 : Jester entered the game.
+2013-08-15 22:56:08 : Jester joined the Strogg
+2013-08-15 22:56:11 : client 0 connected.
+2013-08-15 22:56:11 : SpawnPlayer: 0
+2013-08-15 22:56:11 : OMG - Hax! entered the game.
+2013-08-15 22:56:11 : OMG - Hax! joined the Strogg
+2013-08-15 22:56:14 : client 1 connected.
+2013-08-15 22:56:14 : SpawnPlayer: 1
+2013-08-15 22:56:14 : Lee entered the game.
+2013-08-15 22:56:14 : Lee joined the GDF
+2013-08-15 22:56:17 : client 2 connected.
+2013-08-15 22:56:17 : SpawnPlayer: 2
+2013-08-15 22:56:17 : SchlitzNTL entered the game.
+2013-08-15 22:56:17 : SchlitzNTL joined the GDF
+2013-08-15 22:56:17 : SpawnPlayer: 20
+2013-08-15 22:56:19 : Rukus entered the game.
+2013-08-15 22:56:20 : client 3 connected.
+2013-08-15 22:56:20 : SpawnPlayer: 3
+2013-08-15 22:56:20 : shady character entered the game.
+2013-08-15 22:56:20 : shady character joined the Strogg
+2013-08-15 22:56:23 : client 4 connected.
+2013-08-15 22:56:23 : SpawnPlayer: 4
+2013-08-15 22:56:23 : Old Man Frankie entered the game.
+2013-08-15 22:56:23 : Old Man Frankie joined the GDF
+2013-08-15 22:56:26 : client 5 connected.
+2013-08-15 22:56:26 : SpawnPlayer: 5
+2013-08-15 22:56:26 : Winslow entered the game.
+2013-08-15 22:56:26 : Winslow joined the Strogg
+2013-08-15 22:56:29 : client 6 connected.
+2013-08-15 22:56:29 : SpawnPlayer: 6
+2013-08-15 22:56:29 : PeerLess entered the game.
+2013-08-15 22:56:29 : PeerLess joined the Strogg
+2013-08-15 22:56:32 : client 7 connected.
+2013-08-15 22:56:32 : SpawnPlayer: 7
+2013-08-15 22:56:32 : Mr. FixIt! entered the game.
+2013-08-15 22:56:32 : Mr. FixIt! joined the GDF
+2013-08-15 22:56:35 : client 9 connected.
+2013-08-15 22:56:35 : SpawnPlayer: 9
+2013-08-15 22:56:35 : E.Z. Kill entered the game.
+2013-08-15 22:56:35 : E.Z. Kill joined the Strogg
+2013-08-15 22:56:38 : client 10 connected.
+2013-08-15 22:56:38 : SpawnPlayer: 10
+2013-08-15 22:56:38 : Otay! entered the game.
+2013-08-15 22:56:38 : Otay! joined the GDF
+2013-08-15 22:56:41 : client 11 connected.
+2013-08-15 22:56:41 : SpawnPlayer: 11
+2013-08-15 22:56:41 : Uncle Yuggles entered the game.
+2013-08-15 22:56:41 : Uncle Yuggles joined the GDF
+2013-08-15 22:56:42 : n00bie [Assault Rifle] Jester
+2013-08-15 22:56:44 : [GDF Base Defense Turret] OMG - Hax!
+2013-08-15 22:56:45 : client 12 connected.
+2013-08-15 22:56:45 : SpawnPlayer: 12
+2013-08-15 22:56:45 : El Stupido entered the game.
+2013-08-15 22:56:45 : El Stupido joined the Strogg
+2013-08-15 22:56:48 : client 13 connected.
+2013-08-15 22:56:48 : SpawnPlayer: 13
+2013-08-15 22:56:48 : K1M entered the game.
+2013-08-15 22:56:48 : K1M joined the Strogg
+2013-08-15 22:56:51 : client 14 connected.
+2013-08-15 22:56:51 : SpawnPlayer: 14
+2013-08-15 22:56:51 : Herr Boehme entered the game.
+2013-08-15 22:56:51 : Herr Boehme joined the GDF
+2013-08-15 22:56:54 : client 15 connected.
+2013-08-15 22:56:54 : SpawnPlayer: 15
+2013-08-15 22:56:54 : Bulazz entered the game.
+2013-08-15 22:56:54 : Bulazz joined the GDF
+2013-08-15 22:56:57 : n00bie [Pistol] shady character
+2013-08-15 22:56:57 : client 16 connected.
+2013-08-15 22:56:57 : SpawnPlayer: 16
+2013-08-15 22:56:57 : Mr. Camper entered the game.
+2013-08-15 22:56:57 : Mr. Camper joined the Strogg
+2013-08-15 22:56:57 : Lee [MG] Jester
+2013-08-15 22:56:58 : [Respawn] Mr. Camper
+2013-08-15 22:56:58 : Lee [MG] OMG - Hax!
+2013-08-15 22:56:59 : Mr. FixIt! [MG] Winslow
+2013-08-15 22:56:59 : client 17 connected.
+2013-08-15 22:56:59 : SpawnPlayer: 17
+2013-08-15 22:56:59 : Berrett entered the game.
+2013-08-15 22:56:59 : Berrett joined the Strogg
+2013-08-15 22:57:02 : E.Z. Kill [Violator] Uncle Yuggles
+2013-08-15 22:57:04 : E.Z. Kill [Lacerator] n00bie
+2013-08-15 22:57:04 : SchlitzNTL [Assault Rifle] E.Z. Kill
+2013-08-15 22:57:05 : E.Z. Kill [Violator] SchlitzNTL
+2013-08-15 22:57:11 : Old Man Frankie [Machine Pistol] El Stupido
+2013-08-15 22:57:23 : OMG - Hax! [Lacerator] Lee
+2013-08-15 22:57:27 : PeerLess [Railgun] Old Man Frankie
+2013-08-15 22:57:32 : Bulazz [Assault Rifle] Mr. Camper
+2013-08-15 22:57:36 : PeerLess [Railgun] Herr Boehme
+2013-08-15 22:57:38 : El Stupido [Lacerator] Bulazz
+2013-08-15 22:57:40 : SchlitzNTL [Assault Rifle] OMG - Hax!
+2013-08-15 22:57:40 : PeerLess [Railgun] SchlitzNTL
+2013-08-15 22:57:46 : n00bie [Assault Rifle] E.Z. Kill
+2013-08-15 22:57:50 : n00bie [Assault Rifle] Winslow
+2013-08-15 22:57:51 : PeerLess [Railgun] Lee
+2013-08-15 22:57:52 : n00bie [Assault Rifle] Jester
+2013-08-15 22:57:53 : [Tormentor] shady character
+2013-08-15 22:57:54 : El Stupido [Lacerator] n00bie
+2013-08-15 22:57:55 : Otay! [Tank Gun] Berrett
+2013-08-15 22:57:58 : Otay! [Tank Gun] Mr. Camper
+2013-08-15 22:57:58 : Herr Boehme [Assault Rifle] El Stupido
+2013-08-15 22:58:02 : Otay! [Tank Gun] Berrett
+2013-08-15 22:58:02 : Otay! [Tank Gun] Jester
+2013-08-15 22:58:06 : OMG - Hax! [Lacerator] Uncle Yuggles
+2013-08-15 22:58:08 : SchlitzNTL [Assault Rifle] OMG - Hax!
+2013-08-15 22:58:12 : Jester [Lacerator] Bulazz
+2013-08-15 22:58:13 : Mr. FixIt! [Sniper Rifle] K1M
+2013-08-15 22:58:13 : Otay! [Minigun] Winslow
+2013-08-15 22:58:15 : PeerLess [Flyer Drone] Herr Boehme
+2013-08-15 22:58:19 : E.Z. Kill [Violator] Berrett
+2013-08-15 22:58:19 : SchlitzNTL [Assault Rifle] E.Z. Kill
+2013-08-15 22:58:19 : E.Z. Kill [Violator] shady character
+2013-08-15 22:58:22 : E.Z. Kill [Violator] Mr. Camper
+2013-08-15 22:58:23 : E.Z. Kill [Violator] SchlitzNTL
+2013-08-15 22:58:24 : E.Z. Kill [Violator] Uncle Yuggles
+2013-08-15 22:58:24 : E.Z. Kill [Violator] Lee
+2013-08-15 22:58:34 : El Stupido [Lacerator] Jester
+2013-08-15 22:58:34 : El Stupido [Lacerator] Bulazz
+2013-08-15 22:58:35 : Otay! [Tank Gun] PeerLess
+2013-08-15 22:58:37 : Old Man Frankie [Armadillo] El Stupido
+2013-08-15 22:58:43 : n00bie [MG] OMG - Hax!
+2013-08-15 22:58:51 : El Stupido [Blaster] Old Man Frankie
+2013-08-15 22:58:51 : Uncle Yuggles [Assault Rifle] E.Z. Kill
+2013-08-15 22:58:51 : Otay! [Tank Gun] Winslow
+2013-08-15 22:58:52 : Uncle Yuggles [Assault Rifle] K1M
+2013-08-15 22:58:56 : Uncle Yuggles [Assault Rifle] Berrett
+2013-08-15 22:58:58 : Lee [Assault Rifle] shady character
+2013-08-15 22:59:12 : Jester [Stroybomb] n00bie
+2013-08-15 22:59:13 : SchlitzNTL [Assault Rifle] Jester
+2013-08-15 22:59:16 : Bulazz [Assault Rifle] Mr. Camper
+2013-08-15 22:59:17 : El Stupido [Lacerator] Otay!
+2013-08-15 22:59:18 : El Stupido [Lacerator] Bulazz
+2013-08-15 22:59:27 : Uncle Yuggles [Assault Rifle] OMG - Hax!
+2013-08-15 22:59:28 : K1M [Lacerator] Uncle Yuggles
+2013-08-15 22:59:31 : Berrett [Violator] Winslow
+2013-08-15 22:59:31 : Berrett [Lacerator] Herr Boehme
+2013-08-15 22:59:32 : Berrett [Violator] El Stupido
+2013-08-15 22:59:34 : Berrett [Violator] shady character
+2013-08-15 22:59:34 : Berrett [Lacerator] Lee
+2013-08-15 22:59:34 : Berrett [Violator] E.Z. Kill
+2013-08-15 22:59:42 : Mr. FixIt! [Armadillo] Mr. Camper
+2013-08-15 22:59:44 : Vehicle Explosion n00bie
+2013-08-15 22:59:47 : Herr Boehme [Pistol] K1M
+2013-08-15 22:59:53 : Berrett [Lacerator] Otay!
+2013-08-15 22:59:54 : OMG - Hax! [Lacerator] Mr. FixIt!
+2013-08-15 22:59:56 : shady character [Lacerator] SchlitzNTL
+2013-08-15 22:59:59 : El Stupido [Lacerator] Lee
+2013-08-15 23:00:05 : OMG - Hax! [Lacerator] n00bie
+2013-08-15 23:00:07 : shady character [Lacerator] Herr Boehme
+2013-08-15 23:00:08 : shady character [Lacerator] Uncle Yuggles
+2013-08-15 23:00:16 : Old Man Frankie [Armadillo] Herr Boehme
+2013-08-15 23:00:19 : [GDF Base Defense Turret] K1M
+2013-08-15 23:00:30 : SchlitzNTL [Assault Rifle] Mr. Camper
+2013-08-15 23:00:30 : SchlitzNTL [Assault Rifle] E.Z. Kill
+2013-08-15 23:00:35 : Jester [Lacerator] n00bie
+2013-08-15 23:00:36 : Old Man Frankie [MG] Jester
+2013-08-15 23:00:37 : Mr. FixIt! [AA Missile] PeerLess
+2013-08-15 23:00:38 : Old Man Frankie [MG] OMG - Hax!
+2013-08-15 23:00:40 : Herr Boehme [Tank Gun] El Stupido
+2013-08-15 23:00:41 : Mr. FixIt! [MG] shady character
+2013-08-15 23:00:43 : Winslow [Lightning Pistol] Uncle Yuggles
+2013-08-15 23:00:43 : Herr Boehme [Tank Gun] K1M
+2013-08-15 23:00:45 : Old Man Frankie [MG] Winslow
+2013-08-15 23:00:49 : Mr. FixIt! [MG] Mr. Camper
+2013-08-15 23:00:55 : Bulazz [Assault Rifle] E.Z. Kill
+2013-08-15 23:00:56 : Bulazz [Assault Rifle] OMG - Hax!
+2013-08-15 23:00:57 : Berrett [Violator] Old Man Frankie
+2013-08-15 23:01:00 : Berrett [Violator] SchlitzNTL
+2013-08-15 23:01:02 : Berrett [Violator] Bulazz
+2013-08-15 23:01:04 : Mr. FixIt! [MG] Jester
+2013-08-15 23:01:05 : n00bie [Assault Rifle] Berrett
+2013-08-15 23:01:06 : El Stupido [Blaster] Otay!
+2013-08-15 23:01:12 : n00bie [Assault Rifle] Mr. Camper
+2013-08-15 23:01:18 : Uncle Yuggles [Assault Rifle] El Stupido
+2013-08-15 23:01:18 : E.Z. Kill [Lacerator] n00bie
+2013-08-15 23:01:21 : shady character [Blaster] E.Z. Kill
+2013-08-15 23:01:22 : K1M [Blaster] Uncle Yuggles
+2013-08-15 23:01:22 : Herr Boehme [Tank Gun] OMG - Hax!
+2013-08-15 23:01:28 : Old Man Frankie [Machine Pistol] K1M
+2013-08-15 23:01:28 : Winslow [Lightning Pistol] Old Man Frankie
+2013-08-15 23:01:30 : Herr Boehme [Tank Gun] Winslow
+2013-08-15 23:01:36 : Otay! [Assault Rifle] shady character
+2013-08-15 23:01:37 : n00bie [Assault Rifle] Berrett
+2013-08-15 23:01:41 : Mr. FixIt! [AA Missile] Mr. Camper
+2013-08-15 23:01:43 : Mr. FixIt! [MG] El Stupido
+2013-08-15 23:01:49 : Jester [Lacerator] Otay!
+2013-08-15 23:01:51 : n00bie [Pistol] OMG - Hax!
+2013-08-15 23:01:52 : Mr. FixIt! [MG] E.Z. Kill
+2013-08-15 23:01:55 : SchlitzNTL [Assault Rifle] K1M
+2013-08-15 23:02:02 : Herr Boehme [Tank Gun] PeerLess
+2013-08-15 23:02:02 : Herr Boehme [Tank Gun] Berrett
+2013-08-15 23:02:02 : Herr Boehme [Tank Gun] shady character
+2013-08-15 23:02:03 : Uncle Yuggles [Assault Rifle] Jester
+2013-08-15 23:02:06 : Mr. Camper [Lightning Pistol] Uncle Yuggles
+2013-08-15 23:02:06 : Mr. Camper [Lightning Pistol] Lee
+2013-08-15 23:02:09 : Winslow [Lightning Pistol] n00bie
+2013-08-15 23:02:12 : Mr. FixIt! [MG] Mr. Camper
+2013-08-15 23:02:14 : OMG - Hax! [Lacerator] SchlitzNTL
+2013-08-15 23:02:15 : Otay! [Assault Rifle] K1M
+2013-08-15 23:02:16 : Bulazz [Assault Rifle] Winslow
+2013-08-15 23:02:18 : Old Man Frankie [Machine Pistol] E.Z. Kill
+2013-08-15 23:02:19 : Herr Boehme [Tank Gun] Berrett
+2013-08-15 23:02:22 : OMG - Hax! [Lacerator] Otay!
+2013-08-15 23:02:22 : El Stupido [Lacerator] Bulazz
+2013-08-15 23:02:26 : Mr. FixIt! [MG] El Stupido
+2013-08-15 23:02:28 : n00bie [Assault Rifle] Mr. FixIt!
+2013-08-15 23:02:29 : [Rocket Launcher] Old Man Frankie
+2013-08-15 23:02:31 : Uncle Yuggles [MG] shady character
+2013-08-15 23:02:32 : n00bie [Assault Rifle] OMG - Hax!
+2013-08-15 23:02:39 : Uncle Yuggles [MG] Jester
+2013-08-15 23:02:43 : Lee [Assault Rifle] K1M
+2013-08-15 23:02:44 : Lee [Assault Rifle] Berrett
+2013-08-15 23:02:45 : Otay! [Assault Rifle] E.Z. Kill
+2013-08-15 23:02:46 : Mr. Camper [Plasma Cannon] Lee
+2013-08-15 23:02:49 : Herr Boehme [Minigun] Mr. Camper
+2013-08-15 23:02:50 : SchlitzNTL [Assault Rifle] Winslow
+2013-08-15 23:02:53 : Bulazz [Assault Rifle] El Stupido
+2013-08-15 23:02:55 : Herr Boehme [Minigun] OMG - Hax!
+2013-08-15 23:02:56 : Uncle Yuggles [Assault Rifle] shady character
+2013-08-15 23:03:01 : Bulazz [Assault Rifle] Jester
+2013-08-15 23:03:04 : Herr Boehme [Tank Gun] Berrett
+2013-08-15 23:03:06 : Bulazz [Assault Rifle] K1M
+2013-08-15 23:03:09 : Mr. Camper [Lightning Pistol] Otay!
+2013-08-15 23:03:09 : OMG - Hax! [Blaster] n00bie
+2013-08-15 23:03:12 : Bulazz [Assault Rifle] E.Z. Kill
+2013-08-15 23:03:13 : El Stupido [Lacerator] Bulazz
+2013-08-15 23:03:14 : Mr. Camper [Lightning Pistol] SchlitzNTL
+2013-08-15 23:03:15 : PeerLess [Blaster] Uncle Yuggles
+2013-08-15 23:03:28 : Mr. FixIt! [MG] Jester
+2013-08-15 23:03:33 : Vehicle Explosion n00bie
+2013-08-15 23:03:36 : Otay! [Pistol] Winslow
+2013-08-15 23:03:37 : Mr. FixIt! [Silenced Pistol] K1M
+2013-08-15 23:03:39 : Herr Boehme [Minigun] Jester
+2013-08-15 23:03:40 : Otay! [Assault Rifle] shady character
+2013-08-15 23:03:43 : OMG - Hax! [Lacerator] Bulazz
+2013-08-15 23:03:50 : SchlitzNTL [MG] shady character
+2013-08-15 23:03:51 : Uncle Yuggles [Assault Rifle] E.Z. Kill
+2013-08-15 23:03:59 : Berrett [Lacerator] n00bie
+2013-08-15 23:04:02 : Uncle Yuggles [Assault Rifle] Berrett
+2013-08-15 23:04:05 : [Rocket Launcher] Old Man Frankie
+2013-08-15 23:04:09 : Jester [Lacerator] Uncle Yuggles
+2013-08-15 23:04:09 : Otay! [Assault Rifle] El Stupido
+2013-08-15 23:04:10 : Mr. Camper [Lightning Pistol] Bulazz
+2013-08-15 23:04:11 : SchlitzNTL [AA Missile] Winslow
+2013-08-15 23:04:12 : Otay! [Assault Rifle] OMG - Hax!
+2013-08-15 23:04:13 : Herr Boehme [Minigun] E.Z. Kill
+2013-08-15 23:04:18 : Otay! [Assault Rifle] Jester
+2013-08-15 23:04:18 : Winslow [Lightning Pistol] Mr. FixIt!
+2013-08-15 23:04:19 : Otay! [Assault Rifle] shady character
+2013-08-15 23:04:23 : PeerLess [Railgun] Lee
+2013-08-15 23:04:24 : Otay! [Assault Rifle] Mr. Camper
+2013-08-15 23:04:31 : Otay! [Assault Rifle] Winslow
+2013-08-15 23:04:33 : Old Man Frankie [Machine Pistol] El Stupido
+2013-08-15 23:04:38 : Bulazz [Assault Rifle] OMG - Hax!
+2013-08-15 23:04:38 : Jester [Lacerator] Old Man Frankie
+2013-08-15 23:04:40 : Bulazz [Assault Rifle] E.Z. Kill
+2013-08-15 23:04:41 : Jester [Lacerator] Bulazz
+2013-08-15 23:04:42 : Vehicle Explosion Mr. Camper
+2013-08-15 23:04:45 : PeerLess [Railgun] Herr Boehme
+2013-08-15 23:04:45 : Jester [Lacerator] Otay!
+2013-08-15 23:04:46 : E.Z. Kill [Violator] Jester
+2013-08-15 23:04:48 : Mr. FixIt! [Sniper Rifle] Winslow
+2013-08-15 23:04:48 : E.Z. Kill [Violator] Uncle Yuggles
+2013-08-15 23:04:51 : SchlitzNTL [MG] shady character
+2013-08-15 23:04:52 : SchlitzNTL [MG] Berrett
+2013-08-15 23:04:56 : Lee [MG] K1M
+2013-08-15 23:04:59 : Old Man Frankie [Machine Pistol] El Stupido
+2013-08-15 23:05:05 : Lee [MG] shady character
+2013-08-15 23:05:09 : SchlitzNTL [AA Missile] Mr. Camper
+2013-08-15 23:05:09 : Jester [Lacerator] Old Man Frankie
+2013-08-15 23:05:13 : Herr Boehme [Assault Rifle] OMG - Hax!
+2013-08-15 23:05:14 : PeerLess [Blaster] Uncle Yuggles
+2013-08-15 23:05:16 : n00bie [MG] El Stupido
+2013-08-15 23:05:16 : Bulazz [Assault Rifle] PeerLess
+2013-08-15 23:05:17 : Jester [Lacerator] Herr Boehme
+2013-08-15 23:05:18 : Winslow [Lightning Pistol] E.Z. Kill
+2013-08-15 23:05:19 : Jester [Lacerator] Bulazz
+2013-08-15 23:05:28 : OMG - Hax! [Lacerator] Mr. FixIt!
+2013-08-15 23:05:28 : OMG - Hax! [Lacerator] SchlitzNTL
+2013-08-15 23:05:29 : Otay! [Assault Rifle] Jester
+2013-08-15 23:05:30 : Berrett [Lacerator] Lee
+2013-08-15 23:05:33 : Winslow [Lightning Pistol] Otay!
+2013-08-15 23:05:39 : Old Man Frankie [Machine Pistol] OMG - Hax!
+2013-08-15 23:05:40 : shady character [Lacerator] Herr Boehme
+2013-08-15 23:05:42 : Berrett [Lacerator] n00bie
+2013-08-15 23:05:45 : Old Man Frankie [Machine Pistol] El Stupido
+2013-08-15 23:05:48 : PeerLess [Railgun] Uncle Yuggles
+2013-08-15 23:05:54 : Vehicle Explosion SchlitzNTL
+2013-08-15 23:05:55 : PeerLess [Railgun] Bulazz
+2013-08-15 23:05:57 : Old Man Frankie [MG] Jester
+2013-08-15 23:05:58 : Old Man Frankie [MG] Berrett
+2013-08-15 23:06:02 : PeerLess [Railgun] Old Man Frankie
+2013-08-15 23:06:06 : PeerLess [Railgun] Otay!
+2013-08-15 23:06:07 : n00bie [Assault Rifle] shady character
+2013-08-15 23:06:07 : Herr Boehme [Tank Gun] K1M
+2013-08-15 23:06:14 : SchlitzNTL [Assault Rifle] OMG - Hax!
+2013-08-15 23:06:19 : Lee [Husky] Mr. Camper
+2013-08-15 23:06:20 : Winslow [Lightning Pistol] Lee
+2013-08-15 23:06:26 : Jester [Lacerator] Uncle Yuggles
+2013-08-15 23:06:26 : Otay! [Assault Rifle] E.Z. Kill
+2013-08-15 23:06:33 : PeerLess [Railgun] SchlitzNTL
+2013-08-15 23:06:42 : OMG - Hax! [Lacerator] Otay!
+2013-08-15 23:06:44 : Jester [Lacerator] n00bie
+2013-08-15 23:06:46 : Mr. FixIt! [AA Missile] Berrett
+2013-08-15 23:06:49 : Herr Boehme [Tank Gun] El Stupido
+2013-08-15 23:06:49 : Herr Boehme [Tank Gun] K1M
+2013-08-15 23:06:50 : OMG - Hax! [Lacerator] Lee
+2013-08-15 23:06:53 : Uncle Yuggles [Pistol] Bulazz
+2013-08-15 23:06:55 : Herr Boehme [Tank Gun] shady character
+2013-08-15 23:07:01 : SchlitzNTL [Assault Rifle] Jester
+2013-08-15 23:07:02 : SchlitzNTL [Assault Rifle] OMG - Hax!
+2013-08-15 23:07:12 : SchlitzNTL [Assault Rifle] E.Z. Kill
+2013-08-15 23:07:15 : Berrett [Lacerator] Winslow
+2013-08-15 23:07:16 : Winslow [Obliterator] Mr. Camper
+2013-08-15 23:07:16 : Winslow [Obliterator] Old Man Frankie
+2013-08-15 23:07:17 : PeerLess [Railgun] Mr. FixIt!
+2013-08-15 23:07:20 : PeerLess [Railgun] K1M
+2013-08-15 23:07:26 : Otay! [Pistol] n00bie
+2013-08-15 23:07:28 : Berrett [Violator] shady character
+2013-08-15 23:07:30 : [Violator] Berrett
+2013-08-15 23:07:33 : PeerLess [Railgun] Otay!
+2013-08-15 23:07:34 : Berrett [Violator] OMG - Hax!
+2013-08-15 23:07:34 : Berrett [Violator] Jester
+2013-08-15 23:07:34 : Berrett [Violator] E.Z. Kill
+2013-08-15 23:07:42 : Mr. Camper [Lightning Pistol] Lee
+2013-08-15 23:07:54 : Mr. Camper [Hyperblaster] Mr. FixIt!
+2013-08-15 23:08:03 : [GDF Base Defense Turret] E.Z. Kill
+2013-08-15 23:08:06 : SchlitzNTL [Assault Rifle] Winslow
+2013-08-15 23:08:09 : Lee [MG] shady character
+2013-08-15 23:08:13 : Lee [MG] PeerLess
+2013-08-15 23:08:14 : Lee [MG] Jester
+2013-08-15 23:08:16 : Lee [MG] Berrett
+2013-08-15 23:08:23 : Lee [MG] OMG - Hax!
+2013-08-15 23:08:25 : Mr. Camper [Lightning Pistol] Lee
+2013-08-15 23:08:29 : Uncle Yuggles [Assault Rifle] El Stupido
+2013-08-15 23:08:31 : K1M [Plasma Cannon] Bulazz
+2013-08-15 23:08:32 : PeerLess [Railgun] Uncle Yuggles
+2013-08-15 23:08:34 : E.Z. Kill [Lacerator] Mr. Camper
+2013-08-15 23:08:39 : E.Z. Kill [Lacerator] Winslow
+2013-08-15 23:08:42 : Jester [Blaster] Old Man Frankie
+2013-08-15 23:08:46 : Mr. FixIt! [AA Missile] K1M
+2013-08-15 23:08:49 : Mr. FixIt! [MG] shady character
+2013-08-15 23:08:51 : Vehicle Explosion Lee
+2013-08-15 23:08:53 : Herr Boehme [Tank Gun] E.Z. Kill
+2013-08-15 23:08:53 : Herr Boehme [Tank Gun] Jester
+2013-08-15 23:08:58 : [Stroybomb] Winslow
+2013-08-15 23:08:59 : Otay! [Assault Rifle] OMG - Hax!
+2013-08-15 23:09:03 : Berrett [Lacerator] Uncle Yuggles
+2013-08-15 23:09:03 : Otay! [Assault Rifle] K1M
+2013-08-15 23:09:04 : Mr. FixIt! [MG] Mr. Camper
+2013-08-15 23:09:07 : Herr Boehme [Tank Gun] Berrett
+2013-08-15 23:09:08 : Bulazz [Assault Rifle] El Stupido
+2013-08-15 23:09:13 : Mr. FixIt! [MG] Winslow
+2013-08-15 23:09:21 : Mr. FixIt! [MG] PeerLess
+2013-08-15 23:09:26 : Lee [Assault Rifle] E.Z. Kill
+2013-08-15 23:09:28 : OMG - Hax! [Lacerator] Jester
+2013-08-15 23:09:30 : Mr. FixIt! [MG] Winslow
+2013-08-15 23:09:30 : Herr Boehme [Tank Gun] Mr. Camper
+2013-08-15 23:09:30 : Herr Boehme [Tank Gun] shady character
+2013-08-15 23:09:30 : Herr Boehme [Tank Gun] OMG - Hax!
+2013-08-15 23:09:35 : OMG - Hax! [Blaster] Winslow
+2013-08-15 23:09:36 : Herr Boehme [Tank Gun] El Stupido
+2013-08-15 23:09:47 : Mr. FixIt! [AA Missile] Jester
+2013-08-15 23:09:49 : OMG - Hax! [Blaster] E.Z. Kill
+2013-08-15 23:09:50 : Berrett [Lacerator] K1M
+2013-08-15 23:09:50 : Winslow [Shrap Grenade] Mr. FixIt!
+2013-08-15 23:09:50 : Winslow [Lightning Pistol] n00bie
+2013-08-15 23:09:55 : Berrett [Lacerator] Uncle Yuggles
+2013-08-15 23:09:56 : shady character [Lacerator] Bulazz
+2013-08-15 23:10:02 : Otay! [Assault Rifle] Mr. Camper
+2013-08-15 23:10:02 : El Stupido [Blaster] Otay!
+2013-08-15 23:10:05 : shady character [Lacerator] Lee
+2013-08-15 23:10:07 : SchlitzNTL [Knife] El Stupido
+2013-08-15 23:10:11 : shady character [Lacerator] SchlitzNTL
+2013-08-15 23:10:18 : [Stroybomb] K1M
+2013-08-15 23:10:20 : shady character [Lacerator] Old Man Frankie
+2013-08-15 23:10:22 : Jester [Lacerator] OMG - Hax!
+2013-08-15 23:10:23 : Jester [Lacerator] n00bie
+2013-08-15 23:10:27 : Bulazz [Assault Rifle] E.Z. Kill
+2013-08-15 23:10:30 : Jester [Lacerator] Otay!
+2013-08-15 23:10:33 : Mr. Camper [Hyperblaster] SchlitzNTL
+2013-08-15 23:10:38 : Mr. FixIt! [MG] PeerLess
+2013-08-15 23:10:42 : Mr. FixIt! [MG] K1M
+2013-08-15 23:10:45 : Old Man Frankie [MG] El Stupido
+2013-08-15 23:10:47 : Mr. Camper [Hyperblaster] Uncle Yuggles
+2013-08-15 23:10:47 : Mr. FixIt! [MG] shady character
+2013-08-15 23:10:48 : Herr Boehme [Tank Gun] Winslow
+2013-08-15 23:10:53 : Herr Boehme [Titan] SchlitzNTL
+2013-08-15 23:10:53 : Jester [Lacerator] Lee
+2013-08-15 23:10:53 : Jester [Lacerator] Mr. FixIt!
+2013-08-15 23:10:54 : E.Z. Kill [Lacerator] OMG - Hax!
+2013-08-15 23:10:56 : Otay! [Assault Rifle] Mr. Camper
+2013-08-15 23:10:57 : n00bie [Assault Rifle] Jester
+2013-08-15 23:10:58 : Herr Boehme [Tank Gun] E.Z. Kill
+2013-08-15 23:11:01 : Herr Boehme [Minigun] K1M
+2013-08-15 23:11:02 : Otay! [Assault Rifle] Berrett
+2013-08-15 23:11:05 : Herr Boehme [Tank Gun] Otay!
+2013-08-15 23:11:05 : Herr Boehme [Tank Gun] Bulazz
+2013-08-15 23:11:07 : PeerLess [Flyer Drone] n00bie
+2013-08-15 23:11:08 : Uncle Yuggles [Assault Rifle] El Stupido
+2013-08-15 23:11:16 : [Stroybomb] OMG - Hax!
+2013-08-15 23:11:21 : Mr. Camper [Lightning Pistol] Mr. FixIt!
+2013-08-15 23:11:21 : Herr Boehme [Tank Gun] Winslow
+2013-08-15 23:11:21 : Herr Boehme [Tank Gun] E.Z. Kill
+2013-08-15 23:11:21 : Herr Boehme [Tank Gun] Mr. Camper
+2013-08-15 23:11:21 : Herr Boehme [Tank Gun] Jester
+2013-08-15 23:11:27 : Old Man Frankie [Machine Pistol] shady character
+2013-08-15 23:11:32 : SchlitzNTL [Assault Rifle] K1M
+2013-08-15 23:11:35 : Herr Boehme [Tank Gun] El Stupido
+2013-08-15 23:11:41 : Mr. FixIt! [MG] Mr. Camper
+2013-08-15 23:11:43 : OMG - Hax! [Lacerator] Berrett
+2013-08-15 23:11:44 : Jester [Lacerator] Herr Boehme
+2013-08-15 23:11:49 : Mr. FixIt! [AA Missile] Winslow
+2013-08-15 23:11:55 : Old Man Frankie [Rocket Launcher] K1M
+2013-08-15 23:12:02 : shady character [Lacerator] n00bie
+2013-08-15 23:12:05 : OMG - Hax! [Lacerator] Mr. Camper
+2013-08-15 23:12:06 : Bulazz [Assault Rifle] OMG - Hax!
+2013-08-15 23:12:07 : Otay! [Assault Rifle] shady character
+2013-08-15 23:12:16 : Otay! [Assault Rifle] Berrett
+2013-08-15 23:12:17 : Otay! [Assault Rifle] Jester
+2013-08-15 23:12:19 : Herr Boehme [Assault Rifle] PeerLess
+2013-08-15 23:12:22 : Bulazz [Pistol] Lee
+2013-08-15 23:12:23 : Uncle Yuggles [MG] El Stupido
+2013-08-15 23:12:23 : Vehicle Explosion Otay!
+2013-08-15 23:12:23 : Vehicle Explosion Uncle Yuggles
+2013-08-15 23:12:27 : Mr. Camper [Stroybomb] Herr Boehme
+2013-08-15 23:12:34 : n00bie [Assault Rifle] shady character
+2013-08-15 23:12:37 : Old Man Frankie [Rocket Launcher] Winslow
+2013-08-15 23:12:41 : Herr Boehme [Armadillo] Otay!
+2013-08-15 23:12:42 : Berrett [Violator] El Stupido
+2013-08-15 23:12:42 : K1M [Lacerator] n00bie
+2013-08-15 23:12:43 : OMG - Hax! [Stroybomb] Old Man Frankie
+2013-08-15 23:12:44 : Old Man Frankie [Rocket Launcher] Berrett
+2013-08-15 23:12:45 : Jester [Lacerator] Bulazz
+2013-08-15 23:12:53 : Mr. FixIt! [MG] OMG - Hax!
+2013-08-15 23:13:02 : Mr. FixIt! [AA Missile] shady character
+2013-08-15 23:13:03 : Uncle Yuggles [Tank Gun] Jester
+2013-08-15 23:13:09 : Bulazz [Pistol] Mr. Camper
+2013-08-15 23:13:12 : Lee [Assault Rifle] El Stupido
+2013-08-15 23:13:18 : [Stroybomb] shady character
+2013-08-15 23:13:20 : Herr Boehme [MG] PeerLess
+2013-08-15 23:13:21 : Herr Boehme [MG] Berrett
+2013-08-15 23:13:24 : Jester [Stroybomb] Lee
+2013-08-15 23:13:29 : n00bie [Assault Rifle] OMG - Hax!
+2013-08-15 23:13:31 : Herr Boehme [Assault Rifle] E.Z. Kill
+2013-08-15 23:13:36 : Uncle Yuggles [Tank Gun] K1M
+2013-08-15 23:13:37 : El Stupido [Lacerator] Bulazz
+2013-08-15 23:13:38 : n00bie [Assault Rifle] El Stupido
+2013-08-15 23:13:45 : Berrett [Lacerator] n00bie
+2013-08-15 23:13:48 : Otay! [MG] shady character
+2013-08-15 23:13:50 : Otay! [MG] Mr. Camper
+2013-08-15 23:13:55 : OMG - Hax! [Blaster] Herr Boehme
+2013-08-15 23:14:00 : n00bie [MG] E.Z. Kill
+2013-08-15 23:14:01 : Old Man Frankie [Rocket Launcher] Jester
+2013-08-15 23:14:01 : El Stupido [Lacerator] Lee
+2013-08-15 23:14:03 : PeerLess [Railgun] Bulazz
+2013-08-15 23:14:04 : Otay! [MG] Winslow
+2013-08-15 23:14:05 : Otay! [MG] Mr. Camper
+2013-08-15 23:14:05 : PeerLess [Railgun] Mr. FixIt!
+2013-08-15 23:14:06 : Berrett [Lacerator] Otay!
+2013-08-15 23:14:14 : K1M [Strocket] El Stupido
+2013-08-15 23:14:14 : K1M [Strocket] OMG - Hax!
+2013-08-15 23:14:20 : n00bie [MG] shady character
+2013-08-15 23:14:22 : Uncle Yuggles [Tank Gun] Mr. Camper
+2013-08-15 23:14:38 : Otay! [Assault Rifle] E.Z. Kill
+2013-08-15 23:14:39 : Berrett [Violator] PeerLess
+2013-08-15 23:14:39 : Otay! [Assault Rifle] Winslow
+2013-08-15 23:14:41 : Uncle Yuggles [Tank Gun] El Stupido
+2013-08-15 23:14:41 : [Tank Gun] Uncle Yuggles
+2013-08-15 23:14:47 : Jester [Lacerator] Bulazz
+2013-08-15 23:14:47 : shady character [Lacerator] SchlitzNTL
+2013-08-15 23:14:50 : n00bie [Assault Rifle] OMG - Hax!
+2013-08-15 23:14:51 : Jester [Lacerator] n00bie
+2013-08-15 23:14:55 : Herr Boehme [Assault Rifle] E.Z. Kill
+2013-08-15 23:15:00 : Jester [Lacerator] Herr Boehme
+2013-08-15 23:15:07 : Lee [Assault Rifle] Jester
+2013-08-15 23:15:10 : Lee [Assault Rifle] Mr. Camper
+2013-08-15 23:15:11 : n00bie [Assault Rifle] Winslow
+2013-08-15 23:15:11 : Berrett [Lacerator] Lee
+2013-08-15 23:15:12 : El Stupido [Lacerator] Bulazz
+2013-08-15 23:15:17 : Mr. FixIt! [Armadillo] El Stupido
+2013-08-15 23:15:17 : SchlitzNTL [Assault Rifle] Berrett
+2013-08-15 23:15:21 : E.Z. Kill [Lacerator] Mr. FixIt!
+2013-08-15 23:15:21 : Herr Boehme [Pistol] Otay!
+2013-08-15 23:15:30 : Winslow [Lightning Pistol] Uncle Yuggles
+2013-08-15 23:15:33 : OMG - Hax! [Lacerator] Herr Boehme
+2013-08-15 23:15:35 : Lee [MG] OMG - Hax!
+2013-08-15 23:15:35 : Mr. Camper [Lightning Pistol] SchlitzNTL
+2013-08-15 23:15:38 : Berrett [Lacerator] Old Man Frankie
+2013-08-15 23:15:40 : Jester [Lacerator] n00bie
+2013-08-15 23:15:43 : El Stupido [Lacerator] Bulazz
+2013-08-15 23:15:51 : Lee [AA Missile] K1M
+2013-08-15 23:15:53 : n00bie [Assault Rifle] Jester
+2013-08-15 23:15:53 : E.Z. Kill [Lacerator] shady character
+2013-08-15 23:15:54 : Herr Boehme [Assault Rifle] El Stupido
+2013-08-15 23:15:55 : Mr. FixIt! [Armadillo] Uncle Yuggles
+2013-08-15 23:15:56 : Herr Boehme [Assault Rifle] E.Z. Kill
+2013-08-15 23:16:01 : n00bie [Assault Rifle] Mr. Camper
+2013-08-15 23:16:07 : Berrett [Violator] n00bie
+2013-08-15 23:16:08 : Berrett [Violator] SchlitzNTL
+2013-08-15 23:16:08 : Otay! [Pistol] Winslow
+2013-08-15 23:16:09 : Berrett [Violator] Lee
+2013-08-15 23:16:09 : Berrett [Violator] Mr. FixIt!
+2013-08-15 23:16:10 : Berrett [Violator] OMG - Hax!
+2013-08-15 23:16:13 : Berrett [Violator] E.Z. Kill
+2013-08-15 23:16:24 : PeerLess [Railgun] Bulazz
+2013-08-15 23:16:25 : Herr Boehme [Assault Rifle] Jester
+2013-08-15 23:16:25 : Old Man Frankie [Tank Gun] K1M
+2013-08-15 23:16:26 : PeerLess [Railgun] Otay!
+2013-08-15 23:16:27 : Berrett [Lacerator] Herr Boehme
+2013-08-15 23:16:30 : Lee [Assault Rifle] Mr. Camper
+2013-08-15 23:16:34 : Uncle Yuggles [Assault Rifle] El Stupido
+2013-08-15 23:16:38 : Berrett [Lacerator] Uncle Yuggles
+2013-08-15 23:16:38 : Old Man Frankie [Tank Gun] Berrett
+2013-08-15 23:16:38 : Old Man Frankie [Tank Gun] shady character
+2013-08-15 23:16:41 : n00bie [Assault Rifle] OMG - Hax!
+2013-08-15 23:16:42 : SchlitzNTL [MG] Jester
+2013-08-15 23:16:42 : n00bie [Assault Rifle] Winslow
+2013-08-15 23:16:43 : SchlitzNTL [MG] E.Z. Kill
+2013-08-15 23:16:45 : Old Man Frankie [Minigun] K1M
+2013-08-15 23:16:46 : K1M [Stroybomb] n00bie
+2013-08-15 23:16:53 : Herr Boehme [Assault Rifle] PeerLess
+2013-08-15 23:16:55 : Mr. FixIt! [Sniper Rifle] E.Z. Kill
+2013-08-15 23:16:56 : OMG - Hax! [Lacerator] SchlitzNTL
+2013-08-15 23:16:59 : shady character [Lacerator] Herr Boehme
+2013-08-15 23:17:01 : shady character [Lacerator] Lee
+2013-08-15 23:17:05 : Bulazz [Assault Rifle] El Stupido
+2013-08-15 23:17:07 : Uncle Yuggles [Assault Rifle] shady character
+2013-08-15 23:17:08 : K1M [Lacerator] Uncle Yuggles
+2013-08-15 23:17:09 : Otay! [Assault Rifle] K1M
+2013-08-15 23:17:10 : Winslow [Lightning Pistol] Otay!
+2013-08-15 23:17:10 : Bulazz [Pistol] Jester
+2013-08-15 23:17:11 : Winslow [Lightning Pistol] Bulazz
+2013-08-15 23:17:30 : OMG - Hax! [Lacerator] Herr Boehme
+2013-08-15 23:17:31 : E.Z. Kill [Lacerator] Mr. FixIt!
+2013-08-15 23:17:32 : Lee [Assault Rifle] Winslow
+2013-08-15 23:17:33 : Uncle Yuggles [Assault Rifle] Berrett
+2013-08-15 23:17:34 : Uncle Yuggles [Assault Rifle] SchlitzNTL
+2013-08-15 23:17:39 : Lee [Assault Rifle] OMG - Hax!
+2013-08-15 23:17:40 : Uncle Yuggles [Assault Rifle] K1M
+2013-08-15 23:17:42 : Lee [Assault Rifle] shady character
+2013-08-15 23:17:45 : Lee [Assault Rifle] E.Z. Kill
+2013-08-15 23:17:46 : Bulazz [Assault Rifle] Jester
+2013-08-15 23:17:57 : Herr Boehme [Assault Rifle] Berrett
+2013-08-15 23:17:58 : SchlitzNTL [Pistol] Uncle Yuggles
+2013-08-15 23:18:04 : Otay! [Assault Rifle] OMG - Hax!
+2013-08-15 23:18:08 : SchlitzNTL [Assault Rifle] shady character
+2013-08-15 23:18:08 : n00bie [MG] El Stupido
+2013-08-15 23:18:11 : K1M [Blaster] Mr. FixIt!
+2013-08-15 23:18:12 : n00bie [MG] PeerLess
+2013-08-15 23:18:13 : SchlitzNTL [Assault Rifle] E.Z. Kill
+2013-08-15 23:18:14 : n00bie [MG] K1M
+2013-08-15 23:18:16 : n00bie [MG] Jester
+2013-08-15 23:18:16 : Lee [Assault Rifle] Winslow
+2013-08-15 23:18:19 : Lee [Assault Rifle] Berrett
+2013-08-15 23:18:27 : Lee [Assault Rifle] Mr. Camper
+2013-08-15 23:18:28 : Bulazz [Assault Rifle] OMG - Hax!
+2013-08-15 23:18:29 : Otay! [Assault Rifle] shady character
+2013-08-15 23:18:31 : Uncle Yuggles [MG] El Stupido
+2013-08-15 23:18:36 : Bulazz [Assault Rifle] Jester
+2013-08-15 23:18:37 : SchlitzNTL [Assault Rifle] K1M
+2013-08-15 23:18:37 : PeerLess [Flyer Drone] Lee
+2013-08-15 23:18:38 : n00bie [MG] E.Z. Kill
+2013-08-15 23:18:41 : n00bie [MG] OMG - Hax!
+2013-08-15 23:18:42 : Old Man Frankie [Minigun] shady character
+2013-08-15 23:18:42 : n00bie [MG] Winslow
+2013-08-15 23:18:43 : Bulazz [Assault Rifle] Mr. Camper
+2013-08-15 23:18:44 : SchlitzNTL [Assault Rifle] Berrett
+2013-08-15 23:18:49 : E.Z. Kill [Blaster] SchlitzNTL
+2013-08-15 23:18:52 : client 20 Disconnected.
+2013-08-15 23:18:52 : Rukus Disconnected.
+2013-08-15 23:18:52 : client 20 disconnected.
+2013-08-15 23:18:52 : n00bie [MG] Jester
+2013-08-15 23:18:53 : client 18 connected.
+2013-08-15 23:18:53 : SpawnPlayer: 18
+2013-08-15 23:18:53 : Soulzen entered the game.
+2013-08-15 23:18:53 : Soulzen joined the GDF

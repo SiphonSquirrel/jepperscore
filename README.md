@@ -30,4 +30,4 @@ The main class is _jepperscore.jepperconsole.Main_ and takes the arguements: [Ac
 
 ### Battlefield 1942 Scraper
 
-The main class is _jepperscore.scraper.bf1942.Main_ and takes the arguements: [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [QueryPort]
+The main class is _jepperscore.scraper.bf1942.Main_ and takes the arguements: [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [Query Port]
