@@ -80,8 +80,8 @@ public class Play {
 
 			DateTime start = DateTime.now();
 
-			while (!xsr.hasNext()) {
-				if (xsr.nextTag() == XMLStreamConstants.START_ELEMENT) {
+			while (xsr.hasNext()) {
+				if (xsr.next() == XMLStreamConstants.START_ELEMENT) {
 					if (xsr.getLocalName().equals("recordingEntry")) {
 						RecordingEntry entry = (RecordingEntry) unmarshaller
 								.unmarshal(xsr);
@@ -108,14 +108,6 @@ public class Play {
 
 		} catch (JMSException | JAXBException | XMLStreamException e) {
 			throw new RuntimeException(e);
-		}
-
-		while (true) {
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// Do nothing.
-			}
 		}
 	}
 
