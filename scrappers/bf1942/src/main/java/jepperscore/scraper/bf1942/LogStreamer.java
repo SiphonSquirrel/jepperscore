@@ -270,6 +270,19 @@ public class LogStreamer implements Runnable {
 			Node child = childern.item(i);
 			if (child.getNodeType() == Node.TEXT_NODE) {
 				sb.append(child.getNodeValue());
+			} else if (child.getNodeType() == Node.ELEMENT_NODE) {
+				Element childElement = (Element) child;
+				if ("bf:nonprint".equals(childElement.getNodeName())) {
+					String charCodeStr = childElement.getFirstChild()
+							.getNodeValue();
+					try {
+						byte charCode = (byte) (Integer.parseInt(charCodeStr) & 0xFF);
+						sb.append(new String(new byte[] {charCode}, charset));
+					} catch (NumberFormatException e) {
+						LOG.error("Could not parse special character code as number: "
+								+ charCodeStr);
+					}
+				}
 			}
 		}
 		return sb.toString();
