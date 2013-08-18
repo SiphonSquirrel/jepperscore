@@ -86,6 +86,11 @@ public class PlayerManager {
 
 		if (!player.getId().isEmpty()) {
 			oldPlayer = getPlayer(player.getId(), false);
+
+			if (oldPlayer == null) {
+				oldPlayer = getPlayer(player.getId(), true);
+				changeDetected = true;
+			}
 		} else if (!player.getName().isEmpty()) {
 			for (Alias a : players.values()) {
 				if (player.getName().equals(a.getName())) {
@@ -165,7 +170,12 @@ public class PlayerManager {
 	 * @return The player.
 	 */
 	public synchronized Alias getPlayer(String id) {
-		return getPlayer(id, true);
+		Alias retVal = getPlayer(id, true);
+		if (retVal != null) {
+			return retVal.copy();
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -177,7 +187,7 @@ public class PlayerManager {
 	 *            True, to create the player if they do not yet exist.
 	 * @return The player.
 	 */
-	public synchronized Alias getPlayer(String id, boolean create) {
+	private synchronized Alias getPlayer(String id, boolean create) {
 		Alias player = players.get(roundPrefix + id);
 		if (player == null) {
 			player = players.get(id);
@@ -186,12 +196,9 @@ public class PlayerManager {
 			player = new Alias();
 			player.setId(roundPrefix + id);
 			players.put(roundPrefix + id, player);
+
 		}
-		if (player != null) {
-			return player.copy();
-		} else {
-			return null;
-		}
+		return player;
 	}
 
 	/**
