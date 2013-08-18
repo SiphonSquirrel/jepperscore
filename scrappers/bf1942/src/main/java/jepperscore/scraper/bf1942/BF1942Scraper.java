@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.TreeSet;
 
@@ -16,9 +15,7 @@ import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.Topic;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.dao.model.Alias;
@@ -26,12 +23,15 @@ import jepperscore.dao.model.Round;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.transport.TransportMessage;
+import jepperscore.scraper.common.MessageUtil;
+import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 import jepperscore.scraper.common.query.QueryClient;
 import jepperscore.scraper.common.query.QueryClientListener;
 import jepperscore.scraper.common.query.gamespy.GamespyQueryClient;
+import jepperscore.scraper.common.rcon.RconClient;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
@@ -66,68 +66,39 @@ public class BF1942Scraper implements Scraper, Runnable {
 		 */
 		public BF1942InfoQueryListener() throws JMSException {
 			producer = session.createProducer(eventTopic);
-
 		}
 
 		@Override
 		public void queryClient(QueryCallbackInfo info) {
-			try {
-				Marshaller marshaller = jaxbContext.createMarshaller();
-
-				ServerMetadata serverMetadata = info.getServerMetadata();
-				if (serverMetadata != null) {
-					TransportMessage transport = new TransportMessage();
-					transport.setServerMetadata(serverMetadata);
-					sendMessage(marshaller, transport);
-				}
-
-				Round r = info.getRound();
-				if (r != null) {
-					TransportMessage transport = new TransportMessage();
-					transport.setRound(r);
-
-					sendMessage(marshaller, transport);
-				}
-
-				for (Alias player : info.getPlayers()) {
-					TransportMessage transport = new TransportMessage();
-					transport.setAlias(player);
-
-					sendMessage(marshaller, transport);
-				}
-
-				for (Score score : info.getScores()) {
-					TransportMessage transport = new TransportMessage();
-					transport.setScore(score);
-
-					sendMessage(marshaller, transport);
-				}
-			} catch (JAXBException e) {
-				LOG.error(e.getMessage(), e);
+			ServerMetadata serverMetadata = info.getServerMetadata();
+			if (serverMetadata != null) {
+				TransportMessage transport = new TransportMessage();
+				transport.setServerMetadata(serverMetadata);
+				MessageUtil.sendMessage(producer, session, transport);
 			}
 
-		}
+			Round r = info.getRound();
+			if (r != null) {
+				TransportMessage transport = new TransportMessage();
+				transport.setRound(r);
 
-		/**
-		 * This function sends a message to ActiveMQ.
-		 *
-		 * @param marshaller
-		 *            The marshaller to use.
-		 * @param transportMessage
-		 *            The message to send.
-		 */
-		private void sendMessage(Marshaller marshaller,
-				TransportMessage transportMessage) {
-			try {
-				StringWriter writer = new StringWriter();
-				marshaller.marshal(transportMessage, writer);
+				MessageUtil.sendMessage(producer, session, transport);
+			}
 
-				producer.send(session.createTextMessage(writer.toString()));
-			} catch (JMSException | JAXBException e) {
-				LOG.error(e.getMessage(), e);
+			for (Alias player : info.getPlayers()) {
+				TransportMessage transport = new TransportMessage();
+				transport.setAlias(player);
+
+				MessageUtil.sendMessage(producer, session, transport);
+			}
+
+			for (Score score : info.getScores()) {
+				TransportMessage transport = new TransportMessage();
+				transport.setScore(score);
+
+				MessageUtil.sendMessage(producer, session, transport);
 			}
 		}
-
 	}
 
 	/**
@@ -142,14 +113,14 @@ public class BF1942Scraper implements Scraper, Runnable {
 	public static final int DEFAULT_QUERY_PORT = 22000;
 
 	/**
-	 * The JAXB context.
+	 * The default RCON port.
 	 */
-	private final JAXBContext jaxbContext;
+	public static final int DEFAULT_RCON_PORT = 4711;
 
 	/**
 	 * The status of the scraper.
 	 */
-	private ScraperStatus status = ScraperStatus.NotRunning;
+	private volatile ScraperStatus status = ScraperStatus.NotRunning;
 
 	/**
 	 * The log directory to watch.
@@ -179,67 +150,69 @@ public class BF1942Scraper implements Scraper, Runnable {
 	/**
 	 * The ActiveMQ connection.
 	 */
-	private Connection conn;
+	private final Connection conn;
 
 	/**
 	 * The ActiveMQ session.
 	 */
-	private Session session;
+	private final Session session;
 
 	/**
 	 * The ActiveMQ topic.
 	 */
-	private Topic eventTopic;
+	private final Topic eventTopic;
+
+	/**
+	 * The player manager to use.
+	 */
+	private PlayerManager playerManager;
+
+	/**
+	 * The RCON client to use.
+	 */
+	private RconClient rconClient;
 
 	/**
 	 * This constructor sets the log directory, the host & the query port.
 	 *
 	 * @param activeMqConnection
 	 *            The connection string to use for ActiveMQ.
-	 * @param logDirectory
+	 * @param modDirectory
 	 *            The directory containing the log files.
 	 * @param host
 	 *            The hostname of the server.
 	 * @param queryPort
 	 *            The query port of the server.
+	 * @param rconPort
+	 *            The RCON port of the server.
+	 * @param rconUser
+	 *            The RCON username to login with.
+	 * @param rconPassword
+	 *            The RCON password to login with.
 	 * @throws JMSException
 	 *             When a problem occurs connecting to ActiveMQ.
 	 * @throws JAXBException
 	 *             When a problem setting up the JAXB Context.
 	 */
 	public BF1942Scraper(@Nonnull String activeMqConnection,
-			@Nonnull String logDirectory, @Nonnull String host,
-			@Nonnegative int queryPort) throws JMSException, JAXBException {
-		this.logDirectory = logDirectory;
+			@Nonnull String modDirectory, @Nonnull String host,
+			@Nonnegative int queryPort, @Nonnegative int rconPort,
+			@Nonnull String rconUser, @Nonnull String rconPassword)
+			throws JMSException, JAXBException {
+		this.logDirectory = modDirectory + "/Logs";
 		this.host = host;
 		this.queryPort = queryPort;
-
-		jaxbContext = JAXBContext.newInstance(TransportMessage.class);
 
 		ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
 				activeMqConnection);
 		conn = cf.createConnection();
 		conn.start();
-	}
 
-	/**
-	 * This constructor sets the log directory and host (query port is default).
-	 *
-	 * @param activeMqConnection
-	 *            The connection string to use for ActiveMQ.
-	 * @param logDirectory
-	 *            The directory containing the log files.
-	 * @param host
-	 *            The hostname of the server.
-	 * @throws JMSException
-	 *             When a problem occurs connecting to ActiveMQ.
-	 * @throws JAXBException
-	 *             When a problem setting up the JAXB Context.
-	 */
-	public BF1942Scraper(@Nonnull String activeMqConnection,
-			@Nonnull String logDirectory, @Nonnull String host)
-			throws JMSException, JAXBException {
-		this(activeMqConnection, logDirectory, host, DEFAULT_QUERY_PORT);
+		session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
+		eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+
+		rconClient = new BF1942RconClient(host, rconPort, rconUser,
+				rconPassword);
 	}
 
 	@Override
@@ -251,6 +224,22 @@ public class BF1942Scraper implements Scraper, Runnable {
 	public synchronized void start() {
 		if (thread == null) {
 			status = ScraperStatus.Initializing;
+
+			if (!new File(logDirectory).exists()) {
+				LOG.error("Log directory does not exist.");
+				status = ScraperStatus.InError;
+				return;
+			}
+
+			try {
+				playerManager = new PlayerManager(session,
+						session.createProducer(eventTopic));
+			} catch (JMSException e) {
+				LOG.error(e.getMessage(), e);
+				status = ScraperStatus.InError;
+				return;
+			}
+
 			try {
 				LOG.info("Starting query client on {}:{}", new Object[] { host,
 						queryPort });
@@ -261,9 +250,6 @@ public class BF1942Scraper implements Scraper, Runnable {
 				return;
 			}
 			try {
-				session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-				eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
-
 				BF1942InfoQueryListener queryListener = new BF1942InfoQueryListener();
 				queryClient.registerListener("info", queryListener);
 				queryClient.registerListener("players", queryListener);
@@ -302,42 +288,110 @@ public class BF1942Scraper implements Scraper, Runnable {
 	@Override
 	public void run() {
 		status = ScraperStatus.AllData;
-
 		File dir = new File(logDirectory);
-
 		File lastLog = null;
+		InputStream is = null;
+		Thread logThread = null;
 
-		while (thread == Thread.currentThread()) {
-			TreeSet<File> logFiles = new TreeSet<File>(Arrays.asList(dir
-					.listFiles(new FilenameFilter() {
-						@Override
-						public boolean accept(File file, String s) {
-							return s.startsWith("ev_") && s.endsWith(".xml");
+		try {
+			while (thread == Thread.currentThread()) {
+				if (logThread == null) {
+					TreeSet<File> logFiles = new TreeSet<File>(
+							Arrays.asList(dir.listFiles(new FilenameFilter() {
+								@Override
+								public boolean accept(File file, String s) {
+									return s.startsWith("ev_")
+											&& s.endsWith(".xml");
+								}
+							})));
+
+					if (!logFiles.isEmpty()) {
+						File logFile = logFiles.last();
+						if (!logFile.equals(lastLog)) {
+							lastLog = logFile;
+
+							LOG.info("Now watching log file {}",
+									new Object[] { logFile.getAbsolutePath() });
+
+							try {
+								is = new FileInputStream(logFile);
+								LogStreamer streamer = new LogStreamer(is,
+										session,
+										session.createProducer(eventTopic),
+										playerManager);
+
+								logThread = new Thread(streamer);
+								logThread.setDaemon(true);
+								logThread.start();
+							} catch (IOException | JMSException e) {
+								LOG.error(e.getMessage(), e);
+							}
+						} else {
+							try {
+								Thread.sleep(500);
+							} catch (InterruptedException e) {
+								break;
+							}
 						}
-					})));
-
-			if (!logFiles.isEmpty()) {
-				File logFile = logFiles.last();
-				if (!logFile.equals(lastLog)) {
-					lastLog = logFile;
-
-					LOG.info("Opening log file {}", new Object[] { logFile.getAbsolutePath() });
-
-					try (InputStream is = new FileInputStream(logFile)) {
-						LogStreamer streamer = new LogStreamer(is, session,
-								session.createProducer(eventTopic));
-						streamer.run();
-					} catch (IOException | JMSException e) {
-						LOG.error(e.getMessage(), e);
 					}
+				}
 
-					LOG.info("Closing log file {}", new Object[] { logFile.getAbsolutePath() });
-				} else {
+				if (logThread != null) {
 					try {
-						Thread.sleep(500);
+						logThread.join(1000);
 					} catch (InterruptedException e) {
-						break;
+						stop();
 					}
+
+					if (!logThread.isAlive()) {
+						logThread = null;
+					}
+				}
+
+				String[] playersResult = rconClient
+						.sendCommand("game.listPlayers");
+				if (playersResult == null) {
+					LOG.warn("Unable to fetch player list from RCON.");
+				} else if (playersResult.length != 1) {
+					LOG.warn("Unexpected result from fetch player list from RCON.");
+				} else {
+					String[] lines = playersResult[0].split("\n");
+					for (String line : lines) {
+						if (!line.startsWith("Id:")) {
+							LOG.warn("Did not understand RCON line: " + line);
+							continue;
+						}
+
+						int pos = line.indexOf(' ');
+						if (pos < 0) {
+							LOG.warn("Did not understand RCON line: " + line);
+							continue;
+						}
+						String id = line.substring(3, pos);
+
+						int pos2 = line.indexOf(" is remote ");
+						if (pos2 < 0) {
+							LOG.warn("Did not understand RCON line: " + line);
+							continue;
+						}
+
+						String name = line.substring(pos + 3, pos2);
+
+						Alias player = new Alias();
+						player.setId(id);
+						player.setName(name);
+						player.setBot(line.contains("is an AI bot"));
+
+						playerManager.providePlayerRecord(player);
+					}
+				}
+			}
+		} finally {
+			if (is != null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+					// Do nothing.
 				}
 			}
 		}

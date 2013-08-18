@@ -12,48 +12,50 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.joda.time.DateTime;
 
 /**
- * This class represents an event (player score, team score, player leave/join, team membership change, etc.
+ * This class represents an event (player score, team score, player leave/join,
+ * team membership change, etc.
+ *
  * @author Chuck
  *
  */
-@XmlRootElement(name="event")
+@XmlRootElement(name = "event")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Event {
 
 	/**
 	 * The timestamp of the event.
 	 */
-	@XmlAttribute(required=true)
+	@XmlAttribute(required = true)
 	private DateTime timestamp;
 
 	/**
 	 * The victim of the event.
 	 */
-	@XmlElement(required=false)
+	@XmlElement(required = false)
 	private Alias victim;
 
 	/**
 	 * The attacker of the event.
 	 */
-	@XmlElement(required=false)
+	@XmlElement(required = false)
 	private Alias attacker;
 
 	/**
 	 * The text of the event.
 	 */
-	@XmlElement(required=false)
+	@XmlElement(required = false)
 	private String eventText;
 
 	/**
 	 * The event code.
 	 */
-	@XmlElement(required=false)
+	@XmlElement(required = false)
 	private EventCode eventCode;
 
 	/**
 	 * The round the event is associated with.
 	 */
-	@XmlElement(required=false)
+	@XmlElement(required = false)
 	private Round round;
 
 	/**
@@ -66,7 +68,9 @@ public class Event {
 
 	/**
 	 * Sets the event timestamp.
-	 * @param timestamp When the event happened.
+	 *
+	 * @param timestamp
+	 *            When the event happened.
 	 */
 	public void setTimestamp(@Nonnull DateTime timestamp) {
 		this.timestamp = timestamp;
@@ -82,7 +86,9 @@ public class Event {
 
 	/**
 	 * Sets the player who the event happened to.
-	 * @param victim The player who the event happened to.
+	 *
+	 * @param victim
+	 *            The player who the event happened to.
 	 */
 	public void setVictim(@Nullable Alias victim) {
 		this.victim = victim;
@@ -98,7 +104,9 @@ public class Event {
 
 	/**
 	 * Sets the player who caused the event.
-	 * @param attacker The player who started the event.
+	 *
+	 * @param attacker
+	 *            The player who started the event.
 	 */
 	public void setAttacker(@Nullable Alias attacker) {
 		this.attacker = attacker;
@@ -117,7 +125,9 @@ public class Event {
 
 	/**
 	 * Sets the event text associated with the event.
-	 * @param eventText The event text.
+	 *
+	 * @param eventText
+	 *            The event text.
 	 */
 	public void setEventText(@Nullable String eventText) {
 		this.eventText = eventText;
@@ -133,7 +143,9 @@ public class Event {
 
 	/**
 	 * Sets the event code for the event.
-	 * @param eventCode The event code to set.
+	 *
+	 * @param eventCode
+	 *            The event code to set.
 	 */
 	public void setEventCode(@Nullable EventCode eventCode) {
 		this.eventCode = eventCode;
@@ -141,6 +153,7 @@ public class Event {
 
 	/**
 	 * The round associated with the event.
+	 *
 	 * @return The round.
 	 */
 	@Nonnull
@@ -150,7 +163,9 @@ public class Event {
 
 	/**
 	 * Sets the round associated with the event.
-	 * @param round The round.
+	 *
+	 * @param round
+	 *            The round.
 	 */
 	public void setRound(@Nonnull Round round) {
 		this.round = round;
@@ -163,12 +178,15 @@ public class Event {
 	public String getParsedEventText() {
 		String text = getEventText();
 
-		if (getAttacker() != null) {
-			text = text.replaceAll("\\{attacker\\}", getAttacker().getName());
+		Alias attacker = getAttacker();
+		Alias victim = getVictim();
+
+		if (attacker != null) {
+			text = text.replaceAll("\\{attacker\\}", attacker.getName());
 		}
 
-		if (getVictim() != null) {
-			text = text.replaceAll("\\{victim\\}", getVictim().getName());
+		if (victim != null) {
+			text = text.replaceAll("\\{victim\\}", victim.getName());
 		}
 
 		return text;

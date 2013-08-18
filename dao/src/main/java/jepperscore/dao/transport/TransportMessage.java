@@ -14,6 +14,7 @@ import jepperscore.dao.model.Event;
 import jepperscore.dao.model.Round;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
+import jepperscore.dao.model.Team;
 
 /**
  * This class provides the XML message for sending events or alias across the
@@ -51,13 +52,20 @@ public class TransportMessage {
 	private Score score;
 
 	/**
+	 * Team of the message.
+	 */
+	private Team team;
+
+	/**
 	 * @return The message content.
 	 */
-	@XmlElements(value = { @XmlElement(name = "serverMetadata", type = ServerMetadata.class),
+	@XmlElements(value = {
+			@XmlElement(name = "serverMetadata", type = ServerMetadata.class),
 			@XmlElement(name = "round", type = Round.class),
 			@XmlElement(name = "event", type = Event.class),
 			@XmlElement(name = "alias", type = Alias.class),
-			@XmlElement(name = "score", type = Score.class) })
+			@XmlElement(name = "score", type = Score.class),
+			@XmlElement(name = "team", type = Team.class) })
 	@CheckForNull
 	public Object getMessageContent() {
 		if (getServerMetadata() != null) {
@@ -70,6 +78,8 @@ public class TransportMessage {
 			return alias;
 		} else if (score != null) {
 			return score;
+		} else if (getTeam() != null) {
+			return getTeam();
 		} else {
 			return null;
 		}
@@ -92,6 +102,8 @@ public class TransportMessage {
 			alias = (Alias) content;
 		} else if (content instanceof Score) {
 			score = (Score) content;
+		} else if (content instanceof Team) {
+			setTeam((Team) content);
 		}
 	}
 
@@ -103,7 +115,8 @@ public class TransportMessage {
 	}
 
 	/**
-	 * @param serverMetadata The server metadata to set.
+	 * @param serverMetadata
+	 *            The server metadata to set.
 	 */
 	public void setServerMetadata(ServerMetadata serverMetadata) {
 		this.serverMetadata = serverMetadata;
@@ -171,5 +184,20 @@ public class TransportMessage {
 	 */
 	public void setScore(@Nullable Score score) {
 		this.score = score;
+	}
+
+	/**
+	 * @return The team.
+	 */
+	public Team getTeam() {
+		return team;
+	}
+
+	/**
+	 * @param team
+	 *            The team to set.
+	 */
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 }

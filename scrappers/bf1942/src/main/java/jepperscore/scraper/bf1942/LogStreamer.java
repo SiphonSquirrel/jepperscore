@@ -3,20 +3,13 @@ package jepperscore.scraper.bf1942;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.nio.charset.StandardCharsets;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
-import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,7 +18,10 @@ import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.EventCode;
 import jepperscore.dao.model.Score;
+import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
+import jepperscore.scraper.common.MessageUtil;
+import jepperscore.scraper.common.PlayerManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,11 +66,6 @@ public class LogStreamer implements Runnable {
 	private MessageProducer producer;
 
 	/**
-	 * The JAXB Context for marshalling {@link TransportMessage}.
-	 */
-	private JAXBContext jaxbContext;
-
-	/**
 	 * The {@link Charset} of the file.
 	 */
 	private Charset charset;
@@ -90,14 +81,9 @@ public class LogStreamer implements Runnable {
 	private boolean done = false;
 
 	/**
-	 * This holds the UUID for the round.
+	 * The player manager.
 	 */
-	private String sessionUUID = "";
-
-	/**
-	 * Players discovered so far this match.
-	 */
-	private Map<String, Alias> players = new HashMap<String, Alias>();
+	private PlayerManager playerManager;
 
 	/**
 	 * This constructor points the log streamer at a log file.
@@ -108,24 +94,21 @@ public class LogStreamer implements Runnable {
 	 *            The ActiveMQ {@link Session} to use.
 	 * @param producer
 	 *            The ActiveMQ {@link MessageProducer} to use.
+	 * @param playerManager
+	 *            The {@link PlayerManager} to use.
 	 */
 	public LogStreamer(@Nonnull InputStream stream, @Nonnull Session session,
-			@Nonnull MessageProducer producer) {
+			@Nonnull MessageProducer producer, PlayerManager playerManager) {
 		this.stream = stream;
 		this.session = session;
 		this.producer = producer;
-		this.charset = Charset.forName("iso-8859-1");
+		this.playerManager = playerManager;
+		this.charset = StandardCharsets.ISO_8859_1;
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		try {
 			dbBuilder = dbFactory.newDocumentBuilder();
 		} catch (ParserConfigurationException e) {
-			LOG.error(e.getMessage(), e);
-		}
-
-		try {
-			this.jaxbContext = JAXBContext.newInstance(TransportMessage.class);
-		} catch (JAXBException e) {
 			LOG.error(e.getMessage(), e);
 		}
 	}
@@ -249,8 +232,10 @@ public class LogStreamer implements Runnable {
 
 				switch (element.getNodeName()) {
 				case "bf:round":
-					players.clear();
-					sessionUUID = UUID.randomUUID().toString();
+					playerManager.newRound();
+					// We will also want to parse any child elements, as they
+					// can get hidden on first run.
+					parseEvents(element);
 					break;
 
 				case "bf:server":
@@ -269,26 +254,6 @@ public class LogStreamer implements Runnable {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Searches the player map for the passed id.
-	 *
-	 * @param id
-	 *            The id to search for.
-	 * @return The player.
-	 */
-	@Nonnull
-	private Alias getPlayer(@Nonnull String id) {
-		Alias retVal = players.get(id);
-
-		if (retVal == null) {
-			retVal = new Alias();
-			retVal.setId(sessionUUID + "-bot-" + id);
-			retVal.setName("Bot " + id);
-		}
-
-		return retVal;
 	}
 
 	/**
@@ -369,25 +334,6 @@ public class LogStreamer implements Runnable {
 	}
 
 	/**
-	 * This function sends a message to ActiveMQ.
-	 *
-	 * @param transportMessage
-	 *            The message to send.
-	 */
-	private void sendMessage(TransportMessage transportMessage) {
-		try {
-			Marshaller marshaller = jaxbContext.createMarshaller();
-
-			StringWriter writer = new StringWriter();
-			marshaller.marshal(transportMessage, writer);
-
-			producer.send(session.createTextMessage(writer.toString()));
-		} catch (JMSException | JAXBException e) {
-			LOG.error(e.getMessage(), e);
-		}
-	}
-
-	/**
 	 * This function handles the parsed events.
 	 *
 	 * @param eventElement
@@ -400,7 +346,31 @@ public class LogStreamer implements Runnable {
 		EventCode eventCode = new EventCode();
 
 		switch (eventType) {
-		case "scoreEvent":
+		case "createPlayer": {
+			String playerId = getEventParameter(eventElement, "player_id");
+			String playerName = getEventParameter(eventElement, "name");
+			String team = getEventParameter(eventElement, "team");
+
+			if ((playerId != null) && (playerName != null) && (team != null)) {
+				Alias newPlayer = new Alias();
+				newPlayer.setId(playerId);
+				newPlayer.setBot(false);
+				newPlayer.setName(playerName);
+				if ("0".equals(team)) {
+					newPlayer.setTeam(new Team(BF1942Constants.ALLIED_TEAM));
+				} else if ("1".equals(team)) {
+					newPlayer.setTeam(new Team(BF1942Constants.AXIS_TEAM));
+				} else {
+					LOG.warn("Unrecognized team: " + team);
+				}
+
+				playerManager.providePlayerRecord(newPlayer);
+			}
+
+			break;
+		}
+
+		case "scoreEvent": {
 			newEvent = new Event();
 
 			String attackerId = getEventParameter(eventElement, "player_id");
@@ -412,11 +382,11 @@ public class LogStreamer implements Runnable {
 			}
 
 			if (attackerId != null) {
-				newEvent.setAttacker(getPlayer(attackerId));
+				newEvent.setAttacker(playerManager.getPlayer(attackerId));
 			}
 
 			if (victimId != null) {
-				newEvent.setVictim(getPlayer(victimId));
+				newEvent.setVictim(playerManager.getPlayer(victimId));
 			}
 			switch (scoreType) {
 			case "TK":
@@ -430,8 +400,7 @@ public class LogStreamer implements Runnable {
 				if (scoreType.equals("TK")) {
 					prefix = "TK:";
 					eventCode.setCode("teamkill");
-				}
-				else {
+				} else {
 					eventCode.setCode("kill");
 				}
 
@@ -463,10 +432,44 @@ public class LogStreamer implements Runnable {
 			}
 
 			break;
+		}
+
+		// We don't really care what kit, but we can use this information to
+		// determine the team of bots.
+		case "pickupKit": {
+			String playerId = getEventParameter(eventElement, "player_id");
+			String kit = getEventParameter(eventElement, "kit");
+			if ((playerId == null) || (kit == null)) {
+				break;
+			}
+
+			Alias player = playerManager.getPlayer(playerId);
+			if (player == null) {
+				break;
+			}
+
+			if (player.getTeam() != null) {
+				break;
+			}
+
+			kit = kit.toUpperCase();
+
+			if (kit.startsWith("GB") || kit.startsWith("US")
+					|| kit.startsWith("RU")) {
+				player.setTeam(new Team(BF1942Constants.ALLIED_TEAM));
+			} else if (kit.startsWith("GE") || kit.startsWith("JA")) {
+				player.setTeam(new Team(BF1942Constants.AXIS_TEAM));
+			} else {
+				LOG.warn("Unknown kit: " + kit);
+				break;
+			}
+
+			playerManager.providePlayerRecord(player);
+			break;
+		}
 
 		case "roundInit":
 		case "spawnEvent":
-		case "pickupKit":
 		case "beginMedPack":
 		case "endMedPack":
 		case "enterVehicle":
@@ -484,7 +487,7 @@ public class LogStreamer implements Runnable {
 			TransportMessage transportMessage = new TransportMessage();
 			transportMessage.setEvent(newEvent);
 
-			sendMessage(transportMessage);
+			MessageUtil.sendMessage(producer, session, transportMessage);
 		}
 	}
 
@@ -504,23 +507,30 @@ public class LogStreamer implements Runnable {
 
 				if ("bf:playerstat".equals(element.getNodeName())) {
 					String playerId = element.getAttribute("playerid");
-					Alias player = getPlayer(playerId);
-					player.setName(getRoundStatsParameter(element, "name"));
+					String name = getRoundStatsParameter(element, "name");
 
-					String scoreString = getRoundStatsParameter(element,
-							"score");
+					if ((playerId != null) && (name != null)) {
+						Alias player = new Alias();
+						player.setId(playerId);
+						player.setName(name);
+						playerManager.providePlayerRecord(player);
 
-					if (scoreString != null) {
-						float scoreValue = Float.parseFloat(scoreString);
+						String scoreString = getRoundStatsParameter(element,
+								"score");
 
-						Score score = new Score();
-						score.setAlias(player);
-						score.setScore(scoreValue);
+						if (scoreString != null) {
+							float scoreValue = Float.parseFloat(scoreString);
 
-						TransportMessage transportMessage = new TransportMessage();
-						transportMessage.setScore(score);
+							Score score = new Score();
+							score.setAlias(player);
+							score.setScore(scoreValue);
 
-						sendMessage(transportMessage);
+							TransportMessage transportMessage = new TransportMessage();
+							transportMessage.setScore(score);
+
+							MessageUtil.sendMessage(producer, session,
+									transportMessage);
+						}
 					}
 				}
 			}

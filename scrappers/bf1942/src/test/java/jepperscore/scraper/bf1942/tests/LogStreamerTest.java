@@ -1,9 +1,9 @@
 /**
- * 
+ *
  */
 package jepperscore.scraper.bf1942.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.OutputStreamWriter;
 import java.io.PipedInputStream;
@@ -21,6 +21,7 @@ import javax.jms.Topic;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.scraper.bf1942.LogStreamer;
+import jepperscore.scraper.common.PlayerManager;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.junit.After;
@@ -29,7 +30,7 @@ import org.junit.Test;
 
 /**
  * @author Chuck
- * 
+ *
  */
 public class LogStreamerTest {
 
@@ -55,7 +56,7 @@ public class LogStreamerTest {
 
 	/**
 	 * This function sets up an embedded version of ActiveMQ for testing.
-	 * 
+	 *
 	 * @throws Exception
 	 *             If something goes wrong in the setup.
 	 */
@@ -72,7 +73,7 @@ public class LogStreamerTest {
 
 	/**
 	 * This function tears down the embedded version of ActiveMQ.
-	 * 
+	 *
 	 * @throws Exception
 	 *             If something goes wrong in the tear down.
 	 */
@@ -83,27 +84,29 @@ public class LogStreamerTest {
 
 	/**
 	 * Test method for {@link jepperscore.scraper.bf1942.LogStreamer}.
-	 * 
+	 *
 	 * @throws Exception
 	 *             If a problem occurs during the test.
 	 */
 	@Test
 	public void testLogStreamer() throws Exception {
 		final List<Message> messages = new LinkedList<Message>();
-		
+
 		PipedOutputStream os = new PipedOutputStream();
 		PipedInputStream is = new PipedInputStream(os, 1024 * 1024);
 
 		MessageConsumer consumer = session.createConsumer(eventTopic);
 		consumer.setMessageListener(new MessageListener() {
-			
+
 			@Override
 			public void onMessage(Message message) {
 				messages.add(message);
 			}
 		});
-		
-		LogStreamer ls = new LogStreamer(is, session, session.createProducer(eventTopic));
+
+		PlayerManager playerManager = new PlayerManager(session, session.createProducer(eventTopic));
+
+		LogStreamer ls = new LogStreamer(is, session, session.createProducer(eventTopic), playerManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 
@@ -257,8 +260,8 @@ public class LogStreamerTest {
 		writer.write("</bf:log>");
 		writer.flush();
 		Thread.sleep(500);
-		
-		assertEquals("Incorrect message count", 1, messages.size());
+
+		assertEquals("Unexpected message count", 2, messages.size());
 	}
 
 }

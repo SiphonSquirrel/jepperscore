@@ -5,6 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -70,7 +71,7 @@ public class GamespyQueryClient extends AbstractQueryClient {
 		address = InetAddress.getByName(host);
 		socket = new DatagramSocket();
 
-		setCharset(Charset.forName("UTF-8"));
+		setCharset(StandardCharsets.UTF_8);
 	}
 
 	@Override
