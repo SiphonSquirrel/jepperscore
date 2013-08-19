@@ -6,6 +6,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.TreeSet;
 
 import javax.annotation.Nonnegative;
@@ -19,9 +20,11 @@ import javax.xml.bind.JAXBException;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.dao.model.Alias;
+import jepperscore.dao.model.Game;
 import jepperscore.dao.model.Round;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
+import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.PlayerManager;
@@ -75,6 +78,65 @@ public class BF1942Scraper implements Scraper, Runnable {
 				TransportMessage transport = new TransportMessage();
 				transport.setServerMetadata(serverMetadata);
 				MessageUtil.sendMessage(producer, session, transport);
+
+				Map<String, String> metadata = serverMetadata.getMetadata();
+				if (metadata != null) {
+					String gametype = metadata.get("gametype");
+					String axisTicketsStr = metadata.get("tickets1");
+					String alliedTicketsStr = metadata.get("tickets2");
+
+					Game game = new Game();
+					game.setName(BF1942Constants.GAME_NAME);
+					game.setMod("");
+					game.setGametype(gametype);
+
+					Round round = new Round();
+					round.setGame(game);
+
+					TransportMessage roundTransport = new TransportMessage();
+					roundTransport.setRound(round);
+
+					MessageUtil.sendMessage(producer, session, roundTransport);
+
+					if (axisTicketsStr != null) {
+						try {
+							float axisTickets = Float
+									.parseFloat(axisTicketsStr);
+
+							Team axisTeam = new Team();
+							axisTeam.setTeamName(BF1942Constants.AXIS_TEAM);
+							axisTeam.setScore(axisTickets);
+
+							TransportMessage ticketsTransport = new TransportMessage();
+							ticketsTransport.setTeam(axisTeam);
+
+							MessageUtil.sendMessage(producer, session,
+									ticketsTransport);
+						} catch (NumberFormatException e) {
+							// Do nothing.
+						}
+					}
+
+					if (alliedTicketsStr != null) {
+						try {
+							float alliedTickets = Float
+									.parseFloat(alliedTicketsStr);
+
+							Team alliedTeam = new Team();
+							alliedTeam.setTeamName(BF1942Constants.ALLIED_TEAM);
+							alliedTeam.setScore(alliedTickets);
+
+							TransportMessage ticketsTransport = new TransportMessage();
+							ticketsTransport.setTeam(alliedTeam);
+
+							MessageUtil.sendMessage(producer, session,
+									ticketsTransport);
+						} catch (NumberFormatException e) {
+							// Do nothing.
+						}
+					}
+
+				}
 			}
 
 			Round r = info.getRound();
@@ -243,7 +305,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 			try {
 				LOG.info("Starting query client on {}:{}", new Object[] { host,
 						queryPort });
-				queryClient = new GamespyQueryClient(host, queryPort);
+				queryClient = new GamespyQueryClient(host, queryPort,
+						playerManager);
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
 				status = ScraperStatus.InError;

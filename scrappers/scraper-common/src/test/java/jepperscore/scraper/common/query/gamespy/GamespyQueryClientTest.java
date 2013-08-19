@@ -120,7 +120,7 @@ public class GamespyQueryClientTest {
 		gotReponse = false;
 
 		final GamespyQueryClient queryClient = new GamespyQueryClient(
-				"localhost", server.getPort());
+				"localhost", server.getPort(), null);
 		queryClient.registerListener("info", new QueryClientListener() {
 
 			@Override

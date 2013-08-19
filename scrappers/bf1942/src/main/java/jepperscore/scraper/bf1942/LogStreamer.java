@@ -369,10 +369,10 @@ public class LogStreamer implements Runnable {
 				newPlayer.setId(playerId);
 				newPlayer.setBot(false);
 				newPlayer.setName(playerName);
-				if ("0".equals(team)) {
-					newPlayer.setTeam(new Team(BF1942Constants.ALLIED_TEAM));
-				} else if ("1".equals(team)) {
+				if ("1".equals(team)) {
 					newPlayer.setTeam(new Team(BF1942Constants.AXIS_TEAM));
+				} else if ("2".equals(team)) {
+					newPlayer.setTeam(new Team(BF1942Constants.ALLIED_TEAM));
 				} else {
 					LOG.warn("Unrecognized team: " + team);
 				}

@@ -169,7 +169,8 @@ public class Main implements MessageListener {
 	 *            The score.
 	 */
 	private void handleScore(@Nonnull Score score) {
-
+		LOG.info("Got score for " + score.getAlias().getName() + " of "
+				+ score.getScore());
 	}
 
 	/**
@@ -179,7 +180,11 @@ public class Main implements MessageListener {
 	 *            The round.
 	 */
 	private void handleRound(@Nonnull Round round) {
-
+		if (round.getGame() != null) {
+			LOG.info("Got round update for game " + round.getGame().getName()
+					+ " (with mod: " + round.getGame().getMod()
+					+ ") and gametype: " + round.getGame().getGametype());
+		}
 	}
 
 	/**
@@ -220,7 +225,8 @@ public class Main implements MessageListener {
 	 *            The team.
 	 */
 	private void handleTeam(@Nonnull Team team) {
-
+		LOG.info("Got team update for " + team.getTeamName() + " with score "
+				+ team.getScore());
 	}
 
 }
