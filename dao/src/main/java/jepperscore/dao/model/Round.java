@@ -92,4 +92,18 @@ public class Round {
 		this.game = game;
 	}
 
+	/**
+	 * @return The map.
+	 */
+	public String getMap() {
+		return map;
+	}
+
+	/**
+	 * @param map The map.
+	 */
+	public void setMap(String map) {
+		this.map = map;
+	}
+
 }

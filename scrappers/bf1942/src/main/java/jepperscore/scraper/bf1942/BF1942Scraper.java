@@ -84,6 +84,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 					String gametype = metadata.get("gametype");
 					String axisTicketsStr = metadata.get("tickets1");
 					String alliedTicketsStr = metadata.get("tickets2");
+					String map = metadata.get("mapname");
 
 					Game game = new Game();
 					game.setName(BF1942Constants.GAME_NAME);
@@ -92,6 +93,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 					Round round = new Round();
 					round.setGame(game);
+					round.setMap(map);
 
 					TransportMessage roundTransport = new TransportMessage();
 					roundTransport.setRound(round);
