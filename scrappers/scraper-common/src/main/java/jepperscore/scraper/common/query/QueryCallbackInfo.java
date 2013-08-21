@@ -1,5 +1,6 @@
 package jepperscore.scraper.common.query;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class QueryCallbackInfo {
 	/**
 	 * Any players.
 	 */
-	private List<Alias> players = new LinkedList<Alias>();
+	private Collection<Alias> players = new LinkedList<Alias>();
 
 	/**
 	 * Any scores.
@@ -69,7 +70,7 @@ public class QueryCallbackInfo {
 	/**
 	 * @return The list of players.
 	 */
-	public List<Alias> getPlayers() {
+	public Collection<Alias> getPlayers() {
 		return players;
 	}
 
@@ -77,7 +78,7 @@ public class QueryCallbackInfo {
 	 * Sets the list of players.
 	 * @param players The list of players.
 	 */
-	public void setPlayers(List<Alias> players) {
+	public void setPlayers(Collection<Alias> players) {
 		this.players = players;
 	}
 
