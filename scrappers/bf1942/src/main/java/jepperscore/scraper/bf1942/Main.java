@@ -1,7 +1,6 @@
 package jepperscore.scraper.bf1942;
 
 import javax.jms.JMSException;
-import javax.xml.bind.JAXBException;
 
 import jepperscore.scraper.common.ScraperStatus;
 
@@ -15,16 +14,20 @@ public class Main {
 
 	/**
 	 * The main function.
-	 * @param args [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [Query Port] [RCON Port] [RCON Username] [RCON Password]
+	 * 
+	 * @param args
+	 *            [Active MQ Connection String] [BF 1942 Mod Directory]
+	 *            [Hostname] [Query Port] [RCON Port] [RCON Username] [RCON
+	 *            Password]
 	 */
 	public static void main(String[] args) {
 		if (args.length != 7) {
-			throw new RuntimeException("Incorrect arguments! Need [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [Query Port] [RCON Port] [RCON Username] [RCON Password]");
+			throw new RuntimeException("Incorrect arguments! Need [Active MQ Connection String] [BF 1942 Mod Directory] [Hostname] [Query Port] [RCON Port] [RCON Username] [RCON Password]");
 
 		}
 
 		String activeMqConnection = args[0];
-		String logDirectory = args[1];
+		String modDirectory = args[1];
 		String host = args[2];
 		int queryPort = 0; //3
 		int rconPort = 0; //4
@@ -49,7 +52,7 @@ public class Main {
 
 		try {
 			BF1942Scraper scraper = new BF1942Scraper(activeMqConnection,
-					logDirectory, host, queryPort, rconPort, rconUser, rconPassword);
+					modDirectory, host, queryPort, rconPort, rconUser, rconPassword);
 
 			scraper.start();
 			do {
@@ -59,7 +62,7 @@ public class Main {
 					break;
 				}
 			} while (scraper.getStatus() != ScraperStatus.NotRunning);
-		} catch (JMSException | JAXBException e) {
+		} catch (JMSException e) {
 			System.err.println(e.getMessage());
 		}
 	}

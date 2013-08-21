@@ -16,7 +16,6 @@ import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.Topic;
-import javax.xml.bind.JAXBException;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.dao.model.Alias;
@@ -237,7 +236,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 	private RconClient rconClient;
 
 	/**
-	 * This constructor sets the log directory, the host & the query port.
+	 * This constructor sets up to BF1942 scraper.
 	 *
 	 * @param activeMqConnection
 	 *            The connection string to use for ActiveMQ.
@@ -255,14 +254,12 @@ public class BF1942Scraper implements Scraper, Runnable {
 	 *            The RCON password to login with.
 	 * @throws JMSException
 	 *             When a problem occurs connecting to ActiveMQ.
-	 * @throws JAXBException
-	 *             When a problem setting up the JAXB Context.
 	 */
 	public BF1942Scraper(@Nonnull String activeMqConnection,
 			@Nonnull String modDirectory, @Nonnull String host,
 			@Nonnegative int queryPort, @Nonnegative int rconPort,
 			@Nonnull String rconUser, @Nonnull String rconPassword)
-			throws JMSException, JAXBException {
+			throws JMSException {
 		this.logDirectory = modDirectory + "/Logs";
 		this.host = host;
 		this.queryPort = queryPort;
