@@ -15,7 +15,7 @@ public class Main {
 
 	/**
 	 * The main function.
-	 * @param args [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [QueryPort]
+	 * @param args [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [Query Port] [RCON Port] [RCON Username] [RCON Password]
 	 */
 	public static void main(String[] args) {
 		if (args.length != 7) {

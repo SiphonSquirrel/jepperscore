@@ -6,14 +6,24 @@ JepperScore is a realtime LAN party scoreboard and statistic collector. It relie
 Game Support
 ------------
 
-1.  Battlefield 1942 - WIP
+**Supported:**
+ * [BattleField 1942](https://github.com/SiphonSquirrel/jepperscore/wiki/BattleField-1942)
+
+**Planned:**
+ * BattleField 2
+ * Call of Duty 4
+ * Enemy Territory : Quake Wars
+ * UT2004
+ * RTCW : Enemy Territory
+
+See [Game Support](https://github.com/SiphonSquirrel/jepperscore/wiki/Game-Support) in online manual for more information.
 
 Building
 --------
 
-*  Install Maven 3 --> [Maven 3.0.5](https://maven.apache.org/docs/3.0.5/release-notes.html)
-*  Clone project --> git clone https://github.com/SiphonSquirrel/jepperscore.git
-*  Run Maven --> mvn package
+ *  Install Maven 3 --> [Maven 3.0.5](https://maven.apache.org/docs/3.0.5/release-notes.html)
+ *  Clone project --> git clone https://github.com/SiphonSquirrel/jepperscore.git
+ *  Run Maven --> mvn package
 
 Running
 -------
@@ -24,10 +34,10 @@ Running
 
 **Note 3:** The [Active MQ Connection String] parameter can usually be set to --> tcp://ActiveMQHostName:61616
 
+### Games
+
+Please see page for game
+
 ### JepperConsole
 
 The main class is _jepperscore.jepperconsole.Main_ and takes the arguements: [Active MQ Connection String]
-
-### Battlefield 1942 Scraper
-
-The main class is _jepperscore.scraper.bf1942.Main_ and takes the arguements: [Active MQ Connection String] [BF 1942 Log Directory] [Hostname] [Query Port]
