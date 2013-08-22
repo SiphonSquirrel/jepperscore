@@ -264,6 +264,15 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 		rconClient = new BF1942RconClient(host, rconPort, rconUser,
 				rconPassword);
+
+		try {
+			playerManager = new PlayerManager(session,
+					session.createProducer(eventTopic));
+		} catch (JMSException e) {
+			LOG.error(e.getMessage(), e);
+			status = ScraperStatus.InError;
+			return;
+		}
 	}
 
 	@Override
@@ -276,17 +285,10 @@ public class BF1942Scraper implements Scraper, Runnable {
 		if (thread == null) {
 			status = ScraperStatus.Initializing;
 
+			playerManager.newRound();
+
 			if (!new File(logDirectory).exists()) {
 				LOG.error("Log directory does not exist.");
-				status = ScraperStatus.InError;
-				return;
-			}
-
-			try {
-				playerManager = new PlayerManager(session,
-						session.createProducer(eventTopic));
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
 				status = ScraperStatus.InError;
 				return;
 			}

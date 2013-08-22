@@ -146,6 +146,9 @@ public class GamespyQueryClient extends AbstractQueryClient {
 			case "players":
 				info = handlePlayers(messageArray);
 				break;
+			default:
+				LOG.error("Unsure how to handle query type: " + queryType);
+				break;
 			}
 
 			if (info != null) {

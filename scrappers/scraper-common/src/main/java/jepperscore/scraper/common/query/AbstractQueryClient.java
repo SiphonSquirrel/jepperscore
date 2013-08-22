@@ -3,6 +3,8 @@ package jepperscore.scraper.common.query;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.annotation.Nonnull;
+
 /**
  * This class works as a base class for query clients.
  *
@@ -43,13 +45,13 @@ public abstract class AbstractQueryClient implements QueryClient, Runnable {
 	}
 
 	@Override
-	public synchronized void registerListener(String queryType,
-			QueryClientListener listener) {
+	public synchronized void registerListener(@Nonnull String queryType,
+			@Nonnull QueryClientListener listener) {
 		listeners.put(queryType, listener);
 	}
 
 	@Override
-	public synchronized void unregisterListener(String queryType) {
+	public synchronized void unregisterListener(@Nonnull String queryType) {
 		listeners.remove(queryType);
 	}
 
@@ -69,7 +71,7 @@ public abstract class AbstractQueryClient implements QueryClient, Runnable {
 	 * @param queryType
 	 *            The type of query to do.
 	 */
-	protected abstract void query(String queryType);
+	protected abstract void query(@Nonnull String queryType);
 
 	/**
 	 * Makes callbacks to all registered {@link QueryClientListener}.
@@ -79,8 +81,8 @@ public abstract class AbstractQueryClient implements QueryClient, Runnable {
 	 * @param info
 	 *            The info sent to all registered listeners.
 	 */
-	protected synchronized void makeCallbacks(String queryType,
-			QueryCallbackInfo info) {
+	protected synchronized void makeCallbacks(@Nonnull String queryType,
+			@Nonnull QueryCallbackInfo info) {
 		QueryClientListener listener = listeners.get(queryType);
 		if (listener != null) {
 			listener.queryClient(info);

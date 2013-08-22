@@ -2,7 +2,6 @@ package jepperscore.scraper.common.query;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Round;
@@ -11,9 +10,9 @@ import jepperscore.dao.model.ServerMetadata;
 
 /**
  * This class contains the callback infomation for query clients.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class QueryCallbackInfo {
 
@@ -35,7 +34,7 @@ public class QueryCallbackInfo {
 	/**
 	 * Any scores.
 	 */
-	private List<Score> scores = new LinkedList<Score>();
+	private Collection<Score> scores = new LinkedList<Score>();
 
 	/**
 	 * @return The server metadata.
@@ -85,7 +84,7 @@ public class QueryCallbackInfo {
 	/**
 	 * @return The list of scores.
 	 */
-	public List<Score> getScores() {
+	public Collection<Score> getScores() {
 		return scores;
 	}
 
@@ -93,7 +92,7 @@ public class QueryCallbackInfo {
 	 * Sets the scores.
 	 * @param scores The scores.
 	 */
-	public void setScores(List<Score> scores) {
+	public void setScores(Collection<Score> scores) {
 		this.scores = scores;
 	}
 

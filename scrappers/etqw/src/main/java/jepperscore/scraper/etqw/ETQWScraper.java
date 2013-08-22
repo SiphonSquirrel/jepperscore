@@ -2,6 +2,7 @@ package jepperscore.scraper.etqw;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -12,13 +13,16 @@ import javax.jms.Session;
 import javax.jms.Topic;
 
 import jepperscore.dao.DaoConstant;
+import jepperscore.dao.model.Score;
+import jepperscore.dao.transport.TransportMessage;
+import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
-import jepperscore.scraper.common.query.QueryClient;
 import jepperscore.scraper.common.query.QueryClientListener;
 import jepperscore.scraper.common.query.idtech.IdTech4QueryClient;
+import jepperscore.scraper.common.query.idtech.IdTechScoreMode;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
@@ -56,8 +60,14 @@ public class ETQWScraper implements Scraper, Runnable {
 
 		@Override
 		public void queryClient(QueryCallbackInfo info) {
-			// TODO Auto-generated method stub
-
+			Collection<Score> scores = info.getScores();
+			if (scores != null) {
+				for (Score s : scores) {
+					TransportMessage transportMessage = new TransportMessage();
+					transportMessage.setScore(s);
+					MessageUtil.sendMessage(producer, session, transportMessage);
+				}
+			}
 		}
 
 	}
@@ -96,7 +106,7 @@ public class ETQWScraper implements Scraper, Runnable {
 	/**
 	 * The query client.
 	 */
-	private QueryClient queryClient;
+	private IdTech4QueryClient queryClient;
 
 	/**
 	 * The ActiveMQ connection.
@@ -178,6 +188,7 @@ public class ETQWScraper implements Scraper, Runnable {
 						queryPort });
 				queryClient = new IdTech4QueryClient(host, queryPort,
 						playerManager);
+				queryClient.setScoreMode(IdTechScoreMode.Experience);
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
 				status = ScraperStatus.InError;

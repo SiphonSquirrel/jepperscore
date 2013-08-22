@@ -14,6 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Nonnull;
+
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
@@ -67,6 +69,11 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 	private PlayerManager playerManager;
 
 	/**
+	 * The score mode.
+	 */
+	private IdTechScoreMode scoreMode = IdTechScoreMode.Kills;
+
+	/**
 	 * This constructor sets up the query client.
 	 *
 	 * @param host
@@ -90,7 +97,7 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 	}
 
 	@Override
-	protected void query(String queryType) {
+	protected void query(@Nonnull String queryType) {
 		final byte[] challange = new byte[] { 0x01, 0x02, 0x03, 0x04, 0x05,
 				0x06, 0x07, 0x08 };
 
@@ -146,12 +153,16 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 			boolean knownVersion = false;
 
 			switch (major) {
-				case 21:
-					switch (minor) {
-					case 10:
-						knownVersion = true;
-						break;
-					}
+			case 21:
+				switch (minor) {
+				case 10:
+					knownVersion = true;
+					break;
+				default:
+					break;
+				}
+			default:
+				break;
 			}
 
 			if (!knownVersion) {
@@ -185,6 +196,11 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 			Map<Integer, Alias> players = new HashMap<Integer, Alias>();
 			while (true) {
 				int id = recvBuffer.get();
+
+				if (id == 32) {
+					break;
+				}
+
 				// Skip ping & rate
 				recvBuffer.position(recvBuffer.position() + 2);
 
@@ -201,21 +217,15 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 					}
 				}
 
-				if (id == 32) {
-					break;
-				}
-
 				Alias player = new Alias();
 				player.setId("" + id);
 				player.setName(playerName);
 				player.setBot(isBot);
 
-				playerManager.providePlayerRecord(player);
-
-				players.put(id, player);
+				players.put(id, playerManager.providePlayerRecord(player));
 			}
 
-			if (queryType == "infoEx") {
+			if (queryType.equals("infoEx")) {
 				// Read server info
 				// Skip os mask, ranked, time left & game state
 				recvBuffer.position(recvBuffer.position() + 10);
@@ -231,11 +241,10 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 				for (int i = 0; i < players.size(); i++) {
 					int id = recvBuffer.get();
 
-					// Skip experience
-					recvBuffer.position(recvBuffer.position() + 4);
-
+					float experience = recvBuffer.getFloat();
 					String teamName = readString(recvBuffer);
 					int kills = recvBuffer.getInt();
+					int deaths = recvBuffer.getInt();
 
 					Team team = teams.get(teamName);
 					if (team == null) {
@@ -247,7 +256,16 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 					if (player != null) {
 						Score s = new Score();
 						s.setAlias(player);
-						s.setScore(kills);
+						switch (scoreMode) {
+						case Experience:
+							s.setScore(experience);
+							break;
+						case Kills:
+							s.setScore(kills);
+							break;
+						case KillsMinusDeaths:
+							s.setScore(kills - deaths);
+						}
 						scores.add(s);
 					}
 				}
@@ -298,6 +316,20 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 	 */
 	public void setCharset(Charset charset) {
 		this.charset = charset;
+	}
+
+	/**
+	 * @return The score mode.
+	 */
+	public IdTechScoreMode getScoreMode() {
+		return scoreMode;
+	}
+
+	/**
+	 * @param scoreMode The score mode to use.
+	 */
+	public void setScoreMode(IdTechScoreMode scoreMode) {
+		this.scoreMode = scoreMode;
 	}
 
 }
