@@ -6,13 +6,13 @@ JepperScore is a realtime LAN party scoreboard and statistic collector. It relie
 Game Support
 ------------
 
-**Supported:**
+**Partially Supported:**
  * [BattleField 1942](https://github.com/SiphonSquirrel/jepperscore/wiki/BattleField-1942)
-
+ * [Enemy Territory : Quake Wars](https://github.com/SiphonSquirrel/jepperscore/wiki/Enemy-Territory-Quake-Wars)
+ 
 **Planned:**
  * BattleField 2
  * Call of Duty 4
- * Enemy Territory : Quake Wars
  * UT2004
  * RTCW : Enemy Territory
 
