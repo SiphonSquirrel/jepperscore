@@ -14,7 +14,7 @@ public class Main {
 
 	/**
 	 * The main function.
-	 * 
+	 *
 	 * @param args
 	 *            [Active MQ Connection String] [ETQW Log Directory]
 	 *            [Hostname] [Query Port]
@@ -51,7 +51,8 @@ public class Main {
 				} catch (InterruptedException e) {
 					break;
 				}
-			} while (scraper.getStatus() != ScraperStatus.NotRunning);
+			} while ((scraper.getStatus() != ScraperStatus.NotRunning)
+					&& (scraper.getStatus() != ScraperStatus.InError));
 		} catch (JMSException e) {
 			System.err.println(e.getMessage());
 		}

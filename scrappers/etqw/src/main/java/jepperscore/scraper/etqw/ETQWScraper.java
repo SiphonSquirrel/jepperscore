@@ -10,7 +10,6 @@ import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.Topic;
-import javax.xml.bind.JAXBException;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.scraper.common.PlayerManager;
@@ -25,8 +24,19 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This scraper works for ETQW.
+ *
+ * @author Chuck
+ *
+ */
 public class ETQWScraper implements Scraper, Runnable {
 
+	/**
+	 * This is the listener for info query.
+	 * @author Chuck
+	 *
+	 */
 	private class ETQWInfoQueryListener implements QueryClientListener {
 
 		/**
@@ -47,11 +57,11 @@ public class ETQWScraper implements Scraper, Runnable {
 		@Override
 		public void queryClient(QueryCallbackInfo info) {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 	}
-	
+
 	/**
 	 * The class logger.
 	 */
@@ -110,7 +120,7 @@ public class ETQWScraper implements Scraper, Runnable {
 
 	/**
 	 * This constructor sets the ETQW scraper.
-	 * 
+	 *
 	 * @param activeMqConnection
 	 *            The connection string to use for ActiveMQ.
 	 * @param logDirectory
@@ -121,8 +131,6 @@ public class ETQWScraper implements Scraper, Runnable {
 	 *            The query port of the server.
 	 * @throws JMSException
 	 *             When a problem occurs connecting to ActiveMQ.
-	 * @throws JAXBException
-	 *             When a problem setting up the JAXB Context.
 	 */
 	public ETQWScraper(@Nonnull String activeMqConnection,
 			@Nonnull String logDirectory, @Nonnull String host,
@@ -177,7 +185,7 @@ public class ETQWScraper implements Scraper, Runnable {
 			}
 			try {
 				ETQWInfoQueryListener queryListener = new ETQWInfoQueryListener();
-				queryClient.registerListener("info", queryListener);
+				queryClient.registerListener("infoEx", queryListener);
 			} catch (JMSException e) {
 				LOG.error(e.getMessage(), e);
 				status = ScraperStatus.InError;
@@ -213,6 +221,6 @@ public class ETQWScraper implements Scraper, Runnable {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

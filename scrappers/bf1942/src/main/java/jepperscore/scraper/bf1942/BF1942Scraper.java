@@ -171,16 +171,6 @@ public class BF1942Scraper implements Scraper, Runnable {
 			.getLogger(BF1942Scraper.class);
 
 	/**
-	 * The default query port.
-	 */
-	public static final int DEFAULT_QUERY_PORT = 22000;
-
-	/**
-	 * The default RCON port.
-	 */
-	public static final int DEFAULT_RCON_PORT = 4711;
-
-	/**
 	 * The status of the scraper.
 	 */
 	private volatile ScraperStatus status = ScraperStatus.NotRunning;

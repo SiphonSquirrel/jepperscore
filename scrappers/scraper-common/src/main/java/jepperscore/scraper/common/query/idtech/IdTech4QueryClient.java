@@ -26,6 +26,13 @@ import jepperscore.scraper.common.query.gamespy.GamespyQueryClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This class queries using the GameSpy protocol.
+ * http://jmp.kapsi.fi/etqw/getinfo/
+ *
+ * @author Chuck
+ *
+ */
 public class IdTech4QueryClient extends AbstractQueryClient {
 
 	/**
@@ -61,7 +68,7 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 
 	/**
 	 * This constructor sets up the query client.
-	 * 
+	 *
 	 * @param host
 	 *            The host to query.
 	 * @param port
@@ -135,9 +142,9 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 
 			int major = recvBuffer.getShort();
 			int minor = recvBuffer.getShort();
-			
+
 			boolean knownVersion = false;
-			
+
 			switch (major) {
 				case 21:
 					switch (minor) {
@@ -146,11 +153,11 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 						break;
 					}
 			}
-			
+
 			if (!knownVersion) {
 				LOG.warn("Unfamiliar version... attempting to parse anyway.");
 			}
-			
+
 			// Skip size
 			recvBuffer.position(recvBuffer.position() + 4);
 
@@ -260,7 +267,7 @@ public class IdTech4QueryClient extends AbstractQueryClient {
 
 	/**
 	 * Reads a string from a {@link ByteBuffer}.
-	 * 
+	 *
 	 * @param buffer
 	 *            The buffer to read from.
 	 * @return The string that was read.

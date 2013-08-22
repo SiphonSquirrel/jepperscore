@@ -26,4 +26,14 @@ public final class BF1942Constants {
 	 * The axis forces.
 	 */
 	public static final String AXIS_TEAM = "Axis";
+
+	/**
+	 * The default query port.
+	 */
+	public static final int DEFAULT_QUERY_PORT = 22000;
+
+	/**
+	 * The default RCON port.
+	 */
+	public static final int DEFAULT_RCON_PORT = 4711;
 }
