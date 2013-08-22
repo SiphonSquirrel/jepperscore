@@ -8,15 +8,12 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import javax.jms.Connection;
 import javax.jms.JMSException;
-import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.Topic;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.dao.model.Score;
-import jepperscore.dao.transport.TransportMessage;
-import jepperscore.scraper.common.MessageUtil;
-import jepperscore.scraper.common.PlayerManager;
+import jepperscore.scraper.common.ActiveMQDataManager;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
@@ -38,34 +35,17 @@ public class ETQWScraper implements Scraper, Runnable {
 
 	/**
 	 * This is the listener for info query.
+	 *
 	 * @author Chuck
 	 *
 	 */
 	private class ETQWInfoQueryListener implements QueryClientListener {
-
-		/**
-		 * This producer is used to send messages from the query client.
-		 */
-		private MessageProducer producer;
-
-		/**
-		 * Default constructor.
-		 *
-		 * @throws JMSException
-		 *             When there is a problem creating the producer.
-		 */
-		public ETQWInfoQueryListener() throws JMSException {
-			producer = session.createProducer(eventTopic);
-		}
-
 		@Override
 		public void queryClient(QueryCallbackInfo info) {
 			Collection<Score> scores = info.getScores();
 			if (scores != null) {
 				for (Score s : scores) {
-					TransportMessage transportMessage = new TransportMessage();
-					transportMessage.setScore(s);
-					MessageUtil.sendMessage(producer, session, transportMessage);
+					dataManager.provideScoreRecord(s);
 				}
 			}
 		}
@@ -126,7 +106,7 @@ public class ETQWScraper implements Scraper, Runnable {
 	/**
 	 * The player manager to use.
 	 */
-	private PlayerManager playerManager;
+	private ActiveMQDataManager dataManager;
 
 	/**
 	 * This constructor sets the ETQW scraper.
@@ -175,7 +155,7 @@ public class ETQWScraper implements Scraper, Runnable {
 			}
 
 			try {
-				playerManager = new PlayerManager(session,
+				dataManager = new ActiveMQDataManager(session,
 						session.createProducer(eventTopic));
 			} catch (JMSException e) {
 				LOG.error(e.getMessage(), e);
@@ -187,21 +167,16 @@ public class ETQWScraper implements Scraper, Runnable {
 				LOG.info("Starting query client on {}:{}", new Object[] { host,
 						queryPort });
 				queryClient = new IdTech4QueryClient(host, queryPort,
-						playerManager);
+						dataManager);
 				queryClient.setScoreMode(IdTechScoreMode.Experience);
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
 				status = ScraperStatus.InError;
 				return;
 			}
-			try {
-				ETQWInfoQueryListener queryListener = new ETQWInfoQueryListener();
-				queryClient.registerListener("infoEx", queryListener);
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-				status = ScraperStatus.InError;
-				return;
-			}
+
+			ETQWInfoQueryListener queryListener = new ETQWInfoQueryListener();
+			queryClient.registerListener("infoEx", queryListener);
 
 			queryClient.start();
 

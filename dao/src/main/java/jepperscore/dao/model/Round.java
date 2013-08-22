@@ -45,6 +45,27 @@ public class Round {
 	private String map;
 
 	/**
+	 * The default constructor.
+	 */
+	public Round() {
+
+	}
+
+	/**
+	 * Constructor with all parameters.
+	 * @param start The start time of the round.
+	 * @param end The end time of the round.
+	 * @param game The game of the round.
+	 * @param map The map of the round.
+	 */
+	public Round(DateTime start, DateTime end, Game game, String map) {
+		this.start = start;
+		this.end = end;
+		this.game = game;
+		this.map = map;
+	}
+
+	/**
 	 * @return The time the match started.
 	 */
 	@Nonnull
@@ -104,6 +125,17 @@ public class Round {
 	 */
 	public void setMap(String map) {
 		this.map = map;
+	}
+
+	/**
+	 * @return A deep copy of this object.
+	 */
+	public Round copy() {
+		Game newGame = game;
+		if (newGame != null) {
+			newGame = newGame.copy();
+		}
+		return new Round(start, end, newGame, map);
 	}
 
 }

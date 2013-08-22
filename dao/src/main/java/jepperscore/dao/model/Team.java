@@ -1,5 +1,6 @@
 package jepperscore.dao.model;
 
+import javax.annotation.CheckForNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -24,7 +25,7 @@ public class Team {
 	 * The score.
 	 */
 	@XmlAttribute(name="score", required=false)
-	private float score;
+	private Float score;
 
 	/**
 	 * Default constructor.
@@ -46,7 +47,7 @@ public class Team {
 	 * @param teamName The name of the team.
 	 * @param score The team score.
 	 */
-	public Team(String teamName, float score) {
+	public Team(String teamName, Float score) {
 		this.teamName = teamName;
 		this.score = score;
 	}
@@ -69,7 +70,8 @@ public class Team {
 	/**
 	 * @return The score value.
 	 */
-	public float getScore() {
+	@CheckForNull
+	public Float getScore() {
 		return score;
 	}
 
@@ -77,7 +79,14 @@ public class Team {
 	 * Sets the score.
 	 * @param score The score.
 	 */
-	public void setScore(float score) {
+	public void setScore(Float score) {
 		this.score = score;
+	}
+
+	/**
+	 * @return A deep copy of team.
+	 */
+	public Team copy() {
+		return new Team(teamName, score);
 	}
 }

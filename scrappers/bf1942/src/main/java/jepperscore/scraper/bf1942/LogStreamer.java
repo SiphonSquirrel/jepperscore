@@ -22,6 +22,7 @@ import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.PlayerManager;
+import jepperscore.scraper.common.ScoreManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,6 +87,11 @@ public class LogStreamer implements Runnable {
 	private PlayerManager playerManager;
 
 	/**
+	 * The score manager.
+	 */
+	private ScoreManager scoreManager;
+
+	/**
 	 * This constructor points the log streamer at a log file.
 	 *
 	 * @param stream
@@ -96,13 +102,17 @@ public class LogStreamer implements Runnable {
 	 *            The ActiveMQ {@link MessageProducer} to use.
 	 * @param playerManager
 	 *            The {@link PlayerManager} to use.
+	 * @param scoreManager
+	 *            The {@link ScoreManager} to use.
 	 */
 	public LogStreamer(@Nonnull InputStream stream, @Nonnull Session session,
-			@Nonnull MessageProducer producer, PlayerManager playerManager) {
+			@Nonnull MessageProducer producer, PlayerManager playerManager,
+			ScoreManager scoreManager) {
 		this.stream = stream;
 		this.session = session;
 		this.producer = producer;
 		this.playerManager = playerManager;
+		this.scoreManager = scoreManager;
 		this.charset = StandardCharsets.ISO_8859_1;
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -277,7 +287,7 @@ public class LogStreamer implements Runnable {
 							.getNodeValue();
 					try {
 						byte charCode = (byte) (Integer.parseInt(charCodeStr) & 0xFF);
-						sb.append(new String(new byte[] {charCode}, charset));
+						sb.append(new String(new byte[] { charCode }, charset));
 					} catch (NumberFormatException e) {
 						LOG.error("Could not parse special character code as number: "
 								+ charCodeStr);
@@ -421,6 +431,15 @@ public class LogStreamer implements Runnable {
 						"{attacker} [%s%s] {victim}", prefix, weapon));
 				eventCode.setObject(weapon);
 				newEvent.setEventCode(eventCode);
+
+				Alias attacker = newEvent.getAttacker();
+				if ((attacker != null) && Boolean.TRUE.equals(attacker.isBot())) {
+					if (scoreType.equals("TK")) {
+						scoreManager.incrementScore(attacker, -2);
+					} else {
+						scoreManager.incrementScore(attacker, 1);
+					}
+				}
 				break;
 			}
 
@@ -431,6 +450,11 @@ public class LogStreamer implements Runnable {
 				eventCode.setCode("objective");
 				eventCode.setObject(point);
 				newEvent.setEventCode(eventCode);
+
+				Alias attacker = newEvent.getAttacker();
+				if ((attacker != null) && Boolean.TRUE.equals(attacker.isBot())) {
+					scoreManager.incrementScore(attacker, 2);
+				}
 				break;
 			}
 
@@ -538,11 +562,7 @@ public class LogStreamer implements Runnable {
 							score.setAlias(player);
 							score.setScore(scoreValue);
 
-							TransportMessage transportMessage = new TransportMessage();
-							transportMessage.setScore(score);
-
-							MessageUtil.sendMessage(producer, session,
-									transportMessage);
+							scoreManager.provideScoreRecord(score);
 						}
 					}
 				}

@@ -21,7 +21,7 @@ import javax.jms.Topic;
 
 import jepperscore.dao.DaoConstant;
 import jepperscore.scraper.bf1942.LogStreamer;
-import jepperscore.scraper.common.PlayerManager;
+import jepperscore.scraper.common.ActiveMQDataManager;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.junit.After;
@@ -104,9 +104,9 @@ public class LogStreamerTest {
 			}
 		});
 
-		PlayerManager playerManager = new PlayerManager(session, session.createProducer(eventTopic));
+		ActiveMQDataManager dataManager = new ActiveMQDataManager(session, session.createProducer(eventTopic));
 
-		LogStreamer ls = new LogStreamer(is, session, session.createProducer(eventTopic), playerManager);
+		LogStreamer ls = new LogStreamer(is, session, session.createProducer(eventTopic), dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 

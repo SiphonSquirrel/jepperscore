@@ -25,8 +25,8 @@ import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
+import jepperscore.scraper.common.ActiveMQDataManager;
 import jepperscore.scraper.common.MessageUtil;
-import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
@@ -94,10 +94,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 					round.setGame(game);
 					round.setMap(map);
 
-					TransportMessage roundTransport = new TransportMessage();
-					roundTransport.setRound(round);
-
-					MessageUtil.sendMessage(producer, session, roundTransport);
+					dataManager.provideRoundRecord(round);
 
 					if (axisTicketsStr != null) {
 						try {
@@ -108,11 +105,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 							axisTeam.setTeamName(BF1942Constants.AXIS_TEAM);
 							axisTeam.setScore(axisTickets);
 
-							TransportMessage ticketsTransport = new TransportMessage();
-							ticketsTransport.setTeam(axisTeam);
-
-							MessageUtil.sendMessage(producer, session,
-									ticketsTransport);
+							dataManager.provideTeamRecord(axisTeam);
 						} catch (NumberFormatException e) {
 							// Do nothing.
 						}
@@ -127,11 +120,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 							alliedTeam.setTeamName(BF1942Constants.ALLIED_TEAM);
 							alliedTeam.setScore(alliedTickets);
 
-							TransportMessage ticketsTransport = new TransportMessage();
-							ticketsTransport.setTeam(alliedTeam);
-
-							MessageUtil.sendMessage(producer, session,
-									ticketsTransport);
+							dataManager.provideTeamRecord(alliedTeam);
 						} catch (NumberFormatException e) {
 							// Do nothing.
 						}
@@ -218,7 +207,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 	/**
 	 * The player manager to use.
 	 */
-	private PlayerManager playerManager;
+	private ActiveMQDataManager dataManager;
 
 	/**
 	 * The RCON client to use.
@@ -266,7 +255,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 				rconPassword);
 
 		try {
-			playerManager = new PlayerManager(session,
+			dataManager = new ActiveMQDataManager(session,
 					session.createProducer(eventTopic));
 		} catch (JMSException e) {
 			LOG.error(e.getMessage(), e);
@@ -285,7 +274,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 		if (thread == null) {
 			status = ScraperStatus.Initializing;
 
-			playerManager.newRound();
+			dataManager.newRound();
 
 			if (!new File(logDirectory).exists()) {
 				LOG.error("Log directory does not exist.");
@@ -297,7 +286,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 				LOG.info("Starting query client on {}:{}", new Object[] { host,
 						queryPort });
 				queryClient = new GamespyQueryClient(host, queryPort,
-						playerManager);
+						dataManager);
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
 				status = ScraperStatus.InError;
@@ -372,7 +361,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 								LogStreamer streamer = new LogStreamer(is,
 										session,
 										session.createProducer(eventTopic),
-										playerManager);
+										dataManager, dataManager);
 
 								logThread = new Thread(streamer);
 								logThread.setDaemon(true);
@@ -436,7 +425,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 						player.setName(name);
 						player.setBot(line.contains("is an AI bot"));
 
-						playerManager.providePlayerRecord(player);
+						dataManager.providePlayerRecord(player);
 					}
 				}
 			}

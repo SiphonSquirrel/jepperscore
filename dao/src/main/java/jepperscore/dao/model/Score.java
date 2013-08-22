@@ -19,12 +19,29 @@ public class Score {
 	 */
 	@XmlElement(name="alias", required=true)
 	private Alias alias;
-	
+
 	/**
 	 * The score.
 	 */
 	@XmlAttribute(name="score", required=true)
 	private float score;
+
+	/**
+	 * Default constructor.
+	 */
+	public Score() {
+
+	}
+
+	/**
+	 * Constructor with all fields.
+	 * @param alias The alias.
+	 * @param score The score.
+	 */
+	public Score(Alias alias, float score) {
+		this.alias = alias;
+		this.score = score;
+	}
 
 	/**
 	 * @return The alias of the score.
@@ -54,5 +71,13 @@ public class Score {
 	 */
 	public void setScore(float score) {
 		this.score = score;
+	}
+
+	/**
+	 * @return A deep copy of score.
+	 */
+	public Score copy() {
+		// TODO Auto-generated method stub
+		return new Score(alias.copy(), score);
 	}
 }
