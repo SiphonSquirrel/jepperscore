@@ -32,6 +32,7 @@ public interface PlayerManager extends BaseDataManager {
 	 *            The player id.
 	 * @return The player.
 	 */
+	@CheckForNull
 	Alias getPlayer(@Nonnull String id);
 
 	/**

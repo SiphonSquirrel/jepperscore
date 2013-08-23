@@ -225,6 +225,7 @@ public class LogStreamer implements Runnable {
 				}
 			}
 		}
+		playerManager.newRound();
 	}
 
 	/**
@@ -242,7 +243,7 @@ public class LogStreamer implements Runnable {
 
 				switch (element.getNodeName()) {
 				case "bf:round":
-					playerManager.newRound();
+
 					// We will also want to parse any child elements, as they
 					// can get hidden on first run.
 					parseEvents(element);
@@ -400,16 +401,43 @@ public class LogStreamer implements Runnable {
 			String victimId = getEventParameter(eventElement, "victim_id");
 			String scoreType = getEventParameter(eventElement, "score_type");
 
+			Alias attacker = null;
+			Alias victim = null;
+
 			if (scoreType == null) {
 				break;
 			}
 
 			if (attackerId != null) {
-				newEvent.setAttacker(playerManager.getPlayer(attackerId));
+				attacker = playerManager.getPlayer(attackerId);
+				if (attacker == null) {
+					attacker = new Alias();
+					attacker.setId(attackerId);
+					attacker.setBot(true);
+					playerManager.providePlayerRecord(attacker);
+				}
+				if (attacker.isBot() == null) {
+					attacker.setBot(true);
+					playerManager.providePlayerRecord(attacker);
+				}
+				newEvent.setAttacker(attacker);
 			}
 
 			if (victimId != null) {
-				newEvent.setVictim(playerManager.getPlayer(victimId));
+				victim = playerManager.getPlayer(victimId);
+
+				if (victim == null) {
+					victim = new Alias();
+					victim.setId(victimId);
+					victim.setBot(true);
+					playerManager.providePlayerRecord(victim);
+				}
+
+				if (victim.isBot() == null) {
+					victim.setBot(true);
+					playerManager.providePlayerRecord(victim);
+				}
+				newEvent.setVictim(victim);
 			}
 			switch (scoreType) {
 			case "TK":
@@ -432,7 +460,6 @@ public class LogStreamer implements Runnable {
 				eventCode.setObject(weapon);
 				newEvent.setEventCode(eventCode);
 
-				Alias attacker = newEvent.getAttacker();
 				if ((attacker != null) && Boolean.TRUE.equals(attacker.isBot())) {
 					if (scoreType.equals("TK")) {
 						scoreManager.incrementScore(attacker, -2);
@@ -451,7 +478,6 @@ public class LogStreamer implements Runnable {
 				eventCode.setObject(point);
 				newEvent.setEventCode(eventCode);
 
-				Alias attacker = newEvent.getAttacker();
 				if ((attacker != null) && Boolean.TRUE.equals(attacker.isBot())) {
 					scoreManager.incrementScore(attacker, 2);
 				}
@@ -482,7 +508,9 @@ public class LogStreamer implements Runnable {
 
 			Alias player = playerManager.getPlayer(playerId);
 			if (player == null) {
-				break;
+				player = new Alias();
+				player.setId(playerId);
+				player.setBot(true);
 			}
 
 			if (player.getTeam() != null) {

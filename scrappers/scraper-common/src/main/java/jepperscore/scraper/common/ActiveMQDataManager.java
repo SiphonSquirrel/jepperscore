@@ -186,14 +186,18 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	 */
 	@Override
 	public synchronized void newRound() {
-		players.clear();
-		teams.clear();
-		scores.clear();
+		if ((currentRound == null) || !players.isEmpty() || !teams.isEmpty()
+				|| !scores.isEmpty()) {
+			players.clear();
+			teams.clear();
+			scores.clear();
 
-		roundPrefix = UUID.randomUUID().toString() + ":";
+			currentRound = new Round();
+			currentRound.setId(UUID.randomUUID().toString());
+			currentRound.setGame(currentGame);
 
-		currentRound = new Round();
-		currentRound.setGame(currentGame);
+			roundPrefix = currentRound.getId() + ":";
+		}
 	}
 
 	/**
@@ -264,29 +268,25 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 			changeDetected = true;
 		} else {
 			Game game = round.getGame();
-			if ((game != null)
-					&& (!game.equals(currentRound.getGame()))) {
+			if ((game != null) && (!game.equals(currentRound.getGame()))) {
 				currentRound.setGame(game.copy());
 				changeDetected = true;
 			}
 
 			String map = round.getMap();
-			if ((map != null)
-					&& (!map.equals(currentRound.getMap()))) {
+			if ((map != null) && (!map.equals(currentRound.getMap()))) {
 				currentRound.setMap(map);
 				changeDetected = true;
 			}
 
 			DateTime start = round.getStart();
-			if ((start != null)
-					&& (!start.equals(currentRound.getStart()))) {
+			if ((start != null) && (!start.equals(currentRound.getStart()))) {
 				currentRound.setStart(start);
 				changeDetected = true;
 			}
 
 			DateTime end = round.getEnd();
-			if ((end != null)
-					&& (!end.equals(currentRound.getEnd()))) {
+			if ((end != null) && (!end.equals(currentRound.getEnd()))) {
 				currentRound.setEnd(end);
 				changeDetected = true;
 			}
@@ -326,24 +326,19 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 			}
 
 			String mod = game.getMod();
-			if ((mod != null)
-					&& (!mod.equals(currentGame.getMod()))) {
+			if ((mod != null) && (!mod.equals(currentGame.getMod()))) {
 				currentGame.setMod(mod);
 				changeDetected = true;
 			}
 
 			String name = game.getName();
-			if ((name != null)
-					&& (!name.equals(currentGame.getName()))) {
+			if ((name != null) && (!name.equals(currentGame.getName()))) {
 				currentGame.setName(name);
 				changeDetected = true;
 			}
 		}
 
 		if (changeDetected) {
-			if (currentRound == null) {
-				currentRound = new Round();
-			}
 			currentRound.setGame(currentGame);
 
 			TransportMessage msg = new TransportMessage();
@@ -392,8 +387,11 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Gets the score for the alias and optionally copy it.
-	 * @param player The player to find the score for.
-	 * @param doCopy Copy the object?
+	 *
+	 * @param player
+	 *            The player to find the score for.
+	 * @param doCopy
+	 *            Copy the object?
 	 * @return The score.
 	 */
 	private synchronized Score getScoreForPlayer(Alias player, boolean doCopy) {
@@ -442,8 +440,8 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 			oldScore = new Score();
 			oldScore.setAlias(player);
 			oldScore.setScore(amount);
-		}
-		else {
+			scores.add(oldScore);
+		} else {
 			oldScore.setScore(oldScore.getScore() + amount);
 		}
 
@@ -465,15 +463,13 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 			changeDetected = true;
 		} else {
 			String teamName = team.getTeamName();
-			if ((teamName != null)
-					&& (!teamName.equals(oldTeam.getTeamName()))) {
+			if ((teamName != null) && (!teamName.equals(oldTeam.getTeamName()))) {
 				oldTeam.setTeamName(teamName);
 				changeDetected = true;
 			}
 
 			Float score = team.getScore();
-			if ((score != null)
-					&& (!score.equals(oldTeam.getScore()))) {
+			if ((score != null) && (!score.equals(oldTeam.getScore()))) {
 				oldTeam.setScore(score);
 				changeDetected = true;
 			}
@@ -490,7 +486,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 
 	@Override
 	public synchronized Team getTeamByName(String name) {
-		for (Team t: teams) {
+		for (Team t : teams) {
 			if (name.equals(t.getTeamName())) {
 				return t;
 			}

@@ -90,11 +90,12 @@ public class BF1942Scraper implements Scraper, Runnable {
 					game.setMod("");
 					game.setGametype(gametype);
 
-					Round round = new Round();
-					round.setGame(game);
-					round.setMap(map);
-
-					dataManager.provideRoundRecord(round);
+					dataManager.provideGameRecord(game);
+					Round round = dataManager.getCurrentRound();
+					if (round != null) {
+						round.setMap(map);
+						dataManager.provideRoundRecord(round);
+					}
 
 					if (axisTicketsStr != null) {
 						try {
@@ -131,24 +132,15 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 			Round r = info.getRound();
 			if (r != null) {
-				TransportMessage transport = new TransportMessage();
-				transport.setRound(r);
-
-				MessageUtil.sendMessage(producer, session, transport);
+				dataManager.provideRoundRecord(r);
 			}
 
 			for (Alias player : info.getPlayers()) {
-				TransportMessage transport = new TransportMessage();
-				transport.setAlias(player);
-
-				MessageUtil.sendMessage(producer, session, transport);
+				dataManager.providePlayerRecord(player);
 			}
 
 			for (Score score : info.getScores()) {
-				TransportMessage transport = new TransportMessage();
-				transport.setScore(score);
-
-				MessageUtil.sendMessage(producer, session, transport);
+				dataManager.provideScoreRecord(score);
 			}
 		}
 	}

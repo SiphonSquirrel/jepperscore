@@ -21,6 +21,12 @@ import org.joda.time.DateTime;
 public class Round {
 
 	/**
+	 * The ID of the round.
+	 */
+	@XmlAttribute(required=true)
+	private String id;
+
+	/**
 	 * The start of the round.
 	 */
 	@XmlAttribute(required=true)
@@ -53,17 +59,40 @@ public class Round {
 
 	/**
 	 * Constructor with all parameters.
+	 * @param id The ID of the round.
 	 * @param start The start time of the round.
 	 * @param end The end time of the round.
 	 * @param game The game of the round.
 	 * @param map The map of the round.
 	 */
-	public Round(DateTime start, DateTime end, Game game, String map) {
+	public Round(String id, DateTime start, DateTime end, Game game, String map) {
 		this.start = start;
 		this.end = end;
 		this.game = game;
 		this.map = map;
 	}
+
+	/**
+	 * @return The id of the round.
+	 */
+	@Nonnull
+	public String getId() {
+		if (id == null) {
+			return "";
+		}
+		return id;
+	}
+
+	/**
+	 * Sets the ID.
+	 *
+	 * @param id
+	 *            The ID of the round.
+	 */
+	public void setId(@Nonnull String id) {
+		this.id = id;
+	}
+
 
 	/**
 	 * @return The time the match started.
@@ -135,7 +164,7 @@ public class Round {
 		if (newGame != null) {
 			newGame = newGame.copy();
 		}
-		return new Round(start, end, newGame, map);
+		return new Round(id, start, end, newGame, map);
 	}
 
 }

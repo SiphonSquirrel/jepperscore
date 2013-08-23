@@ -261,7 +261,7 @@ public class LogStreamerTest {
 		writer.flush();
 		Thread.sleep(500);
 
-		assertEquals("Unexpected message count", 2, messages.size());
+		assertEquals("Unexpected message count", 5, messages.size());
 	}
 
 }

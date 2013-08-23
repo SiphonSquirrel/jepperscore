@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
@@ -274,13 +275,19 @@ public class BF1942RconClient implements RconClient {
 			retVal[0] = readString(is);
 
 			return retVal;
+		} catch (SocketException e) {
+			try {
+				s.close();
+			} catch (IOException e1) {
+				// Do nothing.
+			}
+			return null;
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 			try {
 				s.close();
 			} catch (IOException e1) {
 				// Do nothing.
-				s = null;
 			}
 			return null;
 		}
