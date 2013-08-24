@@ -533,6 +533,10 @@ public class LogStreamer implements Runnable {
 			break;
 		}
 
+		case "restartMap":
+			playerManager.newRound();
+			break;
+
 		case "roundInit":
 		case "spawnEvent":
 		case "beginMedPack":

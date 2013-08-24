@@ -4,22 +4,39 @@
 package jepperscore.scraper.bf1942.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
+import java.io.StringReader;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.jms.Connection;
+import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.MessageListener;
 import javax.jms.Session;
+import javax.jms.TextMessage;
 import javax.jms.Topic;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 
 import jepperscore.dao.DaoConstant;
+import jepperscore.dao.model.Alias;
+import jepperscore.dao.model.Score;
+import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.bf1942.LogStreamer;
 import jepperscore.scraper.common.ActiveMQDataManager;
 
@@ -104,9 +121,11 @@ public class LogStreamerTest {
 			}
 		});
 
-		ActiveMQDataManager dataManager = new ActiveMQDataManager(session, session.createProducer(eventTopic));
+		ActiveMQDataManager dataManager = new ActiveMQDataManager(session,
+				session.createProducer(eventTopic));
 
-		LogStreamer ls = new LogStreamer(is, session, session.createProducer(eventTopic), dataManager, dataManager);
+		LogStreamer ls = new LogStreamer(is, session,
+				session.createProducer(eventTopic), dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 
@@ -262,6 +281,140 @@ public class LogStreamerTest {
 		Thread.sleep(500);
 
 		assertEquals("Unexpected message count", 5, messages.size());
+	}
+
+	/**
+	 * Test method for {@link jepperscore.scraper.bf1942.LogStreamer}.
+	 *
+	 * @throws Exception
+	 *             If a problem occurs during the test.
+	 */
+	@Test
+	public void testBotScores() throws Exception {
+		PipedOutputStream os = new PipedOutputStream();
+		PipedInputStream is = new PipedInputStream(os, 1024 * 1024);
+
+		final Map<String, Alias> players = new HashMap<String, Alias>();
+		final JAXBContext jaxbContext = JAXBContext
+				.newInstance(TransportMessage.class);
+
+		MessageConsumer consumer = session.createConsumer(eventTopic);
+		consumer.setMessageListener(new MessageListener() {
+
+			@Override
+			public void onMessage(Message message) {
+				if (message instanceof TextMessage) {
+					TextMessage txtMessage = (TextMessage) message;
+					try {
+						TransportMessage transportMessage = (TransportMessage) jaxbContext
+								.createUnmarshaller().unmarshal(
+										new StringReader(txtMessage.getText()));
+
+						Alias alias = transportMessage.getAlias();
+						if (alias == null) {
+							Score score = transportMessage.getScore();
+							if (score != null) {
+								alias = score.getAlias();
+							}
+						}
+
+						if (alias != null) {
+							players.put(alias.getId(), alias);
+						}
+					} catch (JAXBException | JMSException e) {
+						fail(e.getMessage());
+					}
+				}
+			}
+		});
+
+		ActiveMQDataManager dataManager = new ActiveMQDataManager(session,
+				session.createProducer(eventTopic));
+		LogStreamer ls = new LogStreamer(is, session,
+				session.createProducer(eventTopic), dataManager, dataManager);
+		Thread lsThread = new Thread(ls);
+		lsThread.start();
+
+		try (FileInputStream fs = new FileInputStream(
+				"testdata/ev_14567-20121201_1551_round.xml")) {
+			copyStream(fs, os);
+		}
+
+		Thread.sleep(100);
+
+		Map<Alias, Score> calculatedScores = new HashMap<Alias, Score>();
+
+		for (Alias alias : players.values()) {
+			calculatedScores.put(alias, dataManager.getScoreForPlayer(alias));
+		}
+
+		try (FileInputStream fs = new FileInputStream(
+				"testdata/ev_14567-20121201_1551_roundend.xml")) {
+			copyStream(fs, os);
+		}
+
+		Thread.sleep(1000);
+
+		assertEquals(32, players.size());
+
+		for (Alias alias : players.values()) {
+			Score realScore = dataManager.getScoreForPlayer(alias);
+			Score calcScore = calculatedScores.get(alias);
+			assertNotNull(realScore);
+			assertNotNull(calcScore);
+			assertEquals(realScore.getScore(), calcScore.getScore(), 0.5f);
+		}
+
+	}
+
+	/**
+	 * Copies a stream.
+	 *
+	 * @param in
+	 *            The stream to read from.
+	 * @param out
+	 *            The stream to write to.
+	 * @throws IOException
+	 *             If something dies while reading or writing.
+	 */
+	private void copyStream(InputStream in, OutputStream out)
+			throws IOException {
+
+		String[] closings = new String[] { "</bf:event>", "</bf:roundstats>", "</bf:log>" };
+
+		byte[] buffer = new byte[1024 * 8];
+		int read;
+
+		StringBuilder sb = new StringBuilder();
+		while ((read = in.read(buffer)) > 0) {
+			sb.append(new String(buffer, 0, read, StandardCharsets.ISO_8859_1));
+			int pos;
+			do {
+				String s = sb.toString();
+				pos = -1;
+				for (String closing : closings) {
+					pos = s.indexOf(closing);
+					if (pos >= 0) {
+						pos += closing.length();
+
+						s = s.substring(0, pos);
+						byte[] outBuffer = s.getBytes(
+								StandardCharsets.ISO_8859_1);
+						sb.delete(0, pos);
+						out.write(outBuffer, 0, outBuffer.length);
+						out.flush();
+
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							// Give the other thread some rest...
+						}
+						break;
+					}
+				}
+
+			} while (pos > -1);
+		}
 	}
 
 }
