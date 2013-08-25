@@ -1,0 +1,5913 @@
+Executing Class Engine.ServerCommandlet
+Browse: DM-Antalus?Name=Player?Class=Engine.Pawn?Character=Jakob?team=255?game=XGame.xDeathMatch?GameStats=True
+Collecting garbage
+Purging garbage
+Garbage: objects: 28322->28318; refs: 325010
+Game class is 'xDeathMatch'
+Fixing up DM-Antalus
+Bringing Level DM-Antalus.myLevel up for play (20) appSeconds: 70.349000...
+(Karma): Autodetecting CPU for SSE
+(Karma): Using SSE Optimizations
+Loading Admins & Groups
+Kick and Ban Privileges Loaded
+Maps & Game Privileges Loaded
+Admins & Groups Management Loaded
+Extra Privileges Loaded
+GameInfo::InitGame : bEnableStatLogging True
+----------------------------------------
+OLStats Loading...
+Debug mode is ON!
+Opening user log ..\UserLogs\Stats_7777_2013_08_24_16_00_25.log
+OLStats 3.00 loaded!
+  Author: OverloadUT
+  Email: Overload@planetunreal.com
+  Web: www.apartment167.com
+----------------------------------------
+UdpServerQuery(crt): Port 7787 successfully bound.
+Defaulting to false
+Defaulting to false
+MasterServerUplink: DoUplink is False, not connecting to Epic master server
+Loading Available Maps
+Loading Game Types
+Loading SpiderSteroids...Mutator exported successfully: SpiderSteroids.MutSpiderSteroidReplacer
+Weapon exported successfully: SpiderSteroids.SpiderSteroidLayer
+XWebAdmin.UTServerAdmin Initialized on port 18080
+OLStats v3.00 by OverloadUT www.Apartment167.com
+0.00	NG	2013-8-24 16:0:25	0	DM-Antalus	Antalus	Dave Ewing	XGame.xDeathMatch	DeathMatch	Mutators=UnrealGame.DMMutator|OLStats.MutOLGameStats
+0.00	SI	UT 2004 Lan Party (Vanilla)	0				\ServerMode\dedicated\AdminName\\AdminEmail\\ServerVersion\3369\GameStats\True\MaxSpectators\2\Mutator\MutOLGameStats\MinPlayers\6\EndTimeDelay\4.00\GoalScore\25\TimeLimit\20\Translocator\False\WeaponStay\True\ForceRespawn\False\gamedifficulty\3.00\shortname\UT2 Server
+Open myLevel 08/24/13 16:01:57 192.168.200.140:51703
+Client netspeed is 10000
+71.04	C	1	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+71.04	PS	1	192.168.200.140:51703	10000	11e145faaf230c5c5a1b419541a6aca4
+71.04	G	NameChange	1	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+90.14	PP	1	32
+97.90	SG
+START MATCH
+99.61	C	6	Mekkor
+99.61	G	NameChange	6	[BOT]Mekkor
+99.61	BI	6	3.00	0.00	0.25	0.40	0.85	0.20	0.00	1.00	1.00	RocketLauncher
+99.61	I	6	AdrenalinePickup
+99.61	I	6	AdrenalinePickup
+100.00	I	6	AdrenalinePickup
+100.78	C	3	Jakob
+100.78	G	NameChange	3	[BOT]Jakob
+100.78	BI	3	3.00	0.00	0.00	0.40	0.00	0.00	0.00	1.00	0.00	ShockRifle
+100.78	I	3	AdrenalinePickup
+101.49	I	3	AdrenalinePickup
+101.60	C	4	Subversa
+101.60	G	NameChange	4	[BOT]Subversa
+101.60	BI	4	3.00	0.00	0.20	0.40	0.00	0.20	0.00	1.00	0.00	None
+101.60	I	4	LinkAmmoPickup
+102.00	I	4	LinkGunPickup
+102.44	I	3	AdrenalinePickup
+104.98	I	3	AdrenalinePickup
+105.42	C	2	Thannis
+105.42	G	NameChange	2	[BOT]Thannis
+105.42	BI	2	3.00	0.00	0.10	0.40	0.80	0.20	1.00	1.00	0.00	LinkGun
+105.42	I	2	SniperRiflePickup
+106.91	P	4	first_blood
+106.91	K	4	DamTypeLinkShaft	6	AssaultRifle
+106.91	S	4	1.00	frag
+107.51	C	5	Axon
+107.51	G	NameChange	5	[BOT]Axon
+107.51	BI	5	3.00	0.00	0.15	0.20	1.00	0.00	0.00	1.00	1.00	None
+107.51	I	5	ShockRiflePickup
+107.68	I	4	HealthPack
+108.61	I	4	HealthPack
+109.88	I	3	RocketAmmoPickup
+111.31	I	1	LinkGunPickup
+111.92	I	3	BioRiflePickup
+113.02	I	1	LinkAmmoPickup
+113.79	I	3	RocketAmmoPickup
+116.55	I	5	FlakAmmoPickup
+116.55	I	6	LinkGunPickup
+117.77	I	5	FlakAmmoPickup
+117.77	K	1	DamTypeLinkPlasma	6	LinkGun
+117.77	S	1	1.00	frag
+117.93	K	2	DamTypeSniperShot	4	LinkGun
+117.93	S	2	1.00	frag
+118.65	I	5	FlakCannonPickup
+118.76	I	3	ShockAmmoPickup
+118.87	I	1	LinkAmmoPickup
+120.14	PP	1	32
+120.25	I	2	LinkGunPickup
+120.25	I	3	ShockAmmoPickup
+121.74	I	5	MiniHealthPack
+122.07	I	3	ShockRiflePickup
+122.63	I	5	MiniHealthPack
+122.95	I	4	ShockRiflePickup
+123.45	I	5	MiniHealthPack
+124.33	I	5	MiniHealthPack
+124.93	I	5	MiniHealthPack
+125.43	I	6	LinkAmmoPickup
+125.92	I	6	LinkGunPickup
+126.69	K	3	DamTypeBioGlob	4	ShockRifle
+126.69	S	3	1.00	frag
+127.08	K	2	DamTypeLinkShaft	1	LinkGun
+127.08	S	2	1.00	frag
+129.45	I	3	UDamagePack
+133.15	I	5	AdrenalinePickup
+133.53	I	5	SuperShieldPack
+133.75	I	5	AdrenalinePickup
+134.08	I	2	SniperAmmoPickup
+134.14	I	5	AdrenalinePickup
+134.64	I	2	AdrenalinePickup
+136.35	K	5	DamTypeShockCombo	2	SniperRifle
+136.35	S	5	1.00	frag
+136.90	I	5	SniperAmmoPickup
+137.56	I	2	AdrenalinePickup
+137.62	I	5	SniperRiflePickup
+137.62	I	2	AdrenalinePickup
+137.73	I	2	AdrenalinePickup
+138.06	I	3	HealthPack
+138.33	I	3	BioAmmoPickup
+138.44	I	3	BioAmmoPickup
+142.51	K	6	DamTypeLinkShaft	4	AssaultRifle
+142.51	S	6	1.00	frag
+143.94	I	2	LinkGunPickup
+144.39	I	2	LinkAmmoPickup
+146.15	I	6	HealthPack
+146.97	I	6	HealthPack
+148.13	I	1	ShockAmmoPickup
+148.18	I	1	RocketAmmoPickup
+148.41	I	1	AssaultAmmoPickup
+150.00	K	5	DamTypeShockCombo	6	LinkGun
+150.00	S	5	1.00	frag
+150.17	PP	1	28
+151.00	K	4	DamTypeAssaultBullet	3	ShockRifle
+151.00	S	4	1.00	frag
+151.05	K	3	DamTypeShockBall	4	AssaultRifle
+151.05	S	3	1.00	frag
+151.66	I	1	SniperRiflePickup
+153.20	I	6	RocketAmmoPickup
+153.48	K	5	DamTypeShockBall	2	LinkGun
+153.48	S	5	1.00	frag
+155.13	I	4	LinkGunPickup
+155.46	I	6	BioRiflePickup
+158.27	I	5	LinkAmmoPickup
+158.27	I	2	LinkGunPickup
+158.76	I	5	LinkGunPickup
+159.42	I	3	ShockRiflePickup
+160.58	I	6	AdrenalinePickup
+161.52	K	2	DamTypeLinkShaft	4	LinkGun
+161.52	S	2	1.00	frag
+161.58	I	6	AdrenalinePickup
+162.29	I	6	AdrenalinePickup
+163.23	I	6	AdrenalinePickup
+164.73	I	3	FlakAmmoPickup
+165.94	I	3	FlakAmmoPickup
+166.84	I	3	FlakCannonPickup
+168.45	K	2	DamTypeLinkShaft	4	AssaultRifle
+168.45	S	2	1.00	frag
+172.54	I	1	MiniHealthPack
+172.71	I	4	MinigunAmmoPickup
+173.15	I	1	MiniHealthPack
+173.81	I	1	MiniHealthPack
+174.53	I	4	RedeemerPickup
+177.70	I	4	LinkAmmoPickup
+180.18	PP	1	28
+180.46	I	6	LinkGunPickup
+180.68	K	4	DamTypeRedeemer	2	AssaultRifle
+180.68	S	4	1.00	frag
+180.68	K	4	DamTypeRedeemer	5	SniperRifle
+180.68	S	4	1.00	frag
+180.91	K	3	DamTypeFlakChunk	1	SniperRifle
+180.91	S	3	1.00	frag
+181.24	I	4	SniperRiflePickup
+182.58	I	3	SniperRiflePickup
+183.52	I	2	LinkGunPickup
+183.96	I	2	LinkAmmoPickup
+184.46	I	3	MiniHealthPack
+185.40	I	3	MiniHealthPack
+185.56	I	6	SniperRiflePickup
+185.62	I	5	LinkGunPickup
+189.31	K	5	DamTypeLinkShaft	6	LinkGun
+189.31	S	5	1.00	frag
+191.31	I	6	AdrenalinePickup
+191.36	I	6	AdrenalinePickup
+191.48	I	6	AdrenalinePickup
+192.08	K	2	DamTypeLinkShaft	5	LinkGun
+192.08	S	2	1.00	frag
+192.30	I	4	LinkGunPickup
+196.91	I	2	SniperAmmoPickup
+197.46	I	2	AdrenalinePickup
+197.51	I	6	LinkAmmoPickup
+197.51	I	5	LinkGunPickup
+197.90	I	2	SuperShieldPack
+198.01	I	6	LinkGunPickup
+198.18	I	2	AdrenalinePickup
+198.51	I	2	AdrenalinePickup
+199.23	I	2	AdrenalinePickup
+199.95	K	2	DamTypeLinkShaft	4	SniperRifle
+199.95	S	2	1.00	frag
+200.01	I	2	SniperRiflePickup
+202.50	K	3	DamTypeShockCombo	2	LinkGun
+202.50	S	3	1.00	frag
+202.83	I	4	LinkGunPickup
+Close TcpipConnection 192.168.200.140:51703 08/24/13 16:04:04
+204.93	D	1
+204.93	PA	1	LinkGun	16	4	120
+204.93	PA	1	SniperRifle	4	0	0
+205.60	I	6	MinigunPickup
+206.43	I	3	LinkGunPickup
+206.81	I	2	FlakCannonPickup
+207.70	I	2	FlakAmmoPickup
+208.31	K	5	DamTypeLinkShaft	4	LinkGun
+208.31	S	5	1.00	frag
+208.92	I	2	FlakAmmoPickup
+210.75	C	7	Kaela
+210.75	G	NameChange	7	[BOT]Kaela
+210.75	BI	7	3.00	0.00	0.00	0.40	0.40	0.20	0.90	1.00	0.00	None
+210.75	I	7	HealthPack
+210.97	I	4	LinkGunPickup
+213.06	I	7	HealthPack
+215.27	I	2	ShockRiflePickup
+215.99	K	6	DamTypeLinkShaft	5	AssaultRifle
+215.99	S	6	1.00	frag
+216.16	K	4	DamTypeLinkShaft	7	AssaultRifle
+216.16	S	4	1.00	frag
+220.16	I	5	LinkGunPickup
+220.44	I	2	UDamagePack
+220.55	K	3	DamTypeShockCombo	6	LinkGun
+220.55	S	3	1.00	frag
+221.82	I	2	ShockAmmoPickup
+222.70	I	4	LinkAmmoPickup
+223.20	I	2	ShockAmmoPickup
+223.91	K	3	DamTypeFlakChunk	4	AssaultRifle
+223.91	S	3	1.00	frag
+224.63	I	6	LinkGunPickup
+225.68	K	5	DamTypeLinkShaft	6	LinkGun
+225.68	S	5	1.00	frag
+227.00	I	7	ShockRiflePickup
+227.78	I	2	BioRiflePickup
+230.04	I	6	HealthPack
+230.81	I	3	MinigunPickup
+232.19	I	5	LinkAmmoPickup
+234.76	I	4	ShockRiflePickup
+234.76	I	6	LinkGunPickup
+236.47	K	7	DamTypeShockBall	2	ShockRifle
+236.47	S	7	1.00	frag
+236.96	I	7	HealthPack
+237.57	K	5	DamTypeLinkPlasma	6	LinkGun
+237.57	S	5	1.00	frag
+238.78	I	2	LinkGunPickup
+239.00	I	7	BioRiflePickup
+240.27	I	7	RocketAmmoPickup
+240.77	I	5	LinkAmmoPickup
+242.10	I	7	RocketAmmoPickup
+243.87	K	4	DamTypeShockBeam	7	ShockRifle
+243.87	S	4	1.00	frag
+246.30	I	7	LinkGunPickup
+246.53	K	2	DamTypeLinkShaft	3	SniperRifle
+246.53	S	2	1.00	frag
+246.58	I	6	FlakCannonPickup
+247.46	I	6	FlakAmmoPickup
+247.74	K	2	DamTypeLinkShaft	5	LinkGun
+247.74	S	2	1.00	frag
+248.75	I	6	FlakAmmoPickup
+249.91	I	3	SniperRiflePickup
+251.75	I	2	SniperRiflePickup
+252.81	K	7	DamTypeLinkPlasma	2	LinkGun
+252.81	S	7	1.00	frag
+255.03	I	4	BioRiflePickup
+257.08	I	6	ShockRiflePickup
+257.08	I	5	FlakCannonPickup
+258.30	I	2	LinkGunPickup
+258.63	I	3	LinkGunPickup
+259.09	I	6	ShockAmmoPickup
+259.64	K	3	DamTypeSniperShot	2	LinkGun
+259.64	S	3	1.00	frag
+260.36	I	4	AdrenalinePickup
+261.36	I	2	AdrenalinePickup
+261.41	I	4	AdrenalinePickup
+261.41	I	2	AdrenalinePickup
+261.53	I	2	AdrenalinePickup
+261.91	I	6	ShockAmmoPickup
+262.19	I	4	AdrenalinePickup
+263.12	I	4	AdrenalinePickup
+265.17	K	7	DamTypeLinkShaft	3	SniperRifle
+265.17	S	7	1.00	frag
+266.45	I	6	BioRiflePickup
+266.89	I	7	SniperRiflePickup
+267.67	I	2	LinkAmmoPickup
+268.17	I	2	LinkGunPickup
+268.50	I	2	LinkAmmoPickup
+269.44	I	7	SniperAmmoPickup
+269.61	I	5	AdrenalinePickup
+269.95	I	5	SuperShieldPack
+270.06	I	7	AdrenalinePickup
+270.56	I	7	AdrenalinePickup
+270.95	I	7	AdrenalinePickup
+271.28	I	7	SniperAmmoPickup
+273.98	I	6	HealthPack
+274.31	I	6	BioAmmoPickup
+274.42	I	6	BioAmmoPickup
+275.03	I	2	MinigunAmmoPickup
+275.36	I	2	MinigunPickup
+279.22	I	7	BioRiflePickup
+279.99	I	3	HealthPack
+280.81	I	3	HealthPack
+281.09	I	7	RocketAmmoPickup
+283.11	K	5	DamTypeFlakChunk	7	BioRifle
+283.11	S	5	1.00	frag
+283.94	I	5	BioRiflePickup
+284.52	I	3	LinkGunPickup
+287.68	K	2	DamTypeLinkShaft	3	LinkGun
+287.68	S	2	1.00	frag
+288.34	I	4	HealthPack
+289.67	I	7	SniperRiflePickup
+290.16	K	5	DamTypeBioGlob	6	ShockRifle
+290.16	S	5	1.00	frag
+292.58	I	4	LinkGunPickup
+292.91	I	6	AdrenalinePickup
+293.13	I	5	ShockAmmoPickup
+293.64	I	6	AdrenalinePickup
+294.47	I	2	AdrenalinePickup
+294.64	I	5	ShockAmmoPickup
+294.64	I	6	AdrenalinePickup
+294.69	I	2	AdrenalinePickup
+294.92	I	2	AdrenalinePickup
+296.19	K	7	DamTypeSniperShot	4	LinkGun
+296.19	S	7	1.00	frag
+296.57	I	5	ShockRiflePickup
+298.33	I	3	ShockRiflePickup
+298.72	K	5	DamTypeBioGlob	5	BioRifle
+298.72	S	5	-1.00	self_frag
+300.49	I	3	BioRiflePickup
+301.32	I	4	LinkGunPickup
+301.81	I	2	RocketLauncherPickup
+302.14	I	2	RocketAmmoPickup
+303.18	I	2	RocketAmmoPickup
+303.57	I	6	LinkGunPickup
+304.40	K	7	DamTypeSniperShot	4	LinkGun
+304.40	S	7	1.00	frag
+306.38	I	7	LinkGunPickup
+307.60	I	5	FlakCannonPickup
+307.76	I	3	HealthPack
+308.25	I	3	HealthPack
+309.41	I	4	LinkGunPickup
+310.35	I	5	MiniHealthPack
+310.46	I	2	MiniHealthPack
+310.68	I	2	ShieldPack
+310.95	I	2	MiniHealthPack
+311.12	K	6	DamTypeLinkShaft	4	LinkGun
+311.12	S	6	1.00	frag
+311.28	I	2	MiniHealthPack
+311.45	I	5	MiniHealthPack
+312.22	I	5	MiniHealthPack
+312.82	K	7	DamTypeSniperShot	6	LinkGun
+312.82	S	7	1.00	frag
+313.04	I	5	MiniHealthPack
+313.70	I	5	MiniHealthPack
+314.20	I	4	LinkGunPickup
+314.58	I	4	LinkAmmoPickup
+316.29	I	6	RocketAmmoPickup
+316.46	I	3	UDamagePack
+317.62	K	2	DamTypeRocket	7	SniperRifle
+317.62	S	2	1.00	frag
+318.28	I	6	BioRiflePickup
+320.16	I	6	RocketAmmoPickup
+320.71	I	5	SniperRiflePickup
+321.87	I	4	MinigunPickup
+322.31	I	7	FlakCannonPickup
+322.37	I	4	MinigunAmmoPickup
+324.02	I	7	FlakAmmoPickup
+324.40	I	5	LinkAmmoPickup
+324.68	I	5	MinigunAmmoPickup
+324.73	I	5	RocketAmmoPickup
+324.95	I	5	ShockAmmoPickup
+326.00	I	7	FlakAmmoPickup
+326.39	I	6	AdrenalinePickup
+326.72	I	5	RedeemerPickup
+327.39	I	6	AdrenalinePickup
+328.11	I	6	AdrenalinePickup
+328.78	K	3	DamTypeShockBall	7	FlakCannon
+328.78	S	3	1.00	frag
+329.06	I	6	AdrenalinePickup
+329.33	I	3	FlakCannonPickup
+330.05	I	2	HealthPack
+330.32	K	5	DamTypeSniperShot	4	LinkGun
+330.32	S	5	1.00	frag
+331.70	I	7	LinkGunPickup
+334.61	I	4	FlakCannonPickup
+336.98	I	5	AdrenalinePickup
+337.25	K	3	DamTypeShockCombo	4	FlakCannon
+337.25	S	3	1.00	frag
+337.30	I	5	SuperShieldPack
+337.52	I	5	AdrenalinePickup
+337.97	I	5	AdrenalinePickup
+338.02	I	7	MinigunAmmoPickup
+338.35	I	7	MinigunPickup
+338.57	I	5	AdrenalinePickup
+339.23	I	5	SniperAmmoPickup
+341.65	I	4	ShockRiflePickup
+341.87	I	3	HealthPack
+342.37	I	3	HealthPack
+342.42	K	6	DamTypeBioGlob	2	RocketLauncher
+342.42	S	6	1.00	frag
+342.48	I	6	HealthPack
+343.69	K	2	DamTypeRocket	6	AssaultRifle
+343.69	S	2	1.00	frag
+346.01	I	6	LinkGunPickup
+346.23	I	7	RocketLauncherPickup
+346.45	I	6	LinkAmmoPickup
+347.16	I	5	LinkGunPickup
+347.71	I	2	BioRiflePickup
+350.57	I	2	BioAmmoPickup
+350.68	I	2	BioAmmoPickup
+354.00	I	2	ShockAmmoPickup
+356.25	I	2	ShockAmmoPickup
+357.74	I	6	HealthPack
+358.13	I	2	ShockRiflePickup
+358.46	I	6	HealthPack
+359.06	I	4	FlakCannonPickup
+361.82	I	4	MiniHealthPack
+362.75	I	4	MiniHealthPack
+363.58	I	4	MiniHealthPack
+364.46	I	4	MiniHealthPack
+364.57	K	6	DamTypeLinkShaft	3	BioRifle
+364.57	S	6	1.00	frag
+365.06	I	4	MiniHealthPack
+367.27	I	6	BioRiflePickup
+369.08	I	6	LinkAmmoPickup
+370.79	K	2	DamTypeShockCombo	4	ShockRifle
+370.79	S	2	1.00	frag
+371.40	I	3	SniperRiflePickup
+371.67	K	5	DamTypeRedeemer	6	LinkGun
+371.67	S	5	1.00	frag
+371.90	K	5	DamTypeRedeemer	5	LinkGun
+371.90	S	5	-1.00	self_frag
+372.40	I	7	HealthPack
+374.38	I	7	BioRiflePickup
+375.43	I	5	RocketAmmoPickup
+376.43	I	6	LinkGunPickup
+376.59	I	4	ShockRiflePickup
+376.65	I	2	FlakAmmoPickup
+377.25	I	4	HealthPack
+377.53	I	5	BioRiflePickup
+377.86	I	2	FlakAmmoPickup
+378.19	I	7	RocketAmmoPickup
+378.74	I	2	FlakCannonPickup
+379.07	K	5	DamTypeBioGlob	7	Minigun
+379.07	S	5	1.00	frag
+380.33	I	5	MinigunPickup
+381.61	I	7	LinkGunPickup
+381.94	I	7	LinkAmmoPickup
+382.22	K	3	DamTypeSniperShot	6	LinkGun
+382.22	S	3	1.00	frag
+385.29	I	5	ShockAmmoPickup
+386.50	I	6	ShockRiflePickup
+387.60	I	5	ShockAmmoPickup
+387.77	I	3	LinkGunPickup
+389.25	K	4	DamTypeShockCombo	5	Minigun
+389.25	S	4	1.00	frag
+389.25	K	4	DamTypeShockCombo	6	ShockRifle
+389.25	S	4	1.00	frag
+391.02	K	7	DamTypeLinkShaft	3	SniperRifle
+391.02	S	7	1.00	frag
+391.13	I	7	SniperRiflePickup
+391.85	I	5	LinkGunPickup
+392.40	I	2	HealthPack
+393.22	I	2	HealthPack
+393.72	I	3	LinkGunPickup
+396.14	I	6	SniperRiflePickup
+397.62	K	4	DamTypeShockBeam	2	ShockRifle
+397.62	S	4	1.00	frag
+398.01	I	7	HealthPack
+398.78	I	7	HealthPack
+401.10	I	5	MinigunAmmoPickup
+401.43	I	5	MinigunPickup
+402.31	I	2	FlakCannonPickup
+404.40	K	5	DamTypeLinkShaft	6	SniperRifle
+404.40	S	5	1.00	frag
+406.28	I	6	AdrenalinePickup
+406.39	I	6	AdrenalinePickup
+406.44	I	6	AdrenalinePickup
+406.88	I	3	SniperRiflePickup
+409.09	K	5	DamTypeLinkShaft	7	LinkGun
+409.09	S	5	1.00	frag
+410.86	I	2	ShockRiflePickup
+411.19	I	3	SniperAmmoPickup
+411.30	I	2	UDamagePack
+411.80	I	3	AdrenalinePickup
+411.85	I	7	LinkGunPickup
+411.96	I	6	LinkAmmoPickup
+412.13	I	3	SuperShieldPack
+412.41	I	3	AdrenalinePickup
+412.52	I	6	LinkGunPickup
+412.79	I	3	AdrenalinePickup
+412.96	I	6	LinkAmmoPickup
+413.40	I	3	AdrenalinePickup
+414.61	I	2	SniperAmmoPickup
+419.07	I	4	FlakAmmoPickup
+420.27	I	4	FlakAmmoPickup
+421.16	I	4	FlakCannonPickup
+421.43	K	6	DamTypeLinkShaft	5	Minigun
+421.43	S	6	1.00	frag
+421.99	I	3	HealthPack
+424.02	I	3	BioRiflePickup
+424.08	I	4	MiniHealthPack
+424.57	I	7	MinigunPickup
+425.01	I	4	MiniHealthPack
+425.18	K	6	DamTypeLinkShaft	7	LinkGun
+425.18	S	6	1.00	frag
+425.51	I	3	RocketAmmoPickup
+425.79	I	4	MiniHealthPack
+426.23	K	2	DamTypeShockBeam	4	AssaultRifle
+426.23	S	2	1.00	frag
+427.93	I	5	SniperRiflePickup
+429.42	I	7	ShockRiflePickup
+430.14	I	6	HealthPack
+430.25	I	3	ShockAmmoPickup
+430.86	I	6	HealthPack
+431.74	I	3	ShockAmmoPickup
+433.40	I	4	SniperRiflePickup
+433.57	I	3	ShockRiflePickup
+435.55	I	2	MiniHealthPack
+435.99	I	6	RocketLauncherPickup
+436.16	I	2	MiniHealthPack
+436.33	I	6	RocketAmmoPickup
+442.34	K	3	DamTypeShockCombo	7	ShockRifle
+442.34	S	3	1.00	frag
+442.67	I	5	LinkAmmoPickup
+443.16	I	5	LinkGunPickup
+443.55	I	5	LinkAmmoPickup
+444.72	I	7	LinkGunPickup
+444.94	I	3	LinkAmmoPickup
+445.05	I	3	SniperAmmoPickup
+445.27	I	3	AssaultAmmoPickup
+447.20	K	5	DamTypeSniperShot	6	RocketLauncher
+447.20	S	5	1.00	frag
+448.79	K	4	DamTypeSniperShot	5	SniperRifle
+448.79	S	4	1.00	frag
+450.23	K	7	DamTypeLinkPlasma	4	SniperRifle
+450.23	S	7	1.00	frag
+451.54	I	4	AdrenalinePickup
+451.60	I	4	AdrenalinePickup
+451.71	I	4	AdrenalinePickup
+451.93	I	2	RocketLauncherPickup
+453.09	I	3	HealthPack
+453.20	I	5	RocketAmmoPickup
+453.31	I	5	MinigunAmmoPickup
+453.58	I	3	HealthPack
+453.58	I	5	ShockAmmoPickup
+455.07	I	5	RedeemerPickup
+457.27	I	5	AssaultAmmoPickup
+457.38	I	6	LinkGunPickup
+457.44	I	5	LinkAmmoPickup
+457.60	I	2	LinkGunPickup
+458.04	I	4	LinkGunPickup
+459.36	I	3	FlakAmmoPickup
+459.58	K	5	DamTypeRedeemer	7	LinkGun
+459.58	S	5	1.00	frag
+460.63	I	3	FlakAmmoPickup
+460.96	I	5	SniperRiflePickup
+461.51	I	3	FlakCannonPickup
+462.06	I	2	HealthPack
+462.84	I	2	HealthPack
+463.06	K	2	DamTypeLinkShaft	4	LinkGun
+463.06	S	2	1.00	frag
+470.07	K	3	DamTypeShockBall	7	AssaultRifle
+470.07	S	3	1.00	frag
+470.34	I	4	SniperRiflePickup
+472.49	I	2	MinigunPickup
+472.93	I	2	MinigunAmmoPickup
+473.10	I	6	LinkAmmoPickup
+473.10	I	7	AdrenalinePickup
+473.81	I	7	AdrenalinePickup
+474.03	I	3	MiniHealthPack
+474.80	I	7	AdrenalinePickup
+475.02	I	3	MiniHealthPack
+475.79	I	3	MiniHealthPack
+476.07	I	5	SniperAmmoPickup
+476.68	I	3	MiniHealthPack
+476.68	I	5	AdrenalinePickup
+477.01	I	5	SuperShieldPack
+477.28	I	3	MiniHealthPack
+477.34	I	5	AdrenalinePickup
+477.45	I	7	AdrenalinePickup
+477.62	I	5	AdrenalinePickup
+478.34	I	4	AdrenalinePickup
+480.61	I	3	AdrenalinePickup
+480.83	I	3	AdrenalinePickup
+481.05	I	3	AdrenalinePickup
+481.22	I	3	AdrenalinePickup
+481.77	I	3	AdrenalinePickup
+482.66	I	7	RocketAmmoPickup
+484.81	I	7	BioRiflePickup
+487.25	I	5	HealthPack
+489.63	I	5	BioRiflePickup
+490.51	I	3	HealthPack
+492.27	I	4	BioRiflePickup
+492.71	I	5	BioAmmoPickup
+492.82	I	5	BioAmmoPickup
+496.07	I	6	BioRiflePickup
+496.07	K	7	DamTypeAssaultBullet	2	LinkGun
+496.07	S	7	1.00	frag
+497.18	I	7	RocketAmmoPickup
+497.95	I	7	LinkGunPickup
+499.05	K	6	DamTypeBioGlob	4	AssaultRifle
+499.05	S	6	1.00	frag
+500.27	I	2	FlakCannonPickup
+501.25	I	2	FlakAmmoPickup
+501.25	K	7	DamTypeLinkShaft	6	BioRifle
+501.25	S	7	1.00	frag
+501.36	I	4	LinkGunPickup
+501.58	I	5	ShockAmmoPickup
+501.80	I	4	LinkAmmoPickup
+502.46	I	2	FlakAmmoPickup
+502.52	K	3	DamTypeShockBeam	5	BioRifle
+502.52	S	3	1.00	frag
+506.87	I	5	LinkGunPickup
+506.98	K	3	DamTypeShockBeam	7	LinkGun
+506.98	S	3	1.00	frag
+508.31	I	3	ShockAmmoPickup
+509.74	I	3	UDamagePack
+510.01	K	2	DamTypeFlakChunk	3	BioRifle
+510.01	S	2	1.00	frag
+510.29	I	6	FlakCannonPickup
+510.34	I	2	ShockRiflePickup
+511.28	I	2	BioRiflePickup
+512.00	I	7	LinkGunPickup
+512.77	I	2	SniperAmmoPickup
+512.94	I	2	LinkAmmoPickup
+512.99	I	3	AdrenalinePickup
+513.16	I	2	AssaultAmmoPickup
+513.71	I	3	AdrenalinePickup
+513.76	I	6	MiniHealthPack
+513.82	K	5	DamTypeLinkShaft	7	LinkGun
+513.82	S	5	1.00	frag
+514.31	P	5	XGame.ComboBerserk
+514.65	I	6	MiniHealthPack
+516.19	I	6	MiniHealthPack
+516.36	K	5	DamTypeLinkShaft	4	LinkGun
+516.36	S	5	1.00	frag
+518.84	I	3	RocketAmmoPickup
+519.12	P	2	XGame.ComboDefensive
+520.17	I	4	LinkGunPickup
+520.95	I	3	BioRiflePickup
+522.32	K	5	DamTypeLinkShaft	4	LinkGun
+522.32	S	5	1.00	frag
+523.26	I	7	FlakCannonPickup
+523.76	I	3	BioAmmoPickup
+523.82	I	3	BioAmmoPickup
+526.24	I	4	ShockRiflePickup
+526.46	P	3	XGame.ComboBerserk
+528.77	I	7	HealthPack
+529.26	I	7	HealthPack
+536.28	K	7	DamTypeFlakChunk	4	ShockRifle
+536.28	S	7	1.00	frag
+537.94	I	5	HealthPack
+538.33	K	7	DamTypeFlakChunk	2	FlakCannon
+538.33	S	7	1.00	frag
+538.66	I	4	LinkGunPickup
+538.71	I	5	HealthPack
+539.05	I	4	LinkAmmoPickup
+540.87	K	3	DamTypeBioGlob	7	FlakCannon
+540.87	S	3	1.00	frag
+542.97	I	7	AdrenalinePickup
+543.02	I	7	AdrenalinePickup
+543.02	I	7	AdrenalinePickup
+543.46	I	3	ShockRiflePickup
+544.40	I	2	LinkGunPickup
+545.12	I	4	MinigunAmmoPickup
+545.44	I	4	MinigunPickup
+545.72	I	3	FlakCannonPickup
+546.77	I	6	AdrenalinePickup
+547.22	I	6	SuperShieldPack
+547.44	I	6	AdrenalinePickup
+547.83	I	6	AdrenalinePickup
+548.27	I	6	AdrenalinePickup
+548.87	I	6	SniperAmmoPickup
+549.36	I	7	LinkAmmoPickup
+549.86	I	7	LinkGunPickup
+550.58	K	2	DamTypeLinkShaft	4	LinkGun
+550.58	S	2	1.00	frag
+551.02	I	3	ShockAmmoPickup
+555.75	I	6	LinkGunPickup
+556.19	K	5	DamTypeLinkShaft	7	LinkGun
+556.19	S	5	1.00	frag
+558.06	K	6	DamTypeLinkShaft	2	LinkGun
+558.06	S	6	1.00	frag
+559.23	K	3	DamTypeShockBeam	4	AssaultRifle
+559.23	S	3	1.00	frag
+559.23	I	7	AdrenalinePickup
+559.95	I	7	AdrenalinePickup
+560.00	I	5	MinigunPickup
+560.38	I	5	MinigunAmmoPickup
+560.93	I	7	AdrenalinePickup
+563.52	I	7	AdrenalinePickup
+565.83	I	5	MiniHealthPack
+566.10	I	5	ShieldPack
+566.38	I	5	MiniHealthPack
+566.60	I	3	HealthPack
+566.60	I	4	LinkGunPickup
+566.71	I	5	MiniHealthPack
+566.98	I	5	MiniHealthPack
+567.09	I	3	HealthPack
+567.09	I	2	ShockRiflePickup
+567.31	I	5	MiniHealthPack
+567.86	I	5	MiniHealthPack
+568.14	I	7	RocketAmmoPickup
+570.12	I	6	MinigunPickup
+570.28	I	7	BioRiflePickup
+572.26	I	7	RocketAmmoPickup
+574.46	I	4	MinigunPickup
+575.34	I	5	RocketAmmoPickup
+575.40	K	6	DamTypeLinkShaft	4	LinkGun
+575.40	S	6	1.00	frag
+576.06	K	2	DamTypeShockBall	3	BioRifle
+576.06	S	2	1.00	frag
+576.34	I	5	RocketAmmoPickup
+576.45	I	2	BioRiflePickup
+576.61	I	5	RocketLauncherPickup
+577.66	I	6	MinigunAmmoPickup
+579.20	I	7	ShockAmmoPickup
+580.08	I	3	RocketAmmoPickup
+580.19	I	3	MinigunAmmoPickup
+580.47	I	3	ShockAmmoPickup
+581.02	I	7	ShockRiflePickup
+581.63	I	5	HealthPack
+581.79	I	2	FlakAmmoPickup
+581.96	I	3	RedeemerPickup
+582.46	I	5	HealthPack
+583.01	I	2	FlakAmmoPickup
+583.94	I	2	FlakCannonPickup
+584.49	I	3	AssaultAmmoPickup
+584.66	I	3	LinkAmmoPickup
+585.98	I	6	HealthPack
+586.75	I	4	BioRiflePickup
+586.91	I	2	MiniHealthPack
+588.24	I	3	SniperRiflePickup
+588.51	I	2	MiniHealthPack
+589.34	I	2	MiniHealthPack
+589.62	I	4	BioAmmoPickup
+589.67	I	4	BioAmmoPickup
+590.22	I	2	MiniHealthPack
+590.83	I	2	MiniHealthPack
+592.98	I	7	FlakCannonPickup
+593.14	I	4	ShockAmmoPickup
+594.58	I	6	SniperRiflePickup
+596.79	K	6	DamTypeLinkShaft	3	SniperRifle
+596.79	S	6	1.00	frag
+597.40	P	6	XGame.ComboDefensive
+600.60	I	5	SniperRiflePickup
+600.93	I	4	UDamagePack
+601.37	I	4	ShockRiflePickup
+604.78	I	5	SniperAmmoPickup
+605.33	I	5	AdrenalinePickup
+605.88	I	5	AdrenalinePickup
+606.04	I	3	LinkGunPickup
+606.15	I	5	AdrenalinePickup
+606.59	I	5	AdrenalinePickup
+607.25	I	5	SuperShieldPack
+609.24	K	4	DamTypeShockBeam	7	ShockRifle
+609.24	S	4	1.00	frag
+612.12	I	7	LinkGunPickup
+612.51	I	7	LinkAmmoPickup
+612.79	I	4	FlakCannonPickup
+614.89	I	4	FlakAmmoPickup
+616.10	I	4	FlakAmmoPickup
+616.98	I	7	HealthPack
+617.81	K	2	DamTypeFlakChunk	7	LinkGun
+617.81	S	2	1.00	frag
+617.92	K	3	DamTypeLinkShaft	6	SniperRifle
+617.92	S	3	1.00	frag
+618.74	I	2	LinkGunPickup
+619.30	I	3	SniperRiflePickup
+619.46	I	2	HealthPack
+620.24	I	2	HealthPack
+620.52	I	7	AdrenalinePickup
+620.74	I	6	LinkGunPickup
+621.24	I	7	AdrenalinePickup
+622.18	I	7	AdrenalinePickup
+622.90	P	5	spree_1
+622.90	K	5	DamTypeRocket	3	LinkGun
+622.90	S	5	1.00	frag
+624.79	I	7	AdrenalinePickup
+625.39	I	2	RocketLauncherPickup
+625.78	I	5	HealthPack
+625.78	I	2	RocketAmmoPickup
+626.72	I	2	RocketAmmoPickup
+627.66	I	5	BioRiflePickup
+629.69	I	7	RocketAmmoPickup
+629.86	I	3	SniperRiflePickup
+631.79	I	7	BioRiflePickup
+633.99	K	5	DamTypeSniperShot	7	BioRifle
+633.99	S	5	1.00	frag
+634.44	I	2	MiniHealthPack
+634.50	I	4	LinkAmmoPickup
+634.66	I	2	ShieldPack
+634.88	I	2	MiniHealthPack
+634.99	I	4	LinkGunPickup
+635.10	I	2	MiniHealthPack
+635.49	I	2	MiniHealthPack
+635.76	I	2	MiniHealthPack
+636.42	I	2	MiniHealthPack
+637.25	I	5	BioAmmoPickup
+637.36	I	5	BioAmmoPickup
+638.02	K	6	DamTypeLinkShaft	5	BioRifle
+638.02	S	6	1.00	frag
+638.96	I	7	ShockRiflePickup
+640.12	I	6	BioRiflePickup
+640.73	I	5	LinkGunPickup
+641.84	I	6	RocketAmmoPickup
+642.22	K	2	DamTypeRocket	5	LinkGun
+642.22	S	2	1.00	frag
+644.10	I	4	MinigunAmmoPickup
+644.43	I	4	MinigunPickup
+644.81	I	4	MinigunAmmoPickup
+646.19	I	5	FlakCannonPickup
+646.63	I	6	ShockAmmoPickup
+647.18	I	5	FlakAmmoPickup
+648.11	I	6	ShockAmmoPickup
+648.39	I	5	FlakAmmoPickup
+649.71	K	4	DamTypeShockBeam	3	SniperRifle
+649.71	S	4	1.00	frag
+649.99	I	6	ShockRiflePickup
+651.70	K	5	DamTypeFlakChunk	7	ShockRifle
+651.70	S	5	1.00	frag
+652.97	I	6	SniperAmmoPickup
+653.08	I	4	HealthPack
+653.08	I	6	LinkAmmoPickup
+653.90	I	5	ShockRiflePickup
+654.45	K	5	DamTypeFlakChunk	6	BioRifle
+654.45	S	5	1.00	frag
+655.89	K	4	DamTypeShockCombo	2	LinkGun
+655.89	S	4	1.00	frag
+656.33	I	5	AssaultAmmoPickup
+656.33	I	7	FlakCannonPickup
+656.72	I	5	BioRiflePickup
+657.43	I	6	SniperRiflePickup
+659.19	I	2	LinkAmmoPickup
+659.25	I	3	FlakCannonPickup
+659.52	I	2	LinkGunPickup
+662.39	I	4	HealthPack
+663.10	I	5	HealthPack
+663.65	I	5	HealthPack
+664.09	K	6	DamTypeSniperShot	3	FlakCannon
+664.09	S	6	1.00	frag
+664.87	I	4	AdrenalinePickup
+665.86	I	4	AdrenalinePickup
+666.08	I	2	MinigunPickup
+666.57	I	4	AdrenalinePickup
+666.68	I	3	LinkGunPickup
+667.51	I	4	AdrenalinePickup
+667.56	K	7	DamTypeFlakChunk	5	BioRifle
+667.56	S	7	1.00	frag
+668.12	P	7	XGame.ComboInvis
+672.97	I	7	BioRiflePickup
+673.85	I	2	SniperAmmoPickup
+674.40	I	2	AdrenalinePickup
+674.78	I	2	SuperShieldPack
+675.06	I	2	AdrenalinePickup
+675.44	I	2	AdrenalinePickup
+675.61	I	5	RocketAmmoPickup
+675.83	K	4	DamTypeFlakChunk	5	AssaultRifle
+675.83	S	4	1.00	frag
+676.05	I	2	AdrenalinePickup
+677.98	I	5	AdrenalinePickup
+678.04	I	5	AdrenalinePickup
+678.15	I	5	AdrenalinePickup
+680.59	P	4	XGame.ComboDefensive
+681.74	K	2	DamTypeLinkPlasma	4	Minigun
+681.74	S	2	1.00	frag
+682.46	K	5	DamTypeAssaultBullet	7	BioRifle
+682.46	S	5	1.00	frag
+684.12	I	5	LinkAmmoPickup
+684.62	I	5	LinkGunPickup
+685.61	K	2	DamTypeLinkPlasma	3	AssaultRifle
+685.61	S	2	1.00	frag
+686.77	I	5	HealthPack
+687.05	I	5	BioRiflePickup
+687.49	I	7	ShockRiflePickup
+689.53	I	7	ShockAmmoPickup
+689.69	I	2	BioRiflePickup
+690.03	I	3	LinkGunPickup
+690.52	I	6	FlakCannonPickup
+690.96	I	7	ShockAmmoPickup
+691.94	I	2	HealthPack
+692.27	I	2	BioAmmoPickup
+692.38	I	2	BioAmmoPickup
+692.44	I	6	FlakAmmoPickup
+693.65	I	6	FlakAmmoPickup
+694.14	K	3	DamTypeLinkShaft	4	AssaultRifle
+694.14	S	3	1.00	frag
+694.76	I	7	UDamagePack
+694.92	I	5	MinigunPickup
+695.36	I	5	MinigunAmmoPickup
+700.75	I	4	SniperRiflePickup
+701.36	I	6	ShockRiflePickup
+703.79	I	2	ShockRiflePickup
+704.96	I	5	HealthPack
+705.62	K	2	DamTypeLinkShaft	6	FlakCannon
+705.62	S	2	1.00	frag
+706.23	I	7	HealthPack
+706.78	I	7	HealthPack
+709.32	I	4	LinkGunPickup
+709.81	I	5	ShockAmmoPickup
+709.98	I	5	RocketAmmoPickup
+710.09	I	5	MinigunAmmoPickup
+710.64	K	7	DamTypeShockBall	2	LinkGun
+710.64	S	7	1.00	frag
+711.97	I	5	RedeemerPickup
+712.08	K	4	DamTypeSniperShot	5	LinkGun
+712.08	S	4	1.00	frag
+715.01	I	6	FlakCannonPickup
+715.39	I	3	HealthPack
+715.89	K	6	DamTypeFlakChunk	7	ShockRifle
+715.89	S	6	1.00	frag
+716.17	I	5	LinkAmmoPickup
+716.50	I	5	LinkGunPickup
+716.88	I	6	ShockRiflePickup
+717.98	I	2	SniperRiflePickup
+718.97	I	6	MiniHealthPack
+719.68	I	7	RocketAmmoPickup
+719.90	I	6	MiniHealthPack
+720.67	I	6	MiniHealthPack
+721.56	I	6	MiniHealthPack
+721.78	I	7	BioRiflePickup
+722.44	I	6	MiniHealthPack
+723.32	I	5	MinigunPickup
+723.60	I	7	RocketAmmoPickup
+724.20	K	5	DamTypeLinkShaft	3	AssaultRifle
+724.20	S	5	1.00	frag
+725.42	I	5	MinigunAmmoPickup
+728.35	I	7	ShockAmmoPickup
+730.61	I	7	ShockAmmoPickup
+731.65	I	2	HealthPack
+732.43	I	2	HealthPack
+732.54	I	7	ShockRiflePickup
+733.47	I	3	FlakCannonPickup
+734.46	I	3	FlakAmmoPickup
+734.79	I	4	HealthPack
+735.67	I	3	FlakAmmoPickup
+736.88	I	6	LinkGunPickup
+737.49	I	6	LinkAmmoPickup
+739.97	K	3	DamTypeFlakChunk	7	ShockRifle
+739.97	S	3	1.00	frag
+744.39	I	5	SniperAmmoPickup
+744.83	K	4	DamTypeSniperShot	5	Minigun
+744.83	S	4	1.00	frag
+746.16	I	7	BioRiflePickup
+748.15	I	4	AdrenalinePickup
+748.54	I	4	SuperShieldPack
+748.81	I	4	AdrenalinePickup
+748.81	I	6	AdrenalinePickup
+748.81	I	3	ShockRiflePickup
+749.09	I	4	MinigunPickup
+749.26	I	4	SniperAmmoPickup
+749.48	I	6	AdrenalinePickup
+749.64	I	2	LinkGunPickup
+750.14	I	2	LinkAmmoPickup
+752.07	I	5	SniperRiflePickup
+754.76	K	3	DamTypeFlakChunk	7	BioRifle
+754.76	S	3	1.00	frag
+756.53	K	5	DamTypeSniperShot	2	SniperRifle
+756.53	S	5	1.00	frag
+756.53	EG	fraglimit	5	2	3	4	6	7
+756.53	PA	7	AssaultRifle	126	10	63
+756.53	PA	7	ShockRifle	58	11	461
+756.53	PA	7	LinkGun	353	63	819
+756.53	PA	7	SniperRifle	16	5	315
+756.53	PA	7	BioRifle	35	5	173
+756.53	PA	7	FlakCannon	24	11	143
+756.53	PA	7	RocketLauncher	11	4	186
+756.53	PA	6	AssaultRifle	137	17	119
+756.53	PA	6	LinkGun	550	111	1209
+756.53	PA	6	BioRifle	61	12	408
+756.53	PA	6	FlakCannon	18	5	63
+756.53	PA	6	ShockRifle	60	8	276
+756.53	PA	6	SniperRifle	18	2	140
+756.53	PA	6	RocketLauncher	5	0	0
+756.53	PA	6	ShieldGun	8	0	0
+756.53	PA	5	AssaultRifle	46	8	91
+756.53	PA	5	ShockRifle	14	3	247
+756.53	PA	5	LinkGun	534	124	1303
+756.53	PA	5	SniperRifle	39	6	385
+756.53	PA	5	FlakCannon	18	5	65
+756.53	PA	5	BioRifle	30	5	290
+756.53	PA	5	Redeemer	2	2	180
+756.53	PA	5	Minigun	101	12	87
+756.53	PA	5	RocketLauncher	18	5	280
+756.53	PA	4	AssaultRifle	143	21	209
+756.53	PA	4	LinkGun	346	65	627
+756.53	PA	4	ShockRifle	57	10	691
+756.53	PA	4	Redeemer	1	1	69
+756.53	PA	4	SniperRifle	51	10	595
+756.53	PA	4	BioRifle	1	0	0
+756.53	PA	4	FlakCannon	7	4	52
+756.53	PA	3	AssaultRifle	107	17	119
+756.53	PA	3	BioRifle	60	9	248
+756.53	PA	3	ShockRifle	96	17	1328
+756.53	PA	3	FlakCannon	13	7	131
+756.53	PA	3	SniperRifle	36	9	595
+756.53	PA	3	LinkGun	201	35	420
+756.53	PA	3	Redeemer	1	0	0
+756.53	PA	2	AssaultRifle	61	6	42
+756.53	PA	2	SniperRifle	19	4	245
+756.53	PA	2	LinkGun	481	112	1218
+756.53	PA	2	FlakCannon	9	2	26
+756.53	PA	2	ShockRifle	71	11	672
+756.53	PA	2	RocketLauncher	23	6	382
+756.53	PA	2	BioRifle	9	0	0
+xDeathMatch DM-Antalus.xDeathMatch (Function Engine.GameInfo.EndLogging:0027) Accessed None 'GameStats'
+ProcessServerTravel: DM-TrainingDay
+PreClientTravel
+Server switch level: DM-TrainingDay
+Browse: DM-TrainingDay?Name=Player?Class=Engine.Pawn?Character=Jakob?team=255?game=XGame.xDeathMatch?GameStats=True
+Socket shut down
+Collecting garbage
+Purging garbage
+(Karma): Level Karma Terminated.
+Garbage: objects: 49118->33625; refs: 380419
+Game class is 'xDeathMatch'
+Fixing up DM-TrainingDay
+Bringing Level DM-TrainingDay.myLevel up for play (20) appSeconds: 798.225000...
+(Karma): Autodetecting CPU for SSE
+(Karma): Using SSE Optimizations
+Loading Admins & Groups
+Kick and Ban Privileges Loaded
+Maps & Game Privileges Loaded
+Admins & Groups Management Loaded
+Extra Privileges Loaded
+GameInfo::InitGame : bEnableStatLogging True
+----------------------------------------
+OLStats Loading...
+Debug mode is ON!
+Opening user log ..\UserLogs\Stats_7777_2013_08_24_16_13_02.log
+OLStats 3.00 loaded!
+  Author: OverloadUT
+  Email: Overload@planetunreal.com
+  Web: www.apartment167.com
+----------------------------------------
+UdpServerQuery(crt): Port 7787 successfully bound.
+Defaulting to false
+Defaulting to false
+MasterServerUplink: DoUplink is False, not connecting to Epic master server
+Loading Available Maps
+Loading Game Types
+XWebAdmin.UTServerAdmin Initialized on port 18080
+OLStats v3.00 by OverloadUT www.Apartment167.com
+0.00	NG	2013-8-24 16:13:2	0	DM-TrainingDay	Training Day	Scott McGregor and Lee Perry	XGame.xDeathMatch	DeathMatch	Mutators=UnrealGame.DMMutator|OLStats.MutOLGameStats
+0.00	SI	UT 2004 Lan Party (Vanilla)	0				\ServerMode\dedicated\AdminName\\AdminEmail\\ServerVersion\3369\GameStats\True\MaxSpectators\2\Mutator\MutOLGameStats\MinPlayers\6\EndTimeDelay\4.00\GoalScore\25\TimeLimit\20\Translocator\False\WeaponStay\True\ForceRespawn\False\gamedifficulty\3.00\shortname\UT2 Server
+Highest Request Count Per Timeframe (60 sec): 1
+Highest Request Count Per Timeframe (60 sec): 2
+Highest Request Count Per Timeframe (60 sec): 8
+Highest Request Count Per Timeframe (60 sec): 59
+Highest Request Count Per Timeframe (60 sec): 62
+Highest Request Count Per Timeframe (60 sec): 81
+Open myLevel 08/24/13 16:43:29 192.168.200.140:58099
+Client netspeed is 10000
+2011.47	C	1	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+2011.47	PS	1	192.168.200.140:58099	10000	11e145faaf230c5c5a1b419541a6aca4
+2011.47	G	NameChange	1	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+2013.03	PP	1	0
+2020.73	SG
+START MATCH
+2021.99	C	6	Matrix
+2021.99	G	NameChange	6	[BOT]Matrix
+2021.99	BI	6	3.00	0.00	0.05	0.50	0.80	0.00	0.00	1.00	0.60	ShockRifle
+2021.99	I	6	ShockAmmoPickup
+2022.29	I	6	ShockRiflePickup
+2022.46	C	5	Riker
+2022.46	G	NameChange	5	[BOT]Riker
+2022.46	BI	5	3.00	0.00	0.00	0.40	0.00	0.10	0.00	1.00	0.00	RocketLauncher
+2022.46	I	5	FlakAmmoPickup
+2022.62	C	4	Zarina
+2022.62	G	NameChange	4	[BOT]Zarina
+2022.62	BI	4	3.00	0.00	-0.10	0.40	1.00	0.20	0.70	1.00	0.00	None
+2022.62	I	4	MinigunAmmoPickup
+2022.68	I	6	ShockAmmoPickup
+2022.84	C	3	Greith
+2022.84	G	NameChange	3	[BOT]Greith
+2022.84	BI	3	3.00	0.00	-0.20	0.40	0.00	0.20	0.80	1.00	0.00	ShockRifle
+2022.84	I	3	ShockRiflePickup
+2023.12	I	5	FlakCannonPickup
+2023.17	C	2	Annika
+2023.17	G	NameChange	2	[BOT]Annika
+2023.17	BI	2	3.00	0.00	0.20	0.40	-0.65	0.00	-0.10	1.00	0.00	SniperRifle
+2023.17	I	2	LinkAmmoPickup
+2023.17	I	4	MinigunPickup
+2023.51	I	2	LinkGunPickup
+2023.56	I	1	MinigunPickup
+2023.95	I	2	LinkAmmoPickup
+2024.45	I	5	HealthPack
+2024.88	I	6	AdrenalinePickup
+2024.94	I	4	HealthPack
+2024.99	I	6	AdrenalinePickup
+2024.99	I	4	HealthPack
+2025.71	I	5	MinigunPickup
+2025.87	I	6	HealthPack
+2025.98	I	4	FlakCannonPickup
+2026.70	I	3	FlakCannonPickup
+2026.76	P	5	first_blood
+2026.76	K	5	DamTypeFlakChunk	4	Minigun
+2026.76	S	5	1.00	frag
+2026.92	I	6	MinigunPickup
+2027.09	K	3	DamTypeShockBeam	5	FlakCannon
+2027.09	S	3	1.00	frag
+2028.03	K	1	DamTypeMinigunAlt	6	ShockRifle
+2028.03	S	1	1.00	frag
+2028.92	I	2	AdrenalinePickup
+2029.09	I	2	AdrenalinePickup
+2029.36	I	4	ShockRiflePickup
+2029.86	I	5	LinkGunPickup
+2030.14	I	2	MinigunPickup
+2030.25	I	3	MinigunPickup
+2030.41	I	6	ShockRiflePickup
+2032.23	K	5	DamTypeLinkShaft	1	Minigun
+2032.23	S	5	1.00	frag
+2032.90	K	2	DamTypeLinkShaft	3	FlakCannon
+2032.90	S	2	1.00	frag
+2034.73	I	6	MinigunPickup
+2035.11	I	6	FlakCannonPickup
+2035.11	I	3	FlakCannonPickup
+2035.61	I	5	FlakCannonPickup
+2036.16	K	5	DamTypeLinkShaft	2	LinkGun
+2036.16	S	5	1.00	frag
+2036.27	K	6	DamTypeShockBeam	5	LinkGun
+2036.27	S	6	1.00	frag
+2037.89	K	4	DamTypeShockCombo	3	FlakCannon
+2037.89	S	4	1.00	frag
+2037.89	K	4	DamTypeShockCombo	6	ShockRifle
+2037.89	S	4	1.00	frag
+2038.33	I	5	MinigunPickup
+2038.56	I	2	LinkGunPickup
+2039.17	I	5	ShockRiflePickup
+2039.90	I	6	ShockRiflePickup
+2039.95	I	5	FlakCannonPickup
+2039.95	I	3	FlakCannonPickup
+Highest Request Count Per Timeframe (60 sec): 123
+2040.45	I	2	MiniHealthPack
+2040.84	I	2	MiniHealthPack
+2041.01	I	4	FlakCannonPickup
+2041.23	I	2	MiniHealthPack
+2041.68	K	5	DamTypeMinigunBullet	4	ShockRifle
+2041.68	S	5	1.00	frag
+2043.07	PP	1	152
+2043.90	I	3	MinigunPickup
+2043.95	I	2	MinigunPickup
+2044.06	I	4	LinkGunPickup
+2044.28	K	3	DamTypeFlakShell	3	FlakCannon
+2044.28	S	3	-1.00	self_frag
+2044.28	I	2	FlakCannonPickup
+2045.90	I	3	ShockRiflePickup
+2046.28	K	2	DamTypeLinkShaft	5	Minigun
+2046.28	S	2	1.00	frag
+2047.51	I	3	FlakCannonPickup
+2048.40	I	5	ShockRiflePickup
+2052.07	K	3	DamTypeFlakChunk	2	LinkGun
+2052.07	S	3	1.00	frag
+2053.57	I	6	LinkGunPickup
+2054.02	I	5	FlakCannonPickup
+2054.52	I	2	LinkAmmoPickup
+2054.91	I	2	LinkGunPickup
+2055.07	I	3	MinigunPickup
+2055.13	K	3	DamTypeShockBall	3	ShockRifle
+2055.13	S	3	-1.00	self_frag
+2055.69	I	6	AdrenalinePickup
+2055.74	K	6	DamTypeShockBeam	5	ShockRifle
+2055.74	S	6	1.00	frag
+2055.91	I	6	AdrenalinePickup
+2056.35	I	3	ShockAmmoPickup
+2056.63	I	3	ShockRiflePickup
+2056.74	I	4	ShockRiflePickup
+2056.91	I	6	FlakCannonPickup
+2057.02	I	3	ShockAmmoPickup
+2057.35	I	4	MinigunPickup
+2058.19	I	6	HealthPack
+Close TcpipConnection 192.168.200.140:58099 08/24/13 16:44:15
+2058.36	D	1
+2058.36	PA	1	Minigun	37	10	145
+2058.53	K	6	DamTypeLinkShaft	4	Minigun
+2058.53	S	6	1.00	frag
+2058.64	I	5	ShockRiflePickup
+2059.47	I	6	MinigunPickup
+2059.53	I	4	FlakAmmoPickup
+2060.13	I	4	FlakCannonPickup
+2060.52	I	6	AdrenalinePickup
+2060.69	I	6	AdrenalinePickup
+2061.25	I	4	MinigunPickup
+2061.47	C	7	Garrett
+2061.47	G	NameChange	7	[BOT]Garrett
+2061.47	BI	7	3.00	0.00	0.15	0.40	0.30	0.10	0.70	1.00	0.80	RocketLauncher
+2061.47	I	7	LinkGunPickup
+2061.85	K	3	DamTypeShockCombo	5	ShockRifle
+2061.85	S	3	1.00	frag
+2061.91	I	7	LinkAmmoPickup
+2063.85	I	5	FlakCannonPickup
+2064.02	I	3	MiniHealthPack
+2064.41	I	3	MiniHealthPack
+2064.63	K	5	DamTypeFlakChunk	4	FlakCannon
+2064.63	S	5	1.00	frag
+2064.85	I	3	MiniHealthPack
+2065.80	K	5	DamTypeFlakChunk	6	LinkGun
+2065.80	S	5	1.00	frag
+2066.52	I	4	ShockRiflePickup
+2066.97	I	2	MinigunAmmoPickup
+2067.14	I	3	FlakCannonPickup
+2067.52	I	2	MinigunPickup
+2068.41	I	6	ShockRiflePickup
+2069.63	I	3	MinigunPickup
+2070.02	I	2	FlakCannonPickup
+2070.69	K	2	DamTypeLinkShaft	5	FlakCannon
+2070.69	S	2	1.00	frag
+2071.35	I	7	MinigunPickup
+2071.63	K	4	DamTypeShockBall	6	ShockRifle
+2071.63	S	4	1.00	frag
+2072.69	K	7	DamTypeLinkShaft	3	ShockRifle
+2072.69	S	7	1.00	frag
+2072.91	I	6	ShockRiflePickup
+2073.19	I	5	LinkGunPickup
+2073.85	K	4	DamTypeShockBall	2	LinkGun
+2073.85	S	4	1.00	frag
+2074.02	I	7	ShockRiflePickup
+2074.63	I	3	MinigunPickup
+2075.02	K	6	DamTypeShockBall	4	ShockRifle
+2075.02	S	6	1.00	frag
+2076.02	I	2	FlakCannonPickup
+2076.19	I	4	ShockRiflePickup
+2076.86	I	7	FlakCannonPickup
+2077.13	I	6	LinkGunPickup
+2077.13	K	3	DamTypeMinigunBullet	7	LinkGun
+2077.13	S	3	1.00	frag
+2078.58	K	2	DamTypeFlakChunk	3	Minigun
+2078.58	S	2	1.00	frag
+2079.46	I	2	MinigunPickup
+2079.74	I	7	LinkGunPickup
+2080.30	I	3	LinkGunPickup
+2080.35	I	5	MinigunPickup
+2080.35	I	3	FlakCannonPickup
+2081.18	K	5	fell	2	FlakCannon
+2081.18	S	5	1.00	frag
+2082.51	K	4	DamTypeShockCombo	6	ShockRifle
+2082.51	S	4	1.00	frag
+2083.35	I	2	MinigunPickup
+2083.90	I	6	MiniHealthPack
+2085.35	I	6	LinkAmmoPickup
+2085.46	I	5	FlakCannonPickup
+2085.57	K	2	DamTypeMinigunBullet	5	LinkGun
+2085.57	S	2	1.00	frag
+2085.73	I	6	LinkGunPickup
+2087.07	I	5	ShockAmmoPickup
+2087.12	I	3	AdrenalinePickup
+2087.29	I	3	AdrenalinePickup
+2087.34	I	5	ShockRiflePickup
+2087.73	I	5	ShockAmmoPickup
+2088.68	I	3	ShockRiflePickup
+2089.07	K	6	DamTypeLinkShaft	7	ShieldGun
+2089.07	S	6	1.00	frag
+2091.19	I	3	HealthPack
+2091.19	I	7	MinigunPickup
+2091.90	I	6	MiniHealthPack
+2092.18	I	7	AdrenalinePickup
+2092.29	K	2	DamTypeMinigunBullet	3	LinkGun
+2092.29	S	2	1.00	frag
+2092.35	I	6	MiniHealthPack
+2094.33	I	3	LinkGunPickup
+2094.55	K	7	DamTypeMinigunBullet	2	Minigun
+2094.55	S	7	1.00	frag
+2095.00	I	6	MinigunPickup
+2095.11	I	4	FlakAmmoPickup
+2095.44	I	5	MiniHealthPack
+2095.67	I	4	FlakCannonPickup
+2096.23	I	2	ShockRiflePickup
+2096.67	I	7	LinkGunPickup
+2097.45	I	7	AdrenalinePickup
+2098.17	I	4	MinigunPickup
+2098.50	K	6	DamTypeLinkShaft	7	Minigun
+2098.50	S	6	1.00	frag
+2098.89	I	3	MinigunAmmoPickup
+2099.00	I	5	MiniHealthPack
+2099.45	I	5	MiniHealthPack
+2099.45	I	3	MinigunPickup
+2101.23	I	7	LinkGunPickup
+2101.57	K	4	DamTypeFlakChunk	3	LinkGun
+2101.57	S	4	1.00	frag
+2101.73	I	4	LinkGunPickup
+2101.73	I	5	FlakCannonPickup
+2102.57	K	6	DamTypeLinkShaft	4	FlakCannon
+2102.57	S	6	1.00	frag
+2104.02	I	3	LinkAmmoPickup
+2104.35	I	3	LinkGunPickup
+2104.47	I	4	ShockRiflePickup
+2104.52	I	6	FlakCannonPickup
+2104.91	K	6	DamTypeLinkShaft	2	ShockRifle
+2104.91	S	6	1.00	frag
+2106.52	P	6	spree_1
+2106.52	K	6	DamTypeLinkShaft	5	ShockRifle
+2106.52	S	6	1.00	frag
+2107.92	I	2	LinkGunPickup
+2108.08	I	6	ShockRiflePickup
+2108.81	I	7	MinigunPickup
+2109.53	I	3	MinigunPickup
+2109.53	I	5	ShockRiflePickup
+2110.13	K	3	DamTypeLinkShaft	6	FlakCannon
+2110.13	S	3	1.00	frag
+2111.24	I	7	FlakCannonPickup
+2112.91	I	6	LinkGunPickup
+2115.74	I	4	FlakCannonPickup
+2115.79	I	7	ShockRiflePickup
+2116.67	I	3	FlakCannonPickup
+2117.00	K	5	DamTypeShockBall	7	LinkGun
+2117.00	S	5	1.00	frag
+2117.50	K	4	DamTypeShockBeam	3	LinkGun
+2117.50	S	4	1.00	frag
+2117.89	I	5	ShockAmmoPickup
+2118.51	I	4	LinkGunPickup
+2118.56	I	5	ShockAmmoPickup
+2118.56	K	6	DamTypeLinkPlasma	4	ShockRifle
+2118.56	S	6	1.00	frag
+2118.61	I	2	MinigunPickup
+2119.06	I	7	FlakCannonPickup
+2119.56	I	3	LinkAmmoPickup
+2119.62	I	5	LinkGunPickup
+2119.84	I	7	ShockRiflePickup
+2119.95	I	3	LinkGunPickup
+2120.23	I	4	MinigunPickup
+2120.56	I	6	MinigunPickup
+2121.78	I	7	MinigunPickup
+2121.95	K	3	DamTypeLinkPlasma	4	Minigun
+2121.95	S	3	1.00	frag
+2122.67	K	6	DamTypeLinkShaft	2	Minigun
+2122.67	S	6	1.00	frag
+2123.01	K	5	DamTypeShockCombo	6	LinkGun
+2123.01	S	5	1.00	frag
+2123.90	I	7	AdrenalinePickup
+2124.23	I	4	LinkGunPickup
+2124.62	I	2	FlakCannonPickup
+2125.01	I	6	MinigunPickup
+2125.74	I	2	HealthPack
+2126.35	I	2	MinigunPickup
+2126.40	I	3	MinigunPickup
+2126.57	K	2	DamTypeFlakChunk	6	Minigun
+2126.57	S	2	1.00	frag
+2126.80	K	5	DamTypeShockCombo	3	LinkGun
+2126.80	S	5	1.00	frag
+2127.57	I	6	FlakAmmoPickup
+2127.80	I	2	HealthPack
+2128.19	I	6	FlakCannonPickup
+2128.24	I	7	LinkGunPickup
+2128.85	I	5	AdrenalinePickup
+2129.08	I	5	AdrenalinePickup
+2129.35	I	3	LinkGunPickup
+2129.85	I	7	AdrenalinePickup
+2130.02	I	5	FlakCannonPickup
+2130.80	I	6	MinigunPickup
+2130.85	K	7	DamTypeFlakChunk	2	FlakCannon
+2130.85	S	7	1.00	frag
+2131.80	K	3	DamTypeLinkShaft	7	FlakCannon
+2131.80	S	3	1.00	frag
+2132.57	I	5	MinigunPickup
+2132.74	K	5	fell	6	FlakCannon
+2132.74	S	5	1.00	frag
+2133.57	I	2	ShockRiflePickup
+2133.63	I	7	FlakCannonPickup
+2134.30	K	3	DamTypeLinkShaft	5	ShockRifle
+2134.30	S	3	1.00	frag
+2135.46	I	6	LinkGunPickup
+2135.63	I	2	MiniHealthPack
+2135.63	I	5	MinigunAmmoPickup
+2135.85	I	7	MiniHealthPack
+2135.85	I	6	LinkAmmoPickup
+2136.02	I	2	MiniHealthPack
+2136.19	K	7	DamTypeFlakChunk	2	ShockRifle
+2136.19	S	7	1.00	frag
+2136.24	I	5	MinigunPickup
+2136.80	K	6	DamTypeLinkShaft	3	LinkGun
+2136.80	S	6	1.00	frag
+2136.85	I	7	ShockRiflePickup
+2137.63	K	6	DamTypeLinkShaft	4	LinkGun
+2137.63	S	6	1.00	frag
+2138.69	I	3	ShockRiflePickup
+2139.02	I	2	LinkGunPickup
+2139.91	I	5	ShockRiflePickup
+2140.13	I	4	LinkGunPickup
+2142.28	I	4	MiniHealthPack
+2142.45	I	5	LinkGunPickup
+2142.61	I	4	MiniHealthPack
+2143.00	I	4	MiniHealthPack
+2143.16	K	5	DamTypeMinigunBullet	6	LinkGun
+2143.16	S	5	1.00	frag
+2144.83	K	2	DamTypeLinkShaft	5	Minigun
+2144.83	S	2	1.00	frag
+2145.67	I	6	ShockRiflePickup
+2146.62	I	7	MinigunPickup
+2146.90	I	5	FlakCannonPickup
+2147.51	K	4	DamTypeLinkShaft	2	LinkGun
+2147.51	S	4	1.00	frag
+2148.29	I	2	LinkGunPickup
+2149.62	I	6	ShockAmmoPickup
+2149.68	I	5	ShockAmmoPickup
+2150.01	I	5	ShockRiflePickup
+2150.35	K	5	DamTypeFlakChunk	6	ShockRifle
+2150.35	S	5	1.00	frag
+2150.57	K	2	DamTypeLinkShaft	4	LinkGun
+2150.57	S	2	1.00	frag
+2152.30	I	4	ShockRiflePickup
+2153.35	K	5	DamTypeFlakChunk	4	ShockRifle
+2153.35	S	5	1.00	frag
+2153.52	I	6	MinigunPickup
+2153.74	I	2	MinigunPickup
+2154.24	I	3	FlakCannonPickup
+2154.30	K	2	DamTypeLinkShaft	6	ShieldGun
+2154.30	S	2	1.00	frag
+2155.69	I	4	LinkAmmoPickup
+2156.08	I	4	LinkGunPickup
+2156.36	I	6	ShockRiflePickup
+2156.69	I	3	MinigunPickup
+2157.69	I	3	AdrenalinePickup
+2158.64	I	7	HealthPack
+2158.64	K	6	DamTypeShockCombo	7	FlakCannon
+2158.64	S	6	1.00	frag
+2159.58	K	5	DamTypeShockBeam	2	LinkGun
+2159.58	S	5	1.00	frag
+2160.03	I	5	FlakAmmoPickup
+2160.31	K	6	DamTypeShockCombo	3	ShockRifle
+2160.31	S	6	1.00	frag
+2161.31	I	7	LinkGunPickup
+2161.59	I	5	AdrenalinePickup
+2161.81	I	5	AdrenalinePickup
+2161.98	I	3	FlakCannonPickup
+2162.15	I	2	ShockRiflePickup
+2162.54	I	3	ShockRiflePickup
+2162.76	K	3	DamTypeFlakChunk	5	ShockRifle
+2162.76	S	3	1.00	frag
+2164.70	I	4	MinigunPickup
+2164.81	K	3	DamTypeShockCombo	6	ShockRifle
+2164.81	S	3	1.00	frag
+2164.98	I	5	MinigunPickup
+2166.43	K	3	DamTypeFlakChunk	4	LinkGun
+2166.43	S	3	1.00	frag
+2166.48	I	7	MinigunAmmoPickup
+2166.48	I	3	LinkGunPickup
+2167.04	I	7	MinigunPickup
+2167.15	I	6	ShockRiflePickup
+2167.71	K	2	DamTypeShockBeam	3	FlakCannon
+2167.71	S	2	1.00	frag
+2168.04	I	7	FlakCannonPickup
+2168.09	K	6	DamTypeShockBall	2	ShockRifle
+2168.09	S	6	1.00	frag
+2168.20	K	7	DamTypeLinkShaft	5	Minigun
+2168.20	S	7	1.00	frag
+2168.31	P	6	XGame.ComboInvis
+2169.26	I	4	LinkGunPickup
+2169.32	I	3	ShockRiflePickup
+2169.59	I	3	FlakCannonPickup
+2169.70	I	4	LinkAmmoPickup
+2170.04	I	2	ShockRiflePickup
+2172.04	I	4	AdrenalinePickup
+2172.71	I	5	LinkGunPickup
+2172.87	I	7	MiniHealthPack
+2173.21	I	7	MiniHealthPack
+2174.60	I	4	MinigunPickup
+2174.71	I	2	MiniHealthPack
+2175.10	I	2	MiniHealthPack
+2175.55	I	2	MiniHealthPack
+2176.88	K	5	DamTypeLinkShaft	7	LinkGun
+2176.88	S	5	1.00	frag
+2178.16	I	6	FlakCannonPickup
+2178.16	I	2	FlakCannonPickup
+2179.05	K	2	DamTypeShockBeam	3	FlakCannon
+2179.05	S	2	1.00	frag
+2179.05	I	7	ShockRiflePickup
+2179.66	I	7	ShockAmmoPickup
+2179.89	K	4	DamTypeLinkShaft	2	ShockRifle
+2179.89	S	4	1.00	frag
+2180.72	I	3	MinigunPickup
+2182.11	I	2	LinkGunPickup
+2183.11	I	5	MinigunPickup
+2183.33	I	4	FlakCannonPickup
+2183.44	K	3	DamTypeMinigunBullet	4	LinkGun
+2183.44	S	3	1.00	frag
+2185.11	K	6	DamTypeShockBall	5	LinkGun
+2185.11	S	6	1.00	frag
+2185.66	I	4	MinigunPickup
+2185.77	I	7	FlakCannonPickup
+2186.16	I	7	LinkGunPickup
+2186.55	I	5	ShockRiflePickup
+2186.88	I	6	LinkGunPickup
+2186.94	I	5	ShockAmmoPickup
+2187.82	K	4	DamTypeMinigunBullet	6	FlakCannon
+2187.82	S	4	1.00	frag
+2188.77	I	3	AdrenalinePickup
+2189.27	K	2	DamTypeLinkShaft	4	Minigun
+2189.27	S	2	1.00	frag
+2189.82	I	6	LinkAmmoPickup
+2190.15	I	7	FlakAmmoPickup
+2190.21	I	6	LinkGunPickup
+2190.60	K	2	DamTypeLinkShaft	3	Minigun
+2190.60	S	2	1.00	frag
+2190.82	I	2	MinigunPickup
+2190.93	I	4	MinigunPickup
+2192.66	I	3	LinkGunPickup
+2193.89	I	7	AdrenalinePickup
+2194.05	I	7	AdrenalinePickup
+2194.05	K	4	DamTypeMinigunBullet	2	LinkGun
+2194.05	S	4	1.00	frag
+2196.17	I	2	ShockRiflePickup
+2196.40	K	6	DamTypeLinkPlasma	7	ShockRifle
+2196.40	S	6	1.00	frag
+2196.51	I	5	FlakCannonPickup
+2198.29	I	6	MinigunPickup
+2198.52	K	3	DamTypeLinkShaft	6	LinkGun
+2198.52	S	3	1.00	frag
+2199.24	I	7	LinkGunPickup
+2200.07	I	6	ShockRiflePickup
+2201.08	I	7	LinkAmmoPickup
+2201.24	I	3	MinigunPickup
+2202.41	K	3	DamTypeLinkShaft	4	Minigun
+2202.41	S	3	1.00	frag
+2203.13	K	3	DamTypeLinkShaft	5	ShockRifle
+2203.13	S	3	1.00	frag
+2204.74	I	5	MinigunAmmoPickup
+2204.85	I	3	HealthPack
+2205.01	I	5	LinkGunPickup
+2205.06	K	6	DamTypeShockCombo	2	ShockRifle
+2205.06	S	6	1.00	frag
+2205.18	I	4	MiniHealthPack
+2205.45	I	5	MinigunPickup
+2205.56	I	4	MiniHealthPack
+2206.12	I	2	MiniHealthPack
+2206.46	I	2	MiniHealthPack
+2206.90	I	2	MiniHealthPack
+2207.07	K	7	DamTypeLinkPlasma	3	Minigun
+2207.07	S	7	1.00	frag
+2207.40	I	4	ShockRiflePickup
+2208.74	I	6	FlakCannonPickup
+2208.96	I	3	ShockRiflePickup
+2209.02	K	5	DamTypeLinkShaft	6	ShockRifle
+2209.02	S	5	1.00	frag
+2209.41	I	2	MinigunPickup
+2209.96	P	5	XGame.ComboInvis
+2209.96	I	5	ShockRiflePickup
+2211.02	I	5	FlakCannonPickup
+2211.85	I	6	LinkGunPickup
+2212.12	K	7	DamTypeLinkPlasma	5	LinkGun
+2212.12	S	7	1.00	frag
+2212.29	I	7	AdrenalinePickup
+2213.56	I	7	MinigunPickup
+Open myLevel 08/24/13 16:46:36 192.168.200.140:63745
+Client netspeed is 10000
+2214.12	C	8	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+2214.12	PS	8	192.168.200.140:63745	10000	11e145faaf230c5c5a1b419541a6aca4
+2214.12	G	NameChange	8	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+2214.73	I	5	MinigunPickup
+2214.89	K	4	DamTypeShockCombo	4	ShockRifle
+2214.89	S	4	-1.00	self_frag
+2214.89	D	4
+2214.89	PA	4	AssaultRifle	23	7	49
+2214.89	PA	4	Minigun	183	32	227
+2214.89	PA	4	ShockRifle	55	16	805
+2214.89	PA	4	LinkGun	239	53	519
+2214.89	PA	4	FlakCannon	6	2	26
+2214.89	PA	4	ShieldGun	3	0	0
+2216.29	K	2	DamTypeMinigunBullet	3	ShockRifle
+2216.29	S	2	1.00	frag
+2217.78	K	2	DamTypeMinigunBullet	7	Minigun
+2217.78	S	2	1.00	frag
+2217.95	I	3	LinkGunPickup
+2218.78	I	2	FlakCannonPickup
+2219.34	I	7	ShockAmmoPickup
+2219.39	I	8	MiniHealthPack
+2219.61	I	7	ShockRiflePickup
+2219.78	I	2	LinkGunPickup
+2220.00	I	7	ShockAmmoPickup
+2220.28	K	3	DamTypeLinkShaft	6	LinkGun
+2220.28	S	3	1.00	frag
+2222.11	I	6	LinkAmmoPickup
+2222.22	I	3	AdrenalinePickup
+2222.50	I	6	LinkGunPickup
+2222.94	K	8	DamTypeAssaultBullet	2	Minigun
+2222.94	S	8	1.00	frag
+2223.27	PP	8	92
+2223.27	I	3	MinigunPickup
+2223.82	I	8	ShockRiflePickup
+2224.32	K	5	DamTypeMinigunBullet	3	LinkGun
+2224.32	S	5	1.00	frag
+2224.65	I	8	MinigunPickup
+2224.82	I	2	FlakAmmoPickup
+2225.42	I	2	FlakCannonPickup
+2225.97	I	3	LinkGunPickup
+2226.19	I	6	MinigunPickup
+2226.47	I	2	AdrenalinePickup
+2226.64	I	2	AdrenalinePickup
+2228.57	I	6	FlakCannonPickup
+2228.73	I	7	FlakCannonPickup
+2229.50	I	3	MinigunPickup
+2229.78	I	2	ShockRiflePickup
+2230.16	K	5	DamTypeMinigunBullet	7	ShockRifle
+2230.16	S	5	1.00	frag
+2230.22	I	5	ShockRiflePickup
+2230.27	I	5	LinkGunPickup
+2230.27	K	6	DamTypeLinkShaft	5	Minigun
+2230.27	S	6	1.00	frag
+2231.55	K	8	DamTypeMinigunAlt	2	FlakCannon
+2231.55	S	8	1.00	frag
+2231.88	I	7	LinkGunPickup
+2232.05	I	5	MinigunPickup
+2232.32	I	7	LinkAmmoPickup
+2233.15	P	8	multikill_1
+2233.15	K	8	DamTypeMinigunAlt	6	LinkGun
+2233.15	S	8	1.00	frag
+2234.04	I	3	FlakCannonPickup
+2234.09	I	2	ShockRiflePickup
+2234.15	K	7	DamTypeLinkPlasma	3	LinkGun
+2234.15	S	7	1.00	frag
+2234.48	I	8	LinkGunPickup
+2234.81	I	6	MinigunAmmoPickup
+2235.09	I	8	FlakCannonPickup
+2235.20	I	6	MinigunPickup
+2236.24	I	8	HealthPack
+2236.74	I	3	ShockRiflePickup
+2236.96	I	2	FlakCannonPickup
+2237.56	I	7	MinigunPickup
+2237.73	K	8	DamTypeMinigunAlt	5	Minigun
+2237.73	S	8	1.00	frag
+2238.93	K	3	DamTypeShockBall	8	Minigun
+2238.93	S	3	1.00	frag
+2238.93	K	3	DamTypeShockBall	2	ShockRifle
+2238.93	S	3	1.00	frag
+2239.43	I	5	LinkGunPickup
+2239.77	P	3	XGame.ComboInvis
+2241.10	I	6	FlakCannonPickup
+2241.27	K	7	DamTypeLinkShaft	6	Minigun
+2241.27	S	7	1.00	frag
+2241.32	I	5	MiniHealthPack
+2241.49	I	2	ShockRiflePickup
+2241.66	I	5	MiniHealthPack
+2242.04	I	5	MiniHealthPack
+2243.32	I	6	FlakCannonPickup
+2243.76	I	6	MinigunPickup
+2244.09	K	6	DamTypeFlakChunk	7	LinkGun
+2244.09	S	6	1.00	frag
+2244.70	K	5	DamTypeLinkShaft	8	AssaultRifle
+2244.70	S	5	1.00	frag
+2244.98	K	2	DamTypeShockCombo	3	ShockRifle
+2244.98	S	2	1.00	frag
+2246.10	I	6	LinkGunPickup
+2246.76	I	5	MinigunPickup
+2246.76	I	7	LinkGunPickup
+2247.88	I	3	ShockRiflePickup
+2249.71	K	5	DamTypeLinkShaft	6	Minigun
+2249.71	S	5	1.00	frag
+2251.10	I	5	FlakCannonPickup
+2251.27	K	3	DamTypeShockBall	2	ShockRifle
+2251.27	S	3	1.00	frag
+2251.94	I	3	ShockAmmoPickup
+2252.27	I	6	MinigunPickup
+2253.27	I	6	AdrenalinePickup
+2253.33	PP	8	60
+2253.44	I	6	AdrenalinePickup
+2253.71	I	3	MiniHealthPack
+2253.71	I	2	FlakCannonPickup
+2254.10	I	3	MiniHealthPack
+2254.55	I	3	MiniHealthPack
+2254.60	K	2	DamTypeFlakChunk	5	Minigun
+2254.60	S	2	1.00	frag
+2256.05	I	7	MinigunPickup
+2256.05	I	6	LinkGunPickup
+2256.27	I	3	FlakAmmoPickup
+2256.89	I	3	FlakCannonPickup
+2257.50	I	5	ShockRiflePickup
+2257.55	K	3	DamTypeShockBall	7	Minigun
+2257.55	S	3	1.00	frag
+2257.61	I	2	MinigunPickup
+2257.89	I	5	ShockAmmoPickup
+2258.67	I	3	MinigunPickup
+2259.11	K	5	DamTypeShockBeam	3	FlakCannon
+2259.11	S	5	1.00	frag
+2259.50	K	6	DamTypeMinigunBullet	2	FlakCannon
+2259.50	S	6	1.00	frag
+2260.00	I	7	FlakCannonPickup
+2261.22	K	7	DamTypeFlakChunk	2	AssaultRifle
+2261.22	S	7	1.00	frag
+2261.28	I	3	MinigunPickup
+2261.67	I	3	FlakCannonPickup
+2263.01	I	2	LinkAmmoPickup
+2263.40	I	2	LinkGunPickup
+2266.11	I	7	ShockRiflePickup
+2267.44	I	2	LinkAmmoPickup
+2267.72	K	5	DamTypeShockCombo	6	Minigun
+2267.72	S	5	1.00	frag
+2268.33	K	7	DamTypeFlakChunk	5	ShockRifle
+2268.33	S	7	1.00	frag
+2269.39	I	5	MinigunAmmoPickup
+2270.00	I	5	MinigunPickup
+2270.28	I	6	ShockRiflePickup
+2270.73	I	2	MinigunPickup
+2270.89	I	7	AdrenalinePickup
+2271.17	I	7	AdrenalinePickup
+2271.45	I	7	MinigunPickup
+2271.56	K	7	DamTypeFlakChunk	3	Minigun
+2271.56	S	7	1.00	frag
+2273.28	I	7	HealthPack
+2273.39	I	3	LinkGunPickup
+2273.66	K	5	DamTypeMinigunBullet	2	LinkGun
+2273.66	S	5	1.00	frag
+2273.71	I	5	LinkGunPickup
+2275.04	K	7	DamTypeFlakShell	5	Minigun
+2275.04	S	7	1.00	frag
+2275.32	I	3	MiniHealthPack
+2275.65	I	3	MiniHealthPack
+2275.82	I	2	FlakCannonPickup
+2276.04	I	3	MiniHealthPack
+2276.20	I	2	MinigunPickup
+2277.15	I	5	LinkGunPickup
+2278.42	I	3	MinigunPickup
+2278.98	K	6	DamTypeShockBall	2	FlakCannon
+2278.98	S	6	1.00	frag
+2279.86	I	7	LinkGunPickup
+2280.92	I	2	FlakCannonPickup
+2282.86	K	5	DamTypeLinkShaft	7	FlakCannon
+2282.86	S	5	1.00	frag
+2282.86	EG	fraglimit	5	6	3	2	7	8
+2282.86	PA	8	AssaultRifle	23	5	35
+2282.86	PA	8	Minigun	71	15	221
+2282.86	PA	7	LinkGun	353	69	915
+2282.86	PA	7	Minigun	68	10	71
+2282.86	PA	7	ShockRifle	41	2	84
+2282.86	PA	7	FlakCannon	23	11	243
+2282.86	PA	6	AssaultRifle	1	1	7
+2282.86	PA	6	ShockRifle	97	28	1458
+2282.86	PA	6	LinkGun	353	100	1005
+2282.86	PA	6	FlakCannon	5	2	26
+2282.86	PA	6	Minigun	113	21	168
+2282.86	PA	6	ShieldGun	1	0	0
+2282.86	PA	5	AssaultRifle	2	0	0
+2282.86	PA	5	FlakCannon	13	6	78
+2282.86	PA	5	LinkGun	229	75	780
+2282.86	PA	5	Minigun	397	68	493
+2282.86	PA	5	ShockRifle	83	18	862
+2282.86	PA	3	AssaultRifle	1	0	0
+2282.86	PA	3	ShockRifle	74	22	1021
+2282.86	PA	3	FlakCannon	14	6	148
+2282.86	PA	3	Minigun	169	17	123
+2282.86	PA	3	LinkGun	358	102	1023
+2282.86	PA	2	AssaultRifle	12	1	7
+2282.86	PA	2	LinkGun	428	123	1149
+2282.86	PA	2	FlakCannon	14	4	53
+2282.86	PA	2	Minigun	188	22	158
+2282.86	PA	2	ShockRifle	47	11	553
+xDeathMatch DM-TrainingDay.xDeathMatch (Function Engine.GameInfo.EndLogging:0027) Accessed None 'GameStats'
+2283.37	PP	8	44
+2313.40	PP	8	44
+ProcessServerTravel: DM-TokaraForest
+PreClientTravel
+Server switch level: DM-TokaraForest
+Browse: DM-TokaraForest?Name=Player?Class=Engine.Pawn?Character=Jakob?team=255?game=XGame.xDeathMatch?GameStats=True
+Close TcpipConnection 192.168.200.140:63745 08/24/13 16:48:14
+Socket shut down
+ProcMesh 0 shared verts.
+ProcMesh 0 shared verts.
+ProcMesh 0 shared verts.
+ProcMesh 0 shared verts.
+Collecting garbage
+Purging garbage
+(Karma): Level Karma Terminated.
+Garbage: objects: 48561->36678; refs: 443739
+Fixing up DM-TokaraForest
+Game class is 'xDeathMatch'
+Fixing up DM-TokaraForest
+Bringing Level DM-TokaraForest.myLevel up for play (20) appSeconds: 2911.516000...
+(Karma): Autodetecting CPU for SSE
+(Karma): Using SSE Optimizations
+Loading Admins & Groups
+Kick and Ban Privileges Loaded
+Maps & Game Privileges Loaded
+Admins & Groups Management Loaded
+Extra Privileges Loaded
+GameInfo::InitGame : bEnableStatLogging True
+----------------------------------------
+OLStats Loading...
+Debug mode is ON!
+Opening user log ..\UserLogs\Stats_7777_2013_08_24_16_48_16.log
+OLStats 3.00 loaded!
+  Author: OverloadUT
+  Email: Overload@planetunreal.com
+  Web: www.apartment167.com
+----------------------------------------
+UdpServerQuery(crt): Port 7787 successfully bound.
+Defaulting to false
+Defaulting to false
+MasterServerUplink: DoUplink is False, not connecting to Epic master server
+Loading Available Maps
+Loading Game Types
+XWebAdmin.UTServerAdmin Initialized on port 18080
+OLStats v3.00 by OverloadUT www.Apartment167.com
+0.00	NG	2013-8-24 16:48:16	0	DM-TokaraForest	Tokara Forest	J.P.Eekels and M.Leatham	XGame.xDeathMatch	DeathMatch	Mutators=UnrealGame.DMMutator|OLStats.MutOLGameStats
+0.00	SI	UT 2004 Lan Party (Vanilla)	0				\ServerMode\dedicated\AdminName\\AdminEmail\\ServerVersion\3369\GameStats\True\MaxSpectators\2\Mutator\MutOLGameStats\MinPlayers\6\EndTimeDelay\4.00\GoalScore\25\TimeLimit\20\Translocator\False\WeaponStay\True\ForceRespawn\False\gamedifficulty\3.00\shortname\UT2 Server
+Open myLevel 08/24/13 16:48:17 192.168.200.140:60185
+Client netspeed is 10000
+Open myLevel 08/24/13 16:48:19 192.168.200.140:63745
+Close TcpipConnection 192.168.200.140:63745 08/24/13 16:48:19
+2.41	C	1	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+2.41	PS	1	192.168.200.140:60185	10000	11e145faaf230c5c5a1b419541a6aca4
+2.41	G	NameChange	1	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+30.04	PP	1	68
+60.04	PP	1	44
+72.61	SG
+START MATCH
+74.34	C	2	Motig
+74.34	G	NameChange	2	[BOT]Motig
+74.34	BI	2	3.00	0.00	0.20	0.40	1.00	0.20	0.50	1.00	0.00	None
+74.34	I	2	MinigunAmmoPickup
+74.56	I	2	MinigunPickup
+74.72	C	6	Rapier
+74.72	G	NameChange	6	[BOT]Rapier
+74.72	BI	6	3.00	0.00	0.30	0.40	0.00	0.20	1.50	1.00	0.00	None
+74.72	I	6	SniperAmmoPickup
+74.94	I	6	SniperRiflePickup
+75.05	C	4	Greith
+75.05	G	NameChange	4	[BOT]Greith
+75.05	BI	4	3.00	0.00	-0.20	0.40	0.00	0.20	0.80	1.00	0.00	ShockRifle
+75.05	I	4	ShockRiflePickup
+78.21	I	4	FlakAmmoPickup
+78.48	I	4	FlakCannonPickup
+79.41	I	2	ShockRiflePickup
+80.07	I	6	AdrenalinePickup
+80.56	I	6	AdrenalinePickup
+81.28	I	6	AdrenalinePickup
+81.83	I	6	AdrenalinePickup
+83.04	C	5	Mekkor
+83.04	G	NameChange	5	[BOT]Mekkor
+83.04	BI	5	3.00	0.00	0.25	0.40	0.85	0.20	0.00	1.00	1.00	RocketLauncher
+83.04	I	5	FlakCannonPickup
+83.37	I	5	FlakAmmoPickup
+83.65	I	5	FlakAmmoPickup
+84.91	C	3	Outlaw
+84.91	G	NameChange	3	[BOT]Outlaw
+84.91	BI	3	3.00	0.00	0.15	0.40	-0.10	0.30	0.20	1.00	0.20	FlakCannon
+84.91	I	3	MinigunPickup
+87.72	P	3	first_blood
+87.72	K	3	DamTypeMinigunBullet	2	Minigun
+87.72	S	3	1.00	frag
+90.09	PP	1	36
+92.35	K	4	DamTypeShockBeam	3	Minigun
+92.35	S	4	1.00	frag
+95.35	I	3	RocketLauncherPickup
+98.56	K	5	DamTypeFlakChunk	6	SniperRifle
+98.56	S	5	1.00	frag
+101.15	I	5	SniperRiflePickup
+103.18	I	3	MiniHealthPack
+103.29	I	4	BioRiflePickup
+103.62	I	4	BioAmmoPickup
+103.78	I	3	MiniHealthPack
+104.34	I	3	MiniHealthPack
+104.88	I	3	MiniHealthPack
+105.16	I	4	MiniHealthPack
+105.27	I	4	MiniHealthPack
+105.44	I	2	LinkGunPickup
+105.44	I	3	MiniHealthPack
+105.60	I	4	MiniHealthPack
+105.77	I	4	MiniHealthPack
+105.99	I	4	MiniHealthPack
+108.96	I	6	FlakCannonPickup
+110.27	K	2	DamTypeLinkPlasma	1	AssaultRifle
+110.27	S	2	1.00	frag
+115.95	K	3	DamTypeRocketHoming	5	SniperRifle
+115.95	S	3	1.00	frag
+120.12	PP	1	32
+120.90	I	4	SuperShieldPack
+125.22	I	5	SuperHealthPack
+127.39	I	3	FlakAmmoPickup
+127.67	I	3	FlakCannonPickup
+128.00	I	3	FlakAmmoPickup
+128.28	I	5	MinigunPickup
+130.77	I	3	ShockRiflePickup
+131.10	I	3	ShockAmmoPickup
+132.64	I	2	RocketAmmoPickup
+133.25	I	2	RocketLauncherPickup
+134.35	I	6	RocketLauncherPickup
+136.11	K	2	DamTypeRocket	6	FlakCannon
+136.11	S	2	1.00	frag
+137.86	I	6	MinigunAmmoPickup
+138.14	I	6	MinigunPickup
+138.42	I	2	UDamagePack
+141.06	I	4	RocketLauncherPickup
+141.28	I	2	FlakCannonPickup
+143.10	I	6	ShockRiflePickup
+146.30	K	5	DamTypeMinigunBullet	4	FlakCannon
+146.30	S	5	1.00	frag
+150.16	PP	1	32
+151.10	I	6	MinigunAmmoPickup
+151.37	I	6	MinigunAmmoPickup
+151.54	I	4	BioAmmoPickup
+151.54	K	2	DamTypeRocket	5	Minigun
+151.54	S	2	1.00	frag
+151.81	I	4	BioRiflePickup
+152.20	I	4	BioAmmoPickup
+153.57	I	5	MiniHealthPack
+154.13	I	5	MiniHealthPack
+154.68	I	5	MiniHealthPack
+154.85	I	4	MiniHealthPack
+154.96	I	4	MiniHealthPack
+155.23	I	4	MiniHealthPack
+155.23	I	5	MiniHealthPack
+155.45	I	4	MiniHealthPack
+155.67	I	4	MiniHealthPack
+155.83	I	5	MiniHealthPack
+159.96	I	2	ShockRiflePickup
+160.23	I	6	RocketLauncherPickup
+160.34	K	4	DamTypeBioGlob	3	FlakCannon
+160.34	S	4	1.00	frag
+161.72	I	5	RocketLauncherPickup
+162.54	I	3	MinigunPickup
+163.20	I	2	MiniHealthPack
+163.59	I	4	FlakCannonPickup
+163.81	I	2	MiniHealthPack
+164.36	I	2	MiniHealthPack
+164.80	I	2	MiniHealthPack
+165.13	I	2	MiniHealthPack
+165.63	I	2	MiniHealthPack
+167.38	I	3	ShockRiflePickup
+167.55	K	2	DamTypeRocket	6	RocketLauncher
+167.55	S	2	1.00	frag
+168.16	K	6	DamTypeRocket	2	RocketLauncher
+168.16	S	6	1.00	frag
+169.16	I	5	RocketAmmoPickup
+171.65	I	4	HealthPack
+173.75	I	2	BioRiflePickup
+177.19	I	4	ShockRiflePickup
+177.52	I	4	ShockAmmoPickup
+177.91	I	4	ShockAmmoPickup
+180.18	PP	1	28
+183.36	I	4	MiniHealthPack
+183.69	I	4	MiniHealthPack
+183.97	I	4	MiniHealthPack
+184.24	I	4	MiniHealthPack
+187.11	I	6	LinkGunPickup
+187.33	I	2	FlakCannonPickup
+190.19	I	3	SuperShieldPack
+191.23	I	2	FlakAmmoPickup
+191.51	I	2	FlakAmmoPickup
+194.59	I	2	ShockRiflePickup
+205.92	K	4	DamTypeShockBeam	2	ShockRifle
+205.92	S	4	1.00	frag
+207.74	I	5	MiniHealthPack
+207.74	I	2	AdrenalinePickup
+207.90	I	2	AdrenalinePickup
+208.01	I	2	AdrenalinePickup
+208.34	I	5	MiniHealthPack
+210.21	PP	1	28
+210.27	I	6	FlakCannonPickup
+210.32	I	5	MiniHealthPack
+211.20	I	2	RocketLauncherPickup
+213.53	I	4	SniperRiflePickup
+213.85	I	4	SniperAmmoPickup
+214.18	I	2	RocketAmmoPickup
+214.51	I	2	RocketAmmoPickup
+217.60	I	2	MinigunPickup
+218.93	I	4	AdrenalinePickup
+219.37	I	4	AdrenalinePickup
+220.15	I	4	AdrenalinePickup
+220.26	K	5	DamTypeRocket	4	BioRifle
+220.26	S	5	1.00	frag
+223.23	I	2	ShockRiflePickup
+230.28	I	4	FlakCannonPickup
+230.61	I	4	FlakAmmoPickup
+230.94	I	4	FlakAmmoPickup
+235.01	I	5	SniperRiflePickup
+238.25	I	6	RocketLauncherPickup
+239.74	I	4	AdrenalinePickup
+240.24	PP	1	28
+243.26	I	6	UDamagePack
+243.86	K	4	DamTypeFlakShell	5	SniperRifle
+243.86	S	4	1.00	frag
+246.39	I	5	MiniHealthPack
+246.61	I	5	MiniHealthPack
+246.89	I	5	MiniHealthPack
+248.09	I	4	SniperRiflePickup
+248.43	I	4	SniperAmmoPickup
+250.57	I	6	SuperHealthPack
+251.72	I	5	SniperRiflePickup
+252.44	I	2	MiniHealthPack
+252.82	I	3	SuperShieldPack
+253.10	I	2	MiniHealthPack
+253.38	I	6	MinigunPickup
+253.59	I	4	AdrenalinePickup
+253.65	I	2	MiniHealthPack
+254.04	I	4	AdrenalinePickup
+254.20	I	2	MiniHealthPack
+254.75	I	2	MiniHealthPack
+254.75	I	4	AdrenalinePickup
+256.07	I	5	MiniHealthPack
+256.29	I	6	MinigunAmmoPickup
+256.40	I	5	MiniHealthPack
+256.46	I	6	MinigunAmmoPickup
+256.62	I	5	MiniHealthPack
+257.89	I	3	FlakCannonPickup
+258.22	I	3	FlakAmmoPickup
+258.38	I	5	LinkAmmoPickup
+258.49	I	3	FlakAmmoPickup
+258.66	I	5	LinkAmmoPickup
+260.54	I	5	LinkGunPickup
+267.88	K	2	DamTypeRocket	4	SniperRifle
+267.88	S	2	1.00	frag
+270.25	PP	1	28
+270.74	I	4	RocketLauncherPickup
+271.41	I	2	SniperRiflePickup
+275.38	I	6	HealthPack
+275.71	I	4	ShockRiflePickup
+277.85	K	3	DamTypeFlakChunk	2	RocketLauncher
+277.85	S	3	1.00	frag
+278.45	I	5	RocketAmmoPickup
+279.78	I	2	SniperAmmoPickup
+279.89	I	5	RocketAmmoPickup
+280.00	I	2	SniperRiflePickup
+281.60	I	4	RocketAmmoPickup
+283.38	K	4	DamTypeShockCombo	6	RocketLauncher
+283.38	S	4	1.00	frag
+283.54	I	5	RocketLauncherPickup
+285.32	I	3	RocketLauncherPickup
+288.35	I	3	SniperRiflePickup
+290.12	K	3	DamTypeFlakChunk	2	SniperRifle
+290.12	S	3	1.00	frag
+295.96	I	3	AdrenalinePickup
+295.96	K	5	DamTypeSniperShot	4	RocketLauncher
+295.96	S	5	1.00	frag
+296.12	I	6	BioRiflePickup
+296.45	I	3	AdrenalinePickup
+296.45	I	6	BioAmmoPickup
+297.11	I	6	BioAmmoPickup
+297.16	I	3	AdrenalinePickup
+297.72	I	3	AdrenalinePickup
+298.98	I	4	LinkGunPickup
+300.30	PP	1	28
+300.30	I	2	FlakAmmoPickup
+300.52	I	6	MiniHealthPack
+300.52	I	2	FlakCannonPickup
+300.63	I	6	MiniHealthPack
+300.85	I	2	FlakAmmoPickup
+300.96	I	6	MiniHealthPack
+301.12	I	6	MiniHealthPack
+301.35	I	6	MiniHealthPack
+303.61	I	2	ShockRiflePickup
+311.39	I	5	MiniHealthPack
+312.05	I	5	MiniHealthPack
+312.59	I	5	MiniHealthPack
+315.68	K	3	DamTypeRocket	2	ShockRifle
+315.68	S	3	1.00	frag
+316.83	I	2	MinigunAmmoPickup
+317.11	I	2	MinigunPickup
+322.00	I	2	ShockRiflePickup
+322.27	K	6	DamTypeBioGlob	3	RocketLauncher
+322.27	S	6	1.00	frag
+322.44	I	6	RocketLauncherPickup
+323.87	I	6	SuperShieldPack
+329.11	I	2	SuperHealthPack
+329.77	I	3	ShockRiflePickup
+330.32	PP	1	28
+333.96	I	3	MinigunPickup
+334.96	I	4	RocketAmmoPickup
+335.51	I	4	RocketLauncherPickup
+336.62	I	6	FlakAmmoPickup
+336.73	I	3	MinigunAmmoPickup
+336.84	I	6	FlakCannonPickup
+336.89	I	3	MinigunAmmoPickup
+337.17	I	6	FlakAmmoPickup
+339.93	I	6	ShockRiflePickup
+340.26	I	6	ShockAmmoPickup
+340.48	I	4	UDamagePack
+340.65	I	6	ShockAmmoPickup
+342.14	K	6	DamTypeShockBeam	5	RocketLauncher
+342.14	S	6	1.00	frag
+344.86	I	5	RocketLauncherPickup
+346.24	I	3	RocketLauncherPickup
+348.56	I	5	RocketAmmoPickup
+349.33	I	6	HealthPack
+354.18	K	4	DamTypeRocket	6	ShockRifle
+354.18	S	4	1.00	frag
+357.99	K	5	DamTypeRocket	3	RocketLauncher
+357.99	S	5	1.00	frag
+359.15	I	3	LinkGunPickup
+360.19	I	4	ShockRiflePickup
+360.36	PP	1	28
+363.89	I	4	FlakCannonPickup
+364.11	I	6	MinigunPickup
+369.00	I	4	MiniHealthPack
+369.28	I	4	MiniHealthPack
+369.66	I	4	MiniHealthPack
+369.94	I	4	MiniHealthPack
+374.73	I	6	MinigunAmmoPickup
+374.84	I	6	MinigunAmmoPickup
+375.56	I	5	MiniHealthPack
+376.17	I	5	MiniHealthPack
+376.72	I	5	MiniHealthPack
+377.27	I	5	MiniHealthPack
+377.82	I	5	MiniHealthPack
+381.34	I	4	SniperRiflePickup
+381.73	I	4	SniperAmmoPickup
+383.54	I	5	AdrenalinePickup
+384.04	I	5	AdrenalinePickup
+384.76	I	5	AdrenalinePickup
+385.36	I	5	AdrenalinePickup
+386.73	I	3	RocketAmmoPickup
+387.28	I	3	RocketLauncherPickup
+387.78	I	2	RocketAmmoPickup
+388.05	K	5	DamTypeRocket	5	RocketLauncher
+388.05	S	5	-1.00	self_frag
+388.05	K	5	DamTypeRocket	4	SniperRifle
+388.05	S	5	1.00	frag
+390.37	PP	1	28
+390.53	I	4	MiniHealthPack
+390.75	I	4	MiniHealthPack
+391.03	I	4	MiniHealthPack
+391.47	I	2	RocketLauncherPickup
+395.48	I	5	ShockRiflePickup
+395.82	I	4	SniperRiflePickup
+399.80	I	5	MinigunPickup
+400.25	I	4	MiniHealthPack
+400.52	I	4	MiniHealthPack
+400.74	I	4	MiniHealthPack
+402.17	I	6	SuperShieldPack
+402.50	I	4	LinkAmmoPickup
+402.67	I	5	SuperHealthPack
+402.78	I	4	LinkAmmoPickup
+404.81	I	4	LinkGunPickup
+406.63	I	2	FlakCannonPickup
+407.01	I	2	FlakAmmoPickup
+407.23	I	2	FlakAmmoPickup
+407.78	I	6	FlakCannonPickup
+408.16	I	6	FlakAmmoPickup
+408.22	I	5	MinigunAmmoPickup
+408.38	I	5	MinigunAmmoPickup
+411.02	I	6	ShockRiflePickup
+411.30	I	6	ShockAmmoPickup
+411.68	I	6	ShockAmmoPickup
+412.29	I	3	MiniHealthPack
+412.95	I	3	MiniHealthPack
+413.50	I	3	MiniHealthPack
+415.70	I	2	HealthPack
+415.75	I	6	MiniHealthPack
+416.14	I	6	MiniHealthPack
+416.41	I	6	MiniHealthPack
+416.74	I	6	MiniHealthPack
+420.38	PP	1	28
+425.33	I	3	FlakCannonPickup
+427.15	I	4	RocketAmmoPickup
+427.59	I	6	SniperRiflePickup
+427.65	I	4	RocketLauncherPickup
+427.98	I	6	SniperAmmoPickup
+428.31	K	5	DamTypeShockBeam	2	RocketLauncher
+428.31	S	5	1.00	frag
+433.16	I	6	AdrenalinePickup
+433.65	I	6	AdrenalinePickup
+433.71	I	5	RocketLauncherPickup
+434.37	I	6	AdrenalinePickup
+434.92	I	6	AdrenalinePickup
+436.18	I	2	MinigunPickup
+440.19	I	4	UDamagePack
+440.80	I	2	MinigunAmmoPickup
+440.97	I	2	MinigunAmmoPickup
+444.27	I	5	FlakCannonPickup
+445.98	I	5	FlakAmmoPickup
+446.30	I	5	FlakAmmoPickup
+448.29	I	3	SniperRiflePickup
+450.43	PP	1	28
+451.10	K	6	DamTypeMinigunBullet	3	FlakCannon
+451.10	S	6	1.00	frag
+452.75	I	3	SniperRiflePickup
+457.59	K	2	DamTypeMinigunBullet	4	SniperRifle
+457.59	S	2	1.00	frag
+459.63	I	4	MiniHealthPack
+460.19	I	4	MiniHealthPack
+460.74	I	4	MiniHealthPack
+461.29	I	4	MiniHealthPack
+461.90	I	4	MiniHealthPack
+462.73	K	5	DamTypeRocket	3	SniperRifle
+462.73	S	5	1.00	frag
+463.50	I	2	SuperHealthPack
+463.83	I	5	AdrenalinePickup
+464.27	I	5	AdrenalinePickup
+465.48	I	5	SniperRiflePickup
+466.86	I	5	AdrenalinePickup
+467.46	I	5	AdrenalinePickup
+468.01	I	4	RocketLauncherPickup
+468.18	I	6	SuperShieldPack
+469.55	I	3	ShockRiflePickup
+473.85	I	6	HealthPack
+473.85	I	3	MinigunPickup
+475.17	K	2	DamTypeMinigunBullet	3	ShockRifle
+475.17	S	2	1.00	frag
+478.60	I	2	MinigunAmmoPickup
+478.77	I	2	MinigunAmmoPickup
+480.49	PP	1	32
+484.79	K	5	DamTypeSniperShot	4	RocketLauncher
+484.79	S	5	1.00	frag
+484.96	I	3	LinkGunPickup
+485.79	I	6	BioRiflePickup
+486.06	I	6	BioAmmoPickup
+486.34	I	4	SniperAmmoPickup
+486.56	I	4	SniperRiflePickup
+487.61	I	6	MiniHealthPack
+487.77	I	6	MiniHealthPack
+488.10	I	6	MiniHealthPack
+488.21	I	6	MiniHealthPack
+488.49	I	6	MiniHealthPack
+496.97	K	4	DamTypeSniperShot	5	RocketLauncher
+496.97	S	4	1.00	frag
+498.68	I	4	AdrenalinePickup
+500.38	I	5	AssaultAmmoPickup
+500.55	I	4	RocketLauncherPickup
+500.66	I	5	AssaultAmmoPickup
+504.35	I	5	LinkGunPickup
+508.20	I	2	HealthPack
+509.42	I	2	HealthPack
+510.52	PP	1	28
+510.96	K	5	DamTypeLinkShaft	3	LinkGun
+510.96	S	5	1.00	frag
+512.73	I	5	MiniHealthPack
+513.01	I	5	MiniHealthPack
+513.23	I	5	MiniHealthPack
+513.45	I	3	ShockRiflePickup
+515.29	I	5	MiniHealthPack
+515.51	I	5	MiniHealthPack
+515.73	I	5	MiniHealthPack
+515.95	I	2	HealthPack
+516.45	I	3	FlakAmmoPickup
+516.67	I	6	RocketLauncherPickup
+516.72	I	3	FlakCannonPickup
+517.11	I	3	FlakAmmoPickup
+517.27	I	6	RocketAmmoPickup
+521.00	K	2	DamTypeMinigunBullet	6	RocketLauncher
+521.00	S	2	1.00	frag
+521.72	I	3	MiniHealthPack
+522.05	I	3	MiniHealthPack
+522.49	I	3	MiniHealthPack
+522.77	I	3	MiniHealthPack
+524.32	I	6	RocketLauncherPickup
+525.05	I	5	LinkAmmoPickup
+525.32	I	5	LinkAmmoPickup
+527.70	I	2	RocketLauncherPickup
+532.48	K	6	DamTypeRocket	2	RocketLauncher
+532.48	S	6	1.00	frag
+533.37	I	4	SuperShieldPack
+533.59	I	2	MinigunAmmoPickup
+533.70	I	3	SniperRiflePickup
+533.87	I	2	MinigunPickup
+534.03	I	3	SniperAmmoPickup
+539.14	I	3	AdrenalinePickup
+539.58	I	3	AdrenalinePickup
+540.30	I	3	AdrenalinePickup
+540.57	PP	1	28
+540.85	I	3	AdrenalinePickup
+541.68	K	4	DamTypeRocket	6	RocketLauncher
+541.68	S	4	1.00	frag
+544.71	K	4	DamTypeRocket	5	LinkGun
+544.71	S	4	1.00	frag
+549.45	I	6	ShockRiflePickup
+552.69	I	4	LinkGunPickup
+553.69	I	6	MinigunPickup
+555.06	I	5	LinkGunPickup
+556.50	I	6	SuperHealthPack
+565.24	I	6	MinigunAmmoPickup
+568.49	I	6	MinigunAmmoPickup
+570.58	PP	1	28
+571.35	I	4	FlakAmmoPickup
+571.62	I	4	FlakCannonPickup
+571.96	I	4	FlakAmmoPickup
+574.82	I	4	ShockRiflePickup
+575.09	I	4	ShockAmmoPickup
+580.93	I	4	HealthPack
+585.11	K	3	DamTypeSniperShot	4	LinkGun
+585.11	S	3	1.00	frag
+588.31	I	4	MiniHealthPack
+588.53	I	4	MiniHealthPack
+588.80	I	4	MiniHealthPack
+589.08	I	3	LinkGunPickup
+590.68	I	5	LinkAmmoPickup
+591.78	I	5	LinkAmmoPickup
+593.26	I	5	MiniHealthPack
+593.53	I	5	MiniHealthPack
+593.70	I	4	SniperRiflePickup
+593.75	I	5	MiniHealthPack
+594.14	I	2	SuperShieldPack
+596.68	I	6	RocketLauncherPickup
+598.89	K	5	DamTypeLinkPlasma	4	SniperRifle
+598.89	S	5	1.00	frag
+600.61	PP	1	28
+601.10	I	2	FlakCannonPickup
+601.21	I	4	MiniHealthPack
+601.54	I	2	FlakAmmoPickup
+601.76	I	4	MiniHealthPack
+602.04	I	3	MiniHealthPack
+602.15	I	5	SniperRiflePickup
+602.31	I	4	MiniHealthPack
+602.37	I	3	MiniHealthPack
+602.81	I	3	MiniHealthPack
+602.86	I	4	MiniHealthPack
+603.08	I	3	MiniHealthPack
+603.47	I	4	MiniHealthPack
+604.46	K	2	DamTypeMinigunBullet	3	SniperRifle
+604.46	S	2	1.00	frag
+605.18	I	2	FlakAmmoPickup
+607.94	I	2	ShockRiflePickup
+608.27	I	2	ShockAmmoPickup
+608.66	I	2	ShockAmmoPickup
+609.26	I	4	RocketLauncherPickup
+614.51	I	3	FlakCannonPickup
+617.48	I	3	ShockRiflePickup
+618.74	K	2	DamTypeFlakChunk	3	FlakCannon
+618.74	S	2	1.00	frag
+618.91	I	6	UDamagePack
+622.44	I	3	RocketLauncherPickup
+625.43	I	3	RocketAmmoPickup
+626.14	I	2	HealthPack
+628.46	I	3	MinigunPickup
+630.66	PP	1	28
+633.19	I	5	FlakCannonPickup
+635.73	K	5	DamTypeLinkPlasma	2	ShockRifle
+635.73	S	5	1.00	frag
+637.38	I	2	AdrenalinePickup
+637.54	I	2	AdrenalinePickup
+637.66	I	2	AdrenalinePickup
+638.75	I	3	ShockRiflePickup
+639.36	I	5	ShockRiflePickup
+639.69	I	5	ShockAmmoPickup
+639.96	I	5	ShockAmmoPickup
+640.80	I	6	SuperHealthPack
+640.91	I	2	RocketLauncherPickup
+644.00	I	5	MiniHealthPack
+644.05	I	4	RocketAmmoPickup
+644.38	I	5	MiniHealthPack
+644.77	I	5	MiniHealthPack
+645.05	I	5	MiniHealthPack
+648.58	I	3	MinigunAmmoPickup
+648.74	I	3	MinigunAmmoPickup
+649.62	I	4	ShockRiflePickup
+650.17	I	5	FlakAmmoPickup
+650.51	I	5	FlakAmmoPickup
+653.21	I	6	BioRiflePickup
+653.54	I	6	BioAmmoPickup
+655.08	I	6	MiniHealthPack
+655.25	I	6	MiniHealthPack
+655.58	I	6	MiniHealthPack
+655.69	I	6	MiniHealthPack
+655.96	I	6	MiniHealthPack
+656.85	I	5	SuperShieldPack
+660.70	PP	1	28
+663.31	I	5	HealthPack
+667.65	I	3	MiniHealthPack
+668.26	I	3	MiniHealthPack
+668.81	I	3	MiniHealthPack
+669.08	K	2	DamTypeRocket	5	SniperRifle
+669.08	S	2	1.00	frag
+669.36	I	3	MiniHealthPack
+669.91	I	3	MiniHealthPack
+670.51	K	6	DamTypeMinigunBullet	2	RocketLauncher
+670.51	S	6	1.00	frag
+672.12	I	6	SniperRiflePickup
+672.17	I	5	RocketLauncherPickup
+675.15	I	5	RocketAmmoPickup
+675.42	I	5	RocketAmmoPickup
+675.70	I	3	AdrenalinePickup
+676.20	I	3	AdrenalinePickup
+676.64	I	6	FlakCannonPickup
+676.97	I	3	AdrenalinePickup
+677.52	I	3	AdrenalinePickup
+678.51	I	5	MinigunPickup
+679.00	I	2	FlakCannonPickup
+679.39	I	2	FlakAmmoPickup
+679.61	I	2	FlakAmmoPickup
+683.03	I	3	SniperRiflePickup
+683.36	I	3	SniperAmmoPickup
+684.35	I	5	MinigunAmmoPickup
+684.62	I	5	MinigunAmmoPickup
+690.73	PP	1	28
+692.54	K	2	DamTypeFlakShell	3	RocketLauncher
+692.54	S	2	1.00	frag
+693.92	I	6	FlakAmmoPickup
+694.25	I	6	FlakAmmoPickup
+695.86	I	3	AssaultAmmoPickup
+696.02	I	3	AssaultAmmoPickup
+696.36	I	5	MinigunAmmoPickup
+697.08	K	4	DamTypeShockBeam	2	FlakCannon
+697.08	S	4	1.00	frag
+699.12	I	6	MiniHealthPack
+699.39	I	6	MiniHealthPack
+699.66	I	3	LinkGunPickup
+699.77	I	6	MiniHealthPack
+700.05	I	6	MiniHealthPack
+701.65	I	3	LinkAmmoPickup
+701.92	I	3	LinkAmmoPickup
+702.58	I	4	FlakCannonPickup
+703.46	I	3	MiniHealthPack
+703.68	I	3	MiniHealthPack
+703.90	I	3	MiniHealthPack
+705.11	I	2	ShockRiflePickup
+705.88	I	3	MiniHealthPack
+706.10	I	3	MiniHealthPack
+706.16	I	6	ShockAmmoPickup
+706.32	I	3	MiniHealthPack
+706.54	I	6	ShockAmmoPickup
+706.76	I	4	AdrenalinePickup
+707.25	I	4	AdrenalinePickup
+709.35	I	2	MinigunPickup
+709.68	I	4	AdrenalinePickup
+710.73	I	3	SniperRiflePickup
+712.22	I	2	SuperHealthPack
+715.64	I	4	SniperRiflePickup
+716.03	I	4	SniperAmmoPickup
+717.40	I	6	MiniHealthPack
+717.90	I	6	MiniHealthPack
+718.23	I	6	MiniHealthPack
+718.66	I	6	MiniHealthPack
+720.76	PP	1	28
+722.63	I	6	MiniHealthPack
+723.07	I	2	MinigunAmmoPickup
+723.12	I	6	MiniHealthPack
+723.23	I	2	MinigunAmmoPickup
+726.71	I	5	SuperShieldPack
+732.17	I	5	FlakCannonPickup
+732.56	I	5	FlakAmmoPickup
+732.89	I	5	FlakAmmoPickup
+733.49	I	3	HealthPack
+736.02	I	5	ShockRiflePickup
+736.35	I	5	ShockAmmoPickup
+736.74	I	5	ShockAmmoPickup
+739.22	I	2	RocketLauncherPickup
+739.76	K	6	DamTypeSniperShot	2	Minigun
+739.76	S	6	1.00	frag
+739.93	I	3	RocketLauncherPickup
+741.75	I	3	MinigunPickup
+742.52	I	2	RocketLauncherPickup
+745.43	I	2	RocketAmmoPickup
+746.48	I	3	UDamagePack
+748.46	I	2	MinigunPickup
+750.77	PP	1	28
+752.31	K	6	DamTypeFlakChunk	4	SniperRifle
+752.31	S	6	1.00	frag
+753.41	I	2	ShockRiflePickup
+753.52	I	4	SniperAmmoPickup
+753.74	I	4	SniperRiflePickup
+755.88	I	3	ShockRiflePickup
+757.15	I	2	ShockAmmoPickup
+757.42	I	2	ShockAmmoPickup
+758.74	I	4	AdrenalinePickup
+759.18	I	3	MiniHealthPack
+759.24	I	4	AdrenalinePickup
+759.79	I	3	MiniHealthPack
+759.95	I	4	AdrenalinePickup
+760.34	I	3	MiniHealthPack
+760.50	I	4	AdrenalinePickup
+760.72	I	3	MiniHealthPack
+761.11	I	3	MiniHealthPack
+761.60	I	3	MiniHealthPack
+763.64	K	5	DamTypeRocket	6	Minigun
+763.64	S	5	1.00	frag
+766.28	I	6	MiniHealthPack
+766.50	I	6	MiniHealthPack
+766.72	I	6	MiniHealthPack
+768.38	I	4	FlakAmmoPickup
+768.65	I	4	FlakCannonPickup
+769.04	I	4	FlakAmmoPickup
+769.81	I	2	AssaultAmmoPickup
+770.08	I	2	AssaultAmmoPickup
+771.31	I	6	SniperRiflePickup
+773.07	I	5	HealthPack
+773.73	I	2	LinkGunPickup
+775.88	I	2	LinkAmmoPickup
+777.69	I	3	RocketAmmoPickup
+780.78	PP	1	28
+781.72	I	6	MiniHealthPack
+781.94	I	6	MiniHealthPack
+782.22	I	6	MiniHealthPack
+783.98	I	6	LinkAmmoPickup
+785.36	K	2	DamTypeRocket	6	SniperRifle
+785.36	S	2	1.00	frag
+788.84	I	6	RocketLauncherPickup
+790.10	I	3	SuperHealthPack
+790.16	I	4	SuperShieldPack
+792.75	I	2	SniperRiflePickup
+793.85	I	6	ShockRiflePickup
+797.07	I	6	MiniHealthPack
+797.67	I	6	MiniHealthPack
+798.23	I	6	MiniHealthPack
+798.67	I	6	MiniHealthPack
+799.00	I	6	MiniHealthPack
+799.50	I	6	MiniHealthPack
+808.29	K	3	DamTypeSniperShot	2	RocketLauncher
+808.29	S	3	1.00	frag
+810.83	PP	1	28
+810.99	K	5	DamTypeRocket	4	SniperRifle
+810.99	S	5	1.00	frag
+812.97	I	4	ShockRiflePickup
+813.14	I	2	BioAmmoPickup
+813.47	I	2	BioRiflePickup
+813.80	I	2	BioAmmoPickup
+815.39	I	2	MiniHealthPack
+815.50	I	2	MiniHealthPack
+815.83	I	2	MiniHealthPack
+815.94	I	5	BioRiflePickup
+815.94	I	2	MiniHealthPack
+816.44	I	2	MiniHealthPack
+817.82	I	4	RocketLauncherPickup
+818.42	I	4	RocketAmmoPickup
+818.69	K	5	DamTypeRocket	2	BioRifle
+818.69	S	5	1.00	frag
+819.74	I	2	MinigunAmmoPickup
+820.01	I	2	MinigunPickup
+820.29	I	3	FlakCannonPickup
+820.68	I	3	FlakAmmoPickup
+820.89	I	3	FlakAmmoPickup
+824.96	I	2	ShockRiflePickup
+828.16	I	3	AdrenalinePickup
+828.76	I	3	AdrenalinePickup
+829.53	I	3	AdrenalinePickup
+829.97	I	3	AdrenalinePickup
+829.97	I	4	FlakCannonPickup
+832.40	I	2	MinigunAmmoPickup
+833.12	K	6	DamTypeShockBeam	5	ShockRifle
+833.12	S	6	1.00	frag
+836.65	I	5	RocketLauncherPickup
+838.86	I	3	MiniHealthPack
+839.14	I	3	MiniHealthPack
+839.41	I	3	MiniHealthPack
+839.69	I	3	MiniHealthPack
+840.51	I	6	BioRiflePickup
+840.84	PP	1	28
+844.42	I	5	UDamagePack
+844.81	I	3	FlakAmmoPickup
+848.45	I	4	SniperRiflePickup
+848.83	I	4	SniperAmmoPickup
+849.87	I	5	RocketAmmoPickup
+851.19	I	2	HealthPack
+857.30	K	5	DamTypeRocket	4	SniperRifle
+857.30	S	5	1.00	frag
+857.74	I	3	SuperShieldPack
+859.12	I	4	ShockRiflePickup
+859.34	I	2	FlakCannonPickup
+859.73	I	2	FlakAmmoPickup
+859.94	I	2	FlakAmmoPickup
+864.08	I	4	RocketLauncherPickup
+869.42	I	5	ShockRiflePickup
+870.85	PP	1	28
+874.87	K	6	DamTypeBioGlob	2	Minigun
+874.87	S	6	1.00	frag
+875.36	I	6	FlakCannonPickup
+877.61	I	2	RocketLauncherPickup
+878.83	I	6	MinigunPickup
+880.31	K	2	DamTypeRocket	4	ShockRifle
+880.31	S	2	1.00	frag
+882.41	I	5	SuperHealthPack
+884.72	I	2	ShockRiflePickup
+886.55	I	6	AdrenalinePickup
+887.10	I	6	AdrenalinePickup
+887.10	I	4	ShockRiflePickup
+887.93	I	6	AdrenalinePickup
+888.04	I	2	MiniHealthPack
+888.37	I	6	AdrenalinePickup
+888.59	I	2	MiniHealthPack
+889.14	I	2	MiniHealthPack
+889.58	I	2	MiniHealthPack
+889.91	I	2	MiniHealthPack
+890.40	I	2	MiniHealthPack
+891.50	I	4	MinigunPickup
+893.82	I	6	SniperRiflePickup
+894.15	I	6	SniperAmmoPickup
+898.40	K	3	DamTypeSniperShot	6	SniperRifle
+898.40	S	3	1.00	frag
+900.33	I	5	MinigunPickup
+900.38	I	4	MinigunAmmoPickup
+900.55	I	4	MinigunAmmoPickup
+900.88	PP	1	28
+904.48	I	6	SniperRiflePickup
+904.59	I	2	LinkGunPickup
+910.26	I	4	RocketLauncherPickup
+910.31	K	6	DamTypeSniperShot	2	RocketLauncher
+910.31	S	6	1.00	frag
+910.87	I	4	RocketAmmoPickup
+911.75	K	3	DamTypeRocket	4	ShockRifle
+911.75	S	3	1.00	frag
+911.75	I	2	SniperRiflePickup
+912.96	I	4	MinigunAmmoPickup
+913.23	I	4	MinigunPickup
+915.95	K	2	DamTypeSniperShot	6	SniperRifle
+915.95	S	2	1.00	frag
+917.76	I	6	ShockRiflePickup
+920.40	I	2	AdrenalinePickup
+921.06	I	2	AdrenalinePickup
+921.34	I	5	SuperShieldPack
+921.78	I	2	AdrenalinePickup
+922.22	I	2	AdrenalinePickup
+922.50	I	6	RocketLauncherPickup
+926.73	I	3	RocketAmmoPickup
+927.06	I	5	FlakCannonPickup
+927.39	I	5	FlakAmmoPickup
+927.66	I	5	FlakAmmoPickup
+930.92	PP	1	28
+931.20	I	5	HealthPack
+940.74	K	2	DamTypeSniperShot	4	Minigun
+940.74	S	2	1.00	frag
+940.80	P	2	XGame.ComboInvis
+942.94	I	4	MiniHealthPack
+943.49	I	4	MiniHealthPack
+944.04	I	4	MiniHealthPack
+944.59	I	4	MiniHealthPack
+945.19	I	4	MiniHealthPack
+951.14	I	4	RocketLauncherPickup
+951.69	I	6	FlakCannonPickup
+952.02	I	6	FlakAmmoPickup
+952.30	I	6	FlakAmmoPickup
+Highest Request Count Per Timeframe (60 sec): 18
+960.27	I	6	HealthPack
+960.93	PP	1	28
+965.70	I	2	RocketLauncherPickup
+967.96	K	4	DamTypeRocket	3	FlakCannon
+967.96	S	4	1.00	frag
+968.02	I	2	RocketAmmoPickup
+970.84	I	3	MiniHealthPack
+971.06	I	3	MiniHealthPack
+971.29	I	3	MiniHealthPack
+975.34	I	5	AdrenalinePickup
+975.67	I	3	SniperRiflePickup
+975.78	I	5	AdrenalinePickup
+976.49	I	5	AdrenalinePickup
+976.66	P	5	XGame.ComboInvis
+976.88	K	5	DamTypeFlakChunk	4	AssaultRifle
+976.88	S	5	1.00	frag
+979.08	I	2	RocketAmmoPickup
+979.91	I	3	MiniHealthPack
+980.18	I	3	MiniHealthPack
+980.40	I	3	MiniHealthPack
+980.95	I	2	RocketAmmoPickup
+982.16	I	3	LinkAmmoPickup
+982.44	I	3	LinkAmmoPickup
+983.04	I	4	MinigunPickup
+984.31	I	3	LinkGunPickup
+984.59	I	5	SniperRiflePickup
+984.97	I	5	SniperAmmoPickup
+985.86	I	4	SuperHealthPack
+990.03	I	2	MiniHealthPack
+990.15	I	6	SuperShieldPack
+990.69	I	2	MiniHealthPack
+990.97	PP	1	28
+991.19	I	4	MinigunAmmoPickup
+991.24	I	2	MiniHealthPack
+991.35	I	4	MinigunAmmoPickup
+991.79	I	2	MiniHealthPack
+992.34	I	2	MiniHealthPack
+995.71	I	6	HealthPack
+998.41	K	3	DamTypeSniperShot	2	RocketLauncher
+998.41	S	3	1.00	frag
+1001.24	I	2	LinkGunPickup
+1002.12	I	5	MiniHealthPack
+1002.45	I	5	MiniHealthPack
+1002.73	I	5	MiniHealthPack
+1003.00	I	5	MiniHealthPack
+1005.55	I	6	BioRiflePickup
+1005.88	I	6	BioAmmoPickup
+1007.42	I	6	MiniHealthPack
+1007.53	I	6	MiniHealthPack
+1007.75	I	2	MiniHealthPack
+1007.86	I	6	MiniHealthPack
+1007.96	I	2	MiniHealthPack
+1008.02	I	6	MiniHealthPack
+1008.18	I	2	MiniHealthPack
+1008.24	I	6	MiniHealthPack
+1011.27	I	6	BioAmmoPickup
+1013.69	I	2	MiniHealthPack
+1013.96	I	2	MiniHealthPack
+1014.18	I	2	MiniHealthPack
+1021.01	PP	1	32
+1024.03	K	3	DamTypeSniperShot	2	AssaultRifle
+1024.03	S	3	1.00	frag
+1025.14	I	2	MinigunAmmoPickup
+1025.41	I	2	MinigunPickup
+1027.28	I	5	ShockAmmoPickup
+1027.66	I	5	ShockAmmoPickup
+1028.99	K	6	DamTypeShockBall	5	SniperRifle
+1028.99	S	6	1.00	frag
+1029.43	I	1	ShockRiflePickup
+1032.90	I	5	MinigunPickup
+1036.09	I	3	HealthPack
+1036.80	I	2	ShockRiflePickup
+1038.46	I	1	SniperRiflePickup
+1040.11	K	5	DamTypeMinigunBullet	2	Minigun
+1040.11	S	5	1.00	frag
+1041.06	I	2	SniperAmmoPickup
+1041.34	I	2	SniperRiflePickup
+1042.84	I	3	RocketLauncherPickup
+1047.60	I	3	UDamagePack
+1048.32	I	6	HealthPack
+1048.98	I	2	AdrenalinePickup
+1049.42	I	2	AdrenalinePickup
+1050.13	I	2	AdrenalinePickup
+1050.74	I	2	AdrenalinePickup
+1051.01	PP	1	28
+1051.95	K	6	DamTypeFlakChunk	1	SniperRifle
+1051.95	S	6	1.00	frag
+1054.54	I	4	SuperShieldPack
+1054.92	I	5	SuperHealthPack
+1055.52	K	5	DamTypeMinigunBullet	3	RocketLauncher
+1055.52	S	5	1.00	frag
+1055.63	I	1	RocketLauncherPickup
+1061.12	K	4	DamTypeMinigunBullet	6	FlakCannon
+1061.12	S	4	1.00	frag
+1061.18	I	4	FlakCannonPickup
+1062.94	I	3	ShockRiflePickup
+1064.10	I	5	MinigunAmmoPickup
+1064.37	I	6	AssaultAmmoPickup
+1064.65	I	6	AssaultAmmoPickup
+1065.75	K	2	DamTypeSniperHeadShot	1	RocketLauncher
+1065.75	S	2	1.00	frag
+1066.58	I	3	MinigunPickup
+1068.29	I	6	LinkGunPickup
+1069.45	I	1	MinigunAmmoPickup
+1069.72	I	1	MinigunPickup
+1070.33	I	6	LinkAmmoPickup
+1070.60	I	6	LinkAmmoPickup
+1072.20	I	6	MiniHealthPack
+1072.42	I	6	MiniHealthPack
+1072.64	I	6	MiniHealthPack
+1073.90	I	3	MinigunAmmoPickup
+1074.67	I	6	MiniHealthPack
+1074.89	I	6	MiniHealthPack
+1075.17	I	6	MiniHealthPack
+1079.95	I	6	SniperRiflePickup
+1080.67	I	1	BioAmmoPickup
+1080.78	I	1	FlakAmmoPickup
+1080.83	I	1	MinigunAmmoPickup
+1081.05	PP	1	28
+1081.44	I	2	FlakAmmoPickup
+1081.71	I	2	FlakCannonPickup
+1081.99	I	2	FlakAmmoPickup
+1083.53	I	3	RocketLauncherPickup
+1084.13	I	3	RocketAmmoPickup
+1084.96	I	2	ShockRiflePickup
+1087.66	I	1	LinkGunPickup
+1088.54	I	2	ShockAmmoPickup
+1091.36	K	6	DamTypeLinkShaft	1	Minigun
+1091.36	S	6	1.00	frag
+1092.73	I	6	MinigunPickup
+1095.76	I	4	ShockRiflePickup
+1096.09	I	4	ShockAmmoPickup
+1098.89	K	6	DamTypeLinkShaft	3	RocketLauncher
+1098.89	S	6	1.00	frag
+1103.29	I	3	MinigunPickup
+1106.37	K	5	DamTypeMinigunBullet	1	ShieldGun
+1106.37	S	5	1.00	frag
+1107.52	I	3	MinigunAmmoPickup
+1107.69	I	3	MinigunAmmoPickup
+1110.72	I	4	HealthPack
+1111.10	PP	1	28
+1111.71	I	6	SniperAmmoPickup
+1113.74	K	4	DamTypeShockCombo	2	ShockRifle
+1113.74	S	4	1.00	frag
+1115.28	I	2	FlakAmmoPickup
+1115.56	I	2	FlakCannonPickup
+1117.26	I	5	SuperShieldPack
+1118.64	K	4	DamTypeFlakChunk	2	FlakCannon
+1118.64	S	4	1.00	frag
+1119.69	P	4	XGame.ComboDefensive
+1120.47	I	1	LinkGunPickup
+1122.77	I	1	LinkAmmoPickup
+1123.04	I	1	LinkAmmoPickup
+1124.37	I	1	MiniHealthPack
+1124.53	I	1	MiniHealthPack
+1124.59	I	2	MinigunPickup
+1124.81	I	4	FlakAmmoPickup
+1125.03	K	5	DamTypeMinigunAlt	4	ShockRifle
+1125.03	S	5	1.00	frag
+1125.80	I	3	RocketLauncherPickup
+1127.50	I	2	SuperHealthPack
+1128.22	I	1	SniperAmmoPickup
+1128.93	I	1	SniperRiflePickup
+1130.09	I	5	ShockRiflePickup
+1131.13	I	5	FlakCannonPickup
+1135.31	I	4	LinkGunPickup
+1135.69	I	3	MiniHealthPack
+1136.30	I	5	MiniHealthPack
+1136.30	I	3	MiniHealthPack
+1136.57	I	5	MiniHealthPack
+1136.85	I	3	MiniHealthPack
+1136.96	I	5	MiniHealthPack
+1137.24	I	5	MiniHealthPack
+1140.64	P	5	spree_1
+1140.64	K	5	DamTypeMinigunBullet	6	SniperRifle
+1140.64	S	5	1.00	frag
+1141.14	PP	1	28
+1141.30	I	4	MiniHealthPack
+1142.46	I	6	SniperAmmoPickup
+1142.68	I	6	SniperRiflePickup
+1143.50	I	4	MiniHealthPack
+1143.72	I	4	MiniHealthPack
+1144.00	I	4	MiniHealthPack
+1144.27	I	5	SniperRiflePickup
+1146.25	K	1	DamTypeSniperShot	4	LinkGun
+1146.25	S	1	1.00	frag
+1148.62	I	3	AdrenalinePickup
+1149.06	I	3	AdrenalinePickup
+1149.17	P	3	XGame.ComboBerserk
+1149.34	I	5	FlakAmmoPickup
+1149.39	I	2	HealthPack
+1149.50	I	4	LinkGunPickup
+1151.65	K	1	DamTypeSniperHeadShot	4	LinkGun
+1151.65	S	1	1.00	frag
+1151.76	K	3	DamTypeRocket	6	SniperRifle
+1151.76	S	3	1.00	frag
+1152.97	I	6	LinkGunPickup
+1154.45	I	5	HealthPack
+1154.51	I	2	RocketLauncherPickup
+1154.84	K	6	DamTypeLinkShaft	1	SniperRifle
+1154.84	S	6	1.00	frag
+1155.50	I	2	RocketAmmoPickup
+1156.59	I	4	MinigunPickup
+1157.42	I	6	SniperRiflePickup
+1158.24	I	6	LinkAmmoPickup
+1158.46	I	1	SniperRiflePickup
+1162.42	I	3	FlakCannonPickup
+1164.18	I	5	BioRiflePickup
+1164.46	I	5	BioAmmoPickup
+1166.00	I	5	MiniHealthPack
+1166.17	I	5	MiniHealthPack
+1166.49	I	5	MiniHealthPack
+1166.61	I	5	MiniHealthPack
+1166.88	I	5	MiniHealthPack
+1170.07	K	1	DamTypeSniperHeadShot	3	Minigun
+1170.07	S	1	1.00	frag
+1171.17	PP	1	28
+1171.61	I	3	MinigunAmmoPickup
+1171.89	I	3	MinigunPickup
+1172.11	I	2	RocketAmmoPickup
+1172.60	I	4	FlakCannonPickup
+1172.93	I	4	FlakAmmoPickup
+1176.30	I	4	ShockRiflePickup
+1176.63	I	4	ShockAmmoPickup
+1177.02	I	4	ShockAmmoPickup
+1177.51	I	3	ShockRiflePickup
+1181.58	K	1	DamTypeSniperShot	4	Minigun
+1181.58	S	1	1.00	frag
+1183.18	I	3	MinigunAmmoPickup
+1183.29	I	3	MinigunAmmoPickup
+1184.00	I	5	SuperShieldPack
+1188.74	P	6	XGame.ComboBerserk
+1190.49	I	1	FlakCannonPickup
+1190.77	I	4	RocketLauncherPickup
+1191.92	I	1	FlakAmmoPickup
+1195.57	I	6	MiniHealthPack
+1195.73	I	6	MiniHealthPack
+1196.28	I	5	RocketLauncherPickup
+1201.19	PP	1	28
+1201.46	I	5	UDamagePack
+1202.73	K	1	DamTypeSniperHeadShot	6	SniperRifle
+1202.73	S	1	1.00	frag
+1204.60	I	6	LinkGunPickup
+1211.49	I	5	RocketAmmoPickup
+1212.32	I	4	FlakCannonPickup
+1212.70	I	4	FlakAmmoPickup
+1213.03	I	4	FlakAmmoPickup
+1216.18	I	1	MiniHealthPack
+1217.83	I	1	MiniHealthPack
+1218.11	I	1	MiniHealthPack
+1219.16	I	6	MiniHealthPack
+1219.61	K	6	DamTypeLinkShaft	1	SniperRifle
+1219.61	S	6	1.00	frag
+1220.10	I	6	SniperRiflePickup
+1220.38	I	4	AdrenalinePickup
+1220.99	I	4	AdrenalinePickup
+1221.76	I	4	AdrenalinePickup
+1222.19	I	4	AdrenalinePickup
+1224.12	I	6	ShockRiflePickup
+1227.37	K	5	DamTypeRocket	6	ShockRifle
+1227.37	S	5	1.00	frag
+1227.64	I	4	SniperRiflePickup
+1228.03	I	4	SniperAmmoPickup
+1229.79	I	3	RocketLauncherPickup
+1230.45	I	6	AssaultAmmoPickup
+1230.72	I	6	AssaultAmmoPickup
+1231.22	PP	1	28
+1231.39	K	5	DamTypeFlakChunk	3	Minigun
+1231.39	S	5	1.00	frag
+1233.47	I	3	SniperRiflePickup
+1233.70	K	1	DamTypeShieldImpact	2	RocketLauncher
+1233.70	S	1	1.00	frag
+1233.70	K	2	DamTypeRocket	1	ShieldGun
+1233.70	S	2	1.00	frag
+1234.47	I	6	LinkGunPickup
+1236.46	I	6	LinkAmmoPickup
+1236.74	I	6	LinkAmmoPickup
+1238.44	I	6	MiniHealthPack
+1238.61	I	1	RocketLauncherPickup
+1238.66	I	6	MiniHealthPack
+1238.88	I	6	MiniHealthPack
+1240.86	I	6	MiniHealthPack
+1241.08	I	6	MiniHealthPack
+1241.30	I	6	MiniHealthPack
+1243.78	I	2	FlakCannonPickup
+1244.05	I	2	RocketLauncherPickup
+1244.11	I	2	FlakAmmoPickup
+1245.48	I	5	SuperHealthPack
+1245.70	K	2	DamTypeFlakChunk	1	ShieldGun
+1245.70	S	2	1.00	frag
+1246.03	I	6	SniperRiflePickup
+1246.09	I	2	FlakAmmoPickup
+1250.54	I	1	MiniHealthPack
+1250.71	I	1	MiniHealthPack
+1256.60	K	2	DamTypeRocket	4	SniperRifle
+1256.60	S	2	1.00	frag
+1259.57	I	1	FlakAmmoPickup
+1260.01	I	1	FlakAmmoPickup
+1260.78	I	1	FlakCannonPickup
+1261.22	PP	1	28
+1262.10	I	4	BioAmmoPickup
+1262.32	K	3	DamTypeSniperShot	2	RocketLauncher
+1262.32	S	3	1.00	frag
+1262.43	I	4	BioRiflePickup
+1262.82	I	4	BioAmmoPickup
+1264.74	I	2	AdrenalinePickup
+1264.91	I	2	AdrenalinePickup
+1265.02	I	2	AdrenalinePickup
+1266.30	I	3	RocketLauncherPickup
+1268.12	I	2	RocketLauncherPickup
+1270.41	K	1	DamTypeFlakChunk	3	RocketLauncher
+1270.41	S	1	1.00	frag
+1271.08	I	2	RocketAmmoPickup
+1271.36	I	2	RocketAmmoPickup
+1271.69	I	1	RocketLauncherPickup
+1271.85	I	3	LinkGunPickup
+1273.95	I	4	SuperShieldPack
+1274.29	I	2	MinigunPickup
+1276.22	I	5	MiniHealthPack
+1277.60	I	5	MiniHealthPack
+1279.64	I	4	FlakCannonPickup
+1285.65	I	4	ShockRiflePickup
+1286.92	K	6	DamTypeSniperShot	4	ShockRifle
+1286.92	S	6	1.00	frag
+1286.92	I	2	ShockRiflePickup
+1288.59	K	6	DamTypeSniperShot	1	FlakCannon
+1288.59	S	6	1.00	frag
+1291.23	PP	1	28
+1291.66	I	4	RocketLauncherPickup
+1292.16	I	6	FlakCannonPickup
+1292.55	I	6	FlakAmmoPickup
+1293.31	I	2	MinigunAmmoPickup
+1293.48	I	2	MinigunAmmoPickup
+1294.92	I	6	ShockRiflePickup
+1297.45	I	3	MiniHealthPack
+1297.72	I	3	MiniHealthPack
+1298.00	I	3	MiniHealthPack
+1298.05	I	4	MinigunPickup
+1298.27	I	3	MiniHealthPack
+1299.59	I	1	MinigunAmmoPickup
+1299.65	I	1	FlakAmmoPickup
+1299.70	I	1	BioAmmoPickup
+1303.06	I	4	ShockRiflePickup
+1306.53	K	5	DamTypeFlakChunk	6	SniperRifle
+1306.53	S	5	1.00	frag
+1307.63	I	1	RocketLauncherPickup
+1308.24	I	3	FlakCannonPickup
+1308.90	I	3	FlakAmmoPickup
+1309.34	I	2	UDamagePack
+1309.78	I	4	BioRiflePickup
+1310.06	I	6	RocketLauncherPickup
+1310.66	I	1	RocketAmmoPickup
+1310.88	I	1	RocketAmmoPickup
+1312.09	I	3	ShockRiflePickup
+1317.95	I	2	SuperHealthPack
+1319.17	K	3	DamTypeFlakChunk	5	FlakCannon
+1319.17	S	3	1.00	frag
+1321.10	I	5	SniperAmmoPickup
+1321.27	PP	1	28
+1321.32	I	5	SniperRiflePickup
+1324.74	I	3	HealthPack
+1326.33	I	5	AdrenalinePickup
+1326.83	I	5	AdrenalinePickup
+1327.05	I	1	AssaultAmmoPickup
+1327.10	I	1	AssaultAmmoPickup
+1327.54	I	5	AdrenalinePickup
+1328.09	I	5	AdrenalinePickup
+1329.47	I	6	MinigunPickup
+1332.27	I	1	LinkAmmoPickup
+1332.49	I	1	LinkAmmoPickup
+1333.98	I	1	MiniHealthPack
+1334.09	I	3	BioRiflePickup
+1334.42	I	3	BioAmmoPickup
+1335.79	I	1	MiniHealthPack
+1336.01	I	3	MiniHealthPack
+1336.01	I	1	MiniHealthPack
+1336.12	I	3	MiniHealthPack
+1336.23	I	1	MiniHealthPack
+1336.34	I	5	FlakAmmoPickup
+1336.40	I	3	MiniHealthPack
+1336.56	I	3	MiniHealthPack
+1336.62	I	5	FlakCannonPickup
+1336.78	I	3	MiniHealthPack
+1337.00	I	5	FlakAmmoPickup
+1341.84	I	6	ShockRiflePickup
+1343.77	K	2	DamTypeRocket	6	Minigun
+1343.77	S	2	1.00	frag
+1345.15	I	6	ShockRiflePickup
+1347.13	I	3	SuperShieldPack
+1348.23	K	1	DamTypeRocket	2	RocketLauncher
+1348.23	S	1	1.00	frag
+1349.55	I	2	ShockRiflePickup
+1349.99	I	6	RocketLauncherPickup
+1351.31	PP	1	28
+1351.64	I	2	MinigunPickup
+1353.51	I	2	RocketLauncherPickup
+1353.62	I	2	ShockAmmoPickup
+1355.66	K	1	DamTypeRocket	2	ShockRifle
+1355.66	S	1	1.00	frag
+1357.97	K	5	DamTypeSniperShot	3	ShockRifle
+1357.97	S	5	1.00	frag
+1357.97	EG	fraglimit	5	2	6	3	4	1
+1357.97	PA	6	AssaultRifle	53	5	35
+1357.97	PA	6	SniperRifle	70	11	770
+1357.97	PA	6	FlakCannon	37	7	91
+1357.97	PA	6	Minigun	522	45	348
+1357.97	PA	6	RocketLauncher	66	7	437
+1357.97	PA	6	LinkGun	260	38	384
+1357.97	PA	6	BioRifle	5	2	73
+1357.97	PA	6	ShockRifle	88	15	521
+1357.97	PA	5	AssaultRifle	29	3	21
+1357.97	PA	5	FlakCannon	37	15	205
+1357.97	PA	5	SniperRifle	48	7	455
+1357.97	PA	5	Minigun	672	85	670
+1357.97	PA	5	RocketLauncher	121	16	1057
+1357.97	PA	5	LinkGun	138	21	315
+1357.97	PA	5	ShockRifle	68	7	460
+1357.97	PA	5	ShieldGun	8	0	0
+1357.97	PA	5	BioRifle	14	2	77
+1357.97	PA	4	AssaultRifle	91	4	90
+1357.97	PA	4	ShockRifle	138	13	697
+1357.97	PA	4	FlakCannon	15	5	131
+1357.97	PA	4	BioRifle	32	3	145
+1357.97	PA	4	SniperRifle	70	7	490
+1357.97	PA	4	RocketLauncher	82	9	529
+1357.97	PA	4	LinkGun	106	13	159
+1357.97	PA	4	Minigun	423	51	390
+1357.97	PA	3	Minigun	321	19	176
+1357.97	PA	3	AssaultRifle	64	6	51
+1357.97	PA	3	RocketLauncher	75	14	836
+1357.97	PA	3	ShockRifle	76	6	203
+1357.97	PA	3	FlakCannon	23	10	130
+1357.97	PA	3	SniperRifle	76	13	875
+1357.97	PA	3	LinkGun	185	19	255
+1357.97	PA	2	AssaultRifle	77	8	56
+1357.97	PA	2	Minigun	921	82	692
+1357.97	PA	2	LinkGun	84	11	183
+1357.97	PA	2	RocketLauncher	108	21	1499
+1357.97	PA	2	BioRifle	27	1	37
+1357.97	PA	2	ShockRifle	80	6	208
+1357.97	PA	2	SniperRifle	46	9	700
+1357.97	PA	2	FlakCannon	12	8	229
+1357.97	PA	1	AssaultRifle	82	11	77
+1357.97	PA	1	ShieldGun	33	2	300
+1357.97	PA	1	SniperRifle	14	7	700
+1357.97	PA	1	RocketLauncher	6	2	151
+1357.97	PA	1	Minigun	7	3	44
+1357.97	PA	1	FlakCannon	12	4	104
+xDeathMatch DM-TokaraForest.xDeathMatch (Function Engine.GameInfo.EndLogging:0027) Accessed None 'GameStats'
+1381.32	PP	1	28
+ProcessServerTravel: DM-Sulphur
+PreClientTravel
+Server switch level: DM-Sulphur
+Browse: DM-Sulphur?Name=Player?Class=Engine.Pawn?Character=Jakob?team=255?game=XGame.xDeathMatch?GameStats=True
+Close TcpipConnection 192.168.200.140:60185 08/24/13 17:09:27
+Socket shut down
+Collecting garbage
+Purging garbage
+(Karma): Level Karma Terminated.
+Garbage: objects: 50046->35889; refs: 434431
+Game class is 'xDeathMatch'
+Bringing Level DM-Sulphur.myLevel up for play (20) appSeconds: 4183.517000...
+(Karma): Autodetecting CPU for SSE
+(Karma): Using SSE Optimizations
+Loading Admins & Groups
+Kick and Ban Privileges Loaded
+Maps & Game Privileges Loaded
+Admins & Groups Management Loaded
+Extra Privileges Loaded
+GameInfo::InitGame : bEnableStatLogging True
+----------------------------------------
+OLStats Loading...
+Debug mode is ON!
+Opening user log ..\UserLogs\Stats_7777_2013_08_24_17_09_28.log
+OLStats 3.00 loaded!
+  Author: OverloadUT
+  Email: Overload@planetunreal.com
+  Web: www.apartment167.com
+----------------------------------------
+UdpServerQuery(crt): Port 7787 successfully bound.
+Defaulting to false
+Defaulting to false
+MasterServerUplink: DoUplink is False, not connecting to Epic master server
+Loading Available Maps
+Loading Game Types
+XWebAdmin.UTServerAdmin Initialized on port 18080
+OLStats v3.00 by OverloadUT www.Apartment167.com
+0.00	NG	2013-8-24 17:9:28	0	DM-Sulphur	Sulphur	Ed Duke-Cox/David Spalinski	XGame.xDeathMatch	DeathMatch	Mutators=UnrealGame.DMMutator|OLStats.MutOLGameStats
+0.00	SI	UT 2004 Lan Party (Vanilla)	0				\ServerMode\dedicated\AdminName\\AdminEmail\\ServerVersion\3369\GameStats\True\MaxSpectators\2\Mutator\MutOLGameStats\MinPlayers\6\EndTimeDelay\4.00\GoalScore\25\TimeLimit\20\Translocator\False\WeaponStay\True\ForceRespawn\False\gamedifficulty\3.00\shortname\UT2 Server
+Open myLevel 08/24/13 17:09:29 192.168.200.140:61680
+Client netspeed is 10000
+Open myLevel 08/24/13 17:09:31 192.168.200.140:60185
+2.57	C	1	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+2.57	PS	1	192.168.200.140:61680	10000	11e145faaf230c5c5a1b419541a6aca4
+2.57	G	NameChange	1	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+Close TcpipConnection 192.168.200.140:60185 08/24/13 17:09:31
+12.12	SG
+START MATCH
+13.49	C	6	Kragoth
+13.49	G	NameChange	6	[BOT]Kragoth
+13.49	BI	6	3.00	0.00	0.15	0.40	1.00	0.20	0.90	1.00	0.00	BioRifle
+13.49	I	6	AdrenalinePickup
+14.29	C	3	Garrett
+14.29	G	NameChange	3	[BOT]Garrett
+14.29	BI	3	3.00	0.00	0.15	0.40	0.30	0.10	0.70	1.00	0.80	RocketLauncher
+14.29	I	3	AdrenalinePickup
+14.74	C	5	Kraagesh
+14.74	G	NameChange	5	[BOT]Kraagesh
+14.74	BI	5	3.00	0.00	-0.10	0.65	0.20	0.34	0.00	1.00	0.50	None
+14.74	I	5	RocketAmmoPickup
+14.90	I	6	AdrenalinePickup
+15.18	I	1	SniperAmmoPickup
+15.62	I	3	AdrenalinePickup
+16.23	I	6	AdrenalinePickup
+16.45	I	5	FlakCannonPickup
+16.89	C	4	Aryss
+16.89	G	NameChange	4	[BOT]Aryss
+16.89	BI	4	3.00	0.00	0.05	0.40	0.45	0.10	0.30	1.00	0.00	Minigun
+16.89	I	4	ShockRiflePickup
+16.89	I	1	FlakCannonPickup
+16.95	I	3	AdrenalinePickup
+17.61	C	2	Thannis
+17.61	G	NameChange	2	[BOT]Thannis
+17.61	BI	2	3.00	0.00	0.10	0.40	0.80	0.20	1.00	1.00	0.00	LinkGun
+17.61	I	2	LinkGunPickup
+19.26	P	1	first_blood
+19.26	K	1	DamTypeFlakChunk	5	FlakCannon
+19.26	S	1	1.00	frag
+20.58	I	5	AdrenalinePickup
+20.64	K	4	DamTypeShockBall	6	AssaultRifle
+20.64	S	4	1.00	frag
+21.79	I	3	LinkGunPickup
+21.90	I	5	AdrenalinePickup
+23.11	I	1	HealthPack
+23.17	I	5	AdrenalinePickup
+23.72	I	5	BioRiflePickup
+24.16	K	2	DamTypeLinkShaft	3	LinkGun
+24.16	S	2	1.00	frag
+24.44	I	6	LinkGunPickup
+25.21	I	2	HealthPack
+27.09	I	1	AdrenalinePickup
+28.02	K	6	DamTypeLinkShaft	2	LinkGun
+28.02	S	6	1.00	frag
+28.29	I	1	AdrenalinePickup
+29.62	I	1	AdrenalinePickup
+29.90	I	3	RocketLauncherPickup
+30.01	PP	1	156
+31.01	I	5	FlakCannonPickup
+31.90	I	2	FlakCannonPickup
+32.12	I	4	LinkAmmoPickup
+32.29	I	6	HealthPack
+32.34	I	6	HealthPack
+32.68	I	3	ShockAmmoPickup
+32.90	I	3	LinkAmmoPickup
+35.38	I	4	RocketLauncherPickup
+37.70	I	1	FlakAmmoPickup
+38.91	K	6	DamTypeLinkShaft	4	ShockRifle
+38.91	S	6	1.00	frag
+41.71	K	6	DamTypeLinkShaft	3	RocketLauncher
+41.71	S	6	1.00	frag
+41.77	I	6	RocketLauncherPickup
+42.60	I	6	SuperShieldPack
+43.48	I	6	ShockRiflePickup
+43.97	I	4	ShockRiflePickup
+45.57	I	2	RocketLauncherPickup
+47.21	I	3	LinkGunPickup
+48.20	I	5	LinkGunPickup
+49.31	K	5	DamTypeFlakChunk	4	ShockRifle
+49.31	S	5	1.00	frag
+49.31	I	3	ShockRiflePickup
+50.74	I	6	HealthPack
+50.79	K	3	DamTypeLinkShaft	5	FlakCannon
+50.79	S	3	1.00	frag
+50.79	I	3	FlakCannonPickup
+52.33	I	4	SniperRiflePickup
+54.21	K	2	DamTypeFlakChunk	6	LinkGun
+54.21	S	2	1.00	frag
+54.60	I	5	ShockRiflePickup
+54.93	K	1	DamTypeFlakChunk	2	FlakCannon
+54.93	S	1	1.00	frag
+56.20	I	3	AdrenalinePickup
+56.81	I	2	AdrenalinePickup
+57.58	I	3	AdrenalinePickup
+58.14	I	2	AdrenalinePickup
+59.08	I	6	MinigunPickup
+59.52	I	2	AdrenalinePickup
+59.57	I	6	AdrenalinePickup
+60.01	PP	1	80
+61.23	I	6	AdrenalinePickup
+62.67	I	6	AdrenalinePickup
+63.99	I	2	RocketLauncherPickup
+64.87	I	4	RocketLauncherPickup
+65.20	K	4	DamTypeSniperShot	2	AssaultRifle
+65.20	S	4	1.00	frag
+67.35	K	1	DamTypeFlakChunk	3	ShockRifle
+67.35	S	1	1.00	frag
+67.68	I	1	ShockRiflePickup
+67.74	I	1	SniperRiflePickup
+69.12	I	2	LinkGunPickup
+69.95	I	1	ShockAmmoPickup
+70.01	K	6	DamTypeMinigunBullet	4	RocketLauncher
+70.01	S	6	1.00	frag
+70.17	I	1	LinkAmmoPickup
+71.28	I	3	ShockRiflePickup
+72.10	I	6	RocketLauncherPickup
+72.27	K	1	DamTypeFlakShell	6	Minigun
+72.27	S	1	1.00	frag
+74.20	I	4	MinigunPickup
+75.53	I	5	RocketLauncherPickup
+76.74	K	2	DamTypeLinkPlasma	3	ShockRifle
+76.74	S	2	1.00	frag
+77.30	I	6	ShockRiflePickup
+77.69	I	2	HealthPack
+78.24	P	1	spree_1
+78.24	K	1	DamTypeFlakChunk	4	Minigun
+78.24	S	1	1.00	frag
+79.18	I	1	MinigunPickup
+80.01	I	2	ShockRiflePickup
+81.17	I	3	LinkGunPickup
+81.22	I	1	HealthPack
+83.44	K	2	DamTypeLinkShaft	6	ShockRifle
+83.44	S	2	1.00	frag
+83.82	I	4	RocketLauncherPickup
+87.91	I	1	HealthPack
+88.35	I	2	HealthPack
+88.40	I	5	FlakAmmoPickup
+88.56	I	3	ShockRiflePickup
+90.06	PP	1	48
+91.99	I	5	AdrenalinePickup
+92.98	I	6	ShockRiflePickup
+93.04	I	5	BioRiflePickup
+93.86	K	4	DamTypeRocket	5	RocketLauncher
+93.86	S	4	1.00	frag
+94.85	I	1	BioRiflePickup
+95.18	K	3	DamTypeLinkShaft	2	ShockRifle
+95.18	S	3	1.00	frag
+96.67	I	5	SniperAmmoPickup
+97.17	K	1	DamTypeFlakChunk	4	RocketLauncher
+97.17	S	1	1.00	frag
+98.33	I	1	RocketLauncherPickup
+98.38	I	5	FlakCannonPickup
+99.04	I	4	AdrenalinePickup
+100.14	I	2	LinkGunPickup
+100.42	I	4	AdrenalinePickup
+101.25	I	3	MiniHealthPack
+101.74	I	4	AdrenalinePickup
+103.50	I	1	FlakAmmoPickup
+104.66	I	3	RedeemerPickup
+107.52	I	4	ShockRiflePickup
+107.57	K	2	DamTypeLinkShaft	4	AssaultRifle
+107.57	S	2	1.00	frag
+108.35	I	5	BioRiflePickup
+109.24	I	3	MiniHealthPack
+110.08	I	6	HealthPack
+111.57	I	4	LinkGunPickup
+113.21	I	6	LinkGunPickup
+113.21	K	5	DamTypeFlakChunk	1	FlakCannon
+113.21	S	5	1.00	frag
+114.87	K	2	DamTypeLinkShaft	4	LinkGun
+114.87	S	2	1.00	frag
+115.80	I	3	LinkAmmoPickup
+118.22	I	1	LinkGunPickup
+118.93	I	3	RocketLauncherPickup
+119.48	I	4	MinigunPickup
+119.98	I	4	AdrenalinePickup
+120.09	PP	1	36
+120.58	I	6	RocketLauncherPickup
+121.41	I	5	HealthPack
+122.18	I	2	ShockRiflePickup
+123.45	I	6	ShockAmmoPickup
+123.72	I	6	LinkAmmoPickup
+123.94	I	1	ShockRiflePickup
+124.55	I	4	AdrenalinePickup
+124.66	I	5	RocketAmmoPickup
+125.49	K	4	DamTypeMinigunBullet	3	RocketLauncher
+125.49	S	4	1.00	frag
+126.10	I	2	HealthPack
+126.81	I	6	SniperRiflePickup
+128.25	I	4	AdrenalinePickup
+129.35	I	3	ShockRiflePickup
+130.83	K	1	DamTypeLinkShaft	2	ShockRifle
+130.83	S	1	1.00	frag
+131.00	I	5	MinigunPickup
+132.38	I	4	ShockRiflePickup
+132.99	I	2	SniperAmmoPickup
+133.54	P	1	multikill_1
+133.54	K	1	DamTypeLinkShaft	4	Minigun
+133.54	S	1	1.00	frag
+133.87	I	1	MinigunPickup
+134.70	I	2	FlakCannonPickup
+135.04	I	4	AdrenalinePickup
+135.20	I	1	RocketLauncherPickup
+136.20	I	6	SuperHealthPack
+136.92	I	4	AdrenalinePickup
+138.24	I	4	AdrenalinePickup
+138.73	K	1	DamTypeRocket	5	Minigun
+138.73	S	1	1.00	frag
+140.50	I	5	AdrenalinePickup
+141.83	I	5	AdrenalinePickup
+142.27	I	1	HealthPack
+142.49	I	6	FlakAmmoPickup
+142.60	I	2	BioRiflePickup
+142.88	I	4	LinkGunPickup
+143.10	I	2	AdrenalinePickup
+143.21	I	5	AdrenalinePickup
+144.49	I	2	AdrenalinePickup
+145.81	I	2	AdrenalinePickup
+146.47	I	1	FlakCannonPickup
+146.64	K	3	DamTypeShockCombo	6	RocketLauncher
+146.64	S	3	1.00	frag
+147.19	I	4	HealthPack
+148.02	I	5	ShockRiflePickup
+150.10	PP	1	32
+150.16	I	2	RocketLauncherPickup
+150.32	I	4	ShockRiflePickup
+150.71	K	3	FellLava	1	ShieldGun
+150.71	S	3	1.00	frag
+150.98	I	6	BioRiflePickup
+151.37	I	5	HealthPack
+154.01	I	3	FlakCannonPickup
+155.77	I	5	LinkGunPickup
+155.82	I	6	HealthPack
+157.48	K	2	DamTypeFlakChunk	6	BioRifle
+157.48	S	2	1.00	frag
+159.86	I	1	ShockRiflePickup
+160.41	I	5	HealthPack
+160.63	I	6	RocketLauncherPickup
+161.84	K	-1	FellLava	3	ShockRifle
+161.84	S	3	-1.00	self_frag
+163.00	K	5	DamTypeShockBeam	4	ShockRifle
+163.00	S	5	1.00	frag
+163.00	I	3	AdrenalinePickup
+163.66	I	6	ShockAmmoPickup
+163.89	I	6	LinkAmmoPickup
+164.22	I	2	RocketAmmoPickup
+164.33	I	3	AdrenalinePickup
+165.65	I	3	AdrenalinePickup
+166.09	I	3	MinigunPickup
+167.14	I	6	SniperRiflePickup
+168.52	I	4	SniperRiflePickup
+170.61	I	2	MinigunPickup
+171.16	I	5	RocketLauncherPickup
+171.49	K	3	DamTypeMinigunBullet	2	RocketLauncher
+171.49	S	3	1.00	frag
+174.47	K	1	DamTypeShockBeam	5	ShockRifle
+174.47	S	1	1.00	frag
+174.74	I	3	RocketLauncherPickup
+176.52	I	2	ShockRiflePickup
+178.01	I	5	RocketLauncherPickup
+178.40	I	1	FlakAmmoPickup
+178.67	I	6	AdrenalinePickup
+179.39	I	6	BioRiflePickup
+179.89	I	3	HealthPack
+180.11	PP	1	32
+181.33	I	6	AdrenalinePickup
+182.71	I	6	AdrenalinePickup
+182.77	I	5	LinkAmmoPickup
+185.15	I	2	HealthPack
+185.15	I	2	HealthPack
+185.48	K	1	DamTypeShockBeam	6	SniperRifle
+185.48	S	1	1.00	frag
+185.59	I	3	FlakCannonPickup
+186.03	I	1	SniperRiflePickup
+187.41	I	3	SniperAmmoPickup
+189.29	P	1	multikill_1
+189.29	K	1	DamTypeSniperHeadShot	5	RocketLauncher
+189.29	S	1	1.00	frag
+189.35	I	6	LinkGunPickup
+191.60	I	3	HealthPack
+192.99	I	6	HealthPack
+194.26	I	5	FlakCannonPickup
+194.54	K	3	DamTypeRocket	1	SniperRifle
+194.54	S	3	1.00	frag
+195.53	I	2	RocketLauncherPickup
+199.99	I	1	RocketLauncherPickup
+200.16	I	6	RocketLauncherPickup
+200.33	I	3	BioRiflePickup
+201.59	K	6	DamTypeLinkShaft	1	RocketLauncher
+201.59	S	6	1.00	frag
+202.64	K	2	DamTypeShockBall	6	LinkGun
+202.64	S	2	1.00	frag
+203.25	K	3	DamTypeRocket	3	RocketLauncher
+203.25	S	3	-1.00	self_frag
+203.25	I	5	RocketLauncherPickup
+203.74	P	1	XGame.ComboDefensive
+205.02	I	5	BioRiflePickup
+205.07	I	6	RocketAmmoPickup
+206.62	I	4	ShockAmmoPickup
+206.79	I	6	FlakCannonPickup
+207.78	I	3	ShockRiflePickup
+208.11	I	4	LinkGunPickup
+208.22	I	1	BioRiflePickup
+208.27	I	2	ShockAmmoPickup
+208.49	I	2	LinkAmmoPickup
+208.94	I	4	RocketLauncherPickup
+210.15	PP	1	28
+210.81	I	1	AdrenalinePickup
+211.03	K	5	DamTypeFlakChunk	1	BioRifle
+211.03	S	5	1.00	frag
+211.20	I	3	HealthPack
+212.41	I	5	AdrenalinePickup
+213.73	I	6	MinigunPickup
+214.17	I	6	AdrenalinePickup
+215.05	I	5	AdrenalinePickup
+216.81	I	1	FlakAmmoPickup
+216.97	K	-1	FellLava	2	RocketLauncher
+216.97	S	2	-1.00	self_frag
+217.47	I	4	AdrenalinePickup
+218.57	I	6	AdrenalinePickup
+218.79	I	4	AdrenalinePickup
+220.12	I	4	AdrenalinePickup
+220.51	I	2	SniperAmmoPickup
+220.56	I	1	FlakCannonPickup
+221.22	I	5	SniperRiflePickup
+221.39	K	1	DamTypeFlakChunk	2	AssaultRifle
+221.39	S	1	1.00	frag
+223.73	I	3	HealthPack
+225.06	I	2	LinkGunPickup
+225.39	K	6	DamTypeMinigunBullet	5	SniperRifle
+225.39	S	6	1.00	frag
+227.27	I	4	HealthPack
+228.00	I	6	RocketLauncherPickup
+230.50	I	5	RocketLauncherPickup
+230.99	I	3	FlakCannonPickup
+231.27	I	4	HealthPack
+232.59	I	6	SuperShieldPack
+232.92	I	6	SniperRiflePickup
+233.86	I	2	FlakCannonPickup
+235.47	K	3	DamTypeShockBeam	2	LinkGun
+235.47	S	3	1.00	frag
+235.63	I	1	SniperRiflePickup
+237.96	I	3	LinkGunPickup
+238.30	K	6	DamTypeMinigunBullet	1	FlakCannon
+238.30	S	6	1.00	frag
+239.85	I	2	LinkGunPickup
+240.19	PP	1	28
+240.35	I	1	AdrenalinePickup
+241.52	K	6	DamTypeMinigunBullet	4	RocketLauncher
+241.52	S	6	1.00	frag
+241.57	I	1	AdrenalinePickup
+241.79	I	3	HealthPack
+242.46	I	5	LinkAmmoPickup
+242.68	I	5	ShockAmmoPickup
+243.34	I	1	FlakCannonPickup
+245.60	I	5	SniperRiflePickup
+247.14	I	4	RocketLauncherPickup
+248.29	K	3	DamTypeShockBall	3	ShockRifle
+248.29	S	3	-1.00	self_frag
+252.03	K	2	DamTypeLinkShaft	6	FlakCannon
+252.03	S	2	1.00	frag
+252.03	I	3	LinkGunPickup
+252.81	K	4	DamTypeRocket	2	LinkGun
+252.81	S	4	1.00	frag
+252.86	I	4	LinkGunPickup
+253.25	I	1	RocketAmmoPickup
+253.80	I	6	AdrenalinePickup
+253.97	I	4	FlakCannonPickup
+255.07	K	5	DamTypeRocket	4	RocketLauncher
+255.07	S	5	1.00	frag
+255.12	I	6	AdrenalinePickup
+256.50	I	6	AdrenalinePickup
+256.94	I	4	AdrenalinePickup
+257.16	I	2	LinkGunPickup
+258.27	I	4	AdrenalinePickup
+259.04	I	5	HealthPack
+259.26	I	6	FlakAmmoPickup
+259.48	K	3	DamTypeLinkShaft	2	LinkGun
+259.48	S	3	1.00	frag
+259.53	I	4	AdrenalinePickup
+260.09	I	4	BioRiflePickup
+260.59	I	3	HealthPack
+260.70	I	1	LinkGunPickup
+263.12	I	2	LinkGunPickup
+263.50	I	3	ShockRiflePickup
+263.94	I	6	MinigunPickup
+264.16	I	5	MinigunPickup
+264.22	K	5	DamTypeSniperShot	6	ShieldGun
+264.22	S	5	1.00	frag
+264.66	I	5	AdrenalinePickup
+266.03	I	5	AdrenalinePickup
+266.09	I	4	SniperAmmoPickup
+267.02	K	2	DamTypeLinkShaft	1	FlakCannon
+267.02	S	2	1.00	frag
+267.41	I	5	AdrenalinePickup
+267.79	I	4	FlakCannonPickup
+268.73	I	2	FlakCannonPickup
+270.22	PP	1	28
+270.22	I	6	LinkGunPickup
+271.65	K	3	DamTypeLinkShaft	2	LinkGun
+271.65	S	3	1.00	frag
+272.20	I	3	MinigunAmmoPickup
+274.19	K	4	DamTypeFlakChunk	1	AssaultRifle
+274.19	S	4	1.00	frag
+274.91	I	2	SniperRiflePickup
+275.02	K	6	DamTypeLinkShaft	3	LinkGun
+275.02	S	6	1.00	frag
+276.24	K	4	DamTypeFlakChunk	5	RocketLauncher
+276.24	S	4	1.00	frag
+278.06	I	3	LinkGunPickup
+278.06	I	5	AdrenalinePickup
+278.22	I	4	RocketLauncherPickup
+279.27	I	3	ShockRiflePickup
+279.38	I	5	AdrenalinePickup
+279.82	I	4	MinigunPickup
+280.65	I	5	AdrenalinePickup
+282.19	K	1	DamTypeShieldImpact	6	LinkGun
+282.19	S	1	1.00	frag
+283.46	I	1	LinkGunPickup
+285.89	I	5	SniperRiflePickup
+287.60	I	6	FlakCannonPickup
+287.88	K	3	DamTypeShockBall	1	ShieldGun
+287.88	S	3	1.00	frag
+288.10	K	4	DamTypeMinigunBullet	2	SniperRifle
+288.10	S	4	1.00	frag
+289.65	I	5	LinkAmmoPickup
+289.87	I	5	ShockAmmoPickup
+289.92	I	1	AdrenalinePickup
+292.51	I	2	LinkGunPickup
+292.73	I	5	RocketLauncherPickup
+292.79	I	1	FlakAmmoPickup
+293.18	I	1	SniperRiflePickup
+293.78	I	3	HealthPack
+295.76	I	6	BioRiflePickup
+296.09	I	4	HealthPack
+296.31	I	6	AdrenalinePickup
+296.69	I	1	FlakCannonPickup
+297.69	I	6	AdrenalinePickup
+298.52	I	1	SniperAmmoPickup
+299.02	I	6	AdrenalinePickup
+300.22	PP	1	28
+300.28	I	3	MiniHealthPack
+300.66	I	2	BioAmmoPickup
+302.04	I	4	RocketAmmoPickup
+303.36	I	3	RedeemerPickup
+304.40	K	1	DamTypeFlakChunk	4	Minigun
+304.40	S	1	1.00	frag
+305.06	I	2	ShockRiflePickup
+308.49	K	1	DamTypeFlakChunk	5	RocketLauncher
+308.49	S	1	1.00	frag
+308.77	K	2	DamTypeLinkPlasma	3	ShockRifle
+308.77	S	2	1.00	frag
+309.27	I	4	BioRiflePickup
+309.44	I	1	RocketLauncherPickup
+310.99	I	6	RocketLauncherPickup
+311.65	I	2	AdrenalinePickup
+312.87	I	3	ShockRiflePickup
+313.03	I	2	AdrenalinePickup
+313.03	I	1	MinigunPickup
+313.53	I	1	AdrenalinePickup
+313.58	I	5	BioRiflePickup
+314.35	I	2	AdrenalinePickup
+315.95	I	1	AdrenalinePickup
+316.55	I	3	HealthPack
+316.61	I	3	HealthPack
+317.22	I	4	FlakCannonPickup
+319.15	I	2	HealthPack
+320.37	K	1	DamTypeFlakChunk	6	RocketLauncher
+320.37	S	1	1.00	frag
+321.25	I	5	FlakCannonPickup
+324.88	I	2	FlakCannonPickup
+325.16	I	4	MinigunPickup
+325.27	I	3	SuperShieldPack
+325.32	I	6	LinkGunPickup
+326.92	K	5	DamTypeFlakChunk	1	FlakCannon
+326.92	S	5	1.00	frag
+329.90	K	3	DamTypeShockBeam	5	FlakCannon
+329.90	S	3	1.00	frag
+330.23	PP	1	28
+330.28	I	6	AdrenalinePickup
+331.49	I	1	FlakAmmoPickup
+332.26	I	2	HealthPack
+332.98	I	6	AdrenalinePickup
+334.13	I	5	LinkGunPickup
+335.62	I	1	FlakCannonPickup
+337.11	I	6	FlakAmmoPickup
+337.88	I	2	MinigunPickup
+338.54	I	5	HealthPack
+339.70	K	4	DamTypeMinigunBullet	3	AssaultRifle
+339.70	S	4	1.00	frag
+339.75	I	2	AdrenalinePickup
+341.01	K	2	DamTypeShockBall	4	Minigun
+341.01	S	2	1.00	frag
+341.07	I	3	AdrenalinePickup
+344.04	I	4	SniperRiflePickup
+344.87	K	6	DamTypeAssaultBullet	2	FlakCannon
+344.87	S	6	1.00	frag
+345.03	I	6	AdrenalinePickup
+345.53	I	6	MinigunPickup
+345.69	I	3	ShockRiflePickup
+346.36	I	6	FlakCannonPickup
+348.74	I	6	AdrenalinePickup
+349.35	I	3	HealthPack
+349.41	I	3	HealthPack
+350.06	I	2	LinkGunPickup
+350.95	I	4	LinkAmmoPickup
+351.17	I	4	ShockAmmoPickup
+352.33	I	3	LinkGunPickup
+353.88	I	4	RocketLauncherPickup
+354.44	K	2	DamTypeLinkShaft	3	ShockRifle
+354.44	S	2	1.00	frag
+354.83	I	2	ShockRiflePickup
+354.99	I	6	RocketLauncherPickup
+355.10	K	4	DamTypeSniperShot	6	Minigun
+355.10	S	4	1.00	frag
+355.99	I	1	MinigunPickup
+358.27	K	1	DamTypeFlakChunk	4	SniperRifle
+358.27	S	1	1.00	frag
+359.32	I	3	ShockRiflePickup
+359.37	I	6	BioRiflePickup
+359.43	I	4	AdrenalinePickup
+359.92	I	6	AdrenalinePickup
+360.25	PP	1	28
+360.80	I	4	AdrenalinePickup
+361.07	I	2	RocketLauncherPickup
+361.29	I	6	AdrenalinePickup
+361.51	I	2	SniperRiflePickup
+362.17	I	4	AdrenalinePickup
+362.67	I	6	AdrenalinePickup
+366.75	I	4	LinkGunPickup
+367.14	I	5	HealthPack
+368.68	I	6	SniperRiflePickup
+372.15	I	4	MinigunAmmoPickup
+373.20	K	2	DamTypeRocket	5	LinkGun
+373.20	S	2	1.00	frag
+375.18	I	6	RocketLauncherPickup
+375.40	K	4	DamTypeLinkShaft	3	ShockRifle
+375.40	S	4	1.00	frag
+375.79	I	1	LinkGunPickup
+375.90	K	1	DamTypeFlakShell	1	FlakCannon
+375.90	S	1	-1.00	self_frag
+375.90	K	1	DamTypeFlakShell	2	RocketLauncher
+375.90	S	1	1.00	frag
+376.40	I	3	AdrenalinePickup
+377.73	I	3	AdrenalinePickup
+377.95	I	5	BioRiflePickup
+378.89	I	4	ShockRiflePickup
+379.06	I	3	AdrenalinePickup
+380.72	I	4	BioAmmoPickup
+382.10	I	2	BioRiflePickup
+383.53	I	3	ShockRiflePickup
+384.69	I	5	HealthPack
+386.83	I	3	HealthPack
+387.65	K	6	DamTypeSniperShot	3	ShockRifle
+387.65	S	6	1.00	frag
+388.21	P	6	XGame.ComboDefensive
+388.43	I	5	SniperAmmoPickup
+389.20	K	1	DamTypeAssaultBullet	5	BioRifle
+389.20	S	1	1.00	frag
+389.81	I	3	RocketLauncherPickup
+390.26	PP	1	28
+390.26	I	1	FlakCannonPickup
+390.53	I	1	BioRiflePickup
+392.46	I	5	AdrenalinePickup
+393.73	I	5	AdrenalinePickup
+393.89	K	1	DamTypeFlakChunk	2	BioRifle
+393.89	S	1	1.00	frag
+394.28	I	5	BioRiflePickup
+394.39	I	3	ShockAmmoPickup
+394.61	I	3	LinkAmmoPickup
+395.28	I	2	AdrenalinePickup
+395.72	I	4	RocketLauncherPickup
+396.60	I	2	AdrenalinePickup
+397.87	I	2	AdrenalinePickup
+398.09	K	3	DamTypeRocket	3	RocketLauncher
+398.09	S	3	-1.00	self_frag
+398.09	K	3	DamTypeRocket	4	ShockRifle
+398.09	S	3	1.00	frag
+401.45	I	4	RocketAmmoPickup
+401.78	I	5	FlakCannonPickup
+402.11	I	3	LinkGunPickup
+402.22	K	4	DamTypeAssaultBullet	5	BioRifle
+402.22	S	4	1.00	frag
+402.39	I	4	BioRiflePickup
+403.05	I	2	SniperRiflePickup
+403.27	I	4	FlakCannonPickup
+403.71	K	1	DamTypeFlakChunk	4	FlakCannon
+403.71	S	1	1.00	frag
+406.32	I	6	HealthPack
+408.14	I	5	SniperRiflePickup
+410.51	I	2	ShockAmmoPickup
+410.73	I	2	LinkAmmoPickup
+411.23	I	4	BioRiflePickup
+411.45	I	1	HealthPack
+411.73	K	1	FellLava	6	BioRifle
+411.73	S	1	1.00	frag
+413.61	I	2	RocketLauncherPickup
+413.66	I	3	RocketLauncherPickup
+414.27	K	3	DamTypeLinkShaft	2	SniperRifle
+414.27	S	3	1.00	frag
+416.26	I	6	LinkGunPickup
+418.14	I	5	SuperHealthPack
+418.41	I	2	ShockRiflePickup
+418.80	I	4	FlakCannonPickup
+419.51	P	1	spree_1
+419.51	K	1	DamTypeFlakShell	4	BioRifle
+419.51	S	1	1.00	frag
+419.63	I	6	HealthPack
+419.90	I	1	SniperAmmoPickup
+420.29	PP	1	28
+422.67	I	6	ShockRiflePickup
+423.83	I	1	HealthPack
+424.88	I	3	AdrenalinePickup
+424.93	I	4	LinkGunPickup
+425.32	I	3	MinigunPickup
+425.87	I	2	HealthPack
+427.25	I	3	AdrenalinePickup
+427.47	K	6	DamTypeLinkShaft	2	ShockRifle
+427.47	S	6	1.00	frag
+428.46	I	2	AdrenalinePickup
+428.62	I	3	AdrenalinePickup
+429.78	I	2	AdrenalinePickup
+431.21	I	2	AdrenalinePickup
+431.70	I	2	BioRiflePickup
+433.02	I	6	HealthPack
+433.57	I	1	MiniHealthPack
+435.77	I	1	RedeemerPickup
+435.99	P	2	XGame.ComboInvis
+437.64	I	4	FlakCannonPickup
+437.97	I	5	MinigunPickup
+439.24	K	4	DamTypeLinkShaft	2	BioRifle
+439.24	S	4	1.00	frag
+439.46	I	4	BioRiflePickup
+440.18	I	6	MiniHealthPack
+440.46	K	3	DamTypeMinigunBullet	5	Minigun
+440.46	S	3	1.00	frag
+440.96	I	6	MiniHealthPack
+441.18	I	4	RocketAmmoPickup
+441.84	I	3	FlakAmmoPickup
+443.23	I	2	LinkGunPickup
+443.33	P	4	XGame.ComboBerserk
+443.50	I	5	SniperRiflePickup
+444.44	I	3	HealthPack
+447.69	I	6	LinkAmmoPickup
+450.25	I	3	FlakCannonPickup
+450.30	PP	1	28
+450.86	I	6	RocketLauncherPickup
+452.08	I	3	SniperAmmoPickup
+453.20	K	5	DamTypeSniperShot	6	LinkGun
+453.20	S	5	1.00	frag
+454.59	I	1	MinigunAmmoPickup
+454.92	I	5	ShockAmmoPickup
+455.08	I	2	ShockRiflePickup
+456.12	I	5	LinkGunPickup
+457.17	I	3	HealthPack
+457.33	K	1	DamTypeFlakChunk	2	LinkGun
+457.33	S	1	1.00	frag
+457.33	I	1	LinkGunPickup
+457.39	I	6	AdrenalinePickup
+457.94	I	6	MinigunPickup
+459.64	K	4	DamTypeFlakChunk	3	Minigun
+459.64	S	4	1.00	frag
+460.03	I	1	ShockRiflePickup
+462.35	I	1	HealthPack
+462.40	I	5	FlakAmmoPickup
+462.40	I	3	RocketLauncherPickup
+462.51	I	2	MinigunPickup
+464.23	K	6	DamTypeMinigunBullet	2	Minigun
+464.23	S	6	1.00	frag
+464.90	I	5	MinigunPickup
+465.73	I	6	AdrenalinePickup
+466.00	I	2	AdrenalinePickup
+467.11	I	6	AdrenalinePickup
+467.22	I	1	LinkAmmoPickup
+467.38	I	2	AdrenalinePickup
+467.44	I	1	ShockAmmoPickup
+468.76	I	2	AdrenalinePickup
+468.81	I	3	SniperRiflePickup
+470.02	I	5	FlakCannonPickup
+471.94	I	5	RocketAmmoPickup
+473.16	I	6	RocketLauncherPickup
+473.43	I	2	LinkGunPickup
+475.52	K	1	DamTypeFlakChunk	3	RocketLauncher
+475.52	S	1	1.00	frag
+475.52	EG	fraglimit	1	4	6	2	3	5
+475.52	PA	6	AssaultRifle	64	8	56
+475.52	PA	6	LinkGun	314	79	753
+475.52	PA	6	RocketLauncher	22	1	32
+475.52	PA	6	Minigun	354	32	231
+475.52	PA	6	ShockRifle	20	3	127
+475.52	PA	6	SniperRifle	12	1	70
+475.52	PA	6	BioRifle	1	0	0
+475.52	PA	6	FlakCannon	3	1	13
+475.52	PA	6	ShieldGun	1	0	0
+475.52	PA	5	AssaultRifle	80	5	91
+475.52	PA	5	FlakCannon	42	9	186
+475.52	PA	5	BioRifle	23	1	23
+475.52	PA	5	ShockRifle	24	4	123
+475.52	PA	5	RocketLauncher	37	7	343
+475.52	PA	5	Minigun	80	3	22
+475.52	PA	5	SniperRifle	31	5	315
+475.52	PA	5	LinkGun	32	6	54
+475.52	PA	4	AssaultRifle	72	3	21
+475.52	PA	4	ShockRifle	34	5	186
+475.52	PA	4	SniperRifle	28	4	245
+475.52	PA	4	RocketLauncher	20	3	237
+475.52	PA	4	Minigun	292	31	253
+475.52	PA	4	LinkGun	207	41	390
+475.52	PA	4	BioRifle	15	1	37
+475.52	PA	4	FlakCannon	12	5	65
+475.52	PA	3	AssaultRifle	45	3	21
+475.52	PA	3	LinkGun	260	79	795
+475.52	PA	3	RocketLauncher	32	5	354
+475.52	PA	3	ShockRifle	87	19	746
+475.52	PA	3	Minigun	207	17	123
+475.52	PA	3	FlakCannon	1	0	0
+475.52	PA	2	AssaultRifle	75	11	77
+475.52	PA	2	LinkGun	366	100	1068
+475.52	PA	2	FlakCannon	9	4	52
+475.52	PA	2	RocketLauncher	22	5	297
+475.52	PA	2	ShockRifle	58	10	379
+475.52	PA	2	BioRifle	32	0	0
+475.52	PA	2	SniperRifle	8	0	0
+475.52	PA	2	Minigun	11	10	72
+475.52	PA	1	AssaultRifle	36	6	42
+475.52	PA	1	FlakCannon	92	49	890
+475.52	PA	1	RocketLauncher	4	2	93
+475.52	PA	1	ShieldGun	5	1	99
+475.52	PA	1	LinkGun	70	11	162
+475.52	PA	1	ShockRifle	15	3	135
+475.52	PA	1	SniperRifle	2	1	140
+475.52	PA	1	BioRifle	7	0	0
+475.52	PA	1	Redeemer	1	0	0
+xDeathMatch DM-Sulphur.xDeathMatch (Function Engine.GameInfo.EndLogging:0027) Accessed None 'GameStats'
+480.32	PP	1	28
+510.37	PP	1	28
+ProcessServerTravel: DM-Rustatorium
+PreClientTravel
+Server switch level: DM-Rustatorium
+Browse: DM-Rustatorium?Name=Player?Class=Engine.Pawn?Character=Jakob?team=255?game=XGame.xDeathMatch?GameStats=True
+Close TcpipConnection 192.168.200.140:61680 08/24/13 17:17:17
+Socket shut down
+Collecting garbage
+Purging garbage
+(Karma): Level Karma Terminated.
+Garbage: objects: 48435->35129; refs: 439398
+Game class is 'xDeathMatch'
+Bringing Level DM-Rustatorium.myLevel up for play (20) appSeconds: 4653.966000...
+(Karma): Autodetecting CPU for SSE
+(Karma): Using SSE Optimizations
+Loading Admins & Groups
+Kick and Ban Privileges Loaded
+Maps & Game Privileges Loaded
+Admins & Groups Management Loaded
+Extra Privileges Loaded
+GameInfo::InitGame : bEnableStatLogging True
+----------------------------------------
+OLStats Loading...
+Debug mode is ON!
+Opening user log ..\UserLogs\Stats_7777_2013_08_24_17_17_19.log
+OLStats 3.00 loaded!
+  Author: OverloadUT
+  Email: Overload@planetunreal.com
+  Web: www.apartment167.com
+----------------------------------------
+UdpServerQuery(crt): Port 7787 successfully bound.
+Defaulting to false
+Defaulting to false
+MasterServerUplink: DoUplink is False, not connecting to Epic master server
+Loading Available Maps
+Loading Game Types
+XWebAdmin.UTServerAdmin Initialized on port 18080
+OLStats v3.00 by OverloadUT www.Apartment167.com
+0.00	NG	2013-8-24 17:17:19	0	DM-Rustatorium	Rustatorium	Alan Willard	XGame.xDeathMatch	DeathMatch	Mutators=UnrealGame.DMMutator|OLStats.MutOLGameStats
+0.00	SI	UT 2004 Lan Party (Vanilla)	0				\ServerMode\dedicated\AdminName\\AdminEmail\\ServerVersion\3369\GameStats\True\MaxSpectators\2\Mutator\MutOLGameStats\MinPlayers\6\EndTimeDelay\4.00\GoalScore\25\TimeLimit\20\Translocator\False\WeaponStay\True\ForceRespawn\False\gamedifficulty\3.00\shortname\UT2 Server
+Open myLevel 08/24/13 17:17:20 192.168.200.140:50500
+Client netspeed is 10000
+Open myLevel 08/24/13 17:17:22 192.168.200.140:61680
+3.14	C	1	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+3.14	PS	1	192.168.200.140:50500	10000	11e145faaf230c5c5a1b419541a6aca4
+3.14	G	NameChange	1	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+Close TcpipConnection 192.168.200.140:61680 08/24/13 17:17:22
+30.05	PP	1	36
+60.09	PP	1	32
+90.14	PP	1	28
+120.19	PP	1	28
+150.24	PP	1	28
+180.28	PP	1	28
+210.33	PP	1	28
+240.38	PP	1	28
+270.42	PP	1	28
+300.47	PP	1	28
+330.52	PP	1	28
+360.57	PP	1	28
+390.62	PP	1	28
+420.66	PP	1	28
+450.71	PP	1	28
+465.34	SG
+START MATCH
+467.28	C	4	Kane
+467.28	G	NameChange	4	[BOT]Kane
+467.28	BI	4	3.00	0.00	0.10	0.40	-0.30	0.50	-0.20	1.00	0.70	None
+467.28	I	4	FlakCannonPickup
+468.16	C	2	Axon
+468.16	G	NameChange	2	[BOT]Axon
+468.16	BI	2	3.00	0.00	0.15	0.20	1.00	0.00	0.00	1.00	1.00	None
+468.16	I	2	RocketLauncherPickup
+468.33	C	6	Garrett
+468.33	G	NameChange	6	[BOT]Garrett
+468.33	BI	6	3.00	0.00	0.15	0.40	0.30	0.10	0.70	1.00	0.80	RocketLauncher
+468.33	I	6	MinigunPickup
+469.27	I	4	AdrenalinePickup
+469.77	I	4	AdrenalinePickup
+470.21	I	4	AdrenalinePickup
+470.65	I	2	HealthPack
+470.87	P	4	first_blood
+470.87	K	4	DamTypeFlakChunk	6	Minigun
+470.87	S	4	1.00	frag
+471.20	I	4	MinigunPickup
+471.25	C	3	Makreth
+471.25	G	NameChange	3	[BOT]Makreth
+471.25	BI	3	3.00	0.00	0.00	0.70	1.00	0.50	0.00	1.00	0.00	FlakCannon
+471.25	I	3	MinigunPickup
+472.41	C	5	Ophelia
+472.41	G	NameChange	5	[BOT]Ophelia
+472.41	BI	5	3.00	0.00	0.05	0.40	0.40	0.20	-0.10	1.00	0.00	LinkGun
+472.41	I	5	FlakCannonPickup
+472.69	K	4	DamTypeFlakChunk	3	Minigun
+472.69	S	4	1.00	frag
+473.46	I	2	LinkGunPickup
+474.34	I	6	FlakCannonPickup
+474.67	K	4	DamTypeFlakChunk	5	FlakCannon
+474.67	S	4	1.00	frag
+474.78	I	4	HealthPack
+477.65	K	6	DamTypeFlakChunk	4	FlakCannon
+477.65	S	6	1.00	frag
+478.26	I	3	MinigunPickup
+479.42	K	2	DamTypeRocket	1	AssaultRifle
+479.42	S	2	1.00	frag
+480.74	PP	1	28
+481.18	I	4	FlakCannonPickup
+481.24	I	6	MinigunPickup
+481.51	I	5	BioAmmoPickup
+482.01	K	6	DamTypeFlakChunk	3	Minigun
+482.01	S	6	1.00	frag
+483.50	I	2	AdrenalinePickup
+483.78	I	2	AdrenalinePickup
+483.83	I	5	BioRiflePickup
+484.11	I	2	AdrenalinePickup
+485.21	I	4	MinigunPickup
+489.01	I	2	MiniHealthPack
+489.51	I	2	MiniHealthPack
+489.95	I	2	MiniHealthPack
+490.17	K	6	DamTypeMinigunBullet	4	FlakCannon
+490.17	S	6	1.00	frag
+490.39	I	2	MiniHealthPack
+490.88	I	2	MiniHealthPack
+491.55	I	3	BioRiflePickup
+494.20	I	4	FlakCannonPickup
+495.19	K	4	DamTypeFlakChunk	6	Minigun
+495.19	S	4	1.00	frag
+495.46	I	4	MinigunPickup
+496.34	I	5	HealthPack
+497.83	I	6	LinkGunPickup
+499.05	I	5	RocketLauncherPickup
+499.10	I	6	LinkAmmoPickup
+500.87	K	2	DamTypeRocket	5	BioRifle
+500.87	S	2	1.00	frag
+501.92	I	3	FlakCannonPickup
+502.70	I	2	BioRiflePickup
+503.92	I	3	AdrenalinePickup
+504.53	I	3	AdrenalinePickup
+504.92	I	3	AdrenalinePickup
+505.14	I	4	LinkGunPickup
+506.14	I	5	FlakCannonPickup
+506.19	I	3	HealthPack
+507.13	I	2	ShieldPack
+507.63	I	2	RocketAmmoPickup
+509.06	K	3	DamTypeFlakChunk	5	FlakCannon
+509.06	S	3	1.00	frag
+509.77	I	3	MinigunPickup
+510.49	I	4	RocketLauncherPickup
+510.76	PP	1	28
+511.09	I	6	FlakAmmoPickup
+511.26	I	6	SniperAmmoPickup
+511.54	I	6	LinkAmmoPickup
+512.74	I	5	FlakCannonPickup
+515.94	K	3	DamTypeMinigunBullet	2	RocketLauncher
+515.94	S	3	1.00	frag
+516.21	I	4	RocketAmmoPickup
+517.71	I	5	MinigunPickup
+517.76	K	6	DamTypeLinkShaft	4	RocketLauncher
+517.76	S	6	1.00	frag
+517.87	I	2	AdrenalinePickup
+518.20	I	2	AdrenalinePickup
+518.48	I	2	AdrenalinePickup
+520.80	I	3	ShockRiflePickup
+521.07	I	4	FlakCannonPickup
+521.40	I	6	RocketLauncherPickup
+521.45	I	2	LinkGunPickup
+521.78	I	3	RocketLauncherPickup
+524.56	I	3	MiniHealthPack
+525.11	I	3	MiniHealthPack
+525.55	I	3	MiniHealthPack
+526.00	I	3	MiniHealthPack
+526.11	I	4	MinigunPickup
+526.49	I	3	MiniHealthPack
+529.03	I	5	ShockRiflePickup
+530.91	K	2	DamTypeLinkShaft	3	RocketLauncher
+530.91	S	2	1.00	frag
+531.91	I	6	RocketAmmoPickup
+534.40	I	3	MinigunPickup
+535.85	I	4	RocketLauncherPickup
+537.01	I	2	HealthPack
+537.06	I	3	AdrenalinePickup
+537.50	I	3	AdrenalinePickup
+537.67	I	6	FlakCannonPickup
+538.05	I	3	AdrenalinePickup
+539.21	I	3	HealthPack
+539.65	I	2	RocketLauncherPickup
+539.98	I	5	LinkAmmoPickup
+540.48	I	5	LinkGunPickup
+540.81	PP	1	28
+541.63	I	6	FlakAmmoPickup
+541.86	I	3	FlakCannonPickup
+544.00	I	2	ShieldPack
+544.05	I	4	LinkGunPickup
+544.50	I	2	RocketAmmoPickup
+545.27	I	6	HealthPack
+546.03	I	5	RocketLauncherPickup
+547.41	K	4	DamTypeMinigunBullet	5	Minigun
+547.41	S	4	1.00	frag
+548.52	I	6	MinigunPickup
+548.52	I	2	FlakAmmoPickup
+548.74	I	2	SniperAmmoPickup
+548.85	I	2	ShockAmmoPickup
+550.23	K	6	DamTypeRocket	3	Minigun
+550.23	S	6	1.00	frag
+551.23	I	4	AdrenalinePickup
+551.51	I	4	AdrenalinePickup
+551.84	I	4	AdrenalinePickup
+552.73	I	2	MinigunPickup
+553.06	I	5	MinigunPickup
+554.01	I	2	RocketAmmoPickup
+554.62	K	6	DamTypeRocket	5	Minigun
+554.62	S	6	1.00	frag
+556.00	I	3	MinigunPickup
+557.73	K	3	DamTypeMinigunBullet	6	RocketLauncher
+557.73	S	3	1.00	frag
+558.45	I	4	ShockAmmoPickup
+559.11	K	4	DamTypeRocket	3	Minigun
+559.11	S	4	1.00	frag
+559.27	I	5	LinkGunPickup
+561.22	I	3	FlakCannonPickup
+562.66	K	5	DamTypeLinkShaft	6	AssaultRifle
+562.66	S	5	1.00	frag
+566.76	I	3	MinigunPickup
+567.09	I	3	RocketLauncherPickup
+567.65	I	5	RocketLauncherPickup
+567.81	I	6	FlakCannonPickup
+569.36	K	2	DamTypeRocket	5	LinkGun
+569.36	S	2	1.00	frag
+569.86	I	6	AdrenalinePickup
+570.19	I	4	HealthPack
+570.19	I	4	HealthPack
+570.35	I	6	AdrenalinePickup
+570.80	I	6	AdrenalinePickup
+570.85	PP	1	28
+571.95	I	5	LinkGunPickup
+573.39	I	6	MinigunPickup
+573.72	I	2	BioRiflePickup
+574.94	I	5	HealthPack
+577.54	I	5	RocketLauncherPickup
+578.20	I	4	ShieldPack
+580.91	I	4	RocketAmmoPickup
+582.29	K	6	DamTypeMinigunBullet	3	RocketLauncher
+582.29	S	6	1.00	frag
+583.29	K	2	DamTypeRocket	5	LinkGun
+583.29	S	2	1.00	frag
+585.52	I	6	RocketLauncherPickup
+585.57	I	3	RocketLauncherPickup
+585.74	I	5	LinkGunPickup
+587.35	I	3	LinkGunPickup
+589.29	I	5	HealthPack
+589.56	I	6	HealthPack
+590.50	K	5	DamTypeLinkShaft	3	RocketLauncher
+590.50	S	5	1.00	frag
+593.38	I	4	HealthPack
+593.54	I	5	RocketLauncherPickup
+593.71	K	6	DamTypeFlakChunk	3	AssaultRifle
+593.71	S	6	1.00	frag
+594.97	K	4	DamTypeFlakChunk	5	LinkGun
+594.97	S	4	1.00	frag
+597.24	I	3	FlakCannonPickup
+597.85	I	5	MinigunPickup
+600.17	I	3	AdrenalinePickup
+600.77	I	3	AdrenalinePickup
+600.88	PP	1	28
+601.10	I	4	RocketAmmoPickup
+601.21	I	3	AdrenalinePickup
+601.55	I	6	ShockRiflePickup
+602.81	K	4	DamTypeRocket	2	RocketLauncher
+602.81	S	4	1.00	frag
+603.75	I	3	MinigunPickup
+603.97	I	6	ShockAmmoPickup
+604.47	I	6	SniperRiflePickup
+604.63	I	2	LinkGunPickup
+604.85	K	3	DamTypeFlakChunk	5	Minigun
+604.85	S	3	1.00	frag
+605.19	I	6	HealthPack
+606.62	I	6	MiniHealthPack
+607.12	I	6	MiniHealthPack
+607.18	I	4	FlakAmmoPickup
+607.40	I	4	SniperAmmoPickup
+607.56	I	6	MiniHealthPack
+607.56	I	5	LinkGunPickup
+607.78	I	4	LinkAmmoPickup
+608.00	I	6	MiniHealthPack
+608.50	I	6	MiniHealthPack
+609.60	I	4	ShieldPack
+609.65	K	2	DamTypeLinkShaft	5	LinkGun
+609.65	S	2	1.00	frag
+611.99	I	5	FlakCannonPickup
+613.26	I	6	LinkGunPickup
+613.37	I	2	RocketLauncherPickup
+613.87	I	6	LinkAmmoPickup
+616.03	I	6	AdrenalinePickup
+616.09	P	4	spree_1
+616.09	K	4	DamTypeRocket	3	Minigun
+616.09	S	4	1.00	frag
+616.31	I	6	AdrenalinePickup
+616.64	I	6	AdrenalinePickup
+616.92	I	5	MinigunPickup
+618.08	K	4	DamTypeRocket	6	ShockRifle
+618.08	S	4	1.00	frag
+621.51	I	6	RocketLauncherPickup
+622.51	I	3	BioAmmoPickup
+622.62	K	6	DamTypeAssaultGrenade	2	LinkGun
+622.62	S	6	1.00	frag
+622.62	K	6	DamTypeAssaultGrenade	6	AssaultRifle
+622.62	S	6	-1.00	self_frag
+623.68	I	4	ShockAmmoPickup
+624.46	I	6	MinigunPickup
+624.74	I	3	BioRiflePickup
+625.90	I	5	ShockRiflePickup
+627.62	I	4	HealthPack
+627.89	I	2	MinigunPickup
+629.83	K	6	DamTypeMinigunBullet	2	Minigun
+629.83	S	6	1.00	frag
+630.50	I	4	RocketAmmoPickup
+630.88	PP	1	28
+632.05	I	6	HealthPack
+633.22	I	4	RocketAmmoPickup
+633.22	I	3	FlakCannonPickup
+633.38	I	6	AdrenalinePickup
+633.99	I	6	AdrenalinePickup
+634.38	I	6	AdrenalinePickup
+634.54	I	2	LinkGunPickup
+636.09	K	3	DamTypeFlakChunk	6	Minigun
+636.09	S	3	1.00	frag
+636.09	I	3	MinigunPickup
+640.18	I	4	BioRiflePickup
+641.22	I	6	MinigunPickup
+641.72	I	5	MiniHealthPack
+641.99	K	3	DamTypeFlakChunk	6	Minigun
+641.99	S	3	1.00	frag
+642.33	I	5	MiniHealthPack
+642.77	I	5	MiniHealthPack
+643.20	I	5	MiniHealthPack
+643.70	I	5	MiniHealthPack
+645.20	K	5	DamTypeShockCombo	4	RocketLauncher
+645.20	S	5	1.00	frag
+645.42	I	6	FlakCannonPickup
+647.14	I	5	RocketLauncherPickup
+650.12	I	2	AdrenalinePickup
+650.45	I	2	AdrenalinePickup
+650.56	I	4	MinigunPickup
+650.72	I	2	AdrenalinePickup
+650.94	I	6	MinigunPickup
+651.98	K	6	DamTypeFlakChunk	4	Minigun
+651.98	S	6	1.00	frag
+652.54	K	5	DamTypeShockCombo	2	AssaultRifle
+652.54	S	5	1.00	frag
+653.59	I	3	ShockAmmoPickup
+655.40	I	4	FlakCannonPickup
+658.32	I	2	MinigunPickup
+658.87	I	5	LinkGunPickup
+660.08	K	3	DamTypeMinigunBullet	6	Minigun
+660.08	S	3	1.00	frag
+660.91	PP	1	28
+661.51	I	4	MinigunPickup
+661.90	I	5	HealthPack
+663.27	I	2	HealthPack
+664.37	I	2	AdrenalinePickup
+664.42	I	6	LinkAmmoPickup
+664.92	I	6	LinkGunPickup
+664.97	I	2	AdrenalinePickup
+665.36	I	2	AdrenalinePickup
+667.12	I	5	ShieldPack
+667.56	I	3	ShockRiflePickup
+668.94	I	2	FlakCannonPickup
+669.82	I	3	ShockAmmoPickup
+670.31	I	3	SniperRiflePickup
+671.03	I	3	HealthPack
+672.79	I	4	ShockRiflePickup
+673.79	I	3	MiniHealthPack
+674.28	I	3	MiniHealthPack
+674.67	I	6	ShockRiflePickup
+674.72	I	3	MiniHealthPack
+675.16	I	3	MiniHealthPack
+675.66	I	3	MiniHealthPack
+675.77	K	6	DamTypeLinkShaft	4	Minigun
+675.77	S	6	1.00	frag
+676.16	I	6	MinigunPickup
+678.88	I	4	RocketLauncherPickup
+678.93	K	3	DamTypeMinigunBullet	5	RocketLauncher
+678.93	S	3	1.00	frag
+680.25	I	3	RocketLauncherPickup
+682.14	I	5	FlakCannonPickup
+684.45	I	3	LinkGunPickup
+684.67	K	4	DamTypeRocket	3	Minigun
+684.67	S	4	1.00	frag
+685.11	I	6	SniperRiflePickup
+685.39	I	4	LinkGunPickup
+685.50	I	6	SniperAmmoPickup
+687.15	I	4	MinigunPickup
+687.65	I	5	MinigunPickup
+689.31	K	5	DamTypeFlakChunk	2	FlakCannon
+689.31	S	5	1.00	frag
+689.64	K	2	DamTypeFlakChunk	5	FlakCannon
+689.64	S	2	1.00	frag
+689.81	I	4	AdrenalinePickup
+689.92	I	3	FlakCannonPickup
+690.08	I	4	AdrenalinePickup
+690.08	I	3	MinigunPickup
+690.91	PP	1	28
+692.30	I	6	FlakCannonPickup
+692.47	I	2	RocketLauncherPickup
+694.06	I	5	MinigunPickup
+696.26	K	3	DamTypeFlakChunk	5	Minigun
+696.26	S	3	1.00	frag
+696.82	I	6	HealthPack
+697.26	K	3	DamTypeFlakChunk	6	LinkGun
+697.26	S	3	1.00	frag
+697.65	K	2	DamTypeRocket	4	RocketLauncher
+697.65	S	2	1.00	frag
+698.53	I	5	AdrenalinePickup
+698.86	I	3	AdrenalinePickup
+699.30	I	3	AdrenalinePickup
+699.91	I	3	AdrenalinePickup
+700.62	I	6	FlakCannonPickup
+701.18	I	5	LinkAmmoPickup
+701.29	I	3	LinkGunPickup
+701.68	I	2	ShieldPack
+701.68	I	5	LinkGunPickup
+702.22	I	2	RocketAmmoPickup
+702.50	K	6	DamTypeFlakChunk	3	FlakCannon
+702.50	S	6	1.00	frag
+703.49	I	4	MinigunPickup
+705.20	K	6	DamTypeFlakChunk	4	Minigun
+705.20	S	6	1.00	frag
+705.31	I	5	RocketLauncherPickup
+706.02	I	5	HealthPack
+706.30	I	6	MinigunPickup
+707.13	I	3	LinkGunPickup
+710.51	I	4	MinigunPickup
+712.04	I	2	LinkGunPickup
+713.70	K	2	DamTypeRocket	3	LinkGun
+713.70	S	2	1.00	frag
+714.63	K	6	DamTypeMinigunBullet	4	Minigun
+714.63	S	6	1.00	frag
+715.24	I	2	HealthPack
+715.41	I	6	MinigunAmmoPickup
+716.30	I	4	LinkGunPickup
+718.83	I	3	FlakCannonPickup
+719.98	K	4	DamTypeLinkShaft	2	RocketLauncher
+719.98	S	4	1.00	frag
+720.48	I	4	RocketLauncherPickup
+720.92	PP	1	28
+724.39	I	2	LinkGunPickup
+724.95	I	6	ShockRiflePickup
+725.28	I	4	AdrenalinePickup
+725.28	K	2	DamTypeLinkShaft	4	LinkGun
+725.28	S	2	1.00	frag
+726.28	I	5	FlakCannonPickup
+727.01	I	3	MinigunPickup
+727.39	I	6	ShockAmmoPickup
+727.67	I	4	AdrenalinePickup
+727.72	I	4	LinkGunPickup
+727.89	I	6	SniperRiflePickup
+728.61	I	6	HealthPack
+729.22	I	5	HealthPack
+729.39	P	4	XGame.ComboBerserk
+730.06	I	6	MiniHealthPack
+730.17	I	2	RocketLauncherPickup
+730.28	I	5	AdrenalinePickup
+730.56	I	6	MiniHealthPack
+730.67	I	5	AdrenalinePickup
+730.95	I	2	RocketAmmoPickup
+731.00	I	6	MiniHealthPack
+731.44	I	6	MiniHealthPack
+731.61	I	5	AdrenalinePickup
+731.94	I	6	MiniHealthPack
+732.32	K	4	DamTypeLinkShaft	6	Minigun
+732.32	S	4	1.00	frag
+737.45	K	4	DamTypeLinkShaft	3	Minigun
+737.45	S	4	1.00	frag
+739.17	I	4	MinigunPickup
+739.89	I	5	MinigunPickup
+740.11	I	6	BioRiflePickup
+740.55	I	3	LinkGunPickup
+742.20	I	2	BioRiflePickup
+742.70	K	4	DamTypeMinigunBullet	5	LinkGun
+742.70	S	4	1.00	frag
+743.08	K	6	DamTypeBioGlob	2	LinkGun
+743.08	S	6	1.00	frag
+743.97	I	5	MinigunPickup
+745.13	I	2	LinkGunPickup
+746.96	I	3	RocketLauncherPickup
+748.40	I	6	LinkGunPickup
+748.46	I	5	FlakCannonPickup
+750.83	I	4	ShockRiflePickup
+750.94	PP	1	28
+751.10	I	3	HealthPack
+752.10	K	3	DamTypeLinkShaft	2	LinkGun
+752.10	S	3	1.00	frag
+753.70	I	4	SniperRiflePickup
+754.58	K	3	DamTypeLinkShaft	6	LinkGun
+754.58	S	3	1.00	frag
+757.18	I	6	LinkGunPickup
+757.29	I	3	ShieldPack
+757.56	I	2	MinigunPickup
+757.84	I	3	RocketAmmoPickup
+758.67	I	4	HealthPack
+762.32	I	2	FlakCannonPickup
+762.43	I	3	AdrenalinePickup
+762.77	I	3	AdrenalinePickup
+762.77	I	6	RocketLauncherPickup
+763.10	I	3	AdrenalinePickup
+763.54	I	6	RocketAmmoPickup
+764.31	I	2	AdrenalinePickup
+764.86	I	2	AdrenalinePickup
+765.30	I	2	AdrenalinePickup
+765.64	K	5	DamTypeMinigunBullet	4	Minigun
+765.64	S	5	1.00	frag
+767.63	I	5	BioRiflePickup
+770.16	I	3	ShockRiflePickup
+770.71	I	4	MinigunPickup
+773.20	I	3	ShockAmmoPickup
+773.69	I	5	FlakAmmoPickup
+774.24	I	4	HealthPack
+774.90	I	3	SniperRiflePickup
+775.84	I	3	SniperAmmoPickup
+776.55	I	4	FlakCannonPickup
+778.27	K	3	DamTypeRocket	5	Minigun
+778.27	S	3	1.00	frag
+779.93	I	3	RocketAmmoPickup
+780.10	I	6	BioRiflePickup
+780.98	PP	1	28
+780.98	K	4	DamTypeMinigunBullet	3	ShockRifle
+780.98	S	4	1.00	frag
+781.03	I	5	LinkAmmoPickup
+781.58	I	5	LinkGunPickup
+783.53	I	3	MinigunPickup
+783.97	I	4	ShockRiflePickup
+785.19	I	5	HealthPack
+785.30	I	4	MiniHealthPack
+785.91	I	4	MiniHealthPack
+785.97	I	6	BioAmmoPickup
+786.30	I	4	MiniHealthPack
+786.52	I	6	BioAmmoPickup
+786.80	I	4	MiniHealthPack
+786.91	I	3	MinigunAmmoPickup
+787.29	I	4	MiniHealthPack
+791.33	I	3	FlakCannonPickup
+792.10	K	2	DamTypeFlakChunk	6	RocketLauncher
+792.10	S	2	1.00	frag
+794.32	K	2	DamTypeFlakChunk	4	Minigun
+794.32	S	2	1.00	frag
+795.65	I	6	RocketLauncherPickup
+795.87	K	2	DamTypeFlakChunk	5	LinkGun
+795.87	S	2	1.00	frag
+795.92	I	2	LinkGunPickup
+796.75	I	4	LinkGunPickup
+796.75	I	5	MinigunPickup
+798.90	I	3	RocketLauncherPickup
+799.29	I	5	AdrenalinePickup
+799.68	K	2	DamTypeLinkShaft	3	FlakCannon
+799.68	S	2	1.00	frag
+799.68	I	5	AdrenalinePickup
+799.79	I	6	ShieldPack
+800.29	I	5	AdrenalinePickup
+800.34	I	6	RocketAmmoPickup
+800.46	I	4	AdrenalinePickup
+800.73	I	4	AdrenalinePickup
+801.06	I	4	AdrenalinePickup
+802.28	I	5	FlakCannonPickup
+804.94	I	3	MinigunPickup
+806.10	I	5	FlakAmmoPickup
+807.04	P	2	XGame.ComboInvis
+808.70	I	2	BioRiflePickup
+809.47	I	4	HealthPack
+810.13	I	6	LinkGunPickup
+810.18	I	3	FlakCannonPickup
+811.01	PP	1	28
+812.11	I	4	RocketLauncherPickup
+816.24	I	2	RocketLauncherPickup
+816.95	I	2	RocketAmmoPickup
+817.07	I	4	RocketAmmoPickup
+817.40	K	5	DamTypeMinigunBullet	3	Minigun
+817.40	S	5	1.00	frag
+819.12	I	3	MinigunPickup
+820.83	I	2	FlakAmmoPickup
+821.00	I	2	SniperAmmoPickup
+821.11	I	2	ShockAmmoPickup
+821.33	I	5	BioAmmoPickup
+822.11	K	6	DamTypeRocket	4	RocketLauncher
+822.11	S	6	1.00	frag
+823.49	I	3	FlakCannonPickup
+823.77	I	5	BioRiflePickup
+824.05	P	6	XGame.ComboBerserk
+826.42	I	4	MinigunPickup
+826.80	I	6	LinkAmmoPickup
+827.02	K	6	DamTypeRocket	2	RocketLauncher
+827.02	S	6	1.00	frag
+831.50	I	4	FlakCannonPickup
+832.72	I	2	LinkGunPickup
+832.78	I	5	RocketLauncherPickup
+833.44	I	2	RocketLauncherPickup
+833.55	I	4	AdrenalinePickup
+834.05	I	4	AdrenalinePickup
+834.49	I	4	AdrenalinePickup
+834.60	K	6	DamTypeRocket	2	LinkGun
+834.60	S	6	1.00	frag
+837.05	I	5	ShieldPack
+837.55	I	5	RocketAmmoPickup
+839.48	I	2	MinigunPickup
+841.03	PP	1	28
+841.30	I	6	HealthPack
+841.36	I	3	RocketLauncherPickup
+842.73	I	2	HealthPack
+843.50	I	5	LinkGunPickup
+844.33	K	6	DamTypeRocket	3	Minigun
+844.33	S	6	1.00	frag
+844.66	K	4	DamTypeMinigunBullet	2	Minigun
+844.66	S	4	1.00	frag
+845.16	I	4	MinigunAmmoPickup
+846.20	I	5	AdrenalinePickup
+846.48	I	5	AdrenalinePickup
+846.48	I	2	FlakCannonPickup
+846.75	I	2	MinigunPickup
+846.80	I	5	AdrenalinePickup
+849.39	K	2	DamTypeFlakChunk	4	Minigun
+849.39	S	2	1.00	frag
+849.44	I	3	FlakCannonPickup
+852.36	I	5	ShockRiflePickup
+852.81	K	4	DamTypeAssaultBullet	2	FlakCannon
+852.81	S	4	1.00	frag
+854.40	I	4	MinigunPickup
+854.68	I	5	ShockAmmoPickup
+855.17	I	5	SniperRiflePickup
+855.72	I	5	HealthPack
+856.27	I	2	FlakCannonPickup
+856.49	I	3	MinigunPickup
+856.55	K	3	DamTypeFlakChunk	4	Minigun
+856.55	S	3	1.00	frag
+856.66	P	3	XGame.ComboDefensive
+857.54	I	5	MiniHealthPack
+858.09	I	5	MiniHealthPack
+858.58	I	5	MiniHealthPack
+858.97	I	6	ShockRiflePickup
+859.02	I	5	MiniHealthPack
+859.52	I	5	MiniHealthPack
+860.02	I	4	RocketLauncherPickup
+860.85	K	5	DamTypeLinkShaft	6	RocketLauncher
+860.85	S	5	1.00	frag
+861.79	I	2	MinigunPickup
+861.90	K	6	DamTypeRocket	3	Minigun
+861.90	S	6	1.00	frag
+865.48	I	4	LinkGunPickup
+866.08	I	4	LinkAmmoPickup
+867.18	I	3	MinigunPickup
+868.34	I	6	BioAmmoPickup
+869.16	K	5	DamTypeLinkShaft	6	AssaultRifle
+869.16	S	5	1.00	frag
+871.05	PP	1	28
+871.11	I	3	ShockRiflePickup
+872.31	I	5	RocketAmmoPickup
+873.97	I	3	SniperRiflePickup
+874.30	I	3	SniperAmmoPickup
+877.46	I	4	ShockRiflePickup
+879.95	I	6	BioRiflePickup
+881.61	K	4	DamTypeLinkShaft	2	Minigun
+881.61	S	4	1.00	frag
+881.89	I	4	MinigunPickup
+884.44	I	2	MinigunPickup
+884.61	I	4	SniperRiflePickup
+884.72	I	3	FlakCannonPickup
+885.76	I	4	HealthPack
+885.92	K	5	DamTypeShockCombo	6	BioRifle
+885.92	S	5	1.00	frag
+887.09	I	3	HealthPack
+888.14	I	3	AdrenalinePickup
+888.36	I	5	MiniHealthPack
+888.53	I	3	AdrenalinePickup
+888.91	I	5	MiniHealthPack
+889.35	I	5	MiniHealthPack
+889.46	I	3	AdrenalinePickup
+889.52	K	4	DamTypeRocket	5	ShockRifle
+889.52	S	4	1.00	frag
+890.57	I	6	LinkGunPickup
+894.49	I	6	HealthPack
+894.93	K	3	DamTypeMinigunBullet	2	Minigun
+894.93	S	3	1.00	frag
+895.38	I	5	MinigunPickup
+896.43	I	4	FlakCannonPickup
+897.09	I	6	RocketLauncherPickup
+897.37	K	4	DamTypeRocket	3	Minigun
+897.37	S	4	1.00	frag
+898.59	I	2	MinigunPickup
+901.08	PP	1	28
+901.41	I	6	ShieldPack
+901.91	I	6	RocketAmmoPickup
+902.84	I	5	FlakCannonPickup
+903.73	K	5	DamTypeMinigunBullet	4	Minigun
+903.73	S	5	1.00	frag
+904.45	I	3	BioAmmoPickup
+906.71	I	6	AdrenalinePickup
+906.82	I	3	BioRiflePickup
+906.82	I	4	LinkGunPickup
+907.04	I	6	AdrenalinePickup
+907.32	I	6	AdrenalinePickup
+909.03	I	2	FlakCannonPickup
+912.51	K	6	DamTypeRocket	4	LinkGun
+912.51	S	6	1.00	frag
+914.61	K	3	DamTypeBioGlob	2	FlakCannon
+914.61	S	3	1.00	frag
+914.78	I	4	MinigunPickup
+915.72	I	3	FlakCannonPickup
+916.72	I	3	FlakAmmoPickup
+918.49	I	2	LinkGunPickup
+919.54	I	4	FlakCannonPickup
+921.52	K	4	DamTypeMinigunBullet	3	BioRifle
+921.52	S	4	1.00	frag
+923.68	I	3	MinigunPickup
+924.61	I	2	MiniHealthPack
+925.11	I	2	MiniHealthPack
+925.55	I	2	MiniHealthPack
+925.83	I	5	BioRiflePickup
+925.99	I	2	MiniHealthPack
+926.22	K	4	DamTypeMinigunBullet	5	Minigun
+926.22	S	4	1.00	frag
+926.38	I	3	AdrenalinePickup
+926.55	I	2	MiniHealthPack
+926.82	I	3	AdrenalinePickup
+927.38	I	3	AdrenalinePickup
+928.98	I	5	RocketLauncherPickup
+929.48	I	3	FlakCannonPickup
+931.13	PP	1	32
+931.57	I	5	HealthPack
+932.78	I	2	FlakCannonPickup
+933.33	I	6	RocketAmmoPickup
+934.43	I	5	LinkGunPickup
+935.03	I	2	HealthPack
+936.64	K	3	DamTypeFlakChunk	4	Minigun
+936.64	S	3	1.00	frag
+937.42	I	5	HealthPack
+938.75	I	2	MinigunPickup
+938.75	I	5	HealthPack
+938.80	K	6	DamTypeRocket	3	Minigun
+938.80	S	6	1.00	frag
+939.19	I	4	LinkGunPickup
+940.91	I	3	FlakCannonPickup
+942.07	I	5	HealthPack
+943.57	I	3	MinigunPickup
+945.44	I	6	MinigunPickup
+947.14	K	4	DamTypeLinkShaft	5	RocketLauncher
+947.14	S	4	1.00	frag
+947.42	I	6	FlakCannonPickup
+947.80	I	2	ShockRiflePickup
+947.80	I	4	RocketLauncherPickup
+950.29	I	2	ShockAmmoPickup
+950.84	I	2	SniperRiflePickup
+950.84	K	3	DamTypeFlakChunk	5	AssaultRifle
+950.84	S	3	1.00	frag
+951.56	I	2	HealthPack
+951.95	I	4	ShieldPack
+952.45	I	4	RocketAmmoPickup
+953.61	I	5	MinigunPickup
+954.77	I	2	BioAmmoPickup
+956.92	I	4	AdrenalinePickup
+957.14	I	2	BioRiflePickup
+957.25	I	4	AdrenalinePickup
+957.58	I	4	AdrenalinePickup
+961.17	PP	1	28
+961.94	K	3	DamTypeFlakChunk	4	LinkGun
+961.94	S	3	1.00	frag
+962.21	K	6	DamTypeRocket	2	SniperRifle
+962.21	S	6	1.00	frag
+962.93	I	5	AdrenalinePickup
+963.32	I	3	LinkGunPickup
+963.38	I	5	AdrenalinePickup
+963.65	I	6	SniperRiflePickup
+963.99	I	5	AdrenalinePickup
+964.37	I	3	ShockRiflePickup
+966.08	I	5	FlakCannonPickup
+966.08	I	4	LinkAmmoPickup
+966.58	I	4	LinkGunPickup
+967.29	I	2	MinigunPickup
+967.40	I	3	SniperRiflePickup
+967.79	I	3	SniperAmmoPickup
+968.33	I	5	HealthPack
+969.66	I	3	MiniHealthPack
+970.16	I	3	MiniHealthPack
+970.60	I	3	MiniHealthPack
+971.04	I	3	MiniHealthPack
+971.59	I	3	MiniHealthPack
+972.70	K	4	DamTypeLinkShaft	3	ShockRifle
+972.70	S	4	1.00	frag
+972.70	EG	fraglimit	4	6	3	2	5	1
+972.70	PA	6	AssaultRifle	85	11	137
+972.70	PA	6	Minigun	567	64	461
+972.70	PA	6	FlakCannon	16	9	117
+972.70	PA	6	LinkGun	145	25	309
+972.70	PA	6	RocketLauncher	92	19	1196
+972.70	PA	6	ShockRifle	5	0	0
+972.70	PA	6	BioRifle	18	3	108
+972.70	PA	5	AssaultRifle	40	5	35
+972.70	PA	5	FlakCannon	6	2	26
+972.70	PA	5	BioRifle	16	4	115
+972.70	PA	5	Minigun	740	69	499
+972.70	PA	5	LinkGun	244	55	558
+972.70	PA	5	ShieldGun	1	0	0
+972.70	PA	5	ShockRifle	22	4	475
+972.70	PA	5	RocketLauncher	13	3	168
+972.70	PA	4	AssaultRifle	44	3	21
+972.70	PA	4	FlakCannon	17	8	104
+972.70	PA	4	Minigun	696	90	667
+972.70	PA	4	RocketLauncher	49	13	811
+972.70	PA	4	LinkGun	197	57	567
+972.70	PA	3	AssaultRifle	75	8	56
+972.70	PA	3	Minigun	910	90	648
+972.70	PA	3	BioRifle	24	4	121
+972.70	PA	3	FlakCannon	50	21	278
+972.70	PA	3	RocketLauncher	22	9	414
+972.70	PA	3	LinkGun	50	10	132
+972.70	PA	3	ShockRifle	4	1	45
+972.70	PA	2	AssaultRifle	76	6	58
+972.70	PA	2	RocketLauncher	38	13	956
+972.70	PA	2	LinkGun	253	66	615
+972.70	PA	2	Minigun	572	41	310
+972.70	PA	2	FlakCannon	12	8	142
+972.70	PA	2	SniperRifle	1	0	0
+xDeathMatch DM-Rustatorium.xDeathMatch (Function Engine.GameInfo.EndLogging:0027) Accessed None 'GameStats'
+991.18	PP	1	28
+ProcessServerTravel: DM-Rrajigar
+PreClientTravel
+Server switch level: DM-Rrajigar
+Browse: DM-Rrajigar?Name=Player?Class=Engine.Pawn?Character=Jakob?team=255?game=XGame.xDeathMatch?GameStats=True
+Close TcpipConnection 192.168.200.140:50500 08/24/13 17:32:40
+Socket shut down
+ProcMesh 0 shared verts.
+ProcMesh 0 shared verts.
+ProcMesh 0 shared verts.
+Collecting garbage
+Purging garbage
+(Karma): Level Karma Terminated.
+Garbage: objects: 49559->36976; refs: 444471
+Game class is 'xDeathMatch'
+Bringing Level DM-Rrajigar.myLevel up for play (20) appSeconds: 5575.633000...
+(Karma): Autodetecting CPU for SSE
+(Karma): Using SSE Optimizations
+Loading Admins & Groups
+Kick and Ban Privileges Loaded
+Maps & Game Privileges Loaded
+Admins & Groups Management Loaded
+Extra Privileges Loaded
+GameInfo::InitGame : bEnableStatLogging True
+----------------------------------------
+OLStats Loading...
+Debug mode is ON!
+Opening user log ..\UserLogs\Stats_7777_2013_08_24_17_32_41.log
+OLStats 3.00 loaded!
+  Author: OverloadUT
+  Email: Overload@planetunreal.com
+  Web: www.apartment167.com
+----------------------------------------
+UdpServerQuery(crt): Port 7787 successfully bound.
+Defaulting to false
+Defaulting to false
+MasterServerUplink: DoUplink is False, not connecting to Epic master server
+Loading Available Maps
+Loading Game Types
+XWebAdmin.UTServerAdmin Initialized on port 18080
+OLStats v3.00 by OverloadUT www.Apartment167.com
+0.00	NG	2013-8-24 17:32:41	0	DM-Rrajigar	Rrajigar	Sjoerd De Jong	XGame.xDeathMatch	DeathMatch	Mutators=UnrealGame.DMMutator|OLStats.MutOLGameStats
+0.00	SI	UT 2004 Lan Party (Vanilla)	0				\ServerMode\dedicated\AdminName\\AdminEmail\\ServerVersion\3369\GameStats\True\MaxSpectators\2\Mutator\MutOLGameStats\MinPlayers\6\EndTimeDelay\4.00\GoalScore\25\TimeLimit\20\Translocator\False\WeaponStay\True\ForceRespawn\False\gamedifficulty\3.00\shortname\UT2 Server
+Open myLevel 08/24/13 17:32:42 192.168.200.140:60190
+Client netspeed is 10000
+Open myLevel 08/24/13 17:32:43 192.168.200.140:50500
+2.07	C	10	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+2.07	PS	10	192.168.200.140:60190	10000	11e145faaf230c5c5a1b419541a6aca4
+2.07	G	NameChange	10	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+Close TcpipConnection 192.168.200.140:50500 08/24/13 17:32:43
+30.05	PP	10	32
+60.09	PP	10	28
+90.14	PP	10	28
+120.19	PP	10	28
+150.24	PP	10	28
+180.28	PP	10	28
+210.33	PP	10	28
+240.38	PP	10	28
+270.42	PP	10	28
+300.47	PP	10	28
+330.52	PP	10	28
+360.57	PP	10	28
+390.61	PP	10	28
+420.66	PP	10	28
+450.71	PP	10	28
+480.76	PP	10	28
+510.81	PP	10	28
+540.86	PP	10	28
+570.90	PP	10	28
+600.95	PP	10	28
+611.62	SG
+START MATCH
+613.65	C	11	Horus
+613.65	G	NameChange	11	[BOT]Horus
+613.65	BI	11	3.00	0.00	0.00	0.45	-0.35	0.20	0.70	1.00	0.00	ShockRifle
+613.65	I	11	BioRiflePickup
+614.09	I	11	BioAmmoPickup
+614.97	C	13	Jakob
+614.97	G	NameChange	13	[BOT]Jakob
+614.97	BI	13	3.00	0.00	0.00	0.40	0.00	0.00	0.00	1.00	0.00	ShockRifle
+614.97	I	13	ShockRiflePickup
+615.30	C	12	Kraagesh
+615.30	G	NameChange	12	[BOT]Kraagesh
+615.30	BI	12	3.00	0.00	-0.10	0.65	0.20	0.34	0.00	1.00	0.50	None
+615.30	I	12	RocketLauncherPickup
+615.35	I	13	ShockAmmoPickup
+615.90	I	12	RocketAmmoPickup
+616.12	C	14	Rylisa
+616.12	G	NameChange	14	[BOT]Rylisa
+616.12	BI	14	3.00	0.00	0.00	0.45	0.50	0.20	0.00	1.00	0.00	None
+616.12	I	14	MinigunAmmoPickup
+616.23	C	15	Aryss
+616.23	G	NameChange	15	[BOT]Aryss
+616.23	BI	15	3.00	0.00	0.05	0.40	0.45	0.10	0.30	1.00	0.00	Minigun
+616.23	I	15	RocketLauncherPickup
+616.29	I	11	FlakCannonPickup
+616.51	I	14	MinigunPickup
+616.51	I	11	FlakAmmoPickup
+616.78	I	15	RocketAmmoPickup
+617.94	I	14	AdrenalinePickup
+618.71	I	14	AdrenalinePickup
+619.20	P	12	first_blood
+619.20	K	12	DamTypeRocket	15	ShieldGun
+619.20	S	12	1.00	frag
+619.53	I	14	AdrenalinePickup
+620.47	I	14	AdrenalinePickup
+621.30	I	11	MinigunPickup
+622.58	I	15	RocketLauncherPickup
+624.67	K	11	DamTypeFlakChunk	14	Minigun
+624.67	S	11	1.00	frag
+625.17	K	12	DamTypeRocketHoming	11	FlakCannon
+625.17	S	12	1.00	frag
+626.49	I	12	FlakAmmoPickup
+626.77	I	12	FlakCannonPickup
+627.10	I	11	ShockRiflePickup
+627.37	I	13	MiniHealthPack
+627.92	I	13	MiniHealthPack
+628.08	I	14	FlakCannonPickup
+631.00	PP	10	28
+631.44	K	13	DamTypeShockBeam	12	RocketLauncher
+631.44	S	13	1.00	frag
+633.42	I	15	FlakCannonPickup
+633.75	I	13	FlakCannonPickup
+634.08	I	14	RocketLauncherPickup
+634.14	I	14	MinigunPickup
+634.30	K	15	DamTypeFlakChunk	13	ShockRifle
+634.30	S	15	1.00	frag
+634.80	I	15	ShockRiflePickup
+634.91	I	14	MinigunAmmoPickup
+635.46	I	12	RocketLauncherPickup
+635.52	I	11	FlakCannonPickup
+636.12	I	13	ShockRiflePickup
+637.40	I	14	MiniHealthPack
+638.23	I	14	MiniHealthPack
+638.34	I	12	MiniHealthPack
+638.62	I	12	MiniHealthPack
+638.84	I	12	MiniHealthPack
+639.12	I	14	MiniHealthPack
+640.11	I	15	MinigunPickup
+640.17	I	14	MiniHealthPack
+640.23	I	12	MiniHealthPack
+641.16	I	13	MinigunAmmoPickup
+641.22	I	13	BioAmmoPickup
+641.27	I	13	LinkAmmoPickup
+641.33	I	13	AssaultAmmoPickup
+644.09	K	14	DamTypeRocket	15	ShockRifle
+644.09	S	14	1.00	frag
+644.09	K	14	DamTypeRocket	14	RocketLauncher
+644.09	S	14	-1.00	self_frag
+645.91	I	14	BioRiflePickup
+646.29	I	14	BioAmmoPickup
+647.67	I	11	MinigunAmmoPickup
+647.94	I	11	MinigunPickup
+648.05	I	15	RocketLauncherPickup
+648.49	I	14	FlakCannonPickup
+648.66	I	15	RocketAmmoPickup
+648.71	I	14	FlakAmmoPickup
+649.42	I	11	AdrenalinePickup
+650.20	I	11	AdrenalinePickup
+651.02	I	11	AdrenalinePickup
+651.85	I	11	AdrenalinePickup
+652.84	I	12	BioAmmoPickup
+653.11	I	12	BioRiflePickup
+653.44	I	14	MinigunPickup
+653.44	K	15	DamTypeRocket	10	AssaultRifle
+653.44	S	15	1.00	frag
+655.53	I	13	HealthPack
+657.24	K	12	DamTypeBioGlob	15	RocketLauncher
+657.24	S	12	1.00	frag
+658.17	K	14	DamTypeBioGlob	11	ShockRifle
+658.17	S	14	1.00	frag
+661.05	PP	10	28
+661.11	I	15	RocketLauncherPickup
+661.60	I	15	RocketAmmoPickup
+662.10	I	11	MinigunPickup
+664.03	I	13	MinigunPickup
+664.08	I	12	MiniHealthPack
+664.69	I	12	MiniHealthPack
+665.35	I	12	MiniHealthPack
+665.79	I	12	MiniHealthPack
+667.00	I	11	FlakCannonPickup
+667.39	I	11	FlakAmmoPickup
+667.99	K	12	DamTypeBioGlob	11	Minigun
+667.99	S	12	1.00	frag
+672.66	I	15	MinigunPickup
+673.05	I	11	BioRiflePickup
+674.70	I	11	MiniHealthPack
+674.92	I	11	MiniHealthPack
+675.14	I	11	MiniHealthPack
+675.47	I	11	MiniHealthPack
+677.18	K	12	DamTypeBioGlob	14	BioRifle
+677.18	S	12	1.00	frag
+678.17	I	11	RocketLauncherPickup
+678.61	I	14	ShockRiflePickup
+678.94	I	12	FlakCannonPickup
+678.94	I	14	ShockAmmoPickup
+679.21	I	12	FlakAmmoPickup
+679.43	I	13	MinigunAmmoPickup
+680.20	K	15	DamTypeMinigunBullet	13	Minigun
+680.20	S	15	1.00	frag
+683.00	K	12	DamTypeBioGlob	15	Minigun
+683.00	S	12	1.00	frag
+683.39	I	12	MinigunPickup
+684.49	I	11	FlakCannonPickup
+685.64	I	12	AdrenalinePickup
+686.36	I	12	AdrenalinePickup
+686.97	I	15	RocketLauncherPickup
+687.24	I	12	AdrenalinePickup
+687.57	I	15	RocketAmmoPickup
+687.79	I	13	BioRiflePickup
+688.13	I	13	BioAmmoPickup
+688.18	I	12	AdrenalinePickup
+691.05	PP	10	28
+691.05	K	11	DamTypeRocket	12	BioRifle
+691.05	S	11	1.00	frag
+693.37	I	11	MinigunAmmoPickup
+693.37	I	13	RocketLauncherPickup
+693.70	I	11	MinigunPickup
+693.98	I	13	RocketAmmoPickup
+694.20	I	15	FlakCannonPickup
+694.52	I	12	ShockRiflePickup
+694.74	I	14	MinigunPickup
+695.79	K	14	DamTypeShockBall	11	RocketLauncher
+695.79	S	14	1.00	frag
+698.88	K	13	DamTypeRocket	14	ShockRifle
+698.88	S	13	1.00	frag
+700.55	I	13	FlakAmmoPickup
+703.25	I	11	BioRiflePickup
+703.31	I	14	RocketLauncherPickup
+703.75	I	15	MinigunPickup
+705.12	I	11	MiniHealthPack
+705.29	I	15	ShockRiflePickup
+705.29	I	11	MiniHealthPack
+705.40	I	13	FlakCannonPickup
+705.84	I	11	MiniHealthPack
+706.06	I	11	MiniHealthPack
+711.02	K	13	DamTypeRocket	15	RocketLauncher
+711.02	S	13	1.00	frag
+712.35	I	11	RocketLauncherPickup
+714.57	I	12	RocketLauncherPickup
+716.27	I	12	MinigunPickup
+716.44	I	15	BioRiflePickup
+717.64	I	14	RocketAmmoPickup
+717.75	I	12	AdrenalinePickup
+718.52	I	12	AdrenalinePickup
+719.40	I	12	AdrenalinePickup
+720.23	I	12	AdrenalinePickup
+721.05	PP	10	28
+721.22	I	11	HealthPack
+721.33	I	15	RocketLauncherPickup
+721.82	I	11	HealthPack
+722.43	I	13	MinigunPickup
+723.36	K	13	DamTypeRocket	12	RocketLauncher
+723.36	S	13	1.00	frag
+723.75	I	13	MinigunAmmoPickup
+724.25	K	14	DamTypeRocket	11	RocketLauncher
+724.25	S	14	1.00	frag
+724.53	I	13	MinigunAmmoPickup
+725.30	I	12	ShockRiflePickup
+725.63	I	12	ShockAmmoPickup
+726.89	I	13	MiniHealthPack
+727.72	I	13	MiniHealthPack
+728.76	I	13	MiniHealthPack
+728.93	I	11	MinigunPickup
+729.81	I	13	MiniHealthPack
+730.03	I	11	RocketLauncherPickup
+730.80	I	15	RocketAmmoPickup
+733.56	I	13	ShockAmmoPickup
+734.00	I	13	ShockRiflePickup
+735.65	I	12	HealthPack
+735.87	K	15	DamTypeRocket	14	RocketLauncher
+735.87	S	15	1.00	frag
+736.09	I	12	HealthPack
+737.13	I	11	FlakAmmoPickup
+737.35	I	11	FlakCannonPickup
+737.91	I	11	FlakAmmoPickup
+741.53	I	12	HealthPack
+742.30	I	14	BioRiflePickup
+742.63	I	14	BioAmmoPickup
+743.40	I	12	HealthPack
+744.12	I	15	FlakCannonPickup
+744.50	I	14	MiniHealthPack
+744.72	I	14	MiniHealthPack
+744.89	K	11	DamTypeMinigunBullet	15	BioRifle
+744.89	S	11	1.00	frag
+745.00	I	14	MiniHealthPack
+745.33	I	14	MiniHealthPack
+748.03	I	14	RocketLauncherPickup
+748.25	I	13	BioAmmoPickup
+748.25	I	13	AssaultAmmoPickup
+748.36	I	13	LinkAmmoPickup
+748.36	I	13	MinigunAmmoPickup
+748.63	I	14	RocketAmmoPickup
+748.80	I	12	MinigunPickup
+748.91	I	15	RocketLauncherPickup
+750.34	I	12	AdrenalinePickup
+751.05	PP	10	28
+751.05	I	12	AdrenalinePickup
+751.88	I	12	AdrenalinePickup
+751.99	I	11	BioRiflePickup
+752.71	I	12	AdrenalinePickup
+755.35	I	15	BioRiflePickup
+757.55	K	11	DamTypeMinigunBullet	12	ShockRifle
+757.55	S	11	1.00	frag
+758.04	I	11	MinigunAmmoPickup
+758.70	K	13	DamTypeShockCombo	11	Minigun
+758.70	S	13	1.00	frag
+760.02	I	15	MiniHealthPack
+760.41	I	12	ShockRiflePickup
+760.57	I	15	MiniHealthPack
+760.79	I	12	ShockAmmoPickup
+761.29	I	15	MiniHealthPack
+761.78	I	15	MiniHealthPack
+762.66	K	12	DamTypeShockBeam	15	RocketLauncher
+762.66	S	12	1.00	frag
+764.26	I	15	BioRiflePickup
+764.64	I	15	BioAmmoPickup
+765.58	I	11	BioRiflePickup
+766.90	I	15	FlakCannonPickup
+768.27	K	11	DamTypeBioGlob	14	RocketLauncher
+768.27	S	11	1.00	frag
+769.32	I	15	RocketLauncherPickup
+771.41	I	14	FlakCannonPickup
+771.57	I	11	RocketLauncherPickup
+771.68	I	13	AdrenalinePickup
+771.74	I	14	FlakAmmoPickup
+772.01	I	13	AdrenalinePickup
+772.29	K	12	DamTypeShockBeam	13	BioRifle
+772.29	S	12	1.00	frag
+773.99	I	12	AdrenalinePickup
+774.32	I	12	AdrenalinePickup
+774.43	I	12	BioRiflePickup
+775.97	I	13	RocketLauncherPickup
+776.52	I	13	RocketAmmoPickup
+777.51	I	12	LinkAmmoPickup
+777.79	I	12	LinkGunPickup
+779.22	K	15	DamTypeFlakChunk	11	BioRifle
+779.22	S	15	1.00	frag
+779.56	K	12	DamTypeShockCombo	15	FlakCannon
+779.56	S	12	1.00	frag
+781.10	PP	10	28
+781.92	I	11	ShockRiflePickup
+782.31	I	14	BioRiflePickup
+783.18	I	15	FlakCannonPickup
+783.46	I	15	FlakAmmoPickup
+784.12	I	13	RocketAmmoPickup
+787.76	K	14	DamTypeFlakChunk	13	RocketLauncher
+787.76	S	14	1.00	frag
+787.81	I	15	MinigunPickup
+787.87	I	14	RocketLauncherPickup
+789.14	I	13	ShockRiflePickup
+789.30	I	15	AdrenalinePickup
+790.07	I	11	MiniHealthPack
+790.07	I	15	AdrenalinePickup
+790.18	I	12	MiniHealthPack
+790.40	I	12	MiniHealthPack
+790.84	I	12	MiniHealthPack
+790.90	I	15	AdrenalinePickup
+791.06	I	12	MiniHealthPack
+791.78	I	15	AdrenalinePickup
+796.02	I	13	FlakCannonPickup
+796.46	I	14	BioAmmoPickup
+797.95	I	12	RocketLauncherPickup
+799.16	I	13	MiniHealthPack
+799.82	I	13	MiniHealthPack
+800.26	I	13	MiniHealthPack
+801.80	I	11	BioRiflePickup
+801.91	I	15	FlakAmmoPickup
+802.57	K	14	DamTypeFlakChunk	11	ShockRifle
+802.57	S	14	1.00	frag
+806.82	I	11	RocketLauncherPickup
+807.20	I	12	FlakCannonPickup
+807.31	I	11	RocketAmmoPickup
+808.30	I	14	ShockRiflePickup
+809.79	K	11	DamTypeRocket	14	BioRifle
+809.79	S	11	1.00	frag
+810.72	K	15	DamTypeMinigunBullet	12	RocketLauncher
+810.72	S	15	1.00	frag
+811.11	PP	10	28
+812.32	I	12	ShockRiflePickup
+812.65	I	12	ShockAmmoPickup
+814.25	I	15	FlakAmmoPickup
+814.31	I	15	RocketLauncherPickup
+815.35	K	13	DamTypeShockCombo	15	Minigun
+815.35	S	13	1.00	frag
+815.41	I	14	BioRiflePickup
+817.99	I	11	FlakAmmoPickup
+818.32	I	11	FlakCannonPickup
+819.09	I	15	RocketLauncherPickup
+819.70	I	15	RocketAmmoPickup
+819.92	I	11	MinigunPickup
+820.47	I	14	RocketLauncherPickup
+823.44	K	11	DamTypeRocket	14	RocketLauncher
+823.44	S	11	1.00	frag
+825.66	I	15	MiniHealthPack
+825.93	I	15	MiniHealthPack
+826.21	I	15	MiniHealthPack
+826.27	K	12	DamTypeShockBeam	15	RocketLauncher
+826.27	S	12	1.00	frag
+828.65	I	13	RocketLauncherPickup
+828.76	I	15	ShockRiflePickup
+829.09	I	14	MinigunAmmoPickup
+829.47	I	14	MinigunPickup
+830.63	I	14	MinigunAmmoPickup
+832.17	I	13	MiniHealthPack
+832.28	I	15	MinigunAmmoPickup
+833.77	I	13	BioRiflePickup
+834.10	I	13	BioAmmoPickup
+834.55	I	12	RocketLauncherPickup
+835.04	I	15	LinkAmmoPickup
+835.15	I	15	AssaultAmmoPickup
+835.15	I	15	BioAmmoPickup
+835.87	K	12	DamTypeShockCombo	11	RocketLauncher
+835.87	S	12	1.00	frag
+837.74	I	11	BioRiflePickup
+838.18	I	11	BioAmmoPickup
+838.29	I	12	RocketAmmoPickup
+838.73	I	13	AdrenalinePickup
+839.06	I	13	AdrenalinePickup
+839.39	I	13	AdrenalinePickup
+839.72	I	13	AdrenalinePickup
+840.43	I	11	FlakCannonPickup
+840.65	I	11	FlakAmmoPickup
+841.15	PP	10	28
+844.67	I	13	MiniHealthPack
+844.83	I	12	FlakCannonPickup
+844.94	I	14	AdrenalinePickup
+845.22	I	13	MiniHealthPack
+845.55	I	11	MinigunPickup
+845.71	I	14	AdrenalinePickup
+845.88	I	13	MiniHealthPack
+846.43	I	13	MiniHealthPack
+846.59	I	14	AdrenalinePickup
+847.42	I	14	AdrenalinePickup
+847.58	K	12	DamTypeRocket	11	BioRifle
+847.58	S	12	1.00	frag
+847.86	K	15	DamTypeShockBeam	13	BioRifle
+847.86	S	15	1.00	frag
+849.78	I	14	BioRiflePickup
+849.89	I	12	MinigunPickup
+849.95	I	15	BioRiflePickup
+851.10	K	14	DamTypeMinigunBullet	12	RocketLauncher
+851.10	S	14	1.00	frag
+851.10	K	12	DamTypeRocket	14	Minigun
+851.10	S	12	1.00	frag
+851.38	I	11	RocketLauncherPickup
+851.99	I	11	RocketAmmoPickup
+852.49	I	14	BioRiflePickup
+853.42	I	15	FlakCannonPickup
+853.75	I	12	ShockRiflePickup
+853.80	I	15	FlakAmmoPickup
+854.13	I	12	ShockAmmoPickup
+855.07	I	13	BioRiflePickup
+856.67	P	12	XGame.ComboInvis
+857.27	I	13	MiniHealthPack
+857.54	I	13	MiniHealthPack
+857.87	I	13	MiniHealthPack
+859.03	I	15	MinigunPickup
+859.42	I	14	FlakCannonPickup
+859.53	I	15	RocketLauncherPickup
+860.02	I	15	MinigunAmmoPickup
+860.52	I	13	RocketLauncherPickup
+863.55	I	15	MiniHealthPack
+863.66	I	11	BioRiflePickup
+863.66	I	12	BioRiflePickup
+864.44	I	15	MiniHealthPack
+864.71	I	14	MinigunPickup
+864.88	I	12	BioAmmoPickup
+865.21	I	14	MinigunAmmoPickup
+865.37	I	15	MiniHealthPack
+866.42	I	15	MiniHealthPack
+867.80	I	12	MiniHealthPack
+869.06	K	14	DamTypeMinigunBullet	15	RocketLauncher
+869.06	S	14	1.00	frag
+869.12	K	13	DamTypeRocket	12	ShockRifle
+869.12	S	13	1.00	frag
+871.16	PP	10	28
+872.42	I	15	RocketLauncherPickup
+872.75	I	13	ShockRiflePickup
+873.36	I	11	MinigunPickup
+874.95	K	13	DamTypeBioGlob	15	RocketLauncher
+874.95	S	13	1.00	frag
+875.89	I	12	BioRiflePickup
+876.33	I	14	ShockAmmoPickup
+876.83	I	14	ShockRiflePickup
+879.08	I	15	MinigunPickup
+879.58	K	12	DamTypeBioGlob	13	ShockRifle
+879.58	S	12	1.00	frag
+880.90	I	12	RocketLauncherPickup
+882.94	I	13	RocketLauncherPickup
+883.55	I	14	HealthPack
+883.88	I	14	HealthPack
+883.99	I	12	ShockRiflePickup
+884.32	I	15	FlakAmmoPickup
+884.59	I	15	FlakCannonPickup
+885.69	I	14	AdrenalinePickup
+886.46	I	14	AdrenalinePickup
+887.29	I	14	AdrenalinePickup
+887.89	I	15	MiniHealthPack
+888.50	I	15	MiniHealthPack
+889.16	I	15	MiniHealthPack
+889.59	I	14	AdrenalinePickup
+891.52	I	13	FlakAmmoPickup
+891.79	I	13	FlakCannonPickup
+891.96	K	12	DamTypeRocket	13	RocketLauncher
+891.96	S	12	1.00	frag
+894.34	I	14	MiniHealthPack
+894.90	K	11	DamTypeRocket	14	FlakCannon
+894.90	S	11	1.00	frag
+896.44	I	11	FlakCannonPickup
+896.50	I	13	BioAmmoPickup
+896.55	I	12	FlakCannonPickup
+896.77	I	13	BioRiflePickup
+897.71	I	14	ShockRiflePickup
+898.09	I	14	ShockAmmoPickup
+898.42	I	13	MiniHealthPack
+898.64	I	13	MiniHealthPack
+898.70	I	11	MinigunAmmoPickup
+898.92	I	13	MiniHealthPack
+900.90	K	12	DamTypeRocket	15	Minigun
+900.90	S	12	1.00	frag
+901.17	PP	10	28
+901.56	I	13	RocketLauncherPickup
+902.17	I	13	RocketAmmoPickup
+902.28	K	11	DamTypeRocket	12	BioRifle
+902.28	S	11	1.00	frag
+904.76	I	11	MinigunAmmoPickup
+905.80	I	12	RocketLauncherPickup
+906.30	I	12	RocketAmmoPickup
+908.83	I	11	MiniHealthPack
+909.71	I	11	MiniHealthPack
+909.99	I	12	MiniHealthPack
+910.98	I	15	BioRiflePickup
+912.13	I	12	BioRiflePickup
+912.52	I	14	MinigunPickup
+913.01	K	15	DamTypeBioGlob	12	RocketLauncher
+913.01	S	15	1.00	frag
+914.01	K	14	DamTypeShockCombo	11	RocketLauncher
+914.01	S	14	1.00	frag
+916.00	I	12	FlakCannonPickup
+916.22	I	15	RocketLauncherPickup
+916.39	I	12	FlakAmmoPickup
+917.33	I	14	RocketLauncherPickup
+918.10	I	11	RocketLauncherPickup
+921.08	I	12	MinigunPickup
+922.57	I	12	AdrenalinePickup
+924.72	I	14	FlakCannonPickup
+925.11	I	14	FlakAmmoPickup
+927.09	K	13	DamTypeRocket	14	ShockRifle
+927.09	S	13	1.00	frag
+927.48	I	13	FlakCannonPickup
+930.36	I	14	ShockRiflePickup
+930.75	I	14	ShockAmmoPickup
+930.91	K	12	DamTypeMinigunBullet	13	RocketLauncher
+930.91	S	12	1.00	frag
+931.19	PP	10	28
+932.79	I	12	RocketLauncherPickup
+932.84	I	11	RocketAmmoPickup
+934.22	I	13	FlakCannonPickup
+934.44	I	14	MiniHealthPack
+934.87	I	14	MiniHealthPack
+935.59	I	14	MiniHealthPack
+936.47	I	15	MiniHealthPack
+936.69	I	15	MiniHealthPack
+937.02	I	14	MiniHealthPack
+937.24	I	15	MiniHealthPack
+939.34	I	13	MinigunPickup
+939.51	K	14	DamTypeShockCombo	12	Minigun
+939.51	S	14	1.00	frag
+939.72	I	13	MinigunAmmoPickup
+939.72	K	11	DamTypeRocket	15	RocketLauncher
+939.72	S	11	1.00	frag
+942.42	I	15	ShockRiflePickup
+942.59	I	11	BioRiflePickup
+942.92	I	11	BioAmmoPickup
+943.08	I	12	RocketLauncherPickup
+943.58	I	12	RocketAmmoPickup
+948.15	K	15	DamTypeShockBeam	11	RocketLauncher
+948.15	S	15	1.00	frag
+950.18	I	14	FlakCannonPickup
+950.51	I	14	FlakAmmoPickup
+953.71	I	15	RocketLauncherPickup
+955.09	I	11	BioRiflePickup
+957.01	I	12	FlakAmmoPickup
+957.34	I	12	FlakCannonPickup
+957.51	I	11	MiniHealthPack
+958.72	K	13	DamTypeMinigunBullet	14	ShockRifle
+958.72	S	13	1.00	frag
+960.26	I	11	RocketLauncherPickup
+960.92	I	14	ShockRiflePickup
+961.19	PP	10	28
+961.25	I	14	ShockAmmoPickup
+961.80	I	15	BioRiflePickup
+962.29	I	13	ShockRiflePickup
+966.09	K	12	DamTypeFlakChunk	13	Minigun
+966.09	S	12	1.00	frag
+967.36	I	13	BioRiflePickup
+967.80	I	13	BioAmmoPickup
+969.29	I	12	MinigunPickup
+970.00	I	13	FlakCannonPickup
+970.17	I	11	RocketAmmoPickup
+970.55	I	15	MiniHealthPack
+970.72	K	12	DamTypeFlakChunk	13	FlakCannon
+970.72	S	12	1.00	frag
+970.83	I	15	MiniHealthPack
+971.10	I	15	MiniHealthPack
+972.37	I	13	ShockRiflePickup
+972.59	K	15	DamTypeShockBall	11	RocketLauncher
+972.59	S	15	1.00	frag
+973.09	I	12	MiniHealthPack
+973.59	I	12	MiniHealthPack
+974.14	I	12	MiniHealthPack
+974.86	I	12	MiniHealthPack
+975.47	I	14	FlakCannonPickup
+976.51	I	15	RocketAmmoPickup
+976.51	I	11	RocketLauncherPickup
+979.21	I	13	FlakCannonPickup
+980.86	K	14	DamTypeShockBeam	13	ShockRifle
+980.86	S	14	1.00	frag
+982.23	K	11	DamTypeRocket	15	ShockRifle
+982.23	S	11	1.00	frag
+982.62	I	12	ShockRiflePickup
+982.84	I	13	ShockRiflePickup
+985.82	I	15	RocketLauncherPickup
+986.15	K	14	DamTypeShockBeam	12	RocketLauncher
+986.15	S	14	1.00	frag
+987.04	I	13	BioAmmoPickup
+987.04	I	13	AssaultAmmoPickup
+987.15	I	13	LinkAmmoPickup
+987.15	I	13	MinigunAmmoPickup
+987.43	I	12	BioRiflePickup
+987.76	I	12	BioAmmoPickup
+990.73	K	14	DamTypeShockCombo	11	RocketLauncher
+990.73	S	14	1.00	frag
+991.23	PP	10	28
+992.50	I	12	RocketLauncherPickup
+993.22	I	14	FlakAmmoPickup
+993.72	I	14	RocketLauncherPickup
+993.99	I	11	ShockRiflePickup
+994.05	I	14	FlakAmmoPickup
+994.33	I	11	ShockAmmoPickup
+994.55	I	15	MiniHealthPack
+999.51	I	13	FlakCannonPickup
+999.79	I	13	FlakAmmoPickup
+1002.05	K	11	DamTypeShockBeam	13	ShockRifle
+1002.05	S	11	1.00	frag
+1002.55	I	12	FlakCannonPickup
+1002.77	K	14	DamTypeShockBeam	12	RocketLauncher
+1002.77	S	14	1.00	frag
+1005.26	I	11	FlakCannonPickup
+1005.64	I	12	ShockRiflePickup
+1005.97	I	11	RocketLauncherPickup
+1006.25	I	14	MinigunPickup
+1006.63	I	15	FlakCannonPickup
+1009.12	I	13	BioRiflePickup
+1009.17	K	15	DamTypeFlakChunk	11	ShockRifle
+1009.17	S	15	1.00	frag
+1009.39	I	13	BioAmmoPickup
+1011.21	I	15	ShockRiflePickup
+1011.43	I	13	MiniHealthPack
+1011.65	I	13	MiniHealthPack
+1011.87	I	13	MiniHealthPack
+1012.26	K	12	DamTypeShockBeam	14	RocketLauncher
+1012.26	S	12	1.00	frag
+1013.25	I	11	RocketLauncherPickup
+1013.86	I	11	RocketAmmoPickup
+1014.68	I	12	RocketLauncherPickup
+1014.85	I	13	RocketLauncherPickup
+1015.45	I	14	ShockRiflePickup
+1015.67	I	12	MinigunPickup
+1017.87	I	15	MinigunPickup
+1019.25	K	13	DamTypeBioGlob	11	RocketLauncher
+1019.25	S	13	1.00	frag
+1019.41	I	15	AdrenalinePickup
+1020.13	I	15	AdrenalinePickup
+1021.00	I	15	AdrenalinePickup
+1021.23	PP	10	28
+1021.83	I	15	AdrenalinePickup
+1023.53	I	14	MinigunPickup
+1023.98	I	13	FlakCannonPickup
+1026.18	I	15	MiniHealthPack
+1026.62	I	11	BioRiflePickup
+1026.78	I	15	MiniHealthPack
+1027.39	I	15	MiniHealthPack
+1027.67	I	14	MinigunAmmoPickup
+1028.00	I	15	MiniHealthPack
+1028.98	I	11	MiniHealthPack
+1029.31	I	13	MinigunPickup
+1030.80	K	13	DamTypeRocket	14	ShockRifle
+1030.80	S	13	1.00	frag
+1031.29	I	13	MinigunAmmoPickup
+1031.62	I	11	RocketLauncherPickup
+1032.23	I	11	RocketAmmoPickup
+1032.73	K	15	DamTypeShockBeam	12	ShockRifle
+1032.73	S	15	1.00	frag
+1033.00	I	14	ShockRiflePickup
+1033.33	I	14	ShockAmmoPickup
+1034.65	I	13	ShockRiflePickup
+1036.30	I	14	BioAmmoPickup
+1036.35	I	14	MinigunAmmoPickup
+1036.46	I	14	LinkAmmoPickup
+1037.89	I	13	FlakAmmoPickup
+1039.65	I	12	BioRiflePickup
+1039.93	I	12	BioAmmoPickup
+1040.69	I	13	MiniHealthPack
+1041.30	I	13	MiniHealthPack
+1041.91	I	12	MiniHealthPack
+1041.96	I	11	FlakAmmoPickup
+1041.96	K	11	DamTypeRocket	13	BioRifle
+1041.96	S	11	1.00	frag
+1042.13	I	12	MiniHealthPack
+1042.24	I	11	FlakCannonPickup
+1042.40	I	12	MiniHealthPack
+1043.28	I	13	ShockRiflePickup
+1043.67	I	14	FlakCannonPickup
+1045.32	I	12	RocketLauncherPickup
+1045.92	I	12	RocketAmmoPickup
+1046.20	I	15	BioRiflePickup
+1046.58	I	15	BioAmmoPickup
+1047.58	I	11	MinigunPickup
+1049.96	K	13	DamTypeShockCombo	15	ShockRifle
+1049.96	S	13	1.00	frag
+1050.40	I	11	MiniHealthPack
+1051.23	PP	10	28
+1051.23	I	11	MiniHealthPack
+1052.11	I	11	MiniHealthPack
+1053.22	I	11	MiniHealthPack
+1053.22	I	12	FlakCannonPickup
+1053.71	I	13	FlakCannonPickup
+1054.26	I	15	RocketLauncherPickup
+1054.59	K	14	DamTypeShockBeam	12	RocketLauncher
+1054.59	S	14	1.00	frag
+1055.59	I	12	BioRiflePickup
+1055.76	K	13	DamTypeFlakChunk	14	ShockRifle
+1055.76	S	13	1.00	frag
+1056.03	I	12	BioAmmoPickup
+1056.09	I	11	ShockAmmoPickup
+1056.53	I	11	ShockRiflePickup
+1056.64	I	12	ShockRiflePickup
+1058.29	I	12	FlakCannonPickup
+1060.71	I	12	RocketLauncherPickup
+1060.71	K	13	DamTypeFlakChunk	12	FlakCannon
+1060.71	S	13	1.00	frag
+1062.25	I	15	FlakCannonPickup
+1062.86	K	11	DamTypeRocket	15	RocketLauncher
+1062.86	S	11	1.00	frag
+1063.85	I	14	BioRiflePickup
+1064.23	I	15	ShockRiflePickup
+1064.57	I	15	ShockAmmoPickup
+1064.73	I	12	RocketLauncherPickup
+1065.33	I	12	RocketAmmoPickup
+1066.16	I	14	MiniHealthPack
+1068.97	I	14	RocketLauncherPickup
+1069.13	I	13	RocketLauncherPickup
+1069.19	I	13	FlakAmmoPickup
+1072.23	I	15	BioAmmoPickup
+1073.05	I	13	MinigunPickup
+1073.22	I	15	BioRiflePickup
+1074.54	I	13	AdrenalinePickup
+1074.93	I	15	MiniHealthPack
+1075.15	I	15	MiniHealthPack
+1075.31	I	13	AdrenalinePickup
+1075.48	I	15	MiniHealthPack
+1076.13	I	13	AdrenalinePickup
+1076.96	I	13	AdrenalinePickup
+1077.45	K	14	DamTypeRocket	12	RocketLauncher
+1077.45	S	14	1.00	frag
+1078.39	P	14	XGame.ComboBerserk
+1078.39	I	15	RocketLauncherPickup
+1078.99	I	15	RocketAmmoPickup
+1080.20	K	14	DamTypeRocket	11	BioRifle
+1080.20	S	14	1.00	frag
+1080.70	I	12	ShockRiflePickup
+1081.25	PP	10	28
+1082.24	I	14	FlakCannonPickup
+1083.89	I	13	MiniHealthPack
+1084.55	I	13	MiniHealthPack
+1084.88	I	11	BioRiflePickup
+1085.10	I	13	MiniHealthPack
+1085.76	K	14	DamTypeRocket	15	ShockRifle
+1085.76	S	14	1.00	frag
+1087.20	I	13	MiniHealthPack
+1088.02	I	12	FlakCannonPickup
+1088.36	I	12	FlakAmmoPickup
+1088.91	K	14	DamTypeFlakChunk	12	ShockRifle
+1088.91	S	14	1.00	frag
+1089.35	I	15	RocketLauncherPickup
+1090.01	I	11	RocketLauncherPickup
+1091.00	I	12	ShockRiflePickup
+1099.11	I	15	MiniHealthPack
+1099.66	I	12	MinigunPickup
+1100.11	I	12	MinigunAmmoPickup
+1104.13	K	13	DamTypeShockBall	12	ShockRifle
+1104.13	S	13	1.00	frag
+1104.19	P	14	spree_1
+1104.19	K	14	DamTypeFlakChunk	13	ShockRifle
+1104.19	S	14	1.00	frag
+1104.30	I	11	RocketAmmoPickup
+1104.35	I	14	ShockRiflePickup
+1104.79	I	15	BioRiflePickup
+1105.07	I	15	BioAmmoPickup
+1106.11	P	13	XGame.ComboDefensive
+1106.88	I	15	MiniHealthPack
+1107.10	I	15	MiniHealthPack
+1107.21	I	12	ShockRiflePickup
+1107.32	I	15	MiniHealthPack
+1107.60	I	12	ShockAmmoPickup
+1107.65	K	15	DamTypeRocket	11	RocketLauncher
+1107.65	S	15	1.00	frag
+1107.71	I	13	FlakCannonPickup
+1108.09	I	13	FlakAmmoPickup
+1111.29	PP	10	28
+1111.51	I	11	RocketLauncherPickup
+1112.12	I	11	RocketAmmoPickup
+1113.88	I	13	MinigunPickup
+1114.10	I	15	MiniHealthPack
+1114.26	I	13	MinigunAmmoPickup
+1114.32	K	12	DamTypeShockCombo	15	BioRifle
+1114.32	S	12	1.00	frag
+1115.86	I	11	BioRiflePickup
+1116.68	I	13	MiniHealthPack
+1117.18	I	12	MiniHealthPack
+1117.62	I	12	MiniHealthPack
+1117.95	I	12	BioRiflePickup
+1118.17	I	15	RocketLauncherPickup
+1118.39	I	12	MiniHealthPack
+1121.05	I	12	FlakCannonPickup
+1123.14	I	14	MinigunPickup
+1124.68	I	14	AdrenalinePickup
+1125.29	K	13	DamTypeMinigunAlt	14	BioRifle
+1125.29	S	13	1.00	frag
+1126.28	I	15	FlakAmmoPickup
+1126.55	I	15	FlakCannonPickup
+1128.09	I	14	ShockRiflePickup
+1129.14	I	11	FlakCannonPickup
+1131.84	I	12	MinigunAmmoPickup
+1132.17	I	14	BioAmmoPickup
+1132.23	I	12	MinigunPickup
+1132.34	I	14	AssaultAmmoPickup
+1133.16	K	13	DamTypeMinigunBullet	12	ShockRifle
+1133.16	S	13	1.00	frag
+1133.38	I	14	LinkAmmoPickup
+1133.49	I	14	MinigunAmmoPickup
+1134.32	K	15	DamTypeFlakChunk	11	FlakCannon
+1134.32	S	15	1.00	frag
+1136.79	I	12	RocketLauncherPickup
+1137.29	I	14	FlakCannonPickup
+1137.34	I	12	RocketAmmoPickup
+1140.26	K	13	DamTypeMinigunAlt	15	FlakCannon
+1140.26	S	13	1.00	frag
+1141.14	I	14	FlakAmmoPickup
+1141.30	PP	10	28
+1141.91	I	13	MiniHealthPack
+1144.55	I	12	FlakCannonPickup
+1144.55	I	15	RocketLauncherPickup
+1145.15	I	15	RocketAmmoPickup
+1147.53	I	11	BioRiflePickup
+1147.80	K	12	DamTypeRocket	14	ShockRifle
+1147.80	S	12	1.00	frag
+1147.86	I	11	BioAmmoPickup
+1149.57	I	14	ShockRiflePickup
+1149.62	I	11	MiniHealthPack
+1149.84	I	11	MiniHealthPack
+1149.90	I	14	ShockAmmoPickup
+1150.12	I	11	MiniHealthPack
+1150.45	I	11	MiniHealthPack
+1151.16	I	13	MinigunAmmoPickup
+1151.77	K	13	DamTypeFlakChunk	12	RocketLauncher
+1151.77	S	13	1.00	frag
+1153.14	I	11	RocketLauncherPickup
+1153.25	I	13	ShockRiflePickup
+1154.80	I	13	RocketLauncherPickup
+1155.84	I	12	MinigunPickup
+1156.55	I	13	AdrenalinePickup
+1157.32	I	13	AdrenalinePickup
+1157.65	I	14	BioRiflePickup
+1158.21	I	13	AdrenalinePickup
+1158.26	I	15	FlakAmmoPickup
+1158.54	I	15	FlakCannonPickup
+1159.03	I	13	AdrenalinePickup
+1161.94	K	14	DamTypeShockCombo	11	RocketLauncher
+1161.94	S	14	1.00	frag
+1162.88	P	13	spree_1
+1162.88	K	13	DamTypeRocket	15	RocketLauncher
+1162.88	S	13	1.00	frag
+1163.27	I	11	ShockRiflePickup
+1163.44	K	15	DamTypeRocket	12	Minigun
+1163.44	S	15	1.00	frag
+1164.43	I	14	MiniHealthPack
+1164.98	I	14	MiniHealthPack
+1165.64	I	14	MiniHealthPack
+1166.52	I	15	RocketLauncherPickup
+1166.85	I	11	AssaultAmmoPickup
+1168.73	I	12	BioRiflePickup
+1169.01	K	11	DamTypeShockBall	13	ShockRifle
+1169.01	S	11	1.00	frag
+1171.32	PP	10	28
+1171.87	I	14	FlakCannonPickup
+1172.09	I	14	FlakAmmoPickup
+1172.86	I	11	MinigunPickup
+1173.74	I	12	RocketLauncherPickup
+1173.91	I	15	FlakCannonPickup
+1174.02	I	13	FlakCannonPickup
+1174.35	I	12	RocketAmmoPickup
+1175.50	K	15	DamTypeFlakChunk	13	FlakCannon
+1175.50	S	15	1.00	frag
+1177.42	K	15	DamTypeFlakChunk	14	ShockRifle
+1177.42	S	15	1.00	frag
+1178.15	I	15	ShockRiflePickup
+1178.92	P	15	XGame.ComboDefensive
+1180.12	K	12	DamTypeRocket	15	RocketLauncher
+1180.12	S	12	1.00	frag
+1180.79	I	13	BioAmmoPickup
+1180.79	I	14	RocketLauncherPickup
+1181.06	I	13	BioRiflePickup
+1181.39	I	14	RocketAmmoPickup
+1181.67	I	12	FlakCannonPickup
+1182.99	I	15	ShockRiflePickup
+1183.05	I	13	MiniHealthPack
+1183.27	I	13	MiniHealthPack
+1183.38	I	15	ShockAmmoPickup
+1183.49	I	13	MiniHealthPack
+1183.76	I	13	MiniHealthPack
+1186.46	I	13	RocketLauncherPickup
+1187.18	I	15	MiniHealthPack
+1189.00	I	14	BioRiflePickup
+1191.47	K	15	DamTypeShockBeam	12	RocketLauncher
+1191.47	S	15	1.00	frag
+1192.13	I	11	MinigunAmmoPickup
+1192.13	K	12	DamTypeRocket	11	Minigun
+1192.13	S	12	1.00	frag
+1194.28	I	11	ShockRiflePickup
+1194.82	I	12	RocketLauncherPickup
+1196.53	I	14	FlakCannonPickup
+1196.91	I	14	FlakAmmoPickup
+1198.13	K	15	DamTypeShockBall	14	RocketLauncher
+1198.13	S	15	1.00	frag
+1201.33	PP	10	28
+1201.66	I	15	RocketLauncherPickup
+1201.77	I	15	FlakCannonPickup
+1202.38	K	12	DamTypeRocket	13	RocketLauncher
+1202.38	S	12	1.00	frag
+1202.38	EG	fraglimit	12	13	14	15	11	10
+1202.38	PA	15	AssaultRifle	43	7	107
+1202.38	PA	15	RocketLauncher	130	18	1051
+1202.38	PA	15	ShieldGun	1	0	0
+1202.38	PA	15	FlakCannon	16	10	130
+1202.38	PA	15	ShockRifle	67	9	368
+1202.38	PA	15	Minigun	253	29	219
+1202.38	PA	15	BioRifle	9	2	70
+1202.38	PA	14	AssaultRifle	10	0	0
+1202.38	PA	14	Minigun	365	27	197
+1202.38	PA	14	FlakCannon	31	9	117
+1202.38	PA	14	RocketLauncher	50	13	861
+1202.38	PA	14	BioRifle	40	4	205
+1202.38	PA	14	ShockRifle	122	22	1274
+1202.38	PA	13	AssaultRifle	35	1	7
+1202.38	PA	13	ShockRifle	111	18	773
+1202.38	PA	13	Minigun	387	38	377
+1202.38	PA	13	RocketLauncher	88	16	1030
+1202.38	PA	13	FlakCannon	8	4	52
+1202.38	PA	13	BioRifle	24	6	181
+1202.38	PA	12	AssaultRifle	77	6	93
+1202.38	PA	12	RocketLauncher	120	29	1379
+1202.38	PA	12	BioRifle	55	10	348
+1202.38	PA	12	Minigun	192	11	112
+1202.38	PA	12	ShockRifle	117	14	937
+1202.38	PA	12	FlakCannon	4	2	26
+1202.38	PA	11	AssaultRifle	37	1	7
+1202.38	PA	11	BioRifle	44	5	189
+1202.38	PA	11	FlakCannon	3	1	13
+1202.38	PA	11	ShockRifle	47	6	233
+1202.38	PA	11	Minigun	223	38	275
+1202.38	PA	11	RocketLauncher	124	22	1344
+xDeathMatch DM-Rrajigar.xDeathMatch (Function Engine.GameInfo.EndLogging:0027) Accessed None 'GameStats'
+1231.36	PP	10	28
+ProcessServerTravel: DM-Rankin
+PreClientTravel
+Server switch level: DM-Rankin
+Browse: DM-Rankin?Name=Player?Class=Engine.Pawn?Character=Jakob?team=255?game=XGame.xDeathMatch?GameStats=True
+Close TcpipConnection 192.168.200.140:60190 08/24/13 17:51:30
+Socket shut down
+Collecting garbage
+Purging garbage
+(Karma): Level Karma Terminated.
+Garbage: objects: 51134->36827; refs: 471539
+Game class is 'xDeathMatch'
+Bringing Level DM-Rankin.myLevel up for play (20) appSeconds: 6705.859000...
+(Karma): Autodetecting CPU for SSE
+(Karma): Using SSE Optimizations
+Loading Admins & Groups
+Kick and Ban Privileges Loaded
+Maps & Game Privileges Loaded
+Admins & Groups Management Loaded
+Extra Privileges Loaded
+GameInfo::InitGame : bEnableStatLogging True
+----------------------------------------
+OLStats Loading...
+Debug mode is ON!
+Opening user log ..\UserLogs\Stats_7777_2013_08_24_17_51_31.log
+OLStats 3.00 loaded!
+  Author: OverloadUT
+  Email: Overload@planetunreal.com
+  Web: www.apartment167.com
+----------------------------------------
+UdpServerQuery(crt): Port 7787 successfully bound.
+Defaulting to false
+Defaulting to false
+MasterServerUplink: DoUplink is False, not connecting to Epic master server
+Loading Available Maps
+Loading Game Types
+XWebAdmin.UTServerAdmin Initialized on port 18080
+OLStats v3.00 by OverloadUT www.Apartment167.com
+0.00	NG	2013-8-24 17:51:31	0	DM-Rankin	Rankin	Sjoerd De Jong	XGame.xDeathMatch	DeathMatch	Mutators=UnrealGame.DMMutator|OLStats.MutOLGameStats
+0.00	SI	UT 2004 Lan Party (Vanilla)	0				\ServerMode\dedicated\AdminName\\AdminEmail\\ServerVersion\3369\GameStats\True\MaxSpectators\2\Mutator\MutOLGameStats\MinPlayers\6\EndTimeDelay\4.00\GoalScore\25\TimeLimit\20\Translocator\False\WeaponStay\True\ForceRespawn\False\gamedifficulty\3.00\shortname\UT2 Server
+Open myLevel 08/24/13 17:51:32 192.168.200.140:63026
+Client netspeed is 10000
+Open myLevel 08/24/13 17:51:34 192.168.200.140:60190
+2.52	C	19	9dee33be04d51abc143d2203c889a5a4	PepperCorn	3553114755137b5a110a
+2.52	PS	19	192.168.200.140:63026	10000	11e145faaf230c5c5a1b419541a6aca4
+2.52	G	NameChange	19	SiphonSquirrel
+New Player SiphonSquirrel id=11e145faaf230c5c5a1b419541a6aca4
+Close TcpipConnection 192.168.200.140:60190 08/24/13 17:51:34
+13.24	SG
+START MATCH
+14.90	C	22	Gaargod
+14.90	G	NameChange	22	[BOT]Gaargod
+14.90	BI	22	3.00	0.00	0.30	0.55	0.30	0.44	0.00	1.00	0.70	None
+14.90	I	22	HealthPack
+16.18	C	23	Enigma
+16.18	G	NameChange	23	[BOT]Enigma
+16.18	BI	23	3.00	0.00	0.05	0.50	0.80	0.00	0.00	1.00	0.60	ShockRifle
+16.18	I	23	SniperRiflePickup
+16.34	I	22	LinkAmmoPickup
+16.40	C	20	Syzygy
+16.40	G	NameChange	20	[BOT]Syzygy
+16.40	BI	20	3.00	0.00	0.00	0.40	0.35	0.20	1.30	1.00	0.00	None
+16.40	I	20	FlakCannonPickup
+16.68	C	21	Enki
+16.68	G	NameChange	21	[BOT]Enki
+16.68	BI	21	3.00	0.00	-0.40	0.70	0.80	0.20	0.60	1.00	0.00	ShockRifle
+16.68	I	21	ShockRiflePickup
+16.90	I	22	LinkGunPickup
+16.90	I	20	FlakAmmoPickup
+18.23	I	21	ShockAmmoPickup
+18.28	C	24	Axon
+18.28	G	NameChange	24	[BOT]Axon
+18.28	BI	24	3.00	0.00	0.15	0.20	1.00	0.00	0.00	1.00	1.00	None
+18.28	I	24	SniperAmmoPickup
+18.84	I	24	SniperRiflePickup
+19.89	I	23	FlakCannonPickup
+21.77	I	22	RocketLauncherPickup
+22.54	I	24	FlakCannonPickup
+22.54	P	21	first_blood
+22.54	K	21	DamTypeShockCombo	19	AssaultRifle
+22.54	S	21	1.00	frag
+22.60	K	20	Crushed	23	SniperRifle
+22.60	S	20	1.00	frag
+24.09	I	20	SniperRiflePickup
+24.58	K	20	DamTypeFlakChunk	24	FlakCannon
+24.58	S	20	1.00	frag
+25.59	I	21	AdrenalinePickup
+26.03	I	21	AdrenalinePickup
+26.58	I	21	AdrenalinePickup
+27.41	I	24	LinkGunPickup
+27.86	I	23	SniperRiflePickup
+28.86	I	20	MiniHealthPack
+29.14	I	20	MiniHealthPack
+29.47	I	20	MiniHealthPack
+30.03	PP	19	140
+30.92	I	22	FlakCannonPickup
+31.14	I	23	FlakAmmoPickup
+31.47	I	24	MiniHealthPack
+31.80	I	20	HealthPack
+31.80	I	23	FlakCannonPickup
+32.08	I	24	MiniHealthPack
+32.74	I	24	MiniHealthPack
+32.85	K	21	DamTypeShockBall	22	LinkGun
+32.85	S	21	1.00	frag
+33.35	I	24	MiniHealthPack
+34.07	I	23	LinkGunPickup
+34.62	I	21	FlakCannonPickup
+34.85	I	20	RocketLauncherPickup
+36.34	I	22	ShockRiflePickup
+37.39	K	23	DamTypeFlakChunk	21	FlakCannon
+37.39	S	23	1.00	frag
+39.94	I	20	LinkGunPickup
+40.32	I	22	HealthPack
+40.83	I	21	LinkGunPickup
+42.50	I	20	HealthPack
+43.06	I	24	ShockRiflePickup
+46.94	K	20	DamTypeSniperShot	23	FlakCannon
+46.94	S	20	1.00	frag
+47.61	I	24	MiniHealthPack
+47.89	I	24	MiniHealthPack
+48.93	I	24	UDamagePack
+49.48	K	22	DamTypeShockBeam	24	LinkGun
+49.48	S	22	1.00	frag
+49.97	I	23	FlakCannonPickup
+50.47	K	21	DamTypeLinkPlasma	22	ShockRifle
+50.47	S	21	1.00	frag
+50.53	I	23	FlakAmmoPickup
+50.69	I	20	MinigunPickup
+51.25	I	20	MinigunAmmoPickup
+51.53	I	24	LinkGunPickup
+52.58	I	21	ShockRiflePickup
+53.25	I	22	SniperRiflePickup
+54.13	I	23	MiniHealthPack
+54.46	I	23	MiniHealthPack
+54.80	I	23	MiniHealthPack
+54.85	I	20	ShieldPack
+57.34	I	24	ShockRiflePickup
+57.67	I	23	SniperRiflePickup
+59.22	K	23	DamTypeFlakChunk	22	SniperRifle
+59.22	S	23	1.00	frag
+60.05	PP	19	72
+61.10	K	23	DamTypeFlakChunk	20	SniperRifle
+61.10	S	23	1.00	frag
+61.93	I	21	SuperShieldPack
+64.08	I	20	LinkGunPickup
+64.70	I	22	SniperAmmoPickup
+65.25	I	22	SniperRiflePickup
+65.59	I	23	ShockRiflePickup
+66.20	I	24	RocketLauncherPickup
+68.58	I	21	RocketLauncherPickup
+68.75	K	20	DamTypeLinkShaft	21	ShockRifle
+68.75	S	20	1.00	frag
+68.86	I	20	RocketLauncherPickup
+69.30	K	20	DamTypeLinkShaft	24	ShockRifle
+69.30	S	20	1.00	frag
+69.52	I	22	ShockRiflePickup
+70.80	K	22	DamTypeSniperHeadShot	23	ShockRifle
+70.80	S	22	1.00	frag
+71.08	I	20	ShockRiflePickup
+71.41	I	24	SniperRiflePickup
+73.67	I	23	FlakCannonPickup
+74.60	I	21	BioRiflePickup
+74.93	I	24	MiniHealthPack
+75.38	I	24	MiniHealthPack
+75.93	I	24	MiniHealthPack
+76.37	I	22	HealthPack
+81.18	I	21	ShockRiflePickup
+82.18	K	20	DamTypeShockBall	22	SniperRifle
+82.18	S	20	1.00	frag
+83.01	K	21	DamTypeBioGlob	20	ShockRifle
+83.01	S	21	1.00	frag
+83.29	I	23	SniperRiflePickup
+84.07	I	21	ShockAmmoPickup
+84.40	I	24	ShockAmmoPickup
+84.90	I	24	ShockRiflePickup
+85.18	I	22	FlakCannonPickup
+85.57	I	22	FlakAmmoPickup
+87.61	I	23	ShieldPack
+88.05	K	21	DamTypeShockBall	24	SniperRifle
+88.05	S	21	1.00	frag
+88.61	I	20	RocketLauncherPickup
+89.33	I	21	SniperRiflePickup
+90.05	PP	19	48
+90.44	I	23	MinigunAmmoPickup
+90.88	I	23	MinigunPickup
+90.99	I	24	BioRiflePickup
+91.38	I	21	AdrenalinePickup
+91.54	I	22	MiniHealthPack
+91.82	I	22	MiniHealthPack
+91.87	I	21	AdrenalinePickup
+92.15	I	22	MiniHealthPack
+92.42	I	21	AdrenalinePickup
+92.87	I	24	MiniHealthPack
+93.59	I	20	LinkGunPickup
+93.87	I	23	RocketLauncherPickup
+94.03	I	20	LinkAmmoPickup
+94.42	I	20	LinkAmmoPickup
+95.03	I	21	FlakAmmoPickup
+95.08	I	22	SniperRiflePickup
+95.69	I	21	FlakCannonPickup
+98.95	I	21	MiniHealthPack
+99.07	I	23	LinkGunPickup
+99.29	I	21	MiniHealthPack
+99.34	I	24	RocketLauncherPickup
+99.40	I	22	ShockRiflePickup
+99.62	I	21	MiniHealthPack
+102.01	I	21	HealthPack
+103.23	K	24	DamTypeRocket	20	LinkGun
+103.23	S	24	1.00	frag
+104.17	I	24	LinkGunPickup
+105.06	I	21	RocketLauncherPickup
+106.05	I	20	FlakCannonPickup
+106.99	K	24	DamTypeRocket	23	FlakCannon
+106.99	S	24	1.00	frag
+109.15	I	24	FlakCannonPickup
+109.37	I	23	LinkGunPickup
+111.42	I	22	RocketLauncherPickup
+111.92	I	23	MiniHealthPack
+112.53	I	23	MiniHealthPack
+112.70	K	21	DamTypeRocket	24	RocketLauncher
+112.70	S	21	1.00	frag
+112.97	I	21	LinkGunPickup
+113.08	K	20	DamTypeFlakChunk	21	RocketLauncher
+113.08	S	20	1.00	frag
+113.19	I	23	MiniHealthPack
+113.80	I	23	MiniHealthPack
+114.86	I	22	RocketAmmoPickup
+115.20	I	22	RocketAmmoPickup
+115.42	I	24	BioRiflePickup
+115.53	I	20	RocketLauncherPickup
+116.42	I	20	LinkGunPickup
+116.75	I	21	ShockRiflePickup
+120.08	PP	19	36
+121.29	I	24	RocketLauncherPickup
+122.17	I	21	HealthPack
+125.64	I	23	ShockRiflePickup
+126.92	I	22	LinkGunPickup
+130.82	K	22	DamTypeRocket	24	BioRifle
+130.82	S	22	1.00	frag
+Close TcpipConnection 192.168.200.140:63026 08/24/13 17:53:31
+130.99	K	19	Suicided	19	AssaultRifle
+130.99	S	19	-1.00	self_frag
+130.99	D	19
+133.10	I	24	BioRiflePickup
+133.49	I	20	BioRiflePickup
+133.72	C	25	Abaddon
+133.72	G	NameChange	25	[BOT]Abaddon
+133.72	BI	25	3.00	0.00	0.20	0.40	0.50	0.20	1.00	1.00	0.00	Minigun
+133.72	I	25	FlakCannonPickup
+134.22	I	25	FlakAmmoPickup
+134.33	K	20	DamTypeLinkShaft	23	LinkGun
+134.33	S	20	1.00	frag
+134.95	I	24	MiniHealthPack
+136.18	I	24	LinkGunPickup
+136.46	I	20	SuperShieldPack
+137.51	I	21	LinkGunPickup
+137.57	K	20	DamTypeLinkShaft	24	LinkGun
+137.57	S	20	1.00	frag
+138.80	I	23	RocketLauncherPickup
+140.30	I	24	ShockRiflePickup
+140.36	I	25	MiniHealthPack
+140.68	I	25	MiniHealthPack
+141.01	I	25	MiniHealthPack
+143.80	I	24	MiniHealthPack
+143.86	I	25	SniperRiflePickup
+143.91	I	23	LinkGunPickup
+144.41	I	24	MiniHealthPack
+144.52	I	25	SniperAmmoPickup
+145.75	I	20	ShockRiflePickup
+147.47	I	24	UDamagePack
+150.08	K	21	DamTypeLinkShaft	24	ShockRifle
+150.08	S	21	1.00	frag
+150.70	K	20	DamTypeShockBall	21	LinkGun
+150.70	S	20	1.00	frag

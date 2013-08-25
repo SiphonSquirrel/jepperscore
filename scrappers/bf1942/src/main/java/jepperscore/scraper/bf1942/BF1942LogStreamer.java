@@ -38,7 +38,7 @@ import org.xml.sax.SAXException;
  * @author Chuck
  *
  */
-public class LogStreamer implements Runnable {
+public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Constant for the event type attribute.
@@ -49,7 +49,7 @@ public class LogStreamer implements Runnable {
 	 * The log for this class.
 	 */
 	private final static Logger LOG = LoggerFactory
-			.getLogger(LogStreamer.class);
+			.getLogger(BF1942LogStreamer.class);
 
 	/**
 	 * The log stream.
@@ -105,7 +105,7 @@ public class LogStreamer implements Runnable {
 	 * @param scoreManager
 	 *            The {@link ScoreManager} to use.
 	 */
-	public LogStreamer(@Nonnull InputStream stream, @Nonnull Session session,
+	public BF1942LogStreamer(@Nonnull InputStream stream, @Nonnull Session session,
 			@Nonnull MessageProducer producer, PlayerManager playerManager,
 			ScoreManager scoreManager) {
 		this.stream = stream;

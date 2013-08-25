@@ -10,6 +10,7 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
 
+import jepperscore.dao.model.ServerMetadata;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 import jepperscore.scraper.common.query.QueryClientListener;
 
@@ -120,7 +121,37 @@ public class GamespyQueryClientTest {
 		gotReponse = false;
 
 		final GamespyQueryClient queryClient = new GamespyQueryClient(
-				"localhost", server.getPort(), null);
+				"localhost", server.getPort());
+		queryClient.registerMessageSplitter("info", new GamespyMessageSplitter() {
+
+			@Override
+			public GamespyQueryCallbackInfo splitMessage(String queryType,
+					String[] messageArray) {
+				ServerMetadata serverMetadata = new ServerMetadata();
+
+				for (int i = 1; i < (messageArray.length - 1); i += 2) {
+					String key = messageArray[i];
+					String value = messageArray[i + 1];
+
+					switch (key) {
+					case "hostname":
+						serverMetadata.setServerName(value);
+						break;
+					case "final":
+					case "queryid":
+						break;
+					default:
+						serverMetadata.getMetadata().put(key, value);
+						break;
+					}
+				}
+
+				GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
+				info.setServerMetadata(serverMetadata);
+
+				return info;
+			}
+		});
 		queryClient.registerListener("info", new QueryClientListener() {
 
 			@Override

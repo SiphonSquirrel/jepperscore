@@ -82,6 +82,11 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	private Collection<Score> scores = new LinkedList<Score>();
 
 	/**
+	 * Wipe players on a new round?
+	 */
+	private boolean wipePlayers = true;
+
+	/**
 	 * Constructor for the player manager.
 	 *
 	 * @param session
@@ -95,6 +100,16 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 		this.producer = producer;
 
 		newRound();
+	}
+
+	@Override
+	public void setWipePlayersOnNewRound(boolean wipePlayers) {
+		this.wipePlayers = wipePlayers;
+	}
+
+	@Override
+	public boolean isWipePlayersOnNewRound() {
+		return this.wipePlayers;
 	}
 
 	/**
@@ -188,7 +203,9 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	public synchronized void newRound() {
 		if ((currentRound == null) || !players.isEmpty() || !teams.isEmpty()
 				|| !scores.isEmpty()) {
-			players.clear();
+			if (wipePlayers) {
+				players.clear();
+			}
 			teams.clear();
 			scores.clear();
 

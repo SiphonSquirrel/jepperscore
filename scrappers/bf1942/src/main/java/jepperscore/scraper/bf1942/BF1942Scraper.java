@@ -6,6 +6,8 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -30,9 +32,11 @@ import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
-import jepperscore.scraper.common.query.QueryClient;
 import jepperscore.scraper.common.query.QueryClientListener;
+import jepperscore.scraper.common.query.gamespy.GamespyMessageSplitter;
+import jepperscore.scraper.common.query.gamespy.GamespyQueryCallbackInfo;
 import jepperscore.scraper.common.query.gamespy.GamespyQueryClient;
+import jepperscore.scraper.common.query.gamespy.GamespyQueryUtil;
 import jepperscore.scraper.common.rcon.RconClient;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -53,7 +57,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 	 * @author Chuck
 	 *
 	 */
-	private class BF1942InfoQueryListener implements QueryClientListener {
+	private class BF1942QueryListener implements QueryClientListener,
+			GamespyMessageSplitter {
 
 		/**
 		 * This producer is used to send messages from the query client.
@@ -66,7 +71,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 		 * @throws JMSException
 		 *             When there is a problem creating the producer.
 		 */
-		public BF1942InfoQueryListener() throws JMSException {
+		public BF1942QueryListener() throws JMSException {
 			producer = session.createProducer(eventTopic);
 		}
 
@@ -143,6 +148,92 @@ public class BF1942Scraper implements Scraper, Runnable {
 				dataManager.provideScoreRecord(score);
 			}
 		}
+
+		@Override
+		public GamespyQueryCallbackInfo splitMessage(String queryType,
+				String[] messageArray) {
+			switch (queryType) {
+			case "info":
+				return handleInfo(messageArray);
+			case "players":
+				return handlePlayers(messageArray);
+			default:
+				LOG.error("Unsure how to handle " + queryType);
+				return null;
+			}
+		}
+
+		/**
+		 * Handles the info callback.
+		 *
+		 * @param messageArray
+		 *            The message.
+		 * @return The callback info.
+		 */
+		private GamespyQueryCallbackInfo handleInfo(String[] messageArray) {
+			ServerMetadata serverMetadata = new ServerMetadata();
+
+			for (int i = 1; i < (messageArray.length - 1); i += 2) {
+				String key = messageArray[i];
+				String value = messageArray[i + 1];
+
+				switch (key) {
+				case "hostname":
+					serverMetadata.setServerName(value);
+					break;
+				case "final":
+				case "queryid":
+					break;
+				default:
+					serverMetadata.getMetadata().put(key, value);
+					break;
+				}
+			}
+
+			GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
+			info.setServerMetadata(serverMetadata);
+
+			return info;
+		}
+
+		/**
+		 * Handles the players callback.
+		 *
+		 * @param messageArray
+		 *            The message.
+		 * @return The callback info.
+		 */
+		private GamespyQueryCallbackInfo handlePlayers(String[] messageArray) {
+			Map<String, Map<String, String>> playerInfo = GamespyQueryUtil
+					.parsePlayers(messageArray, 1, new String[] { "teamname" });
+
+			List<Score> scores = new LinkedList<Score>();
+
+			for (Map<String, String> playerProperties : playerInfo.values()) {
+				String name = playerProperties.get("playername");
+				String scoreStr = playerProperties.get("score");
+				if ((name != null) && (scoreStr != null)) {
+					try {
+						float scoreValue = Float.parseFloat(scoreStr);
+
+						Alias player = dataManager.getPlayerByName(name);
+						if (player != null) {
+							Score score = new Score();
+							score.setAlias(player);
+							score.setScore(scoreValue);
+
+							scores.add(score);
+						}
+					} catch (NumberFormatException e) {
+					}
+				}
+			}
+
+			GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
+			info.setScores(scores);
+
+			return info;
+		}
 	}
 
 	/**
@@ -179,7 +270,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 	/**
 	 * The query client.
 	 */
-	private QueryClient queryClient;
+	private GamespyQueryClient queryClient;
 
 	/**
 	 * The ActiveMQ connection.
@@ -277,16 +368,19 @@ public class BF1942Scraper implements Scraper, Runnable {
 			try {
 				LOG.info("Starting query client on {}:{}", new Object[] { host,
 						queryPort });
-				queryClient = new GamespyQueryClient(host, queryPort,
-						dataManager);
+				queryClient = new GamespyQueryClient(host, queryPort);
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
 				status = ScraperStatus.InError;
 				return;
 			}
 			try {
-				BF1942InfoQueryListener queryListener = new BF1942InfoQueryListener();
+				BF1942QueryListener queryListener = new BF1942QueryListener();
+
+				queryClient.registerMessageSplitter("info", queryListener);
 				queryClient.registerListener("info", queryListener);
+
+				queryClient.registerMessageSplitter("players", queryListener);
 				queryClient.registerListener("players", queryListener);
 			} catch (JMSException e) {
 				LOG.error(e.getMessage(), e);
@@ -350,7 +444,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 							try {
 								is = new FileInputStream(logFile);
-								LogStreamer streamer = new LogStreamer(is,
+								BF1942LogStreamer streamer = new BF1942LogStreamer(is,
 										session,
 										session.createProducer(eventTopic),
 										dataManager, dataManager);

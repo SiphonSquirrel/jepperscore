@@ -37,7 +37,7 @@ import jepperscore.dao.DaoConstant;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.transport.TransportMessage;
-import jepperscore.scraper.bf1942.LogStreamer;
+import jepperscore.scraper.bf1942.BF1942LogStreamer;
 import jepperscore.scraper.common.ActiveMQDataManager;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -100,7 +100,7 @@ public class LogStreamerTest {
 	}
 
 	/**
-	 * Test method for {@link jepperscore.scraper.bf1942.LogStreamer}.
+	 * Test method for {@link jepperscore.scraper.bf1942.BF1942LogStreamer}.
 	 *
 	 * @throws Exception
 	 *             If a problem occurs during the test.
@@ -124,7 +124,7 @@ public class LogStreamerTest {
 		ActiveMQDataManager dataManager = new ActiveMQDataManager(session,
 				session.createProducer(eventTopic));
 
-		LogStreamer ls = new LogStreamer(is, session,
+		BF1942LogStreamer ls = new BF1942LogStreamer(is, session,
 				session.createProducer(eventTopic), dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
@@ -284,7 +284,7 @@ public class LogStreamerTest {
 	}
 
 	/**
-	 * Test method for {@link jepperscore.scraper.bf1942.LogStreamer}.
+	 * Test method for {@link jepperscore.scraper.bf1942.BF1942LogStreamer}.
 	 *
 	 * @throws Exception
 	 *             If a problem occurs during the test.
@@ -330,7 +330,7 @@ public class LogStreamerTest {
 
 		ActiveMQDataManager dataManager = new ActiveMQDataManager(session,
 				session.createProducer(eventTopic));
-		LogStreamer ls = new LogStreamer(is, session,
+		BF1942LogStreamer ls = new BF1942LogStreamer(is, session,
 				session.createProducer(eventTopic), dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();

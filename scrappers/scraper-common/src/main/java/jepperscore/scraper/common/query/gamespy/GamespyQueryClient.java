@@ -7,15 +7,9 @@ import java.net.InetAddress;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import jepperscore.dao.model.Alias;
-import jepperscore.dao.model.Score;
-import jepperscore.dao.model.ServerMetadata;
-import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.query.AbstractQueryClient;
 
 import org.slf4j.Logger;
@@ -62,9 +56,9 @@ public class GamespyQueryClient extends AbstractQueryClient {
 	private DatagramSocket socket;
 
 	/**
-	 * The player manager.
+	 * Registered message splitters.
 	 */
-	private PlayerManager playerManager;
+	private Map<String, GamespyMessageSplitter> splitters = new HashMap<String, GamespyMessageSplitter>();
 
 	/**
 	 * This constructor sets up the query client.
@@ -73,20 +67,40 @@ public class GamespyQueryClient extends AbstractQueryClient {
 	 *            The host to query.
 	 * @param port
 	 *            The port to query.
-	 * @param playerManager
-	 *            The player manager to use.
 	 * @throws IOException
 	 *             Thrown when there is a problem setting up the socket.
 	 */
-	public GamespyQueryClient(String host, int port, PlayerManager playerManager)
+	public GamespyQueryClient(String host, int port)
 			throws IOException {
 		this.port = port;
-		this.playerManager = playerManager;
 
 		address = InetAddress.getByName(host);
 		socket = new DatagramSocket();
 
 		setCharset(StandardCharsets.UTF_8);
+	}
+
+	/**
+	 * Registers a splitter.
+	 *
+	 * @param queryType
+	 *            The query type to split.
+	 * @param splitter
+	 *            The splitter.
+	 */
+	public void registerMessageSplitter(String queryType,
+			GamespyMessageSplitter splitter) {
+		splitters.put(queryType, splitter);
+	}
+
+	/**
+	 * Unregisters a message splitter.
+	 *
+	 * @param queryType
+	 *            The query type to unregister.
+	 */
+	public void unregisterMessageSplitter(String queryType) {
+		splitters.remove(queryType);
 	}
 
 	@Override
@@ -137,126 +151,20 @@ public class GamespyQueryClient extends AbstractQueryClient {
 			String message = entireMessage.toString();
 			String[] messageArray = message.split("\\\\");
 
-			GamespyQueryCallbackInfo info = null;
+			GamespyMessageSplitter splitter = splitters.get(queryType);
+			if (splitter != null) {
+				GamespyQueryCallbackInfo info = splitter.splitMessage(queryType, messageArray);
 
-			switch (queryType) {
-			case "info":
-				info = handleInfo(messageArray);
-				break;
-			case "players":
-				info = handlePlayers(messageArray);
-				break;
-			default:
+				if (info != null) {
+					info.setRawResponse(message);
+					makeCallbacks(queryType, info);
+				}
+			} else {
 				LOG.error("Unsure how to handle query type: " + queryType);
-				break;
-			}
-
-			if (info != null) {
-				info.setRawResponse(message);
-				makeCallbacks(queryType, info);
 			}
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
-	}
-
-	/**
-	 * Handles the info callback.
-	 *
-	 * @param messageArray
-	 *            The message.
-	 * @return The callback info.
-	 */
-	private GamespyQueryCallbackInfo handleInfo(String[] messageArray) {
-		ServerMetadata serverMetadata = new ServerMetadata();
-
-		for (int i = 1; i < (messageArray.length - 1); i += 2) {
-			String key = messageArray[i];
-			String value = messageArray[i + 1];
-
-			switch (key) {
-			case "hostname":
-				serverMetadata.setServerName(value);
-				break;
-			case "final":
-			case "queryid":
-				break;
-			default:
-				serverMetadata.getMetadata().put(key, value);
-				break;
-			}
-		}
-
-		GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
-		info.setServerMetadata(serverMetadata);
-
-		return info;
-	}
-
-	/**
-	 * Handles the players callback.
-	 *
-	 * @param messageArray
-	 *            The message.
-	 * @return The callback info.
-	 */
-	private GamespyQueryCallbackInfo handlePlayers(String[] messageArray) {
-		Map<String, Map<String, String>> playerInfo = new HashMap<String, Map<String, String>>();
-
-		for (int i = 1; i < (messageArray.length - 1); i += 2) {
-			String key = messageArray[i];
-			String value = messageArray[i + 1];
-			String index = "";
-
-			Map<String, String> playerProperties = null;
-
-			int pos = key.lastIndexOf("_");
-			if (pos > 0) {
-				index = key.substring(pos + 1);
-				key = key.substring(0, pos);
-
-				if (!key.equals("teamname")) {
-					playerProperties = playerInfo.get(index);
-					if (playerProperties == null) {
-						playerProperties = new HashMap<String, String>();
-						playerInfo.put(index, playerProperties);
-					}
-				} else {
-					continue;
-				}
-			} else {
-				continue;
-			}
-
-			playerProperties.put(key, value);
-		}
-
-		List<Score> scores = new LinkedList<Score>();
-
-		for (Map<String, String> playerProperties : playerInfo.values()) {
-			String name = playerProperties.get("playername");
-			String scoreStr = playerProperties.get("score");
-			if ((name != null) && (scoreStr != null)) {
-				try {
-					float scoreValue = Float.parseFloat(scoreStr);
-
-					Alias player = playerManager.getPlayerByName(name);
-					if (player != null) {
-						Score score = new Score();
-						score.setAlias(player);
-						score.setScore(scoreValue);
-
-						scores.add(score);
-					}
-				} catch (NumberFormatException e) {
-				}
-			}
-		}
-
-		GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
-		info.setScores(scores);
-
-		return info;
 	}
 
 	/**

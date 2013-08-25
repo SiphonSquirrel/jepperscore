@@ -44,4 +44,14 @@ public interface PlayerManager extends BaseDataManager {
 	 */
 	@CheckForNull
 	Alias getPlayerByName(@Nonnull String name);
+
+	/**
+	 * @param wipePlayers True to reset the player list on a new round (the default).
+	 */
+	void setWipePlayersOnNewRound(boolean wipePlayers);
+
+	/**
+	 * @return True to reset the player list on a new round (the default).
+	 */
+	boolean isWipePlayersOnNewRound();
 }
