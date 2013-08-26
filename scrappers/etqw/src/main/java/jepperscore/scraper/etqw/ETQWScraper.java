@@ -1,7 +1,9 @@
 package jepperscore.scraper.etqw;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 
 import javax.annotation.Nonnegative;
@@ -64,9 +66,9 @@ public class ETQWScraper implements Scraper, Runnable {
 	private volatile ScraperStatus status = ScraperStatus.NotRunning;
 
 	/**
-	 * The log directory to watch.
+	 * The log file to watch.
 	 */
-	private String logDirectory;
+	private String logFile;
 
 	/**
 	 * The host to query.
@@ -106,15 +108,15 @@ public class ETQWScraper implements Scraper, Runnable {
 	/**
 	 * The player manager to use.
 	 */
-	private ActiveMQDataManager dataManager;
+	private volatile ActiveMQDataManager dataManager;
 
 	/**
 	 * This constructor sets the ETQW scraper.
 	 *
 	 * @param activeMqConnection
 	 *            The connection string to use for ActiveMQ.
-	 * @param logDirectory
-	 *            The directory containing the log files.
+	 * @param logFile
+	 *            The log file.
 	 * @param host
 	 *            The hostname of the server.
 	 * @param queryPort
@@ -123,9 +125,9 @@ public class ETQWScraper implements Scraper, Runnable {
 	 *             When a problem occurs connecting to ActiveMQ.
 	 */
 	public ETQWScraper(@Nonnull String activeMqConnection,
-			@Nonnull String logDirectory, @Nonnull String host,
+			@Nonnull String logFile, @Nonnull String host,
 			@Nonnegative int queryPort) throws JMSException {
-		this.logDirectory = logDirectory;
+		this.logFile = logFile;
 		this.host = host;
 		this.queryPort = queryPort;
 
@@ -148,7 +150,7 @@ public class ETQWScraper implements Scraper, Runnable {
 		if (thread == null) {
 			status = ScraperStatus.Initializing;
 
-			if (!new File(logDirectory).exists()) {
+			if (!new File(logFile).exists()) {
 				LOG.error("Log directory does not exist.");
 				status = ScraperStatus.InError;
 				return;
@@ -206,7 +208,11 @@ public class ETQWScraper implements Scraper, Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		try (InputStream is = new FileInputStream(logFile)) {
+			ETQWLogParser parser = new ETQWLogParser(is, session, session.createProducer(eventTopic), dataManager);
+			parser.run();
+		} catch (IOException | JMSException e) {
+			LOG.error(e.getMessage(), e);
+		}
 	}
 }
