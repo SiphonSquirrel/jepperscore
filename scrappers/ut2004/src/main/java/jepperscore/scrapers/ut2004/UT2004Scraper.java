@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -23,6 +23,7 @@ import jepperscore.dao.model.Game;
 import jepperscore.dao.model.Round;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
+import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.common.ActiveMQDataManager;
 import jepperscore.scraper.common.MessageUtil;
@@ -145,7 +146,7 @@ public class UT2004Scraper implements Scraper, Runnable {
 				String value = messageArray[i + 1];
 
 				if (key.startsWith("player_")) {
-					info.setScores(parsePlayers(messageArray, i, "player"));
+					parseScores(info, messageArray, i, "player");
 					break;
 				}
 
@@ -174,42 +175,48 @@ public class UT2004Scraper implements Scraper, Runnable {
 		 */
 		private GamespyQueryCallbackInfo handleBots(String[] messageArray) {
 			GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
-			info.setScores(parsePlayers(messageArray, 1, "bot"));
+			parseScores(info, messageArray, 1, "bot");
 			return info;
 		}
 
 		/**
 		 * This function parses the players.
 		 *
+		 * @param info
+		 *            The info to update.
 		 * @param messageArray
 		 *            The message array to parse.
 		 * @param startIndex
 		 *            the index to start from.
 		 * @param nameField
 		 *            The field to use for a player's name.
-		 * @return The list of players.
 		 */
-		private Collection<Score> parsePlayers(String[] messageArray,
-				int startIndex, String nameField) {
+		private void parseScores(GamespyQueryCallbackInfo info,
+				String[] messageArray, int startIndex, String nameField) {
 
 			Map<String, Map<String, String>> playerInfo = GamespyQueryUtil
 					.parsePlayers(messageArray, startIndex);
 
 			List<Score> scores = new LinkedList<Score>();
+			List<Alias> players = new LinkedList<Alias>();
 
 			for (Map<String, String> playerProperties : playerInfo.values()) {
 				String name = playerProperties.get(nameField);
 				String scoreStr = playerProperties.get("frags");
-				if ((name != null) && (scoreStr != null)) {
+				String team = playerProperties.get("team");
+
+				if ((name != null) && (scoreStr != null) && (team != null)) {
 					try {
 						float scoreValue = Float.parseFloat(scoreStr);
 
 						Alias player = dataManager.getPlayerByName(name);
 						if (player != null) {
+							player.setTeam(dataManager.getTeamById(team));
+							players.add(player);
+
 							Score score = new Score();
 							score.setAlias(player);
 							score.setScore(scoreValue);
-
 							scores.add(score);
 						}
 					} catch (NumberFormatException e) {
@@ -217,7 +224,8 @@ public class UT2004Scraper implements Scraper, Runnable {
 				}
 			}
 
-			return scores;
+			info.setScores(scores);
+			info.setPlayers(players);
 		}
 
 		/**
@@ -229,6 +237,29 @@ public class UT2004Scraper implements Scraper, Runnable {
 		 */
 		private GamespyQueryCallbackInfo handleTeams(String[] messageArray) {
 			GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
+
+			Map<String, Map<String, String>> teamInfo = GamespyQueryUtil
+					.parsePlayers(messageArray, 1);
+
+			for (Entry<String, Map<String, String>> teamEntry : teamInfo
+					.entrySet()) {
+				Map<String, String> teamProperties = teamEntry.getValue();
+				String teamName = teamProperties.get("team");
+				String scoreStr = teamProperties.get("score");
+
+				try {
+					float score = Float.parseFloat(scoreStr);
+
+					Team team = new Team();
+					team.setTeamName(teamName);
+					team.setScore(score);
+
+					dataManager.provideTeamRecord(teamEntry.getKey(), team);
+				} catch (NumberFormatException e) {
+					// Do nothing
+				}
+			}
+
 			return info;
 		}
 
@@ -403,7 +434,8 @@ public class UT2004Scraper implements Scraper, Runnable {
 	@Override
 	public void run() {
 		try (InputStream is = new FileInputStream(logFile)) {
-			UT2004LogParser parser = new UT2004LogParser(is, session, session.createProducer(eventTopic), dataManager);
+			UT2004LogParser parser = new UT2004LogParser(is, session,
+					session.createProducer(eventTopic), dataManager);
 			parser.run();
 		} catch (IOException | JMSException e) {
 			LOG.error(e.getMessage(), e);

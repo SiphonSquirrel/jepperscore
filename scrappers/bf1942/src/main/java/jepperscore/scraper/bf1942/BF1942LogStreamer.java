@@ -23,6 +23,7 @@ import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.ScoreManager;
+import jepperscore.scraper.common.TeamManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,6 +93,11 @@ public class BF1942LogStreamer implements Runnable {
 	private ScoreManager scoreManager;
 
 	/**
+	 * The team manager.
+	 */
+	private TeamManager teamManager;
+
+	/**
 	 * This constructor points the log streamer at a log file.
 	 *
 	 * @param stream
@@ -104,15 +110,19 @@ public class BF1942LogStreamer implements Runnable {
 	 *            The {@link PlayerManager} to use.
 	 * @param scoreManager
 	 *            The {@link ScoreManager} to use.
+	 * @param teamManager
+	 *            The {@link TeamManager} to use.
 	 */
-	public BF1942LogStreamer(@Nonnull InputStream stream, @Nonnull Session session,
-			@Nonnull MessageProducer producer, PlayerManager playerManager,
-			ScoreManager scoreManager) {
+	public BF1942LogStreamer(@Nonnull InputStream stream,
+			@Nonnull Session session, @Nonnull MessageProducer producer,
+			PlayerManager playerManager, ScoreManager scoreManager,
+			TeamManager teamManager) {
 		this.stream = stream;
 		this.session = session;
 		this.producer = producer;
 		this.playerManager = playerManager;
 		this.scoreManager = scoreManager;
+		this.teamManager = teamManager;
 		this.charset = StandardCharsets.ISO_8859_1;
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -380,13 +390,7 @@ public class BF1942LogStreamer implements Runnable {
 				newPlayer.setId(playerId);
 				newPlayer.setBot(false);
 				newPlayer.setName(playerName);
-				if ("1".equals(team)) {
-					newPlayer.setTeam(new Team(BF1942Constants.AXIS_TEAM));
-				} else if ("2".equals(team)) {
-					newPlayer.setTeam(new Team(BF1942Constants.ALLIED_TEAM));
-				} else {
-					LOG.warn("Unrecognized team: " + team);
-				}
+				newPlayer.setTeam(teamManager.getTeamById(team));
 
 				playerManager.providePlayerRecord(newPlayer);
 			}

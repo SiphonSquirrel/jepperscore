@@ -74,7 +74,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	/**
 	 * The teams.
 	 */
-	private Collection<Team> teams = new LinkedList<Team>();
+	private Map<String, Team> teams = new HashMap<String,Team>();
 
 	/**
 	 * The scores.
@@ -470,13 +470,17 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	}
 
 	@Override
-	public synchronized Team provideTeamRecord(Team team) {
+	public synchronized Team provideTeamRecord(String id, Team team) {
 		boolean changeDetected = false;
 
-		Team oldTeam = getTeamByName(team.getTeamName());
+		Team oldTeam = teams.get(id);
+		if (oldTeam == null) {
+			oldTeam = getTeamByName(team.getTeamName());
+		}
+
 		if (oldTeam == null) {
 			oldTeam = team.copy();
-			teams.add(oldTeam);
+			teams.put(id, oldTeam);
 			changeDetected = true;
 		} else {
 			String teamName = team.getTeamName();
@@ -502,9 +506,14 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	}
 
 	@Override
+	public synchronized Team getTeamById(String id) {
+		return teams.get(id);
+	}
+
+	@Override
 	public synchronized Team getTeamByName(String name) {
-		for (Team t : teams) {
-			if (name.equals(t.getTeamName())) {
+		for (Team t : teams.values()) {
+			if (name.equalsIgnoreCase(t.getTeamName())) {
 				return t;
 			}
 		}

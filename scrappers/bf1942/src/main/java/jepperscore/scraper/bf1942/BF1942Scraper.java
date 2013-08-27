@@ -86,8 +86,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 				Map<String, String> metadata = serverMetadata.getMetadata();
 				if (metadata != null) {
 					String gametype = metadata.get("gametype");
-					String axisTicketsStr = metadata.get("tickets1");
-					String alliedTicketsStr = metadata.get("tickets2");
+					String tickets1Str = metadata.get("tickets1");
+					String tickets2Str = metadata.get("tickets2");
 					String map = metadata.get("mapname");
 
 					Game game = new Game();
@@ -102,31 +102,27 @@ public class BF1942Scraper implements Scraper, Runnable {
 						dataManager.provideRoundRecord(round);
 					}
 
-					if (axisTicketsStr != null) {
+					if (tickets1Str != null) {
 						try {
-							float axisTickets = Float
-									.parseFloat(axisTicketsStr);
+							float tickets = Float.parseFloat(tickets1Str);
 
-							Team axisTeam = new Team();
-							axisTeam.setTeamName(BF1942Constants.AXIS_TEAM);
-							axisTeam.setScore(axisTickets);
+							Team team = new Team();
+							team.setScore(tickets);
 
-							dataManager.provideTeamRecord(axisTeam);
+							dataManager.provideTeamRecord("1", team);
 						} catch (NumberFormatException e) {
 							// Do nothing.
 						}
 					}
 
-					if (alliedTicketsStr != null) {
+					if (tickets2Str != null) {
 						try {
-							float alliedTickets = Float
-									.parseFloat(alliedTicketsStr);
+							float tickets = Float.parseFloat(tickets2Str);
 
-							Team alliedTeam = new Team();
-							alliedTeam.setTeamName(BF1942Constants.ALLIED_TEAM);
-							alliedTeam.setScore(alliedTickets);
+							Team team = new Team();
+							team.setScore(tickets);
 
-							dataManager.provideTeamRecord(alliedTeam);
+							dataManager.provideTeamRecord("2", team);
 						} catch (NumberFormatException e) {
 							// Do nothing.
 						}
@@ -204,6 +200,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 		 * @return The callback info.
 		 */
 		private GamespyQueryCallbackInfo handlePlayers(String[] messageArray) {
+			GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
+
 			Map<String, Map<String, String>> playerInfo = GamespyQueryUtil
 					.parsePlayers(messageArray, 1, new String[] { "teamname" });
 
@@ -229,7 +227,30 @@ public class BF1942Scraper implements Scraper, Runnable {
 				}
 			}
 
-			GamespyQueryCallbackInfo info = new GamespyQueryCallbackInfo();
+			for (int i = 1; i < messageArray.length; i++) {
+				switch (messageArray[i]) {
+				case "teamname_0": {
+					Team team = dataManager.getTeamById("1");
+					if (team == null) {
+						team = new Team();
+					}
+					team.setTeamName(messageArray[i + 1]);
+
+					dataManager.provideTeamRecord("1", team);
+				}
+
+				case "teamname_1": {
+					Team team = dataManager.getTeamById("2");
+					if (team == null) {
+						team = new Team();
+					}
+					team.setTeamName(messageArray[i + 1]);
+
+					dataManager.provideTeamRecord("2", team);
+				}
+				}
+			}
+
 			info.setScores(scores);
 
 			return info;
@@ -444,10 +465,10 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 							try {
 								is = new FileInputStream(logFile);
-								BF1942LogStreamer streamer = new BF1942LogStreamer(is,
-										session,
+								BF1942LogStreamer streamer = new BF1942LogStreamer(
+										is, session,
 										session.createProducer(eventTopic),
-										dataManager, dataManager);
+										dataManager, dataManager, dataManager);
 
 								logThread = new Thread(streamer);
 								logThread.setDaemon(true);

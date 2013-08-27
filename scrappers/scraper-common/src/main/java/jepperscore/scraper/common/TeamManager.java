@@ -16,10 +16,19 @@ public interface TeamManager extends BaseDataManager {
 	/**
 	 * This function takes a team and merges it with an existing team
 	 * definition.
+	 * @param id The id of the team.
 	 * @param team The team record to merge.
 	 * @return The updated team record.
 	 */
-	Team provideTeamRecord(@Nonnull Team team);
+	Team provideTeamRecord(@Nonnull String id, @Nonnull Team team);
+
+	/**
+	 * Provides the team record by name, null if none has been provided.
+	 * @param id The ID of the team.
+	 * @return The team record.
+	 */
+	@CheckForNull
+	Team getTeamById(@Nonnull String id);
 
 	/**
 	 * Provides the team record by name, null if none has been provided.

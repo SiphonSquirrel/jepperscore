@@ -125,7 +125,7 @@ public class LogStreamerTest {
 				session.createProducer(eventTopic));
 
 		BF1942LogStreamer ls = new BF1942LogStreamer(is, session,
-				session.createProducer(eventTopic), dataManager, dataManager);
+				session.createProducer(eventTopic), dataManager, dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 
@@ -331,7 +331,7 @@ public class LogStreamerTest {
 		ActiveMQDataManager dataManager = new ActiveMQDataManager(session,
 				session.createProducer(eventTopic));
 		BF1942LogStreamer ls = new BF1942LogStreamer(is, session,
-				session.createProducer(eventTopic), dataManager, dataManager);
+				session.createProducer(eventTopic), dataManager, dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 
