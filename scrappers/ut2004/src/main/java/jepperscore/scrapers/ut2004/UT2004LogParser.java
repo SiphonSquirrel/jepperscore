@@ -90,11 +90,15 @@ public class UT2004LogParser extends AbstractLineLogParser {
 						String id = arr[3];
 						String name = arr[4];
 
+						Alias player = new Alias();
 						if (name.startsWith("[BOT]")) {
 							name = name.substring(5);
+							player.setBot(true);
+						}
+						else {
+							player.setBot(false);
 						}
 
-						Alias player = new Alias();
 						player.setId(id);
 						player.setName(name);
 
@@ -117,6 +121,11 @@ public class UT2004LogParser extends AbstractLineLogParser {
 				String attackerId = arr[2];
 				String damageType = arr[3];
 				String vicitimId = arr[4];
+
+				// Suicide
+				if (attackerId == "-1") {
+					attackerId= vicitimId;
+				}
 
 				Alias attacker = playerManager.getPlayer(attackerId);
 				Alias victim = playerManager.getPlayer(vicitimId);
