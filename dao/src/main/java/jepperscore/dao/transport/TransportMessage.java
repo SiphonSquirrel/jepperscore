@@ -200,4 +200,9 @@ public class TransportMessage {
 	public void setTeam(Team team) {
 		this.team = team;
 	}
+
+	@Override
+	public String toString() {
+		return getMessageContent().toString();
+	}
 }

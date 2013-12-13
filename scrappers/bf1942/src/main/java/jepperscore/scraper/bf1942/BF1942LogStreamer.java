@@ -8,19 +8,17 @@ import java.nio.charset.StandardCharsets;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.EventCode;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
-import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.ScoreManager;
 import jepperscore.scraper.common.TeamManager;
@@ -58,14 +56,9 @@ public class BF1942LogStreamer implements Runnable {
 	private InputStream stream;
 
 	/**
-	 * The current ActiveMQ session.
+	 * The message destination.
 	 */
-	private Session session;
-
-	/**
-	 * The current ActiveMQ MessageProducer.
-	 */
-	private MessageProducer producer;
+	private IMessageDestination messageDestination;
 
 	/**
 	 * The {@link Charset} of the file.
@@ -102,10 +95,8 @@ public class BF1942LogStreamer implements Runnable {
 	 *
 	 * @param stream
 	 *            The log stream to watch.
-	 * @param session
-	 *            The ActiveMQ {@link Session} to use.
-	 * @param producer
-	 *            The ActiveMQ {@link MessageProducer} to use.
+	 * @param messageDestination
+	 *            The message destination to use.
 	 * @param playerManager
 	 *            The {@link PlayerManager} to use.
 	 * @param scoreManager
@@ -114,12 +105,11 @@ public class BF1942LogStreamer implements Runnable {
 	 *            The {@link TeamManager} to use.
 	 */
 	public BF1942LogStreamer(@Nonnull InputStream stream,
-			@Nonnull Session session, @Nonnull MessageProducer producer,
+			@Nonnull IMessageDestination messageDestination,
 			PlayerManager playerManager, ScoreManager scoreManager,
 			TeamManager teamManager) {
 		this.stream = stream;
-		this.session = session;
-		this.producer = producer;
+		this.messageDestination = messageDestination;
 		this.playerManager = playerManager;
 		this.scoreManager = scoreManager;
 		this.teamManager = teamManager;
@@ -560,7 +550,7 @@ public class BF1942LogStreamer implements Runnable {
 			TransportMessage transportMessage = new TransportMessage();
 			transportMessage.setEvent(newEvent);
 
-			MessageUtil.sendMessage(producer, session, transportMessage);
+			messageDestination.sendMessage(transportMessage);
 		}
 	}
 

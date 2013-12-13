@@ -8,22 +8,17 @@ import java.util.Collection;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.Session;
-import javax.jms.Topic;
 
-import jepperscore.dao.DaoConstant;
+import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Score;
-import jepperscore.scraper.common.ActiveMQDataManager;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
+import jepperscore.scraper.common.SimpleDataManager;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 import jepperscore.scraper.common.query.QueryClientListener;
 import jepperscore.scraper.common.query.idtech.IdTech4QueryClient;
 import jepperscore.scraper.common.query.idtech.IdTechScoreMode;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,53 +86,34 @@ public class ETQWScraper implements Scraper, Runnable {
 	private IdTech4QueryClient queryClient;
 
 	/**
-	 * The ActiveMQ connection.
+	 * The message destination.
 	 */
-	private final Connection conn;
-
-	/**
-	 * The ActiveMQ session.
-	 */
-	private final Session session;
-
-	/**
-	 * The ActiveMQ topic.
-	 */
-	private final Topic eventTopic;
+	private final IMessageDestination messageDestination;
 
 	/**
 	 * The player manager to use.
 	 */
-	private volatile ActiveMQDataManager dataManager;
+	private volatile SimpleDataManager dataManager;
 
 	/**
 	 * This constructor sets the ETQW scraper.
 	 *
-	 * @param activeMqConnection
-	 *            The connection string to use for ActiveMQ.
+	 * @param messageDestination
+	 *            The message destination to use.
 	 * @param logFile
 	 *            The log file.
 	 * @param host
 	 *            The hostname of the server.
 	 * @param queryPort
 	 *            The query port of the server.
-	 * @throws JMSException
-	 *             When a problem occurs connecting to ActiveMQ.
 	 */
-	public ETQWScraper(@Nonnull String activeMqConnection,
+	public ETQWScraper(@Nonnull IMessageDestination messageDestination,
 			@Nonnull String logFile, @Nonnull String host,
-			@Nonnegative int queryPort) throws JMSException {
+			@Nonnegative int queryPort) {
 		this.logFile = logFile;
 		this.host = host;
 		this.queryPort = queryPort;
-
-		ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
-				activeMqConnection);
-		conn = cf.createConnection();
-		conn.start();
-
-		session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+		this.messageDestination = messageDestination;
 	}
 
 	@Override
@@ -156,14 +132,7 @@ public class ETQWScraper implements Scraper, Runnable {
 				return;
 			}
 
-			try {
-				dataManager = new ActiveMQDataManager(session,
-						session.createProducer(eventTopic));
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-				status = ScraperStatus.InError;
-				return;
-			}
+			dataManager = new SimpleDataManager(messageDestination);
 
 			try {
 				LOG.info("Starting query client on {}:{}", new Object[] { host,
@@ -196,22 +165,14 @@ public class ETQWScraper implements Scraper, Runnable {
 			queryClient.stop();
 			thread = null;
 		}
-
-		if (session != null) {
-			try {
-				session.close();
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-			}
-		}
 	}
 
 	@Override
 	public void run() {
 		try (InputStream is = new FileInputStream(logFile)) {
-			ETQWLogParser parser = new ETQWLogParser(is, session, session.createProducer(eventTopic), dataManager);
+			ETQWLogParser parser = new ETQWLogParser(is, messageDestination, dataManager);
 			parser.run();
-		} catch (IOException | JMSException e) {
+		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
 	}

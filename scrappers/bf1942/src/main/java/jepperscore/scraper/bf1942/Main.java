@@ -1,7 +1,8 @@
 package jepperscore.scraper.bf1942;
 
-import javax.jms.JMSException;
+import java.lang.reflect.InvocationTargetException;
 
+import jepperscore.dao.IMessageDestination;
 import jepperscore.scraper.common.ScraperStatus;
 
 /**
@@ -27,47 +28,57 @@ public class Main {
 
 		}
 
-		String activeMqConnection = args[0];
-		String modDirectory = args[1];
-		String host = args[2];
-		int queryPort = 0; // 3
-		int rconPort = 0; // 4
-		String rconUser = args[5];
-		String rconPassword = args[6];
+		String messageDestinationClass = args[0];
+		String messageDestinationSetup = args[1];
+		String modDirectory = args[2];
+		String host = args[3];
+		int queryPort = 0; // 4
+		int rconPort = 0; // 5
+		String rconUser = args[6];
+		String rconPassword = args[7];
 
+		IMessageDestination messageDestination;
 		try {
-			queryPort = Integer.parseInt(args[3]);
-		} catch (NumberFormatException e) {
-			throw new RuntimeException("Could not parse query port: " + args[3]);
+			messageDestination = (IMessageDestination) Main.class.getClassLoader().loadClass(messageDestinationClass).getConstructor(String.class).newInstance(messageDestinationSetup);
+		} catch (InstantiationException | IllegalAccessException
+				| IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException
+				| ClassNotFoundException e) {
+			throw new RuntimeException(e);
 		}
 
 		try {
-			rconPort = Integer.parseInt(args[4]);
+			queryPort = Integer.parseInt(args[4]);
 		} catch (NumberFormatException e) {
-			throw new RuntimeException("Could not parse RCON port: " + args[4]);
+			throw new RuntimeException("Could not parse query port: " + args[4]);
+		}
+
+		try {
+			rconPort = Integer.parseInt(args[5]);
+		} catch (NumberFormatException e) {
+			throw new RuntimeException("Could not parse RCON port: " + args[5]);
 		}
 
 		if (queryPort <= 0) {
-			throw new RuntimeException("Could not parse port: " + args[3]);
+			throw new RuntimeException("Invalid query port: " + args[4]);
 		}
 
-		try {
-			BF1942Scraper scraper = new BF1942Scraper(activeMqConnection,
-					modDirectory, host, queryPort, rconPort, rconUser,
-					rconPassword);
-
-			scraper.start();
-			do {
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					break;
-				}
-			} while ((scraper.getStatus() != ScraperStatus.NotRunning)
-					&& (scraper.getStatus() != ScraperStatus.InError));
-		} catch (JMSException e) {
-			System.err.println(e.getMessage());
+		if (rconPort <= 0) {
+			throw new RuntimeException("Invalid rcon port: " + args[4]);
 		}
+
+		BF1942Scraper scraper = new BF1942Scraper(messageDestination,
+				modDirectory, host, queryPort, rconPort, rconUser, rconPassword);
+
+		scraper.start();
+		do {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				break;
+			}
+		} while ((scraper.getStatus() != ScraperStatus.NotRunning)
+				&& (scraper.getStatus() != ScraperStatus.InError));
 	}
 
 }

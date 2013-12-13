@@ -11,13 +11,8 @@ import java.util.Map.Entry;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.Topic;
 
-import jepperscore.dao.DaoConstant;
+import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Game;
 import jepperscore.dao.model.Round;
@@ -25,10 +20,9 @@ import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
-import jepperscore.scraper.common.ActiveMQDataManager;
-import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
+import jepperscore.scraper.common.SimpleDataManager;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 import jepperscore.scraper.common.query.QueryClientListener;
 import jepperscore.scraper.common.query.gamespy.GamespyMessageSplitter;
@@ -36,7 +30,6 @@ import jepperscore.scraper.common.query.gamespy.GamespyQueryCallbackInfo;
 import jepperscore.scraper.common.query.gamespy.GamespyQueryClient;
 import jepperscore.scraper.common.query.gamespy.GamespyQueryUtil;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,18 +51,10 @@ public class UT2004Scraper implements Scraper, Runnable {
 			GamespyMessageSplitter {
 
 		/**
-		 * This producer is used to send messages from the query client.
-		 */
-		private MessageProducer producer;
-
-		/**
 		 * Default constructor.
-		 *
-		 * @throws JMSException
-		 *             When there is a problem creating the producer.
 		 */
-		public UT2004QueryListener() throws JMSException {
-			producer = session.createProducer(eventTopic);
+		public UT2004QueryListener() {
+
 		}
 
 		@Override
@@ -78,7 +63,7 @@ public class UT2004Scraper implements Scraper, Runnable {
 			if (serverMetadata != null) {
 				TransportMessage transport = new TransportMessage();
 				transport.setServerMetadata(serverMetadata);
-				MessageUtil.sendMessage(producer, session, transport);
+				messageDestination.sendMessage(transport);
 
 				Map<String, String> metadata = serverMetadata.getMetadata();
 				if (metadata != null) {
@@ -302,53 +287,34 @@ public class UT2004Scraper implements Scraper, Runnable {
 	private GamespyQueryClient queryClient;
 
 	/**
-	 * The ActiveMQ connection.
-	 */
-	private final Connection conn;
-
-	/**
-	 * The ActiveMQ session.
-	 */
-	private final Session session;
-
-	/**
-	 * The ActiveMQ topic.
-	 */
-	private final Topic eventTopic;
-
-	/**
 	 * The player manager to use.
 	 */
-	private ActiveMQDataManager dataManager;
+	private SimpleDataManager dataManager;
+
+	/**
+	 * The message destination to use.
+	 */
+	private IMessageDestination messageDestination;
 
 	/**
 	 * This constructor sets the ETQW scraper.
 	 *
-	 * @param activeMqConnection
-	 *            The connection string to use for ActiveMQ.
+	 * @param messageDestination
+	 *            The message destination to use.
 	 * @param logFile
 	 *            The directory containing the log files.
 	 * @param host
 	 *            The hostname of the server.
 	 * @param queryPort
 	 *            The query port of the server.
-	 * @throws JMSException
-	 *             When a problem occurs connecting to ActiveMQ.
 	 */
-	public UT2004Scraper(@Nonnull String activeMqConnection,
+	public UT2004Scraper(@Nonnull IMessageDestination messageDestination,
 			@Nonnull String logFile, @Nonnull String host,
-			@Nonnegative int queryPort) throws JMSException {
+			@Nonnegative int queryPort) {
 		this.logFile = logFile;
 		this.host = host;
 		this.queryPort = queryPort;
-
-		ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
-				activeMqConnection);
-		conn = cf.createConnection();
-		conn.start();
-
-		session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+		this.messageDestination = messageDestination;
 	}
 
 	@Override
@@ -367,16 +333,8 @@ public class UT2004Scraper implements Scraper, Runnable {
 				return;
 			}
 
-			try {
-				dataManager = new ActiveMQDataManager(session,
-						session.createProducer(eventTopic));
-
-				dataManager.setWipePlayersOnNewRound(false);
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-				status = ScraperStatus.InError;
-				return;
-			}
+			dataManager = new SimpleDataManager(messageDestination);
+			dataManager.setWipePlayersOnNewRound(false);
 
 			try {
 				LOG.info("Starting query client on {}:{}", new Object[] { host,
@@ -389,21 +347,15 @@ public class UT2004Scraper implements Scraper, Runnable {
 			}
 
 			UT2004QueryListener queryListener;
-			try {
-				queryListener = new UT2004QueryListener();
-				queryClient.registerMessageSplitter("status", queryListener);
-				queryClient.registerListener("status", queryListener);
+			queryListener = new UT2004QueryListener();
+			queryClient.registerMessageSplitter("status", queryListener);
+			queryClient.registerListener("status", queryListener);
 
-				queryClient.registerMessageSplitter("bots", queryListener);
-				queryClient.registerListener("bots", queryListener);
+			queryClient.registerMessageSplitter("bots", queryListener);
+			queryClient.registerListener("bots", queryListener);
 
-				queryClient.registerMessageSplitter("teams", queryListener);
-				queryClient.registerListener("teams", queryListener);
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-				status = ScraperStatus.InError;
-				return;
-			}
+			queryClient.registerMessageSplitter("teams", queryListener);
+			queryClient.registerListener("teams", queryListener);
 
 			queryClient.start();
 
@@ -421,23 +373,14 @@ public class UT2004Scraper implements Scraper, Runnable {
 			queryClient.stop();
 			thread = null;
 		}
-
-		if (session != null) {
-			try {
-				session.close();
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-			}
-		}
 	}
 
 	@Override
 	public void run() {
 		try (InputStream is = new FileInputStream(logFile)) {
-			UT2004LogParser parser = new UT2004LogParser(is, session,
-					session.createProducer(eventTopic), dataManager);
+			UT2004LogParser parser = new UT2004LogParser(is, messageDestination, dataManager);
 			parser.run();
-		} catch (IOException | JMSException e) {
+		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
 	}

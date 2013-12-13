@@ -13,13 +13,8 @@ import java.util.TreeSet;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.Topic;
 
-import jepperscore.dao.DaoConstant;
+import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Game;
 import jepperscore.dao.model.Round;
@@ -27,10 +22,9 @@ import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
-import jepperscore.scraper.common.ActiveMQDataManager;
-import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
+import jepperscore.scraper.common.SimpleDataManager;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 import jepperscore.scraper.common.query.QueryClientListener;
 import jepperscore.scraper.common.query.gamespy.GamespyMessageSplitter;
@@ -39,7 +33,6 @@ import jepperscore.scraper.common.query.gamespy.GamespyQueryClient;
 import jepperscore.scraper.common.query.gamespy.GamespyQueryUtil;
 import jepperscore.scraper.common.rcon.RconClient;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,18 +54,9 @@ public class BF1942Scraper implements Scraper, Runnable {
 			GamespyMessageSplitter {
 
 		/**
-		 * This producer is used to send messages from the query client.
-		 */
-		private MessageProducer producer;
-
-		/**
 		 * Default constructor.
-		 *
-		 * @throws JMSException
-		 *             When there is a problem creating the producer.
 		 */
-		public BF1942QueryListener() throws JMSException {
-			producer = session.createProducer(eventTopic);
+		public BF1942QueryListener() {
 		}
 
 		@Override
@@ -81,7 +65,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 			if (serverMetadata != null) {
 				TransportMessage transport = new TransportMessage();
 				transport.setServerMetadata(serverMetadata);
-				MessageUtil.sendMessage(producer, session, transport);
+				messageDestination.sendMessage(transport);
 
 				Map<String, String> metadata = serverMetadata.getMetadata();
 				if (metadata != null) {
@@ -294,24 +278,14 @@ public class BF1942Scraper implements Scraper, Runnable {
 	private GamespyQueryClient queryClient;
 
 	/**
-	 * The ActiveMQ connection.
+	 * The message destination.
 	 */
-	private final Connection conn;
-
-	/**
-	 * The ActiveMQ session.
-	 */
-	private final Session session;
-
-	/**
-	 * The ActiveMQ topic.
-	 */
-	private final Topic eventTopic;
+	private final IMessageDestination messageDestination;
 
 	/**
 	 * The player manager to use.
 	 */
-	private ActiveMQDataManager dataManager;
+	private SimpleDataManager dataManager;
 
 	/**
 	 * The RCON client to use.
@@ -321,8 +295,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 	/**
 	 * This constructor sets up to BF1942 scraper.
 	 *
-	 * @param activeMqConnection
-	 *            The connection string to use for ActiveMQ.
+	 * @param messageDestination
+	 *            The message destination to use.
 	 * @param modDirectory
 	 *            The directory containing the log files.
 	 * @param host
@@ -335,37 +309,20 @@ public class BF1942Scraper implements Scraper, Runnable {
 	 *            The RCON username to login with.
 	 * @param rconPassword
 	 *            The RCON password to login with.
-	 * @throws JMSException
-	 *             When a problem occurs connecting to ActiveMQ.
 	 */
-	public BF1942Scraper(@Nonnull String activeMqConnection,
+	public BF1942Scraper(@Nonnull IMessageDestination messageDestination,
 			@Nonnull String modDirectory, @Nonnull String host,
 			@Nonnegative int queryPort, @Nonnegative int rconPort,
-			@Nonnull String rconUser, @Nonnull String rconPassword)
-			throws JMSException {
+			@Nonnull String rconUser, @Nonnull String rconPassword) {
 		this.logDirectory = modDirectory + "/Logs";
 		this.host = host;
 		this.queryPort = queryPort;
-
-		ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
-				activeMqConnection);
-		conn = cf.createConnection();
-		conn.start();
-
-		session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+		this.messageDestination = messageDestination;
 
 		rconClient = new BF1942RconClient(host, rconPort, rconUser,
 				rconPassword);
 
-		try {
-			dataManager = new ActiveMQDataManager(session,
-					session.createProducer(eventTopic));
-		} catch (JMSException e) {
-			LOG.error(e.getMessage(), e);
-			status = ScraperStatus.InError;
-			return;
-		}
+		dataManager = new SimpleDataManager(messageDestination);
 	}
 
 	@Override
@@ -395,19 +352,14 @@ public class BF1942Scraper implements Scraper, Runnable {
 				status = ScraperStatus.InError;
 				return;
 			}
-			try {
-				BF1942QueryListener queryListener = new BF1942QueryListener();
 
-				queryClient.registerMessageSplitter("info", queryListener);
-				queryClient.registerListener("info", queryListener);
+			BF1942QueryListener queryListener = new BF1942QueryListener();
 
-				queryClient.registerMessageSplitter("players", queryListener);
-				queryClient.registerListener("players", queryListener);
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-				status = ScraperStatus.InError;
-				return;
-			}
+			queryClient.registerMessageSplitter("info", queryListener);
+			queryClient.registerListener("info", queryListener);
+
+			queryClient.registerMessageSplitter("players", queryListener);
+			queryClient.registerListener("players", queryListener);
 
 			queryClient.start();
 
@@ -424,14 +376,6 @@ public class BF1942Scraper implements Scraper, Runnable {
 		if (thread != null) {
 			queryClient.stop();
 			thread = null;
-		}
-
-		if (session != null) {
-			try {
-				session.close();
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-			}
 		}
 	}
 
@@ -466,14 +410,13 @@ public class BF1942Scraper implements Scraper, Runnable {
 							try {
 								is = new FileInputStream(logFile);
 								BF1942LogStreamer streamer = new BF1942LogStreamer(
-										is, session,
-										session.createProducer(eventTopic),
+										is, messageDestination,
 										dataManager, dataManager, dataManager);
 
 								logThread = new Thread(streamer);
 								logThread.setDaemon(true);
 								logThread.start();
-							} catch (IOException | JMSException e) {
+							} catch (IOException e) {
 								LOG.error(e.getMessage(), e);
 							}
 						} else {

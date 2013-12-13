@@ -4,14 +4,12 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 import javax.annotation.Nonnull;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
 
+import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.EventCode;
 import jepperscore.dao.transport.TransportMessage;
-import jepperscore.scraper.common.MessageUtil;
 import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.logparser.AbstractLineLogParser;
 
@@ -29,33 +27,24 @@ public class UT2004LogParser extends AbstractLineLogParser {
 	private PlayerManager playerManager;
 
 	/**
-	 * The current ActiveMQ session.
+	 * The message destination.
 	 */
-	private Session session;
-
-	/**
-	 * The current ActiveMQ MessageProducer.
-	 */
-	private MessageProducer producer;
+	private IMessageDestination messageDestination;
 
 	/**
 	 * This constructor parses log entries from a stream.
 	 *
 	 * @param stream
 	 *            The stream to read.
-	 * @param session
-	 *            The ActiveMQ {@link Session} to use.
-	 * @param producer
-	 *            The ActiveMQ {@link MessageProducer} to use.
+	 * @param messageDestination
+	 *            The {@link IMessageDestination} to use.
 	 * @param playerManager
 	 *            The player manager to use.
 	 */
-	public UT2004LogParser(@Nonnull InputStream stream, @Nonnull Session session,
-			@Nonnull MessageProducer producer,
+	public UT2004LogParser(@Nonnull InputStream stream, @Nonnull IMessageDestination messageDestination,
 			@Nonnull PlayerManager playerManager) {
 		super(stream, StandardCharsets.UTF_8, false);
-		this.session = session;
-		this.producer = producer;
+		this.messageDestination =messageDestination;
 		this.playerManager = playerManager;
 	}
 
@@ -153,7 +142,7 @@ public class UT2004LogParser extends AbstractLineLogParser {
 					TransportMessage transportMessage = new TransportMessage();
 					transportMessage.setEvent(newEvent);
 
-					MessageUtil.sendMessage(producer, session, transportMessage);
+					messageDestination.sendMessage(transportMessage);
 				}
 			}
 			break;

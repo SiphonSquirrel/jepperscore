@@ -8,9 +8,8 @@ import java.util.UUID;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
 
+import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Game;
 import jepperscore.dao.model.Person;
@@ -30,13 +29,13 @@ import org.slf4j.LoggerFactory;
  * @author Chuck
  *
  */
-public class ActiveMQDataManager implements PlayerManager, GameManager,
+public class SimpleDataManager implements PlayerManager, GameManager,
 		RoundManager, TeamManager, ScoreManager {
 
 	/**
 	 * The logger.
 	 */
-	private Logger LOG = LoggerFactory.getLogger(ActiveMQDataManager.class);
+	private Logger LOG = LoggerFactory.getLogger(SimpleDataManager.class);
 
 	/**
 	 * The players.
@@ -48,18 +47,6 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	 */
 	@Nonnull
 	private String roundPrefix = "";
-
-	/**
-	 * The current ActiveMQ session.
-	 */
-	@Nonnull
-	private Session session;
-
-	/**
-	 * The current ActiveMQ MessageProducer.
-	 */
-	@Nonnull
-	private MessageProducer producer;
 
 	/**
 	 * The current game.
@@ -74,7 +61,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	/**
 	 * The teams.
 	 */
-	private Map<String, Team> teams = new HashMap<String,Team>();
+	private Map<String, Team> teams = new HashMap<String, Team>();
 
 	/**
 	 * The scores.
@@ -87,17 +74,18 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 	private boolean wipePlayers = true;
 
 	/**
+	 * The message destination.
+	 */
+	private IMessageDestination messageDestination;
+
+	/**
 	 * Constructor for the player manager.
 	 *
-	 * @param session
-	 *            The ActiveMQ {@link Session} to use.
-	 * @param producer
-	 *            The ActiveMQ {@link MessageProducer} to use.
+	 * @param messageDestination
+	 *            The message destination class to handle new messages.
 	 */
-	public ActiveMQDataManager(@Nonnull Session session,
-			@Nonnull MessageProducer producer) {
-		this.session = session;
-		this.producer = producer;
+	public SimpleDataManager(@Nonnull IMessageDestination messageDestination) {
+		this.messageDestination = messageDestination;
 
 		newRound();
 	}
@@ -190,7 +178,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setAlias(oldPlayer);
-			MessageUtil.sendMessage(producer, session, msg);
+			messageDestination.sendMessage(msg);
 		}
 
 		return oldPlayer.copy();
@@ -312,7 +300,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setRound(currentRound);
-			MessageUtil.sendMessage(producer, session, msg);
+			messageDestination.sendMessage(msg);
 		}
 
 		return currentRound.copy();
@@ -360,7 +348,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 
 			TransportMessage msg = new TransportMessage();
 			msg.setRound(currentRound);
-			MessageUtil.sendMessage(producer, session, msg);
+			messageDestination.sendMessage(msg);
 		}
 
 		return currentGame.copy();
@@ -397,7 +385,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setScore(oldScore);
-			MessageUtil.sendMessage(producer, session, msg);
+			messageDestination.sendMessage(msg);
 		}
 		return score;
 	}
@@ -464,7 +452,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 
 		TransportMessage transportMessage = new TransportMessage();
 		transportMessage.setScore(oldScore);
-		MessageUtil.sendMessage(producer, session, transportMessage);
+		messageDestination.sendMessage(transportMessage);
 
 		return oldScore.copy();
 	}
@@ -499,7 +487,7 @@ public class ActiveMQDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setTeam(oldTeam);
-			MessageUtil.sendMessage(producer, session, msg);
+			messageDestination.sendMessage(msg);
 		}
 
 		return oldTeam.copy();

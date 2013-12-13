@@ -16,6 +16,7 @@
 
 	<modules>
 		<module>dao</module>
+		<module>backends</module>
 		<module>persistence</module>
 		<module>scrappers</module>
 		<module>jeppervcr</module>

@@ -5,7 +5,6 @@ package jepperscore.scraper.bf1942.tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,35 +13,19 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
-import java.io.StringReader;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
-import jepperscore.dao.DaoConstant;
+import jepperscore.backends.testing.TestingMessageDestination;
+import jepperscore.backends.testing.TestingMessageDestination.MessageHandler;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.bf1942.BF1942LogStreamer;
-import jepperscore.scraper.common.ActiveMQDataManager;
+import jepperscore.scraper.common.SimpleDataManager;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -50,55 +33,6 @@ import org.junit.Test;
  *
  */
 public class LogStreamerTest {
-
-	/**
-	 * The ActiveMQ connection factory.
-	 */
-	private ActiveMQConnectionFactory cf;
-
-	/**
-	 * The ActiveMQ connection.
-	 */
-	private Connection conn;
-
-	/**
-	 * The current ActiveMQ session.
-	 */
-	private Session session;
-
-	/**
-	 * The current ActiveMQ topic.
-	 */
-	private Topic eventTopic;
-
-	/**
-	 * This function sets up an embedded version of ActiveMQ for testing.
-	 *
-	 * @throws Exception
-	 *             If something goes wrong in the setup.
-	 */
-	@Before
-	public void setUp() throws Exception {
-		cf = new ActiveMQConnectionFactory(
-				"vm://localhost?broker.persistent=false");
-		conn = cf.createConnection();
-		conn.start();
-		session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-
-		eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
-	}
-
-	/**
-	 * This function tears down the embedded version of ActiveMQ.
-	 *
-	 * @throws Exception
-	 *             If something goes wrong in the tear down.
-	 */
-	@After
-	public void tearDown() throws Exception {
-		conn.stop();
-	}
-
 	/**
 	 * Test method for {@link jepperscore.scraper.bf1942.BF1942LogStreamer}.
 	 *
@@ -107,25 +41,16 @@ public class LogStreamerTest {
 	 */
 	@Test
 	public void testLogStreamer() throws Exception {
-		final List<Message> messages = new LinkedList<Message>();
-
 		PipedOutputStream os = new PipedOutputStream();
 		PipedInputStream is = new PipedInputStream(os, 1024 * 1024);
 
-		MessageConsumer consumer = session.createConsumer(eventTopic);
-		consumer.setMessageListener(new MessageListener() {
+		TestingMessageDestination messageDestination = new TestingMessageDestination("");
 
-			@Override
-			public void onMessage(Message message) {
-				messages.add(message);
-			}
-		});
+		SimpleDataManager dataManager = new SimpleDataManager(
+				messageDestination);
 
-		ActiveMQDataManager dataManager = new ActiveMQDataManager(session,
-				session.createProducer(eventTopic));
-
-		BF1942LogStreamer ls = new BF1942LogStreamer(is, session,
-				session.createProducer(eventTopic), dataManager, dataManager, dataManager);
+		BF1942LogStreamer ls = new BF1942LogStreamer(is, messageDestination,
+				dataManager, dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 
@@ -280,7 +205,8 @@ public class LogStreamerTest {
 		writer.flush();
 		Thread.sleep(500);
 
-		assertEquals("Unexpected message count", 5, messages.size());
+		assertEquals("Unexpected message count", 5, messageDestination.count());
+		messageDestination.clearMessages();
 	}
 
 	/**
@@ -291,47 +217,34 @@ public class LogStreamerTest {
 	 */
 	@Test
 	public void testBotScores() throws Exception {
+		TestingMessageDestination messageDestination = new TestingMessageDestination("");
+
 		PipedOutputStream os = new PipedOutputStream();
 		PipedInputStream is = new PipedInputStream(os, 1024 * 1024);
 
 		final Map<String, Alias> players = new HashMap<String, Alias>();
-		final JAXBContext jaxbContext = JAXBContext
-				.newInstance(TransportMessage.class);
 
-		MessageConsumer consumer = session.createConsumer(eventTopic);
-		consumer.setMessageListener(new MessageListener() {
-
+		messageDestination.addHandler(new MessageHandler() {
 			@Override
-			public void onMessage(Message message) {
-				if (message instanceof TextMessage) {
-					TextMessage txtMessage = (TextMessage) message;
-					try {
-						TransportMessage transportMessage = (TransportMessage) jaxbContext
-								.createUnmarshaller().unmarshal(
-										new StringReader(txtMessage.getText()));
+			public void onMessage(TransportMessage transportMessage) {
 
-						Alias alias = transportMessage.getAlias();
-						if (alias == null) {
-							Score score = transportMessage.getScore();
-							if (score != null) {
-								alias = score.getAlias();
-							}
-						}
-
-						if (alias != null) {
-							players.put(alias.getId(), alias);
-						}
-					} catch (JAXBException | JMSException e) {
-						fail(e.getMessage());
+				Alias alias = transportMessage.getAlias();
+				if (alias == null) {
+					Score score = transportMessage.getScore();
+					if (score != null) {
+						alias = score.getAlias();
 					}
+				}
+
+				if (alias != null) {
+					players.put(alias.getId(), alias);
 				}
 			}
 		});
 
-		ActiveMQDataManager dataManager = new ActiveMQDataManager(session,
-				session.createProducer(eventTopic));
-		BF1942LogStreamer ls = new BF1942LogStreamer(is, session,
-				session.createProducer(eventTopic), dataManager, dataManager, dataManager);
+		SimpleDataManager dataManager = new SimpleDataManager(messageDestination);
+		BF1942LogStreamer ls = new BF1942LogStreamer(is, messageDestination, dataManager, dataManager,
+				dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 
@@ -380,7 +293,8 @@ public class LogStreamerTest {
 	private void copyStream(InputStream in, OutputStream out)
 			throws IOException {
 
-		String[] closings = new String[] { "</bf:event>", "</bf:roundstats>", "</bf:log>" };
+		String[] closings = new String[] { "</bf:event>", "</bf:roundstats>",
+				"</bf:log>" };
 
 		byte[] buffer = new byte[1024 * 8];
 		int read;
@@ -398,8 +312,8 @@ public class LogStreamerTest {
 						pos += closing.length();
 
 						s = s.substring(0, pos);
-						byte[] outBuffer = s.getBytes(
-								StandardCharsets.ISO_8859_1);
+						byte[] outBuffer = s
+								.getBytes(StandardCharsets.ISO_8859_1);
 						sb.delete(0, pos);
 						out.write(outBuffer, 0, outBuffer.length);
 						out.flush();

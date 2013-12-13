@@ -9,18 +9,16 @@
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>jepperscore.scrapers</groupId>
-	<artifactId>scrapers-parent</artifactId>
+	<groupId>jepperscore.backends</groupId>
+	<artifactId>backends-parent</artifactId>
 	<packaging>pom</packaging>
 
-	<name>JepperScore :: Scrapers :: Parent</name>
-	<description>Top level project for JepperScore Scrapers</description>
+	<name>JepperScore :: Backends :: Parent</name>
+	<description>Top level project for JepperScore Backends</description>
 
 	<modules>
-		<module>scraper-common</module>
-		<module>bf1942</module>
-		<module>etqw</module>
-		<module>ut2004</module>
+		<module>activemq</module>
+		<module>testing</module>
 	</modules>
 
 	<dependencies>
@@ -28,12 +26,6 @@
 			<groupId>jepperscore</groupId>
 			<artifactId>dao</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>jepperscore.backends</groupId>
-			<artifactId>testing</artifactId>
-			<version>${project.version}</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
