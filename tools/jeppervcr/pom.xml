@@ -3,21 +3,21 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>jepperscore</groupId>
-		<artifactId>jepperscore-parent</artifactId>
+		<groupId>jepperscore.tools</groupId>
+		<artifactId>tools-parent</artifactId>
 		<relativePath>../pom.xml</relativePath>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>jepperconsole</artifactId>
+	<artifactId>jeppervcr</artifactId>
 	<packaging>jar</packaging>
 
-	<name>JepperScore :: Jepper Console</name>
-	<description>This application displays the events on the console.</description>
+	<name>JepperScore :: Tools :: Jepper VCR</name>
+	<description>This application records or plays back the events.</description>
 
 	<dependencies>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>jepperscore</groupId>
 			<artifactId>dao</artifactId>
 			<version>${project.version}</version>
 		</dependency>

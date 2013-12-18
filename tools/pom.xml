@@ -9,29 +9,29 @@
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>jeppervcr</artifactId>
-	<packaging>jar</packaging>
+	<groupId>jepperscore.tools</groupId>
+	<artifactId>tools-parent</artifactId>
+	<packaging>pom</packaging>
 
-	<name>JepperScore :: Jepper VCR</name>
-	<description>This application records or plays back the events.</description>
+	<name>JepperScore :: Tools :: Parent</name>
+	<description>Top level project for JepperScore Tools</description>
+
+	<modules>
+		<module>jepperconsole</module>
+		<module>jeppervcr</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>jepperscore</groupId>
 			<artifactId>dao</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>jepperscore.backends</groupId>
-			<artifactId>activemq</artifactId>
+			<artifactId>testing</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-client</artifactId>
-			<version>5.8.0</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
