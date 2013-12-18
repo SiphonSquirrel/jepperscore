@@ -1,11 +1,7 @@
 package jepperscore.jeppervcr;
 
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
+import java.lang.reflect.InvocationTargetException;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -15,10 +11,9 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stream.StreamSource;
 
-import jepperscore.backends.activemq.ActiveMQBackendConstants;
+import jepperscore.dao.IMessageDestination;
 import jepperscore.jeppervcr.model.RecordingEntry;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.slf4j.Logger;
@@ -44,29 +39,29 @@ public class Play {
 	 *            [Active MQ Connection String]
 	 */
 	public static void main(String[] args) {
-		if (args.length != 2) {
+		if (args.length != 3) {
 			throw new RuntimeException(
 					"Incorrect arguments! Need [Active MQ Connection String] [Input File]");
 		}
-		String activeMqConnection = args[0];
-		String infile = args[1];
 
-		ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
-				activeMqConnection);
+		String messageDestinationClass = args[0];
+		String messageDestinationSetup = args[1];
+		String infile = args[2];
 
-		Connection conn;
-		Session session;
-		Topic eventTopic;
+		IMessageDestination messageDestination;
+		try {
+			messageDestination = (IMessageDestination) Play.class
+					.getClassLoader().loadClass(messageDestinationClass)
+					.getConstructor(String.class)
+					.newInstance(messageDestinationSetup);
+		} catch (InstantiationException | IllegalAccessException
+				| IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException
+				| ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 
 		try {
-			conn = cf.createConnection();
-			conn.start();
-
-			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			eventTopic = session.createTopic(ActiveMQBackendConstants.EVENT_TOPIC);
-
-			MessageProducer producer = session.createProducer(eventTopic);
-
 			LOG.info("Opening recording file: " + infile);
 
 			StreamSource is = new StreamSource(infile);
@@ -97,16 +92,14 @@ public class Play {
 							}
 						}
 
-						TextMessage txtMessage = session
-								.createTextMessage(entry.getMessage());
-						producer.send(txtMessage);
+						messageDestination.sendMessage(entry.getMessage());
 					}
 				}
 			}
 
 			LOG.info("Playback finished.");
 
-		} catch (JMSException | JAXBException | XMLStreamException e) {
+		} catch (JAXBException | XMLStreamException e) {
 			throw new RuntimeException(e);
 		}
 	}

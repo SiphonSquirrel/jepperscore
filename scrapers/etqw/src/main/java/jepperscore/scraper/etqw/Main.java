@@ -17,13 +17,13 @@ public class Main {
 	 * The main function.
 	 *
 	 * @param args
-	 *            [Active MQ Connection String] [ETQW Log Directory] [Hostname]
+	 *            [Message Destination Class] [Message Destination Setup] [ETQW Log Directory] [Hostname]
 	 *            [Query Port]
 	 */
 	public static void main(String[] args) {
-		if (args.length != 4) {
+		if (args.length != 5) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need [Active MQ Connection String] [ETQW Log Directory] [Hostname] [Query Port]");
+					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup] [ETQW Log Directory] [Hostname] [Query Port]");
 		}
 
 		String messageDestinationClass = args[0];

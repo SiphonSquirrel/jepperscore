@@ -1,21 +1,11 @@
 package jepperscore.jepperconsole;
 
-import java.io.StringReader;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.annotation.Nonnull;
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 
-import jepperscore.backends.activemq.ActiveMQBackendConstants;
+import jepperscore.dao.IMessageCallback;
+import jepperscore.dao.IMessageSource;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.Round;
@@ -24,7 +14,6 @@ import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,17 +23,12 @@ import org.slf4j.LoggerFactory;
  * @author Chuck
  *
  */
-public class Main implements MessageListener {
+public class Main implements IMessageCallback {
 
 	/**
 	 * The logger.
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(Main.class);
-
-	/**
-	 * The JAXB context to use.
-	 */
-	private JAXBContext jaxbContext;
 
 	/**
 	 * The main function.
@@ -55,30 +39,24 @@ public class Main implements MessageListener {
 	public static void main(String[] args) {
 		if (args.length != 1) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need [Active MQ Connection String]");
+					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup]");
 		}
-		String activeMqConnection = args[0];
+		String messageSourceClass = args[0];
+		String messageSourceSetup = args[1];
 
-		ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
-				activeMqConnection);
-
-		Connection conn;
-		Session session;
-		Topic eventTopic;
-
+		IMessageSource messageSource;
 		try {
-			conn = cf.createConnection();
-			conn.start();
-
-			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			eventTopic = session.createTopic(ActiveMQBackendConstants.EVENT_TOPIC);
-
-			MessageConsumer consumer = session.createConsumer(eventTopic);
-
-			consumer.setMessageListener(new Main());
-		} catch (JMSException e) {
+			messageSource = (IMessageSource) Main.class.getClassLoader()
+					.loadClass(messageSourceClass).getConstructor(String.class)
+					.newInstance(messageSourceSetup);
+		} catch (InstantiationException | IllegalAccessException
+				| IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException
+				| ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
+
+		messageSource.registerCallback(new Main());
 
 		while (true) {
 			try {
@@ -89,67 +67,37 @@ public class Main implements MessageListener {
 		}
 	}
 
-	/**
-	 * Default constructor. Sets up JAXB Context.
-	 */
-	public Main() {
-		try {
-			jaxbContext = JAXBContext.newInstance(TransportMessage.class);
-		} catch (JAXBException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
 	@Override
-	public void onMessage(Message message) {
-		if (message == null) {
-			return;
-		}
+	public void onMessage(TransportMessage message) {
+		Alias alias = message.getAlias();
+		Event event = message.getEvent();
+		Round round = message.getRound();
+		Score score = message.getScore();
+		ServerMetadata metadata = message.getServerMetadata();
+		Team team = message.getTeam();
 
-		if (message instanceof TextMessage) {
-			TextMessage textMessage = (TextMessage) message;
-
-			try {
-				Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-
-				TransportMessage transportMessage = (TransportMessage) unmarshaller
-						.unmarshal(new StringReader(textMessage.getText()));
-
-				if (transportMessage != null) {
-					Alias alias = transportMessage.getAlias();
-					Event event = transportMessage.getEvent();
-					Round round = transportMessage.getRound();
-					Score score = transportMessage.getScore();
-					ServerMetadata metadata = transportMessage
-							.getServerMetadata();
-					Team team = transportMessage.getTeam();
-
-					if (alias != null) {
-						handleAlias(alias);
-					} else if (event != null) {
-						handleEvent(event);
-					} else if (round != null) {
-						handleRound(round);
-					} else if (score != null) {
-						handleScore(score);
-					} else if (metadata != null) {
-						handleMetadata(metadata);
-					} else if (team != null) {
-						handleTeam(team);
-					} else {
-						Object content = transportMessage.getMessageContent();
-						if (content == null) {
-							LOG.warn("Not sure what was transported, content was null");
-						} else {
-							LOG.warn("Not sure what was transported: "
-									+ content.getClass().getSimpleName());
-						}
-					}
-				}
-			} catch (JAXBException | JMSException e) {
-				LOG.error(e.getMessage(), e);
+		if (alias != null) {
+			handleAlias(alias);
+		} else if (event != null) {
+			handleEvent(event);
+		} else if (round != null) {
+			handleRound(round);
+		} else if (score != null) {
+			handleScore(score);
+		} else if (metadata != null) {
+			handleMetadata(metadata);
+		} else if (team != null) {
+			handleTeam(team);
+		} else {
+			Object content = message.getMessageContent();
+			if (content == null) {
+				LOG.warn("Not sure what was transported, content was null");
+			} else {
+				LOG.warn("Not sure what was transported: "
+						+ content.getClass().getSimpleName());
 			}
 		}
+
 	}
 
 	/**

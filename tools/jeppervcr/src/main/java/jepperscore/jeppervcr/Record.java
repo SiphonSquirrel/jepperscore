@@ -4,15 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
 
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -20,10 +13,11 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import jepperscore.backends.activemq.ActiveMQBackendConstants;
+import jepperscore.dao.IMessageCallback;
+import jepperscore.dao.IMessageSource;
+import jepperscore.dao.transport.TransportMessage;
 import jepperscore.jeppervcr.model.RecordingEntry;
 
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.slf4j.Logger;
@@ -35,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * @author Chuck
  *
  */
-public class Record implements MessageListener, Runnable {
+public class Record implements IMessageCallback, Runnable {
 
 	/**
 	 * The logger.
@@ -71,32 +65,31 @@ public class Record implements MessageListener, Runnable {
 	public static void main(String[] args) {
 		if (args.length != 2) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need [Active MQ Connection String] [Output File]");
+					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup] [Output File]");
 		}
-		String activeMqConnection = args[0];
-		String outfile = args[1];
+		String messageSourceClass = args[0];
+		String messageSourceSetup = args[1];
+		String outfile = args[2];
 
-		ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
-				activeMqConnection);
-
-		Connection conn;
-		Session session;
-		Topic eventTopic;
+		IMessageSource messageSource;
+		try {
+			messageSource = (IMessageSource) Play.class.getClassLoader()
+					.loadClass(messageSourceClass).getConstructor(String.class)
+					.newInstance(messageSourceSetup);
+		} catch (InstantiationException | IllegalAccessException
+				| IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException
+				| ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 
 		try {
-			conn = cf.createConnection();
-			conn.start();
-
-			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			eventTopic = session.createTopic(ActiveMQBackendConstants.EVENT_TOPIC);
-
-			MessageConsumer consumer = session.createConsumer(eventTopic);
-
 			LOG.info("Opening recording file: " + outfile);
 			Record recorder = new Record(outfile);
 			Runtime.getRuntime().addShutdownHook(new Thread(recorder));
-			consumer.setMessageListener(recorder);
-		} catch (JMSException | FileNotFoundException | JAXBException
+
+			messageSource.registerCallback(recorder);
+		} catch (FileNotFoundException | JAXBException
 				| XMLStreamException e) {
 			throw new RuntimeException(e);
 		}
@@ -139,34 +132,6 @@ public class Record implements MessageListener, Runnable {
 		xsw.writeCharacters("\n");
 	}
 
-	@Override
-	public synchronized void onMessage(Message message) {
-		if (message instanceof TextMessage) {
-			TextMessage txtMessage = (TextMessage) message;
-
-			Duration duration = new Duration(startDate, DateTime.now());
-			RecordingEntry entry = new RecordingEntry();
-
-			entry.setTimeOffset(duration.getMillis() / 1000.0f);
-			try {
-				entry.setMessage(txtMessage.getText());
-			} catch (JMSException e) {
-				LOG.error(e.getMessage(), e);
-				return;
-			}
-
-			try {
-				Marshaller marshaller = jaxbContext.createMarshaller();
-				marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
-				marshaller.marshal(entry, xsw);
-				xsw.flush();
-			} catch (JAXBException | XMLStreamException e) {
-				LOG.error(e.getMessage(), e);
-				return;
-			}
-		}
-	}
-
 	/**
 	 * The shutdown method.
 	 */
@@ -180,6 +145,25 @@ public class Record implements MessageListener, Runnable {
 			os.close();
 		} catch (IOException | XMLStreamException e) {
 			LOG.error(e.getMessage(), e);
+		}
+	}
+
+	@Override
+	public void onMessage(TransportMessage message) {
+		Duration duration = new Duration(startDate, DateTime.now());
+		RecordingEntry entry = new RecordingEntry();
+
+		entry.setTimeOffset(duration.getMillis() / 1000.0f);
+		entry.setMessage(message);
+
+		try {
+			Marshaller marshaller = jaxbContext.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
+			marshaller.marshal(entry, xsw);
+			xsw.flush();
+		} catch (JAXBException | XMLStreamException e) {
+			LOG.error(e.getMessage(), e);
+			return;
 		}
 	}
 

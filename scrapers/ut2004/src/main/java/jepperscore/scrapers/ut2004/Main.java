@@ -17,13 +17,13 @@ public class Main {
 	 * The main function.
 	 *
 	 * @param args
-	 *            [Active MQ Connection String] [UT2004 Console Log File]
+	 *            [Message Destination Class] [Message Destination Setup] [UT2004 Console Log File]
 	 *            [Hostname] [Query Port]
 	 */
 	public static void main(String[] args) {
-		if (args.length != 4) {
+		if (args.length != 5) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need [Active MQ Connection String] [UT2004 Console Log File] [Hostname] [Query Port]");
+					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup] [UT2004 Console Log File] [Hostname] [Query Port]");
 		}
 
 		String messageDestinationClass = args[0];
