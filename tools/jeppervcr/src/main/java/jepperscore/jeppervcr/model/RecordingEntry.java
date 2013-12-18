@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import jepperscore.dao.transport.TransportMessage;
+
 /**
  * This class represents a single recorded entry.
  * @author Chuck
@@ -25,7 +27,7 @@ public class RecordingEntry {
 	 * The entry.
 	 */
 	@XmlElement(required=true)
-	private String message;
+	private TransportMessage message;
 
 	/**
 	 * @return The number of seconds since start.
@@ -44,14 +46,14 @@ public class RecordingEntry {
 	/**
 	 * @return The message.
 	 */
-	public String getMessage() {
+	public TransportMessage getMessage() {
 		return message;
 	}
 
 	/**
 	 * @param message The message.
 	 */
-	public void setMessage(String message) {
+	public void setMessage(TransportMessage message) {
 		this.message = message;
 	}
 }

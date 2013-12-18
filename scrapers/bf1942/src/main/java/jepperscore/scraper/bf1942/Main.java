@@ -22,9 +22,9 @@ public class Main {
 	 *            Password]
 	 */
 	public static void main(String[] args) {
-		if (args.length != 7) {
+		if (args.length != 8) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need [Active MQ Connection String] [BF 1942 Mod Directory] [Hostname] [Query Port] [RCON Port] [RCON Username] [RCON Password]");
+					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup] [BF 1942 Mod Directory] [Hostname] [Query Port] [RCON Port] [RCON Username] [RCON Password]");
 
 		}
 
