@@ -15,7 +15,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stream.StreamSource;
 
-import jepperscore.dao.DaoConstant;
+import jepperscore.backends.activemq.ActiveMQBackendConstants;
 import jepperscore.jeppervcr.model.RecordingEntry;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -63,7 +63,7 @@ public class Play {
 			conn.start();
 
 			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+			eventTopic = session.createTopic(ActiveMQBackendConstants.EVENT_TOPIC);
 
 			MessageProducer producer = session.createProducer(eventTopic);
 

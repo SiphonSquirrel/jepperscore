@@ -15,7 +15,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import jepperscore.dao.DaoConstant;
+import jepperscore.backends.activemq.ActiveMQBackendConstants;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.Round;
@@ -71,7 +71,7 @@ public class Main implements MessageListener {
 			conn.start();
 
 			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+			eventTopic = session.createTopic(ActiveMQBackendConstants.EVENT_TOPIC);
 
 			MessageConsumer consumer = session.createConsumer(eventTopic);
 

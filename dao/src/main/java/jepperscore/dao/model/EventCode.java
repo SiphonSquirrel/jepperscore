@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class represents the extended details of an event.
  * @author Chuck
@@ -20,18 +22,21 @@ public class EventCode {
 	 * The code.
 	 */
 	@XmlAttribute(required=true)
+	@JsonProperty
 	private String code;
 
 	/**
 	 * The object of the event.
 	 */
 	@XmlAttribute(required=false)
+	@JsonProperty
 	private String object;
 
 	/**
 	 * Reserved for future use.
 	 */
 	@XmlAttribute(required=false)
+	@JsonProperty
 	private String extra;
 
 	/**

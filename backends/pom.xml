@@ -17,8 +17,9 @@
 	<description>Top level project for JepperScore Backends</description>
 
 	<modules>
-		<module>activemq</module>
 		<module>testing</module>
+		<module>activemq</module>
+		<module>couchdb</module>
 	</modules>
 
 	<dependencies>

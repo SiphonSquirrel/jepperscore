@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class represents an event (player score, team score, player leave/join,
  * team membership change, etc.
@@ -26,36 +28,42 @@ public class Event {
 	 * The timestamp of the event.
 	 */
 	@XmlAttribute(required = true)
+	@JsonProperty
 	private DateTime timestamp;
 
 	/**
 	 * The victim of the event.
 	 */
 	@XmlElement(required = false)
+	@JsonProperty
 	private Alias victim;
 
 	/**
 	 * The attacker of the event.
 	 */
 	@XmlElement(required = false)
+	@JsonProperty
 	private Alias attacker;
 
 	/**
 	 * The text of the event.
 	 */
 	@XmlElement(required = false)
+	@JsonProperty
 	private String eventText;
 
 	/**
 	 * The event code.
 	 */
 	@XmlElement(required = false)
+	@JsonProperty
 	private EventCode eventCode;
 
 	/**
 	 * The round the event is associated with.
 	 */
 	@XmlElement(required = false)
+	@JsonProperty
 	private Round round;
 
 	/**

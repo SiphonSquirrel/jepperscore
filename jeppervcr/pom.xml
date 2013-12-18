@@ -21,7 +21,13 @@
 			<artifactId>dao</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-	
+
+		<dependency>
+			<groupId>jepperscore.backends</groupId>
+			<artifactId>activemq</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-client</artifactId>

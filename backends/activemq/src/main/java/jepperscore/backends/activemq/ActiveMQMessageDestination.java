@@ -11,7 +11,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import jepperscore.dao.DaoConstant;
 import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.transport.TransportMessage;
 
@@ -71,7 +70,7 @@ public class ActiveMQMessageDestination implements IMessageDestination {
 		conn.start();
 
 		session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+		eventTopic = session.createTopic(ActiveMQBackendConstants.EVENT_TOPIC);
 		producer = session.createProducer(eventTopic);
 
 		jaxbContext = JAXBContext.newInstance(TransportMessage.class);

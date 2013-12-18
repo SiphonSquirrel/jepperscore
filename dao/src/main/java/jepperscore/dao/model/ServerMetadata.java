@@ -12,6 +12,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class contains metadata about a server where a game is currently being played.
  * @author Chuck
@@ -25,12 +27,14 @@ public class ServerMetadata {
 	 * The name of the server.
 	 */
 	@XmlAttribute(required=false)
+	@JsonProperty
 	private String serverName;
-	
+
 	/**
 	 * The extra metadata.
 	 */
 	@XmlElement(required=false)
+	@JsonProperty
 	private Map<String,String> metadata = new HashMap<String,String>();
 
 	/**
@@ -64,5 +68,5 @@ public class ServerMetadata {
 	public void setMetadata(@Nonnull Map<String,String> metadata) {
 		this.metadata = metadata;
 	}
-	
+
 }

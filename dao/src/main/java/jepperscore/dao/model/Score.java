@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class represents a score for an alias.
  * @author Chuck
@@ -18,12 +20,14 @@ public class Score {
 	 * The alias.
 	 */
 	@XmlElement(name="alias", required=true)
+	@JsonProperty
 	private Alias alias;
 
 	/**
 	 * The score.
 	 */
 	@XmlAttribute(name="score", required=true)
+	@JsonProperty
 	private float score;
 
 	/**

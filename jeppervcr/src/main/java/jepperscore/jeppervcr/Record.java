@@ -20,7 +20,7 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import jepperscore.dao.DaoConstant;
+import jepperscore.backends.activemq.ActiveMQBackendConstants;
 import jepperscore.jeppervcr.model.RecordingEntry;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -88,7 +88,7 @@ public class Record implements MessageListener, Runnable {
 			conn.start();
 
 			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
-			eventTopic = session.createTopic(DaoConstant.EVENT_TOPIC);
+			eventTopic = session.createTopic(ActiveMQBackendConstants.EVENT_TOPIC);
 
 			MessageConsumer consumer = session.createConsumer(eventTopic);
 

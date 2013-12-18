@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 /**
  * This class represents a team.
@@ -19,12 +21,14 @@ public class Team {
 	 * The team name.
 	 */
 	@XmlAttribute(name="teamName", required=true)
+	@JsonProperty
 	private String teamName;
 
 	/**
 	 * The score.
 	 */
 	@XmlAttribute(name="score", required=false)
+	@JsonProperty
 	private Float score;
 
 	/**

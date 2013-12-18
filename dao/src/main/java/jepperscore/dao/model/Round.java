@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This represents a single round played.
  * @author Chuck
@@ -24,30 +26,35 @@ public class Round {
 	 * The ID of the round.
 	 */
 	@XmlAttribute(required=true)
+	@JsonProperty
 	private String id;
 
 	/**
 	 * The start of the round.
 	 */
 	@XmlAttribute(required=true)
+	@JsonProperty
 	private DateTime start;
 
 	/**
 	 * The end of the round.
 	 */
 	@XmlAttribute(required=false)
+	@JsonProperty
 	private DateTime end;
 
 	/**
 	 * The game the round is associated with.
 	 */
 	@XmlElement(required=false)
+	@JsonProperty
 	private Game game;
 
 	/**
 	 * The map being played.
 	 */
 	@XmlAttribute(required=true)
+	@JsonProperty
 	private String map;
 
 	/**

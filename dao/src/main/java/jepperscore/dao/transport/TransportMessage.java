@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -16,6 +17,11 @@ import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class provides the XML message for sending events or alias across the
  * wire.
@@ -25,36 +31,86 @@ import jepperscore.dao.model.Team;
  */
 @XmlRootElement(name = "message")
 @XmlAccessorType(XmlAccessType.NONE)
+@JsonInclude(Include.NON_EMPTY)
 public class TransportMessage {
+	/**
+	 * An identifying id.
+	 */
+	@XmlAttribute(required = true)
+	@JsonProperty("_id")
+	private String id;
+
+	/**
+	 * The revision of this record.
+	 */
+	@JsonProperty("_rev")
+	private String revision;
+
 	/**
 	 * ServerMetadata of the message.
 	 */
+	@JsonProperty
 	private ServerMetadata serverMetadata;
 
 	/**
 	 * Round of the message.
 	 */
+	@JsonProperty
 	private Round round;
 
 	/**
 	 * Event of the message.
 	 */
+	@JsonProperty
 	private Event event;
 
 	/**
 	 * Alias of the message.
 	 */
+	@JsonProperty
 	private Alias alias;
 
 	/**
 	 * Score of the message.
 	 */
+	@JsonProperty
 	private Score score;
 
 	/**
 	 * Team of the message.
 	 */
+	@JsonProperty
 	private Team team;
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the revision
+	 */
+	public String getRevision() {
+		return revision;
+	}
+
+	/**
+	 * @param revision
+	 *            the revision to set
+	 */
+	public void setRevision(String revision) {
+		this.revision = revision;
+	}
 
 	/**
 	 * @return The message content.
@@ -67,6 +123,7 @@ public class TransportMessage {
 			@XmlElement(name = "score", type = Score.class),
 			@XmlElement(name = "team", type = Team.class) })
 	@CheckForNull
+	@JsonIgnore
 	public Object getMessageContent() {
 		if (getServerMetadata() != null) {
 			return getServerMetadata();

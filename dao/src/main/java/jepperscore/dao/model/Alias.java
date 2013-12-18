@@ -9,6 +9,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class represents the Alias used by a player.
  *
@@ -23,36 +25,42 @@ public class Alias {
 	 * An identifying id.
 	 */
 	@XmlAttribute(required = true)
+	@JsonProperty("_id")
 	private String id;
 
 	/**
 	 * The alias.
 	 */
 	@XmlAttribute(required = true)
+	@JsonProperty
 	private String name;
 
 	/**
 	 * Indicates if the alias represents a bot.
 	 */
 	@XmlAttribute(required = false)
+	@JsonProperty
 	private Boolean bot = null;
 
 	/**
 	 * The team which the alias belongs to.
 	 */
 	@XmlElement(required = false)
+	@JsonProperty
 	private Team team;
 
 	/**
 	 * The person which the alias belongs to.
 	 */
 	@XmlElement(required = false)
+	@JsonProperty
 	private Person person;
 
 	/**
 	 * The game the alias is playing.
 	 */
 	@XmlElement(required = true)
+	@JsonProperty
 	private Game game;
 
 	/**

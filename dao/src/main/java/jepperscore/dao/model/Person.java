@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This class represents a single real person.
  * @author Chuck
@@ -18,6 +20,7 @@ public class Person {
 	 * The name of the person.
 	 */
 	@XmlAttribute(required=true)
+	@JsonProperty
 	private String name;
 
 	/**

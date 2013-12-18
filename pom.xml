@@ -17,7 +17,6 @@
 	<modules>
 		<module>dao</module>
 		<module>backends</module>
-		<module>persistence</module>
 		<module>scrapers</module>
 		<module>jeppervcr</module>
 		<module>jepperconsole</module>

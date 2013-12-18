@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * This represents a single game element.
  *
@@ -20,18 +22,21 @@ public class Game {
 	 * The name of the game.
 	 */
 	@XmlAttribute(required = true)
+	@JsonProperty
 	private String name;
 
 	/**
 	 * The name of the gametype.
 	 */
 	@XmlAttribute(required = true)
+	@JsonProperty
 	private String gametype;
 
 	/**
 	 * The name of the mod, if any.
 	 */
 	@XmlAttribute(required = false)
+	@JsonProperty
 	private String mod;
 
 	/**
