@@ -222,7 +222,8 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 					dataManager.provideTeamRecord("1", team);
 				}
-
+				break;
+				
 				case "teamname_1": {
 					Team team = dataManager.getTeamById("2");
 					if (team == null) {
@@ -232,6 +233,10 @@ public class BF1942Scraper implements Scraper, Runnable {
 
 					dataManager.provideTeamRecord("2", team);
 				}
+				break;
+				
+				default:
+					break;
 				}
 			}
 

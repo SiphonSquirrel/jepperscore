@@ -25,9 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * This class provides the XML message for sending events or alias across the
  * wire.
- *
+ * 
  * @author Chuck
- *
+ * 
  */
 @XmlRootElement(name = "message")
 @XmlAccessorType(XmlAccessType.NONE)
@@ -144,7 +144,7 @@ public class TransportMessage {
 
 	/**
 	 * Sets the message content.
-	 *
+	 * 
 	 * @param content
 	 *            The content of the message.
 	 */
@@ -260,6 +260,10 @@ public class TransportMessage {
 
 	@Override
 	public String toString() {
-		return getMessageContent().toString();
+		Object content = getMessageContent();
+		if (content == null)
+			return "";
+		else
+			return content.toString();
 	}
 }
