@@ -57,7 +57,7 @@ public class CouchDbMessageDestination implements IMessageDestination {
 		CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
 		db = new StdCouchDbConnector(dbName, dbInstance);
 		db.createDatabaseIfNotExists();
-		LOG.info("Connect to CouchDB. Relax.");
+		LOG.info("Connected to CouchDB. Relax.");
 	}
 
 	@Override
