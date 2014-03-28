@@ -500,6 +500,10 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	@Override
 	public synchronized Team getTeamByName(String name) {
+		if (name == null) {
+			return null;
+		}
+
 		for (Team t : teams.values()) {
 			if (name.equalsIgnoreCase(t.getTeamName())) {
 				return t;
