@@ -37,7 +37,7 @@ public class Main implements IMessageCallback {
 	 *            [Active MQ Connection String]
 	 */
 	public static void main(String[] args) {
-		if (args.length != 1) {
+		if (args.length != 2) {
 			throw new RuntimeException(
 					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup]");
 		}

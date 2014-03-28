@@ -18,6 +18,7 @@ import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,6 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @XmlRootElement(name = "message")
 @XmlAccessorType(XmlAccessType.NONE)
 @JsonInclude(Include.NON_EMPTY)
+@JsonIgnoreProperties({"messageContent"})
 public class TransportMessage {
 	/**
 	 * An identifying id.
@@ -148,6 +150,7 @@ public class TransportMessage {
 	 * @param content
 	 *            The content of the message.
 	 */
+	@JsonIgnore
 	public void setMessageContent(@Nonnull Object content) {
 		if (content instanceof ServerMetadata) {
 			setServerMetadata((ServerMetadata) content);
