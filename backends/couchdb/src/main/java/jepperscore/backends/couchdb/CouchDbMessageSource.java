@@ -2,10 +2,8 @@ package jepperscore.backends.couchdb;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.LinkedList;
-import java.util.List;
 
-import jepperscore.dao.IMessageCallback;
+import jepperscore.dao.AbstractMessageSource;
 import jepperscore.dao.IMessageSource;
 import jepperscore.dao.transport.TransportMessage;
 
@@ -28,7 +26,7 @@ import org.slf4j.LoggerFactory;
  * @author Chuck
  *
  */
-public class CouchDbMessageSource implements IMessageSource, Runnable {
+public class CouchDbMessageSource extends AbstractMessageSource implements Runnable {
 
 	/**
 	 * Class logger.
@@ -40,11 +38,6 @@ public class CouchDbMessageSource implements IMessageSource, Runnable {
 	 * The database to connect to.
 	 */
 	private CouchDbConnector db;
-
-	/**
-	 * The list of callbacks.
-	 */
-	private List<IMessageCallback> callbacks = new LinkedList<IMessageCallback>();
 
 	/**
 	 * The thread checking the feed.
@@ -82,20 +75,6 @@ public class CouchDbMessageSource implements IMessageSource, Runnable {
 	}
 
 	@Override
-	public void registerCallback(IMessageCallback callback) {
-		synchronized (callbacks) {
-			callbacks.add(callback);
-		}
-	}
-
-	@Override
-	public void unregisterCallback(IMessageCallback callback) {
-		synchronized (callbacks) {
-			callbacks.remove(callback);
-		}
-	}
-
-	@Override
 	public void run() {
 		ChangesCommand cmd = new ChangesCommand.Builder().includeDocs(true).continuous(true).heartbeat(100).build();
 		ChangesFeed feed = db.changesFeed(cmd);
@@ -108,11 +87,7 @@ public class CouchDbMessageSource implements IMessageSource, Runnable {
 				String doc = item.getDoc();
 				TransportMessage msg = mapper.readValue(doc, TransportMessage.class);
 
-				synchronized (callbacks) {
-					for (IMessageCallback callback: callbacks) {
-						callback.onMessage(msg);
-					}
-				}
+				call(msg);
 			} catch (InterruptedException e) {
 				break;
 			} catch (IOException e) {
