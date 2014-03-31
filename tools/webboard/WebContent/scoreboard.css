@@ -1,0 +1,89 @@
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+#top {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#game {
+  width: 200px;  
+}
+
+.gameName {
+  font-size: xx-large;
+  text-align: center;
+  display: block; 
+}
+
+.gameMode {
+  font-size: large;
+  margin-left: auto;
+}
+
+.gameMod {
+  font-size: large;
+  margin-right: auto;
+}
+
+
+.teamColorParent > :nth-child(1) {
+  color: red;	
+}
+
+.teamColorParent > :nth-child(2) {
+  color: blue;
+}
+
+.teamBlock {
+  display: inline-block;
+  text-align: center;
+
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.teamName {
+  display: block;
+  font-size:large;
+}
+
+.teamScore {
+  display: block;
+  font-size:xx-large;
+}
+
+.scoreBlock {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  vertical-align: top;
+  
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.playerBlock {
+  display: block;
+  border-style: solid;
+  border-width: 1px;
+  margin: 5px;
+  color: white;
+}
+
+.playerName {
+ display: inline;
+ font-size:large;
+}
+
+.playerScore {
+  display: inline;
+  font-size:x-large;
+  text-align: right;
+  margin: 0px 3px 0px 15px;
+}
