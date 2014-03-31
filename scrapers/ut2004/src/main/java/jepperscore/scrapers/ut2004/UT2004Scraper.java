@@ -378,7 +378,7 @@ public class UT2004Scraper implements Scraper, Runnable {
 	@Override
 	public void run() {
 		try (InputStream is = new FileInputStream(logFile)) {
-			UT2004LogParser parser = new UT2004LogParser(is, messageDestination, dataManager);
+			UT2004LogParser parser = new UT2004LogParser(is, messageDestination, dataManager, dataManager);
 			parser.run();
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);

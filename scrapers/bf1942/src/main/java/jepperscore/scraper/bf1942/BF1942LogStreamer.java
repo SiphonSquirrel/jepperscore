@@ -16,10 +16,12 @@ import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.EventCode;
+import jepperscore.dao.model.Round;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.common.PlayerManager;
+import jepperscore.scraper.common.RoundManager;
 import jepperscore.scraper.common.ScoreManager;
 import jepperscore.scraper.common.TeamManager;
 
@@ -33,9 +35,9 @@ import org.xml.sax.SAXException;
 
 /**
  * This class reads the BF1942 logs, and streams the events.
- *
+ * 
  * @author Chuck
- *
+ * 
  */
 public class BF1942LogStreamer implements Runnable {
 
@@ -91,8 +93,13 @@ public class BF1942LogStreamer implements Runnable {
 	private TeamManager teamManager;
 
 	/**
+	 * The round manager.
+	 */
+	private RoundManager roundManager;
+
+	/**
 	 * This constructor points the log streamer at a log file.
-	 *
+	 * 
 	 * @param stream
 	 *            The log stream to watch.
 	 * @param messageDestination
@@ -107,12 +114,13 @@ public class BF1942LogStreamer implements Runnable {
 	public BF1942LogStreamer(@Nonnull InputStream stream,
 			@Nonnull IMessageDestination messageDestination,
 			PlayerManager playerManager, ScoreManager scoreManager,
-			TeamManager teamManager) {
+			TeamManager teamManager, RoundManager roundManager) {
 		this.stream = stream;
 		this.messageDestination = messageDestination;
 		this.playerManager = playerManager;
 		this.scoreManager = scoreManager;
 		this.teamManager = teamManager;
+		this.roundManager = roundManager;
 		this.charset = StandardCharsets.ISO_8859_1;
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -125,7 +133,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Returns the latest XML snippet from the log file.
-	 *
+	 * 
 	 * @return The XML snippet.
 	 * @throws IOException
 	 *             When a problem occurs reading the newest entries.
@@ -161,7 +169,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Closes any hanging tags left open by the beginning of a snippet.
-	 *
+	 * 
 	 * @param newData
 	 *            The new XML string to close the tags for.
 	 * @return The XML string with all the tags closed.
@@ -230,7 +238,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Parses the events from the XML document.
-	 *
+	 * 
 	 * @param topElement
 	 *            The element to parse the events from.
 	 */
@@ -269,7 +277,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Returns the text of an element.
-	 *
+	 * 
 	 * @param element
 	 *            The element to parse.
 	 * @return The text.
@@ -302,7 +310,7 @@ public class BF1942LogStreamer implements Runnable {
 	/**
 	 * The function finds the passed element name with the name attribute =
 	 * name.
-	 *
+	 * 
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -331,7 +339,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * The function finds the <bf:param> with the name attribute = name.
-	 *
+	 * 
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -345,7 +353,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * The function finds the <bf:statparam> with the name attribute = name.
-	 *
+	 * 
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -359,7 +367,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * This function handles the parsed events.
-	 *
+	 * 
 	 * @param eventElement
 	 *            The event element to parse.
 	 */
@@ -549,14 +557,17 @@ public class BF1942LogStreamer implements Runnable {
 		if (newEvent != null) {
 			TransportMessage transportMessage = new TransportMessage();
 			transportMessage.setEvent(newEvent);
-
+			Round round = roundManager.getCurrentRound();
+			if (round != null) {
+				transportMessage.setSessionId(round.getId());
+			}
 			messageDestination.sendMessage(transportMessage);
 		}
 	}
 
 	/**
 	 * This function handles the parsed round stats element.
-	 *
+	 * 
 	 * @param roundStatsElement
 	 *            The round stats element to parse.
 	 */

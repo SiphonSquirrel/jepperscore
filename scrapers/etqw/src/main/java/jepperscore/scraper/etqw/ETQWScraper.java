@@ -170,7 +170,7 @@ public class ETQWScraper implements Scraper, Runnable {
 	@Override
 	public void run() {
 		try (InputStream is = new FileInputStream(logFile)) {
-			ETQWLogParser parser = new ETQWLogParser(is, messageDestination, dataManager);
+			ETQWLogParser parser = new ETQWLogParser(is, messageDestination, dataManager, dataManager);
 			parser.run();
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);

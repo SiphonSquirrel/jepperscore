@@ -25,9 +25,9 @@ import org.slf4j.LoggerFactory;
 /**
  * This class tracks the players list across all scraping methods (Log file,
  * query, RCON, etc.).
- *
+ * 
  * @author Chuck
- *
+ * 
  */
 public class SimpleDataManager implements PlayerManager, GameManager,
 		RoundManager, TeamManager, ScoreManager {
@@ -80,7 +80,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Constructor for the player manager.
-	 *
+	 * 
 	 * @param messageDestination
 	 *            The message destination class to handle new messages.
 	 */
@@ -103,7 +103,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 	/**
 	 * This function takes an alias and merges it with the existing alias
 	 * definition.
-	 *
+	 * 
 	 * @param player
 	 *            The player to merge.
 	 * @return The merged player record.
@@ -178,6 +178,10 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setAlias(oldPlayer);
+			Round round = currentRound;
+			if (round != null) {
+				msg.setSessionId(round.getId());
+			}
 			messageDestination.sendMessage(msg);
 		}
 
@@ -207,7 +211,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Looks up or creates a player based on their ID.
-	 *
+	 * 
 	 * @param id
 	 *            The player id.
 	 * @return The player.
@@ -224,7 +228,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Looks up or optionally, creates a player based on their ID.
-	 *
+	 * 
 	 * @param id
 	 *            The player id.
 	 * @param create
@@ -247,7 +251,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Looks up or creates a player based on their ID.
-	 *
+	 * 
 	 * @param name
 	 *            The player name.
 	 * @return The player.
@@ -300,6 +304,10 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setRound(currentRound);
+			Round cRound = currentRound;
+			if (cRound != null) {
+				msg.setSessionId(cRound.getId());
+			}
 			messageDestination.sendMessage(msg);
 		}
 
@@ -344,11 +352,16 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 		}
 
 		if (changeDetected) {
-			currentRound.setGame(currentGame);
+			Round round = currentRound;
+			if (round != null) {
+				round.setGame(currentGame);
 
-			TransportMessage msg = new TransportMessage();
-			msg.setRound(currentRound);
-			messageDestination.sendMessage(msg);
+				TransportMessage msg = new TransportMessage();
+				msg.setRound(round);
+
+				msg.setSessionId(round.getId());
+				messageDestination.sendMessage(msg);
+			}
 		}
 
 		return currentGame.copy();
@@ -385,6 +398,10 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setScore(oldScore);
+			Round round = currentRound;
+			if (round != null) {
+				msg.setSessionId(round.getId());
+			}
 			messageDestination.sendMessage(msg);
 		}
 		return score;
@@ -392,7 +409,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Gets the score for the alias and optionally copy it.
-	 *
+	 * 
 	 * @param player
 	 *            The player to find the score for.
 	 * @param doCopy
@@ -452,6 +469,10 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 		TransportMessage transportMessage = new TransportMessage();
 		transportMessage.setScore(oldScore);
+		Round round = currentRound;
+		if (round != null) {
+			transportMessage.setSessionId(round.getId());
+		}
 		messageDestination.sendMessage(transportMessage);
 
 		return oldScore.copy();
@@ -487,6 +508,10 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
 			msg.setTeam(oldTeam);
+			Round round = currentRound;
+			if (round != null) {
+				msg.setSessionId(round.getId());
+			}
 			messageDestination.sendMessage(msg);
 		}
 
