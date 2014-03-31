@@ -62,6 +62,10 @@ public class CouchDbMessageDestination implements IMessageDestination {
 
 	@Override
 	public synchronized void sendMessage(TransportMessage transportMessage) {
+		if (transportMessage.getSessionId() == null) {
+			LOG.warn("Sending message without session ID.");
+		}
+		
 		if (transportMessage.getId() == null) {
 			db.create(transportMessage);
 		} else {

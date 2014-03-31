@@ -1,5 +1,8 @@
 package jepperscore.backends.testing;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.transport.TransportMessage;
 
@@ -12,6 +15,12 @@ import jepperscore.dao.transport.TransportMessage;
 public class NullMessageDestination implements IMessageDestination {
 
 	/**
+	 * Class logger.
+	 */
+	private static final Logger LOG = LoggerFactory
+			.getLogger(NullMessageDestination.class);
+	
+	/**
 	 * Creates the message destination.
 	 *
 	 * @param emptySetupString
@@ -22,7 +31,9 @@ public class NullMessageDestination implements IMessageDestination {
 
 	@Override
 	public synchronized void sendMessage(TransportMessage transportMessage) {
-
+		if (transportMessage.getSessionId() == null) {
+			LOG.warn("Sending message without session ID.");
+		}
 	}
 
 }
