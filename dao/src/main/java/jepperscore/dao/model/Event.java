@@ -9,9 +9,14 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import jepperscore.dao.model.converter.JodaTimeToString;
+import jepperscore.dao.model.converter.StringToJodaTime;
+
 import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * This class represents an event (player score, team score, player leave/join,
@@ -29,6 +34,8 @@ public class Event {
 	 */
 	@XmlAttribute(required = true)
 	@JsonProperty
+	@JsonSerialize(converter=JodaTimeToString.class)
+	@JsonDeserialize(converter=StringToJodaTime.class)
 	private DateTime timestamp;
 
 	/**

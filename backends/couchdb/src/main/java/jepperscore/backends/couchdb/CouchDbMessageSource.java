@@ -7,18 +7,14 @@ import jepperscore.dao.AbstractMessageSource;
 import jepperscore.dao.IMessageSource;
 import jepperscore.dao.transport.TransportMessage;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.ektorp.CouchDbConnector;
-import org.ektorp.CouchDbInstance;
 import org.ektorp.changes.ChangesCommand;
 import org.ektorp.changes.ChangesFeed;
 import org.ektorp.changes.DocumentChange;
-import org.ektorp.http.HttpClient;
-import org.ektorp.http.StdHttpClient;
-import org.ektorp.impl.StdCouchDbConnector;
-import org.ektorp.impl.StdCouchDbInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * This class implements the {@link IMessageSource} using CouchDb.
@@ -62,13 +58,8 @@ public class CouchDbMessageSource extends AbstractMessageSource implements Runna
 
 		LOG.info("Connecting to " + server + " (DB: " + dbName + ") using the CouchDB backend.");
 
-		HttpClient httpClient = new StdHttpClient.Builder().url(server).build();
-
-		CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-		db = new StdCouchDbConnector(dbName, dbInstance);
-		db.createDatabaseIfNotExists();
-		LOG.info("Connected to CouchDB. Relax.");
-
+		db = CouchDbUtils.setupCouchDb(server, dbName);
+		
 		feedThread = new Thread(this);
 		feedThread.setDaemon(true);
 		feedThread.start();
@@ -78,7 +69,7 @@ public class CouchDbMessageSource extends AbstractMessageSource implements Runna
 	public void run() {
 		ChangesCommand cmd = new ChangesCommand.Builder().includeDocs(true).continuous(true).heartbeat(100).build();
 		ChangesFeed feed = db.changesFeed(cmd);
-
+		
 		ObjectMapper mapper = new ObjectMapper();
 
 		while (feed.isAlive()) {

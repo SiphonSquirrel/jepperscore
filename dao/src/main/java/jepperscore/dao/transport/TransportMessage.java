@@ -17,11 +17,13 @@ import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 /**
  * This class provides the XML message for sending events or alias across the
@@ -33,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @XmlRootElement(name = "message")
 @XmlAccessorType(XmlAccessType.NONE)
 @JsonInclude(Include.NON_EMPTY)
-@JsonIgnoreProperties(ignoreUnknown=true)//{"messageContent"})
+//@JsonIgnoreProperties(ignoreUnknown=true)
 public class TransportMessage {
 	/**
 	 * An identifying id.
@@ -115,6 +117,18 @@ public class TransportMessage {
 	}
 	
 	/**
+	 * Sets the content and session of the message.
+	 * @param id The id of the message.
+	 * @param content The content.
+	 * @param session The session.
+	 */
+	public TransportMessage(String id, Object content, String session) {
+		this(content);
+		setId(id);
+		setSessionId(session);
+	}
+	
+	/**
 	 * @return the session id.
 	 */
 	public String getSessionId() {
@@ -132,6 +146,7 @@ public class TransportMessage {
 	/**
 	 * @return the id
 	 */
+	@JsonGetter("_id")
 	public String getId() {
 		return id;
 	}
@@ -140,6 +155,7 @@ public class TransportMessage {
 	 * @param id
 	 *            the id to set
 	 */
+	@JsonSetter("_id")
 	public void setId(String id) {
 		this.id = id;
 	}
