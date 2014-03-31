@@ -59,6 +59,10 @@ public class TestingMessageDestination implements IMessageDestination {
 
 	@Override
 	public synchronized void sendMessage(TransportMessage transportMessage) {
+		if (transportMessage.getSessionId() == null) {
+			LOG.warn("Sending message without session ID.");
+		}
+		
 		LOG.trace(transportMessage.toString());
 		messages.add(transportMessage);
 		for (MessageHandler handler: handlers) {

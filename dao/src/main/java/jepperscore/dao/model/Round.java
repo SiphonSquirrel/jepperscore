@@ -9,9 +9,14 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import jepperscore.dao.model.converter.JodaTimeToString;
+import jepperscore.dao.model.converter.StringToJodaTime;
+
 import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * This represents a single round played.
@@ -34,6 +39,8 @@ public class Round {
 	 */
 	@XmlAttribute(required=true)
 	@JsonProperty
+	@JsonSerialize(converter=JodaTimeToString.class)
+	@JsonDeserialize(converter=StringToJodaTime.class)
 	private DateTime start;
 
 	/**
@@ -41,6 +48,8 @@ public class Round {
 	 */
 	@XmlAttribute(required=false)
 	@JsonProperty
+	@JsonSerialize(converter=JodaTimeToString.class)
+	@JsonDeserialize(converter=StringToJodaTime.class)
 	private DateTime end;
 
 	/**
@@ -73,6 +82,7 @@ public class Round {
 	 * @param map The map of the round.
 	 */
 	public Round(String id, DateTime start, DateTime end, Game game, String map) {
+		this.id = id;
 		this.start = start;
 		this.end = end;
 		this.game = game;

@@ -50,7 +50,7 @@ public class LogStreamerTest {
 				messageDestination);
 
 		BF1942LogStreamer ls = new BF1942LogStreamer(is, messageDestination,
-				dataManager, dataManager, dataManager);
+				dataManager, dataManager, dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 
@@ -244,7 +244,7 @@ public class LogStreamerTest {
 
 		SimpleDataManager dataManager = new SimpleDataManager(messageDestination);
 		BF1942LogStreamer ls = new BF1942LogStreamer(is, messageDestination, dataManager, dataManager,
-				dataManager);
+				dataManager, dataManager);
 		Thread lsThread = new Thread(ls);
 		lsThread.start();
 

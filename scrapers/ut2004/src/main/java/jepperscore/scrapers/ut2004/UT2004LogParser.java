@@ -9,8 +9,10 @@ import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
 import jepperscore.dao.model.EventCode;
+import jepperscore.dao.model.Round;
 import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.common.PlayerManager;
+import jepperscore.scraper.common.RoundManager;
 import jepperscore.scraper.common.logparser.AbstractLineLogParser;
 
 /**
@@ -32,6 +34,11 @@ public class UT2004LogParser extends AbstractLineLogParser {
 	private IMessageDestination messageDestination;
 
 	/**
+	 * The round manager.
+	 */
+	private RoundManager roundManager;
+
+	/**
 	 * This constructor parses log entries from a stream.
 	 *
 	 * @param stream
@@ -42,10 +49,11 @@ public class UT2004LogParser extends AbstractLineLogParser {
 	 *            The player manager to use.
 	 */
 	public UT2004LogParser(@Nonnull InputStream stream, @Nonnull IMessageDestination messageDestination,
-			@Nonnull PlayerManager playerManager) {
+			@Nonnull PlayerManager playerManager, @Nonnull RoundManager roundManager) {
 		super(stream, StandardCharsets.UTF_8, false);
 		this.messageDestination =messageDestination;
 		this.playerManager = playerManager;
+		this.roundManager = roundManager;
 	}
 
 	@Override
@@ -141,7 +149,11 @@ public class UT2004LogParser extends AbstractLineLogParser {
 
 					TransportMessage transportMessage = new TransportMessage();
 					transportMessage.setEvent(newEvent);
-
+					Round round = roundManager.getCurrentRound();
+					if (round != null) {
+						transportMessage.setSessionId(round.getId());
+					}
+					
 					messageDestination.sendMessage(transportMessage);
 				}
 			}

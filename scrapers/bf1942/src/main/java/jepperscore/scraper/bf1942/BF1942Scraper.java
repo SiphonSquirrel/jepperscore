@@ -64,6 +64,10 @@ public class BF1942Scraper implements Scraper, Runnable {
 			ServerMetadata serverMetadata = info.getServerMetadata();
 			if (serverMetadata != null) {
 				TransportMessage transport = new TransportMessage();
+				Round round = dataManager.getCurrentRound();
+				if (round != null) {
+					transport.setSessionId(round.getId());
+				}
 				transport.setServerMetadata(serverMetadata);
 				messageDestination.sendMessage(transport);
 
@@ -80,7 +84,6 @@ public class BF1942Scraper implements Scraper, Runnable {
 					game.setGametype(gametype);
 
 					dataManager.provideGameRecord(game);
-					Round round = dataManager.getCurrentRound();
 					if (round != null) {
 						round.setMap(map);
 						dataManager.provideRoundRecord(round);
@@ -416,7 +419,7 @@ public class BF1942Scraper implements Scraper, Runnable {
 								is = new FileInputStream(logFile);
 								BF1942LogStreamer streamer = new BF1942LogStreamer(
 										is, messageDestination,
-										dataManager, dataManager, dataManager);
+										dataManager, dataManager, dataManager, dataManager);
 
 								logThread = new Thread(streamer);
 								logThread.setDaemon(true);

@@ -2,25 +2,19 @@ package jepperscore.backends.couchdb;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.LinkedList;
-import java.util.List;
 
-import jepperscore.dao.IMessageCallback;
+import jepperscore.dao.AbstractMessageSource;
 import jepperscore.dao.IMessageSource;
 import jepperscore.dao.transport.TransportMessage;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.ektorp.CouchDbConnector;
-import org.ektorp.CouchDbInstance;
 import org.ektorp.changes.ChangesCommand;
 import org.ektorp.changes.ChangesFeed;
 import org.ektorp.changes.DocumentChange;
-import org.ektorp.http.HttpClient;
-import org.ektorp.http.StdHttpClient;
-import org.ektorp.impl.StdCouchDbConnector;
-import org.ektorp.impl.StdCouchDbInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * This class implements the {@link IMessageSource} using CouchDb.
@@ -28,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * @author Chuck
  *
  */
-public class CouchDbMessageSource implements IMessageSource, Runnable {
+public class CouchDbMessageSource extends AbstractMessageSource implements Runnable {
 
 	/**
 	 * Class logger.
@@ -40,11 +34,6 @@ public class CouchDbMessageSource implements IMessageSource, Runnable {
 	 * The database to connect to.
 	 */
 	private CouchDbConnector db;
-
-	/**
-	 * The list of callbacks.
-	 */
-	private List<IMessageCallback> callbacks = new LinkedList<IMessageCallback>();
 
 	/**
 	 * The thread checking the feed.
@@ -69,37 +58,18 @@ public class CouchDbMessageSource implements IMessageSource, Runnable {
 
 		LOG.info("Connecting to " + server + " (DB: " + dbName + ") using the CouchDB backend.");
 
-		HttpClient httpClient = new StdHttpClient.Builder().url(server).build();
-
-		CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-		db = new StdCouchDbConnector(dbName, dbInstance);
-		db.createDatabaseIfNotExists();
-		LOG.info("Connected to CouchDB. Relax.");
-
+		db = CouchDbUtils.setupCouchDb(server, dbName);
+		
 		feedThread = new Thread(this);
 		feedThread.setDaemon(true);
 		feedThread.start();
 	}
 
 	@Override
-	public void registerCallback(IMessageCallback callback) {
-		synchronized (callbacks) {
-			callbacks.add(callback);
-		}
-	}
-
-	@Override
-	public void unregisterCallback(IMessageCallback callback) {
-		synchronized (callbacks) {
-			callbacks.remove(callback);
-		}
-	}
-
-	@Override
 	public void run() {
 		ChangesCommand cmd = new ChangesCommand.Builder().includeDocs(true).continuous(true).heartbeat(100).build();
 		ChangesFeed feed = db.changesFeed(cmd);
-
+		
 		ObjectMapper mapper = new ObjectMapper();
 
 		while (feed.isAlive()) {
@@ -108,11 +78,7 @@ public class CouchDbMessageSource implements IMessageSource, Runnable {
 				String doc = item.getDoc();
 				TransportMessage msg = mapper.readValue(doc, TransportMessage.class);
 
-				synchronized (callbacks) {
-					for (IMessageCallback callback: callbacks) {
-						callback.onMessage(msg);
-					}
-				}
+				call(msg);
 			} catch (InterruptedException e) {
 				break;
 			} catch (IOException e) {

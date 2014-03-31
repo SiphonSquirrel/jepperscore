@@ -6,19 +6,15 @@ import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.transport.TransportMessage;
 
 import org.ektorp.CouchDbConnector;
-import org.ektorp.CouchDbInstance;
-import org.ektorp.http.HttpClient;
-import org.ektorp.http.StdHttpClient;
-import org.ektorp.impl.StdCouchDbConnector;
-import org.ektorp.impl.StdCouchDbInstance;
+import org.ektorp.DocumentNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * This class implements the {@link IMessageDestination} using ActiveMQ.
- *
+ * 
  * @author Chuck
- *
+ * 
  */
 public class CouchDbMessageDestination implements IMessageDestination {
 
@@ -35,7 +31,7 @@ public class CouchDbMessageDestination implements IMessageDestination {
 
 	/**
 	 * Creates the message destination.
-	 *
+	 * 
 	 * @param couchdbString
 	 *            The couchdb setup string.
 	 * @throws MalformedURLException
@@ -52,23 +48,28 @@ public class CouchDbMessageDestination implements IMessageDestination {
 
 		LOG.info("Connecting to " + server + " (DB: " + dbName + ") using the CouchDB backend.");
 
-		HttpClient httpClient = new StdHttpClient.Builder().url(server).build();
-
-		CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
-		db = new StdCouchDbConnector(dbName, dbInstance);
-		db.createDatabaseIfNotExists();
-		LOG.info("Connected to CouchDB. Relax.");
+		db = CouchDbUtils.setupCouchDb(server, dbName);
 	}
 
 	@Override
 	public synchronized void sendMessage(TransportMessage transportMessage) {
+		if (transportMessage.getSessionId() == null) {
+			LOG.warn("Sending message without session ID.");
+		}
+
 		if (transportMessage.getId() == null) {
 			db.create(transportMessage);
+			
 		} else {
-			TransportMessage oldMsg = db.get(TransportMessage.class,
-					transportMessage.getId());
-			transportMessage.setRevision(oldMsg.getRevision());
-			db.update(transportMessage);
+			try {
+				TransportMessage oldMsg = db.get(TransportMessage.class,
+						transportMessage.getId());
+				transportMessage.setRevision(oldMsg.getRevision());
+
+				db.update(transportMessage);
+			} catch (DocumentNotFoundException e) {
+				db.create(transportMessage);
+			}
 		}
 	}
 }

@@ -79,6 +79,10 @@ public class ActiveMQMessageDestination implements IMessageDestination {
 
 	@Override
 	public synchronized void sendMessage(TransportMessage transportMessage) {
+		if (transportMessage.getSessionId() == null) {
+			LOG.warn("Sending message without session ID.");
+		}
+		
 		try {
 			Marshaller marshaller = jaxbContext.createMarshaller();
 
