@@ -1,5 +1,7 @@
 package jepperscore.dao;
 
+import javax.annotation.Nonnull;
+
 import jepperscore.dao.transport.TransportMessage;
 
 /**
@@ -12,5 +14,5 @@ public interface IMessageDestination {
 	 * Sends a message to the backend.
 	 * @param transportMessage
 	 */
-	void sendMessage(final TransportMessage transportMessage);
+	void sendMessage(@Nonnull final TransportMessage transportMessage);
 }

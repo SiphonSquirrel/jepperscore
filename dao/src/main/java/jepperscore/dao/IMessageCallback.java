@@ -1,5 +1,7 @@
 package jepperscore.dao;
 
+import javax.annotation.Nonnull;
+
 import jepperscore.dao.transport.TransportMessage;
 
 /**
@@ -14,6 +16,6 @@ public interface IMessageCallback {
 	 * Called when there is a {@link TransportMessage} event.
 	 * @param message The message.
 	 */
-	void onMessage(TransportMessage message);
+	void onMessage(@Nonnull final TransportMessage message);
 
 }
