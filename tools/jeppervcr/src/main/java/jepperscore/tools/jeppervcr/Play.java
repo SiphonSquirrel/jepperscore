@@ -1,4 +1,4 @@
-package jepperscore.jeppervcr;
+package jepperscore.tools.jeppervcr;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -12,8 +12,13 @@ import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stream.StreamSource;
 
 import jepperscore.dao.IMessageDestination;
-import jepperscore.jeppervcr.model.RecordingEntry;
+import jepperscore.tools.jeppervcr.model.RecordingEntry;
 
+import org.apache.commons.cli.BasicParser;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.slf4j.Logger;
@@ -33,20 +38,46 @@ public class Play {
 	private static final Logger LOG = LoggerFactory.getLogger(Play.class);
 
 	/**
+	 * Specifies the destination class.
+	 */
+	private static final String DESTINATION_CLASS_ARG = "c";
+	
+	/**
+	 * Specifies the destination class setup.
+	 */
+	private static final String DESTINATION_SETUP_ARG = "s";
+	
+	/**
+	 * Specifies the input file.
+	 */
+	private static final String INPUT_FILE_ARG = "i";
+	
+	/**
 	 * The main function.
 	 *
 	 * @param args
 	 *            [Active MQ Connection String]
+	 * @throws ParseException Exception throw from parsing problems.
 	 */
-	public static void main(String[] args) {
-		if (args.length != 3) {
+	public static void main(String[] args) throws ParseException {
+		Options options = new Options();
+		
+		options.addOption(DESTINATION_CLASS_ARG, true, "Specifies the destination class.");
+		options.addOption(DESTINATION_SETUP_ARG, true, "Specifies the destination class setup.");
+		options.addOption(INPUT_FILE_ARG, true, "Specifies the input file.");
+		
+		CommandLineParser parser = new BasicParser();
+		CommandLine cmd = parser.parse( options, args);
+		
+		if (!cmd.hasOption(DESTINATION_CLASS_ARG) || !cmd.hasOption(DESTINATION_SETUP_ARG) ||
+				!cmd.hasOption(INPUT_FILE_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need [Active MQ Connection String] [Input File]");
+					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -i [Input File]");
 		}
-
-		String messageDestinationClass = args[0];
-		String messageDestinationSetup = args[1];
-		String infile = args[2];
+		
+		String messageDestinationClass = cmd.getOptionValue(DESTINATION_CLASS_ARG);
+		String messageDestinationSetup = cmd.getOptionValue(DESTINATION_SETUP_ARG);
+		String infile = cmd.getOptionValue(INPUT_FILE_ARG);
 
 		IMessageDestination messageDestination;
 		try {

@@ -1,4 +1,4 @@
-package jepperscore.jepperconsole;
+package jepperscore.tools.jepperconsole;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -14,6 +14,11 @@ import jepperscore.dao.model.ServerMetadata;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 
+import org.apache.commons.cli.BasicParser;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,18 +36,38 @@ public class Main implements IMessageCallback {
 	private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
 	/**
+	 * Specifies the source class.
+	 */
+	private static final String SOURCE_CLASS_ARG = "c";
+	
+	/**
+	 * Specifies the source class setup.
+	 */
+	private static final String SOURCE_SETUP_ARG = "s";
+	
+	/**
 	 * The main function.
 	 *
 	 * @param args
 	 *            [Active MQ Connection String]
+	 * @throws ParseException Exception throw from parsing problems.
 	 */
-	public static void main(String[] args) {
-		if (args.length != 2) {
+	public static void main(String[] args) throws ParseException {
+		Options options = new Options();
+		
+		options.addOption(SOURCE_CLASS_ARG, true, "Specifies the source class.");
+		options.addOption(SOURCE_SETUP_ARG, true, "Specifies the source class setup.");
+		
+		CommandLineParser parser = new BasicParser();
+		CommandLine cmd = parser.parse( options, args);
+		
+		if (!cmd.hasOption(SOURCE_CLASS_ARG) || !cmd.hasOption(SOURCE_SETUP_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup]");
+					"Incorrect arguments! Need -c [Message Source Class] -s [Message Source Setup]");
 		}
-		String messageSourceClass = args[0];
-		String messageSourceSetup = args[1];
+		
+		String messageSourceClass = cmd.getOptionValue(SOURCE_CLASS_ARG);
+		String messageSourceSetup = cmd.getOptionValue(SOURCE_SETUP_ARG);
 
 		IMessageSource messageSource;
 		try {
