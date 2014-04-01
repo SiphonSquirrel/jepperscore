@@ -32,6 +32,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
+							<mainClass>jepperscore.tools.jeppervcr.Main</mainClass>
 							<classpathPrefix>lib/</classpathPrefix>
 						</manifest>
 					</archive>
