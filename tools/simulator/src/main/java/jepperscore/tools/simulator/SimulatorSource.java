@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 
-import org.joda.time.DateTime;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import jepperscore.dao.AbstractMessageSource;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Game;
@@ -17,11 +13,15 @@ import jepperscore.dao.model.Score;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 
+import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This message source shows off the scoreboard.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class SimulatorSource extends AbstractMessageSource implements Runnable {
 
@@ -30,6 +30,9 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(SimulatorSource.class);
 
+	/**
+	 * Possible bot names.
+	 */
 	private static final String[] NAMES = new String[] {
 			"Sandee",
 			"Clara",
@@ -67,6 +70,9 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 			"Marylyn",
 			"Wanetta" };
 
+	/**
+	 * This list is used to keep track of which names were used, so none of them are used twice.
+	 */
 	private final ArrayList<String> nameList = new ArrayList<String>();
 
 	/**
@@ -84,7 +90,7 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 
 	/**
 	 * Constructor called from the main class.
-	 * 
+	 *
 	 * @param dummyArg
 	 *            Dummy arg passed in.
 	 */
@@ -94,7 +100,7 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 
 	/**
 	 * Sleeps and logs any exceptions.
-	 * 
+	 *
 	 * @param millis
 	 *            The time to sleep.
 	 */
@@ -106,6 +112,13 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 		}
 	}
 
+	/**
+	 * This function constructions a player list for a given game, team and player count.
+	 * @param game The game.
+	 * @param team The team.
+	 * @param maxPlayers The number of players on that team.
+	 * @return A list of score representing players.
+	 */
 	private ArrayList<Score> getPlayerList(Game game, Team team, int maxPlayers) {
 		ArrayList<Score> retVal = new ArrayList<Score>();
 
@@ -148,18 +161,18 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 				call(new TransportMessage(round.getId(), round, round.getId()));
 				call(new TransportMessage(team1, round.getId()));
 				call(new TransportMessage(team2, round.getId()));
-				
+
 				for (Score s: teamPlayers1) {
 					s.setScore(0);
 					call(new TransportMessage(s, round.getId()));
 				}
-				
+
 				for (Score s: teamPlayers2) {
 					s.setScore(0);
 					call(new TransportMessage(s, round.getId()));
 				}
 			}
-			else if (ticker % 30 == 0) {
+			else if ((ticker % 30) == 0) {
 				if (rnd.nextInt(2) == 0) {
 					team1.setScore(team1.getScore() + 1);
 					call(new TransportMessage(team1, round.getId()));
@@ -171,7 +184,7 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 				ticker = 0;
 				round.setEnd(new DateTime());
 				call(new TransportMessage(round.getId(), round, round.getId()));
-				
+
 				round = new Round(UUID.randomUUID().toString(), new DateTime(), null, game, "SuperMap");
 				continue;
 			}
