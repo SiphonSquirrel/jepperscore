@@ -14,6 +14,11 @@ import org.ektorp.impl.StdCouchDbInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Static class of utilities.
+ * @author Chuck
+ *
+ */
 public class CouchDbUtils {
 
 	/**
@@ -22,9 +27,19 @@ public class CouchDbUtils {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(CouchDbUtils.class);
 
+	/**
+	 * Hide default constructor.
+	 */
 	private CouchDbUtils() {
 	}
 
+	/**
+	 * This function setups up the CouchDB connection, creates the database and associated views.
+	 * @param server The server to connect to.
+	 * @param dbName The name of the database.
+	 * @return The connection.
+	 * @throws MalformedURLException If the server string cannot be understood.
+	 */
 	public static CouchDbConnector setupCouchDb(String server, String dbName) throws MalformedURLException {
 		HttpClient httpClient = new StdHttpClient.Builder().url(server).build();
 
@@ -41,14 +56,14 @@ public class CouchDbUtils {
 
 			Map<String, Object> views = new HashMap<String, Object>();
 			doc.put("views", views);
-			
+
 			HashMap<String, String> bysessionidView = new HashMap<String, String>();
 			bysessionidView.put("map",
 					"function(doc) {\n" +
 							"  emit(doc.sessionId, doc);\n" +
 							"}");
 			views.put("bysessionid", bysessionidView);
-			
+
 			HashMap<String, String> inprogressroundView = new HashMap<String, String>();
 			inprogressroundView.put("map",
 					"function(doc) {\n" +

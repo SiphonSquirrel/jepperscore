@@ -25,7 +25,7 @@ public class Alias {
 	 * An identifying id.
 	 */
 	@XmlAttribute(required = true)
-	@JsonProperty("id")
+	@JsonProperty("_id")
 	private String id;
 
 	/**

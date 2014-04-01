@@ -47,11 +47,15 @@ public class UT2004LogParser extends AbstractLineLogParser {
 	 *            The {@link IMessageDestination} to use.
 	 * @param playerManager
 	 *            The player manager to use.
+	 * @param roundManager
+	 *            The {@link RoundManager} to use.
 	 */
-	public UT2004LogParser(@Nonnull InputStream stream, @Nonnull IMessageDestination messageDestination,
-			@Nonnull PlayerManager playerManager, @Nonnull RoundManager roundManager) {
+	public UT2004LogParser(@Nonnull InputStream stream,
+			@Nonnull IMessageDestination messageDestination,
+			@Nonnull PlayerManager playerManager,
+			@Nonnull RoundManager roundManager) {
 		super(stream, StandardCharsets.UTF_8, false);
-		this.messageDestination =messageDestination;
+		this.messageDestination = messageDestination;
 		this.playerManager = playerManager;
 		this.roundManager = roundManager;
 	}
@@ -91,8 +95,7 @@ public class UT2004LogParser extends AbstractLineLogParser {
 						if (name.startsWith("[BOT]")) {
 							name = name.substring(5);
 							player.setBot(true);
-						}
-						else {
+						} else {
 							player.setBot(false);
 						}
 
@@ -121,7 +124,7 @@ public class UT2004LogParser extends AbstractLineLogParser {
 
 				// Suicide
 				if (attackerId == "-1") {
-					attackerId= vicitimId;
+					attackerId = vicitimId;
 				}
 
 				Alias attacker = playerManager.getPlayer(attackerId);
@@ -144,8 +147,8 @@ public class UT2004LogParser extends AbstractLineLogParser {
 
 					newEvent.setEventCode(eventCode);
 
-					newEvent.setEventText(String.format("{attacker} [%s%s] {victim}",
-							prefix, damageType));
+					newEvent.setEventText(String.format(
+							"{attacker} [%s%s] {victim}", prefix, damageType));
 
 					TransportMessage transportMessage = new TransportMessage();
 					transportMessage.setEvent(newEvent);
@@ -153,14 +156,14 @@ public class UT2004LogParser extends AbstractLineLogParser {
 					if (round != null) {
 						transportMessage.setSessionId(round.getId());
 					}
-					
+
 					messageDestination.sendMessage(transportMessage);
 				}
 			}
 			break;
 		}
 		default:
-			//Ignore anything else...
+			// Ignore anything else...
 			break;
 		}
 	}

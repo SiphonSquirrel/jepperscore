@@ -49,9 +49,13 @@ public class ETQWLogParser extends AbstractLineLogParser {
 	 *            The message destination to use.
 	 * @param playerManager
 	 *            The player manager to use.
+	 * @param roundManager
+	 *            The {@link RoundManager} to use.
 	 */
-	public ETQWLogParser(@Nonnull InputStream stream, @Nonnull IMessageDestination messageDestination,
-			@Nonnull PlayerManager playerManager, @Nonnull RoundManager roundManager) {
+	public ETQWLogParser(@Nonnull InputStream stream,
+			@Nonnull IMessageDestination messageDestination,
+			@Nonnull PlayerManager playerManager,
+			@Nonnull RoundManager roundManager) {
 		super(stream, StandardCharsets.UTF_8, false);
 		this.messageDestination = messageDestination;
 		this.playerManager = playerManager;
@@ -84,17 +88,17 @@ public class ETQWLogParser extends AbstractLineLogParser {
 				EventCode eventCode = new EventCode();
 
 				String prefix = "";
-				//if (attackerId.equals(vicitimId)) {
-//					prefix = "TK:";
-					//eventCode.setCode("teamkill");
-				//} else {
-					eventCode.setCode("kill");
-				//}
+				// if (attackerId.equals(vicitimId)) {
+				// prefix = "TK:";
+				// eventCode.setCode("teamkill");
+				// } else {
+				eventCode.setCode("kill");
+				// }
 
 				newEvent.setEventCode(eventCode);
 
-				newEvent.setEventText(String.format("{attacker} [%s%s] {victim}",
-						prefix, weaponName));
+				newEvent.setEventText(String.format(
+						"{attacker} [%s%s] {victim}", prefix, weaponName));
 
 				TransportMessage transportMessage = new TransportMessage();
 				transportMessage.setEvent(newEvent);

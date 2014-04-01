@@ -35,9 +35,9 @@ import org.xml.sax.SAXException;
 
 /**
  * This class reads the BF1942 logs, and streams the events.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class BF1942LogStreamer implements Runnable {
 
@@ -99,7 +99,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * This constructor points the log streamer at a log file.
-	 * 
+	 *
 	 * @param stream
 	 *            The log stream to watch.
 	 * @param messageDestination
@@ -110,6 +110,8 @@ public class BF1942LogStreamer implements Runnable {
 	 *            The {@link ScoreManager} to use.
 	 * @param teamManager
 	 *            The {@link TeamManager} to use.
+	 * @param roundManager
+	 *            The {@link RoundManager} to use.
 	 */
 	public BF1942LogStreamer(@Nonnull InputStream stream,
 			@Nonnull IMessageDestination messageDestination,
@@ -133,7 +135,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Returns the latest XML snippet from the log file.
-	 * 
+	 *
 	 * @return The XML snippet.
 	 * @throws IOException
 	 *             When a problem occurs reading the newest entries.
@@ -169,7 +171,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Closes any hanging tags left open by the beginning of a snippet.
-	 * 
+	 *
 	 * @param newData
 	 *            The new XML string to close the tags for.
 	 * @return The XML string with all the tags closed.
@@ -238,7 +240,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Parses the events from the XML document.
-	 * 
+	 *
 	 * @param topElement
 	 *            The element to parse the events from.
 	 */
@@ -277,7 +279,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * Returns the text of an element.
-	 * 
+	 *
 	 * @param element
 	 *            The element to parse.
 	 * @return The text.
@@ -310,7 +312,7 @@ public class BF1942LogStreamer implements Runnable {
 	/**
 	 * The function finds the passed element name with the name attribute =
 	 * name.
-	 * 
+	 *
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -339,7 +341,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * The function finds the <bf:param> with the name attribute = name.
-	 * 
+	 *
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -353,7 +355,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * The function finds the <bf:statparam> with the name attribute = name.
-	 * 
+	 *
 	 * @param event
 	 *            The parent element.
 	 * @param name
@@ -367,7 +369,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * This function handles the parsed events.
-	 * 
+	 *
 	 * @param eventElement
 	 *            The event element to parse.
 	 */
@@ -567,7 +569,7 @@ public class BF1942LogStreamer implements Runnable {
 
 	/**
 	 * This function handles the parsed round stats element.
-	 * 
+	 *
 	 * @param roundStatsElement
 	 *            The round stats element to parse.
 	 */
