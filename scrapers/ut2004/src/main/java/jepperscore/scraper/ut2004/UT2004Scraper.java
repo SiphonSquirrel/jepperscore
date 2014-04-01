@@ -1,4 +1,4 @@
-package jepperscore.scrapers.ut2004;
+package jepperscore.scraper.ut2004;
 
 import java.io.File;
 import java.io.FileInputStream;

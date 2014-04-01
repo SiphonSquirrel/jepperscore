@@ -19,6 +19,7 @@
 		<module>backends</module>
 		<module>scrapers</module>
 		<module>tools</module>
+		<module>distribution</module>
 	</modules>
 
 	<dependencies>
