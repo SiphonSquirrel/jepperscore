@@ -32,14 +32,25 @@ Running
 
 **Note 1:** These instructors are incredibly light (closer to quick notes) until they can be properly written.
 
-**Note 2:** You will need to download and install [ActiveMQ 5.8.0](https://activemq.apache.org/activemq-580-release.html)
-
-**Note 3:** The [Active MQ Connection String] parameter can usually be set to --> tcp://ActiveMQHostName:61616
+**Note 2:** You will need to download and install a backend. Your choices are listed here on the [backends page](https://github.com/SiphonSquirrel/jepperscore/wiki/Backends).
 
 ### Games
 
-Please see page for game
+See [Game Support](https://github.com/SiphonSquirrel/jepperscore/wiki/Game-Support) in online manual for more information.
 
 ### JepperConsole
 
-The main class is _jepperscore.jepperconsole.Main_ and takes the arguements: [Active MQ Connection String]
+This application prints out the messages it sees to the console. Good for debugging!
+
+The main class is _jepperscore.jepperconsole.Main_
+and takes the arguments: -c [Message Source Class] -s [Message Source Setup]
+
+### JepperVCR
+
+This application has two parts: a Play and a Record. The application is for recording and playing back events seen on the backend.
+
+The main class for the Record part is: _jepperscore.tools.jeppervcr.Record_
+and takes the arguments: -c [Message Source Class] -s [Message Source Setup] -o [Output File]
+
+The main class for the Play part is: _jepperscore.tools.jeppervcr.Play_
+and takes the arguments: -c [Message Destination Class] -s [Message Destination Setup] -i [Input File]
