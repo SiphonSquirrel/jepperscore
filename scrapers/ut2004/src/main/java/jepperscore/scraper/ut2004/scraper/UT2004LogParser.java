@@ -1,4 +1,4 @@
-package jepperscore.scraper.ut2004;
+package jepperscore.scraper.ut2004.scraper;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;

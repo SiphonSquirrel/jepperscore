@@ -1,69 +1,34 @@
 package jepperscore.scraper.ut2004;
 
-import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 
-import jepperscore.dao.IMessageDestination;
-import jepperscore.scraper.common.ScraperStatus;
+import org.apache.commons.cli.ParseException;
 
 /**
- * This class is used to launch the scraper in stand-alone mode.
- *
+ * This main class delegates to the Scraper or Install class depending on the first argument.
  * @author Chuck
  *
  */
 public class Main {
 
 	/**
-	 * The main function.
-	 *
-	 * @param args
-	 *            [Message Destination Class] [Message Destination Setup] [UT2004 Console Log File]
-	 *            [Hostname] [Query Port]
+	 * This main function delegates to either the Scraper or Install mains.
+	 * @param args The command line arguments.
+	 * @throws ParseException Thrown from Play or Record.
 	 */
-	public static void main(String[] args) {
-		if (args.length != 5) {
-			throw new RuntimeException(
-					"Incorrect arguments! Need [Message Destination Class] [Message Destination Setup] [UT2004 Console Log File] [Hostname] [Query Port]");
+	public static void main(String[] args) throws ParseException {
+		if (args.length == 0) {
+			throw new RuntimeException("Please specify either Scraper or Install as the first argument.");
 		}
 
-		String messageDestinationClass = args[0];
-		String messageDestinationSetup = args[1];
-		String logFile = args[2];
-		String host = args[3];
-		int queryPort = 0; // 4
-
-		IMessageDestination messageDestination;
-		try {
-			messageDestination = (IMessageDestination) Main.class.getClassLoader().loadClass(messageDestinationClass).getConstructor(String.class).newInstance(messageDestinationSetup);
-		} catch (InstantiationException | IllegalAccessException
-				| IllegalArgumentException | InvocationTargetException
-				| NoSuchMethodException | SecurityException
-				| ClassNotFoundException e) {
-			throw new RuntimeException(e);
+		String[] remainingArgs = args.length == 1 ? new String[0] : Arrays.copyOfRange(args, 1, args.length);
+		if ("Scraper".equalsIgnoreCase(args[0])) {
+			ScraperMain.main(remainingArgs);
+		} else if ("Install".equalsIgnoreCase(args[0])) {
+			InstallMain.main(remainingArgs);
+		} else {
+			throw new RuntimeException("Please specify either Scraper or Install as the first argument.");
 		}
-
-		try {
-			queryPort = Integer.parseInt(args[4]);
-		} catch (NumberFormatException e) {
-			throw new RuntimeException("Could not parse query port: " + args[4]);
-		}
-
-		if (queryPort <= 0) {
-			throw new RuntimeException("Could not parse port: " + args[4]);
-		}
-
-		UT2004Scraper scraper = new UT2004Scraper(messageDestination, logFile,
-				host, queryPort);
-
-		scraper.start();
-		do {
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				break;
-			}
-		} while ((scraper.getStatus() != ScraperStatus.NotRunning)
-				&& (scraper.getStatus() != ScraperStatus.InError));
 	}
 
 }

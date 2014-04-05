@@ -1,4 +1,4 @@
-package jepperscore.scraper.ut2004;
+package jepperscore.scraper.ut2004.scraper;
 
 /**
  * Constants for the UT2004 Scraper.
