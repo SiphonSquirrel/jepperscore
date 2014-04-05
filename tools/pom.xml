@@ -20,6 +20,7 @@
 		<module>jepperconsole</module>
 		<module>jeppervcr</module>
 		<module>simulator</module>
+		<module>webboard</module>
 	</modules>
 
 	<dependencies>
