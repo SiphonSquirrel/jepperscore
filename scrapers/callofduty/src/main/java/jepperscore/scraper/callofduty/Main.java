@@ -1,4 +1,4 @@
-package jepperscore.scraper.ut2004;
+package jepperscore.scraper.callofduty;
 
 import java.util.Arrays;
 

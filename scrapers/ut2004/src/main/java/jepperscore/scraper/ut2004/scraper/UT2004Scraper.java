@@ -297,7 +297,7 @@ public class UT2004Scraper implements Scraper, Runnable {
 	private IMessageDestination messageDestination;
 
 	/**
-	 * This constructor sets the ETQW scraper.
+	 * This constructor sets the UT2004 scraper.
 	 *
 	 * @param messageDestination
 	 *            The message destination to use.
