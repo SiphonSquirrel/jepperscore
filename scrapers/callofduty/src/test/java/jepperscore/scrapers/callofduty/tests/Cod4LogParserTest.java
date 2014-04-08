@@ -11,8 +11,17 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
+/**
+ * This test checks out the Cod4LogParser.
+ * @author Chuck
+ *
+ */
 public class Cod4LogParserTest {
 
+	/**
+	 * This test starts the log parser up against a very long log file.
+	 * @throws FileNotFoundException If the test data could not be found.
+	 */
 	@Test
 	@Ignore
 	public void test() throws FileNotFoundException {
@@ -21,9 +30,9 @@ public class Cod4LogParserTest {
 			is = new FileInputStream("testdata/cod4/games_mp.log");
 			TestingMessageDestination messageDestination = new TestingMessageDestination(null);
 			SimpleDataManager dataManager = new SimpleDataManager(messageDestination);
-			
+
 			Cod4LogParser parser = new Cod4LogParser(is, messageDestination, dataManager, dataManager);
-			
+
 			parser.run();
 		} finally {
 			IOUtils.closeQuietly(is);

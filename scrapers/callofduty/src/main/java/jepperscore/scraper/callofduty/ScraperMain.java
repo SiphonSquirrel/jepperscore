@@ -19,8 +19,14 @@ import org.apache.commons.cli.ParseException;
  */
 public class ScraperMain {
 
+	/**
+	 * This is the default query port.
+	 */
 	private static final String DEFAULT_QUERY_PORT = "28960";
 
+	/**
+	 * This is the default hostname.
+	 */
 	private static final String DEFAULT_SERVER_HOST = "localhost";
 
 	/**
@@ -47,12 +53,12 @@ public class ScraperMain {
 	 * The host to query.
 	 */
 	private static final String SERVER_HOST = "h";
-	
+
 	/**
 	 * The query port.
 	 */
 	private static final String QUERY_PORT = "p";
-	
+
 	/**
 	 * The main function.
 	 *
@@ -95,7 +101,7 @@ public class ScraperMain {
 		CodVersion version = CodVersion.valueOf(cmd.getOptionValue(COD_VERSION_ARG));
 		String server = cmd.getOptionValue(SERVER_HOST, DEFAULT_SERVER_HOST);
 		int queryPort = Integer.parseInt(cmd.getOptionValue(QUERY_PORT, DEFAULT_QUERY_PORT));
-		
+
 		IMessageDestination messageDestination;
 		try {
 			messageDestination = (IMessageDestination) ScraperMain.class

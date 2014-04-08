@@ -8,10 +8,6 @@ import java.util.Map;
 
 import javax.annotation.Nonnull;
 
-import org.apache.commons.codec.digest.DigestUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import jepperscore.dao.IMessageDestination;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Event;
@@ -24,10 +20,25 @@ import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.RoundManager;
 import jepperscore.scraper.common.logparser.AbstractLineLogParser;
 
+import org.apache.commons.codec.digest.DigestUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * This log parser watches the multiplayer log file for relevant events.
+ * @author Chuck
+ *
+ */
 public class Cod4LogParser extends AbstractLineLogParser {
 
+	/**
+	 * The logger for the parser.
+	 */
 	private Logger LOG = LoggerFactory.getLogger(Cod4LogParser.class);
 
+	/**
+	 * A separating line seen in the log file.
+	 */
 	private static final String SEP_LINE = "------------------------------------------------------------";
 
 	/**
@@ -62,7 +73,7 @@ public class Cod4LogParser extends AbstractLineLogParser {
 
 	/**
 	 * This constructor parses log entries from a stream.
-	 * 
+	 *
 	 * @param stream
 	 *            The stream to read.
 	 * @param messageDestination
@@ -111,6 +122,11 @@ public class Cod4LogParser extends AbstractLineLogParser {
 		}
 	}
 
+	/**
+	 * This function handles a change in state.
+	 * @param state The state we changed to.
+	 * @param data Any associated data.
+	 */
 	private void handleStateChange(String state, String data) {
 		switch (state) {
 		case "InitGame": { // InitGame:
@@ -122,7 +138,7 @@ public class Cod4LogParser extends AbstractLineLogParser {
 
 			String[] dataArr = data.substring(1).split("\\\\");
 			Map<String, String> dataMap = new HashMap<String, String>();
-			for (int i = 0; i < dataArr.length - 1; i += 2) {
+			for (int i = 0; i < (dataArr.length - 1); i += 2) {
 				dataMap.put(dataArr[i], dataArr[i + 1]);
 			}
 
@@ -147,6 +163,11 @@ public class Cod4LogParser extends AbstractLineLogParser {
 		}
 	}
 
+	/**
+	 * This function handles an event.
+	 * @param event The event.
+	 * @param eventArray The event data, previously semicolon seperated.
+	 */
 	private void handleEvent(String event, String[] eventArray) {
 		switch (event) {
 		case "J": // Join: J;00000000000000000000000000000000;1;Mimius

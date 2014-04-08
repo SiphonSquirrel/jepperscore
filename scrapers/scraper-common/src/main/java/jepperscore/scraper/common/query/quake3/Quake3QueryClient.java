@@ -11,15 +11,22 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.scraper.common.query.AbstractQueryClient;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * This query client works with the Quake3 query protocol.
+ * http://int64.org/docs/gamestat-protocols/quake3.html
+ *
+ * @author Chuck
+ *
+ */
 public class Quake3QueryClient extends AbstractQueryClient {
 
 	/**
@@ -51,10 +58,10 @@ public class Quake3QueryClient extends AbstractQueryClient {
 	 * The character set to do all the encoding.
 	 */
 	public static final Charset CHARSET = Charset.forName("UTF-8");
-	
+
 	/**
 	 * This constructor sets up the query client.
-	 * 
+	 *
 	 * @param host
 	 *            The host to query.
 	 * @param port
@@ -108,12 +115,12 @@ public class Quake3QueryClient extends AbstractQueryClient {
 
 				ServerMetadata serverMetadata = new ServerMetadata();
 				queryInfo.setServerMetadata(serverMetadata);
-				
+
 				Map<String, String> metadata = new HashMap<String, String>();
 				serverMetadata.setMetadata(metadata);
 
 				String[] serverInfo = arr[1].split("\\\\");
-				for (int i = 1; i < serverInfo.length - 1; i += 2) {
+				for (int i = 1; i < (serverInfo.length - 1); i += 2) {
 					String key = serverInfo[i];
 					String value = serverInfo[i + 1];
 					switch (key) {
@@ -126,7 +133,7 @@ public class Quake3QueryClient extends AbstractQueryClient {
 					}
 				}
 
-				for (int i = 2; i < arr.length - 1; i++) {
+				for (int i = 2; i < (arr.length - 1); i++) {
 					String line = arr[i];
 
 					String scoreStr = line.substring(0, line.indexOf(' '));
