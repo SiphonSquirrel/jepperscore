@@ -82,8 +82,8 @@ public class IniPatcher {
 		try {
 			configInStream = new FileInputStream(origFile);
 
-			reader = new BufferedReader(new InputStreamReader(configInStream));
-			writer = new PrintStream(modifiedFile);
+			reader = new BufferedReader(new InputStreamReader(configInStream, "UTF-8"));
+			writer = new PrintStream(modifiedFile, "UTF-8");
 
 			String line = null;
 			String section = "";

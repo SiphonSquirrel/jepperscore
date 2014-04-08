@@ -71,11 +71,11 @@ public class Quake3QueryClientTest {
 		public void setResponse(String request, String serverInfo, String[] playerList) {
 			ByteBuffer response = ByteBuffer.allocate(1024 * 8);
 			response.put(Quake3QueryClient.HEADER);
-			response.put((request + "Response\n").getBytes());
-			response.put((serverInfo + "\n").getBytes());
+			response.put((request + "Response\n").getBytes(Quake3QueryClient.CHARSET));
+			response.put((serverInfo + "\n").getBytes(Quake3QueryClient.CHARSET));
 			
 			for (String player: playerList) {
-				response.put((player + "\n").getBytes());
+				response.put((player + "\n").getBytes(Quake3QueryClient.CHARSET));
 			}
 
 			responses.put(request, response.array());

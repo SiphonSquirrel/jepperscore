@@ -38,27 +38,27 @@ public class InstallMain {
 	/**
 	 * Specifies the UT's install directory.
 	 */
-	public static String UT_DIRECTORY_ARG = "d";
+	public static final String UT_DIRECTORY_ARG = "d";
 
 	/**
 	 * Specifies the .ini file to use as a base.
 	 */
-	public static String BASE_INI_FILENAME_ARG = "i";
+	public static final String BASE_INI_FILENAME_ARG = "i";
 
 	/**
 	 * Specifies the .ini file to output to.
 	 */
-	public static String OUT_INI_FILENAME_ARG = "o";
+	public static final String OUT_INI_FILENAME_ARG = "o";
 
 	/**
 	 * The default in ini file.
 	 */
-	public static String DEFAULT_IN_INI_FILENAME = "Default.ini";
+	public static final String DEFAULT_IN_INI_FILENAME = "Default.ini";
 
 	/**
 	 * The default out ini file.
 	 */
-	public static String DEFAULT_OUT_INI_FILENAME = "Stats.ini";
+	public static final String DEFAULT_OUT_INI_FILENAME = "Stats.ini";
 
 	/**
 	 * The main function.
@@ -202,7 +202,7 @@ public class InstallMain {
 			PrintStream scriptWriter = null;
 
 			try {
-				scriptWriter = new PrintStream(batchScript);
+				scriptWriter = new PrintStream(batchScript, "UTF-8");
 
 				scriptWriter.println("@echo off");
 				scriptWriter.println("echo Writing server log to server.log");
@@ -214,7 +214,7 @@ public class InstallMain {
 				scriptWriter.println("goto 10");
 
 			} catch (IOException e) {
-				new RuntimeException(e);
+				throw new RuntimeException(e);
 			} finally {
 				IOUtils.closeQuietly(scriptWriter);
 			}
@@ -231,7 +231,7 @@ public class InstallMain {
 			PrintStream scriptWriter = null;
 
 			try {
-				scriptWriter = new PrintStream(shScript);
+				scriptWriter = new PrintStream(shScript, "UTF-8");
 
 				scriptWriter.println("#!/bin/bash");
 				scriptWriter.println("echo 'Writing server log to server.log'");
@@ -247,7 +247,7 @@ public class InstallMain {
 				scriptWriter.println("done");
 
 			} catch (IOException e) {
-				new RuntimeException(e);
+				throw new RuntimeException(e);
 			} finally {
 				IOUtils.closeQuietly(scriptWriter);
 			}

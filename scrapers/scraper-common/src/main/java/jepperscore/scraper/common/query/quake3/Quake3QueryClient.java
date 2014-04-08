@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,8 +45,13 @@ public class Quake3QueryClient extends AbstractQueryClient {
 	/**
 	 * Send/Recv Packet header.
 	 */
-	public static final byte[] HEADER = new byte[] { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
+	static final byte[] HEADER = new byte[] { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
 
+	/**
+	 * The character set to do all the encoding.
+	 */
+	public static final Charset CHARSET = Charset.forName("UTF-8");
+	
 	/**
 	 * This constructor sets up the query client.
 	 * 
@@ -67,7 +73,7 @@ public class Quake3QueryClient extends AbstractQueryClient {
 	@Override
 	protected void query(String queryType) {
 		if ("status".equals(queryType)) {
-			byte[] requestBytes = ("get" + queryType + "\n").getBytes();
+			byte[] requestBytes = ("get" + queryType + "\n").getBytes(CHARSET);
 
 			ByteBuffer sendBuffer = ByteBuffer.allocate(4 + requestBytes.length);
 			sendBuffer.put(HEADER);
@@ -89,7 +95,7 @@ public class Quake3QueryClient extends AbstractQueryClient {
 				QueryCallbackInfo queryInfo = new QueryCallbackInfo();
 
 				byte[] recvData = recvPacket.getData();
-				String[] arr = new String(recvData, HEADER.length, recvData.length - HEADER.length).split("\n");
+				String[] arr = new String(recvData, HEADER.length, recvData.length - HEADER.length, CHARSET).split("\n");
 				if (arr.length < 2) {
 					LOG.error("Unexpected line count returned! " + arr.length);
 					return;
@@ -130,6 +136,7 @@ public class Quake3QueryClient extends AbstractQueryClient {
 					alias.setName(name);
 					Score s = new Score(alias, Float.parseFloat(scoreStr));
 
+					queryInfo.getPlayers().add(alias);
 					queryInfo.getScores().add(s);
 				}
 
