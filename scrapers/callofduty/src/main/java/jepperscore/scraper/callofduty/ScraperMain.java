@@ -19,6 +19,10 @@ import org.apache.commons.cli.ParseException;
  */
 public class ScraperMain {
 
+	private static final String DEFAULT_QUERY_PORT = "28960";
+
+	private static final String DEFAULT_SERVER_HOST = "localhost";
+
 	/**
 	 * Specifies the destination class.
 	 */
@@ -40,6 +44,16 @@ public class ScraperMain {
 	private static final String COD_VERSION_ARG = "v";
 
 	/**
+	 * The host to query.
+	 */
+	private static final String SERVER_HOST = "h";
+	
+	/**
+	 * The query port.
+	 */
+	private static final String QUERY_PORT = "p";
+	
+	/**
 	 * The main function.
 	 *
 	 * @param args
@@ -59,6 +73,8 @@ public class ScraperMain {
 		options.addOption(COD_VERSION_ARG, true,
 				"Specifies the version of Call of Duty. Values: "
 						+ CoDConstants.SUPPORTED_VERSIONS);
+		options.addOption(SERVER_HOST, true, "Specifies the server hostname.");
+		options.addOption(QUERY_PORT, true, "Specifies the query port.");
 
 		CommandLineParser parser = new BasicParser();
 		CommandLine cmd = parser.parse(options, args);
@@ -68,7 +84,7 @@ public class ScraperMain {
 				|| !cmd.hasOption(CONSOLE_LOG_ARG)
 				|| !cmd.hasOption(COD_VERSION_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -c [CoD Server Log] -v [Cod Version]");
+					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -c [CoD Server Log] {-v [Cod Version]} {-h [Server Hostname]} {-q [Query Port]}");
 		}
 
 		String messageDestinationClass = cmd
@@ -77,7 +93,9 @@ public class ScraperMain {
 				.getOptionValue(DESTINATION_SETUP_ARG);
 		String logFile = cmd.getOptionValue(CONSOLE_LOG_ARG);
 		CodVersion version = CodVersion.valueOf(cmd.getOptionValue(COD_VERSION_ARG));
-
+		String server = cmd.getOptionValue(SERVER_HOST, DEFAULT_SERVER_HOST);
+		int queryPort = Integer.parseInt(cmd.getOptionValue(QUERY_PORT, DEFAULT_QUERY_PORT));
+		
 		IMessageDestination messageDestination;
 		try {
 			messageDestination = (IMessageDestination) ScraperMain.class
@@ -92,7 +110,7 @@ public class ScraperMain {
 		}
 
 		CoDScraper scraper = new CoDScraper(messageDestination, logFile,
-				version);
+				version, server, queryPort);
 
 		scraper.start();
 	}

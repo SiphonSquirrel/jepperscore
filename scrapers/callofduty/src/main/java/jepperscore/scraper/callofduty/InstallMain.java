@@ -166,7 +166,7 @@ public class InstallMain {
 				PrintStream scriptWriter = null;
 
 				try {
-					scriptWriter = new PrintStream(batchScript);
+					scriptWriter = new PrintStream(batchScript, "UTF-8");
 
 					scriptWriter.println("@echo off");
 					scriptWriter.println(windowsExecutable.getName()
@@ -176,7 +176,7 @@ public class InstallMain {
 									+ cmd.getOptionValue(MOD_ARG) : ""));
 
 				} catch (IOException e) {
-					new RuntimeException(e);
+					throw new RuntimeException(e);
 				} finally {
 					IOUtils.closeQuietly(scriptWriter);
 				}
@@ -196,7 +196,7 @@ public class InstallMain {
 				PrintStream scriptWriter = null;
 
 				try {
-					scriptWriter = new PrintStream(shScript);
+					scriptWriter = new PrintStream(shScript, "UTF-8");
 
 					scriptWriter.println("#!/bin/bash");
 					scriptWriter.println(linuxExecutable.getName()
@@ -206,7 +206,7 @@ public class InstallMain {
 									+ cmd.getOptionValue(MOD_ARG) : ""));
 
 				} catch (IOException e) {
-					new RuntimeException(e);
+					throw new RuntimeException(e);
 				} finally {
 					IOUtils.closeQuietly(scriptWriter);
 				}
