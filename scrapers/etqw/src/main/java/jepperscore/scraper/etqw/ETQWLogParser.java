@@ -92,7 +92,7 @@ public class ETQWLogParser extends AbstractLineLogParser {
 				// prefix = "TK:";
 				// eventCode.setCode("teamkill");
 				// } else {
-				eventCode.setCode("kill");
+				eventCode.setCode(EventCode.EVENT_CODE_KILL);
 				// }
 
 				newEvent.setEventCode(eventCode);

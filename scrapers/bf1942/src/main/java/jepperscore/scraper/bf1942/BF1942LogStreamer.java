@@ -454,9 +454,9 @@ public class BF1942LogStreamer implements Runnable {
 				String prefix = "";
 				if (scoreType.equals("TK")) {
 					prefix = "TK:";
-					eventCode.setCode("teamkill");
+					eventCode.setCode(EventCode.EVENT_CODE_TEAMKILL);
 				} else {
-					eventCode.setCode("kill");
+					eventCode.setCode(EventCode.EVENT_CODE_KILL);
 				}
 
 				newEvent.setEventText(String.format(
@@ -478,7 +478,7 @@ public class BF1942LogStreamer implements Runnable {
 				String point = "An unknown point";
 				newEvent.setEventText(String.format(
 						"%s was captured by {attacker}", point));
-				eventCode.setCode("objective");
+				eventCode.setCode(EventCode.EVENT_CODE_OBJECTIVE);
 				eventCode.setObject(point);
 				newEvent.setEventCode(eventCode);
 

@@ -140,9 +140,9 @@ public class UT2004LogParser extends AbstractLineLogParser {
 					String prefix = "";
 					if (attackerId.equals(vicitimId)) {
 						prefix = "TK:";
-						eventCode.setCode("teamkill");
+						eventCode.setCode(EventCode.EVENT_CODE_TEAMKILL);
 					} else {
-						eventCode.setCode("kill");
+						eventCode.setCode(EventCode.EVENT_CODE_KILL);
 					}
 
 					newEvent.setEventCode(eventCode);

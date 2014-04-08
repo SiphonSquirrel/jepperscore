@@ -18,6 +18,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @XmlRootElement(name="eventCode")
 @XmlAccessorType(XmlAccessType.NONE)
 public class EventCode {
+	public static final String EVENT_CODE_KILL = "kill";
+	public static final String EVENT_CODE_TEAMKILL = "teamkill";
+	public static final String EVENT_CODE_OBJECTIVE = "objective";
+	
 	/**
 	 * The code.
 	 */
