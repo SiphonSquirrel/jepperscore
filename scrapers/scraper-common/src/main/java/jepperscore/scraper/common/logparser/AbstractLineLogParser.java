@@ -38,6 +38,11 @@ public abstract class AbstractLineLogParser implements Runnable {
 	private Charset charset;
 
 	/**
+	 * A counter to keep track of the line.
+	 */
+	private long lineCounter = 0;
+	
+	/**
 	 * Creates the log parsers.
 	 *
 	 * @param stream
@@ -85,6 +90,7 @@ public abstract class AbstractLineLogParser implements Runnable {
 							if (offset > 0) {
 								String s = sb.substring(0, offset);
 
+								lineCounter++;
 								if (!startUp) {
 									handleNewLine(s);
 								}
@@ -104,6 +110,13 @@ public abstract class AbstractLineLogParser implements Runnable {
 		} catch (IOException | InterruptedException e) {
 			LOG.error(e.getMessage(), e);
 		}
+	}
+
+	/**
+	 * @return The line number that was just read.
+	 */
+	protected long getLineNumber() {
+		return lineCounter;
 	}
 
 }
