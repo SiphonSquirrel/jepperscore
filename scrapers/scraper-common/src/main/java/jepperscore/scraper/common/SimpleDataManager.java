@@ -25,9 +25,9 @@ import org.slf4j.LoggerFactory;
 /**
  * This class tracks the players list across all scraping methods (Log file,
  * query, RCON, etc.).
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class SimpleDataManager implements PlayerManager, GameManager,
 		RoundManager, TeamManager, ScoreManager {
@@ -80,7 +80,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Constructor for the player manager.
-	 * 
+	 *
 	 * @param messageDestination
 	 *            The message destination class to handle new messages.
 	 */
@@ -103,7 +103,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 	/**
 	 * This function takes an alias and merges it with the existing alias
 	 * definition.
-	 * 
+	 *
 	 * @param player
 	 *            The player to merge.
 	 * @return The merged player record.
@@ -138,10 +138,11 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			return player;
 		}
 
-		String newId = player.getId();
-		if ((!newId.equals(oldPlayer.getId()) && !(roundPrefix + newId)
-				.equals(oldPlayer.getId()))) {
-			oldPlayer.setId(roundPrefix + newId);
+		String newId = getInternalId(player.getId());
+		if ((!player.getId().isEmpty())
+				&& (!newId.equals(oldPlayer.getId()) && !newId.equals(oldPlayer
+						.getId()))) {
+			oldPlayer.setId(newId);
 			changeDetected = true;
 		}
 
@@ -211,7 +212,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Looks up or creates a player based on their ID.
-	 * 
+	 *
 	 * @param id
 	 *            The player id.
 	 * @return The player.
@@ -227,8 +228,23 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 	}
 
 	/**
+	 * Calculates and returns the internal ID.
+	 *
+	 * @param id
+	 *            The ID to work with.
+	 * @return The internal id.
+	 */
+	private String getInternalId(String id) {
+		String internalId = id;
+		if (!internalId.startsWith(roundPrefix)) {
+			internalId = roundPrefix + id;
+		}
+		return internalId;
+	}
+
+	/**
 	 * Looks up or optionally, creates a player based on their ID.
-	 * 
+	 *
 	 * @param id
 	 *            The player id.
 	 * @param create
@@ -236,14 +252,13 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 	 * @return The player.
 	 */
 	private synchronized Alias getPlayer(String id, boolean create) {
-		Alias player = players.get(roundPrefix + id);
-		if (player == null) {
-			player = players.get(id);
-		}
+		String internalId = getInternalId(id);
+
+		Alias player = players.get(internalId);
 		if ((player == null) && create) {
 			player = new Alias();
-			player.setId(roundPrefix + id);
-			players.put(roundPrefix + id, player);
+			player.setId(internalId);
+			players.put(internalId, player);
 
 		}
 		return player;
@@ -251,7 +266,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Looks up or creates a player based on their ID.
-	 * 
+	 *
 	 * @param name
 	 *            The player name.
 	 * @return The player.
@@ -276,6 +291,12 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			currentRound.setGame(currentGame);
 			changeDetected = true;
 		} else {
+			String id = round.getId();
+			if ((id != null) && (id.equals(round.getId()))) {
+				currentRound.setId(round.getId());
+				changeDetected = true;
+			}
+
 			Game game = round.getGame();
 			if ((game != null) && (!game.equals(currentRound.getGame()))) {
 				currentRound.setGame(game.copy());
@@ -305,7 +326,8 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			TransportMessage msg = new TransportMessage();
 			msg.setRound(currentRound);
 			Round cRound = currentRound;
-			if (cRound != null) {
+			if ((cRound != null) && (cRound.getId() != null)) {
+				msg.setId(cRound.getId());
 				msg.setSessionId(cRound.getId());
 			}
 			messageDestination.sendMessage(msg);
@@ -385,7 +407,10 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			return null;
 		}
 
-		Score oldScore = getScoreForPlayer(score.getAlias(), false);
+		Alias alias = providePlayerRecord(score.getAlias());
+
+		Score oldScore = getScoreForPlayer(alias, false);
+
 		if (oldScore == null) {
 			oldScore = score.copy();
 			scores.add(oldScore);
@@ -394,6 +419,8 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			oldScore.setScore(score.getScore());
 			changeDetected = true;
 		}
+
+		oldScore.setAlias(alias);
 
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
@@ -409,7 +436,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 
 	/**
 	 * Gets the score for the alias and optionally copy it.
-	 * 
+	 *
 	 * @param player
 	 *            The player to find the score for.
 	 * @param doCopy
@@ -423,13 +450,11 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 				continue;
 			}
 
-			String compareId = alias.getId();
+			String compareId = getInternalId(alias.getId());
 			if (compareId != null) {
-				String playerId = player.getId();
+				String playerId = getInternalId(player.getId());
 
-				if (compareId.equals(playerId)
-						|| compareId.equals(roundPrefix + playerId)
-						|| (roundPrefix + compareId).equals(playerId)) {
+				if (compareId.equals(playerId)) {
 					if (doCopy) {
 						return score.copy();
 					} else {

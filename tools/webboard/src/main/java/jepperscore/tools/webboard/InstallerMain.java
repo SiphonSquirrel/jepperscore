@@ -19,8 +19,17 @@ import org.ektorp.http.StdHttpClient;
 import org.ektorp.impl.StdCouchDbConnector;
 import org.ektorp.impl.StdCouchDbInstance;
 
+/**
+ * This main class handles the installer tasks.
+ *
+ * @author Chuck
+ *
+ */
 public class InstallerMain {
 
+	/**
+	 * This is the doc id to install the site to.
+	 */
 	private static final String SITE_DOC_ID = "main";
 
 	/**
@@ -31,13 +40,12 @@ public class InstallerMain {
 	/**
 	 * Files to install.
 	 */
-	private static final String[] COUCHDB_FILES = new String[] {
-			"index.html", "jepperscore-couchdb.js", "jepperscore.js", "scoreboard.css"
-	};
+	private static final String[] COUCHDB_FILES = new String[] { "index.html",
+			"jepperscore-couchdb.js", "jepperscore.js", "scoreboard.css" };
 
 	/**
 	 * The main function.
-	 * 
+	 *
 	 * @param args
 	 *            [Active MQ Connection String]
 	 * @throws ParseException
@@ -67,7 +75,8 @@ public class InstallerMain {
 			dbName = configArray[1];
 		}
 
-		System.out.println("Connecting to " + server + " (DB: " + dbName + ") using the CouchDB backend.");
+		System.out.println("Connecting to " + server + " (DB: " + dbName
+				+ ") using the CouchDB backend.");
 
 		HttpClient httpClient;
 		try {
@@ -99,14 +108,16 @@ public class InstallerMain {
 				InputStream is = null;
 				try {
 					is = InstallerMain.class.getResourceAsStream("/" + file);
-					AttachmentInputStream data = new AttachmentInputStream(file,
-							is, contentType);
+					AttachmentInputStream data = new AttachmentInputStream(
+							file, is, contentType);
 
 					doc = db.get(Map.class, SITE_DOC_ID);
 					String rev = (String) doc.get("_rev");
-					Map<String, Object> attachmentList = (Map<String, Object>) doc.get("_attachments");
+					Map<String, Object> attachmentList = (Map<String, Object>) doc
+							.get("_attachments");
 					if (attachmentList != null) {
-						Map<String, Object> attachment = (Map<String, Object>) attachmentList.get(file);
+						Map<String, Object> attachment = (Map<String, Object>) attachmentList
+								.get(file);
 						if (attachment != null) {
 							db.deleteAttachment(SITE_DOC_ID, rev, file);
 							doc = db.get(Map.class, SITE_DOC_ID);
@@ -122,7 +133,7 @@ public class InstallerMain {
 		} catch (MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
-
+		System.out.println("Done!");
 	}
 
 }

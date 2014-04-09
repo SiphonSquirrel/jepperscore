@@ -7,14 +7,16 @@ import jepperscore.dao.transport.TransportMessage;
 
 import org.ektorp.CouchDbConnector;
 import org.ektorp.DocumentNotFoundException;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * This class implements the {@link IMessageDestination} using ActiveMQ.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class CouchDbMessageDestination implements IMessageDestination {
 
@@ -31,7 +33,7 @@ public class CouchDbMessageDestination implements IMessageDestination {
 
 	/**
 	 * Creates the message destination.
-	 * 
+	 *
 	 * @param couchdbString
 	 *            The couchdb setup string.
 	 * @throws MalformedURLException
@@ -46,7 +48,8 @@ public class CouchDbMessageDestination implements IMessageDestination {
 			dbName = configArray[1];
 		}
 
-		LOG.info("Connecting to " + server + " (DB: " + dbName + ") using the CouchDB backend.");
+		LOG.info("Connecting to " + server + " (DB: " + dbName
+				+ ") using the CouchDB backend.");
 
 		db = CouchDbUtils.setupCouchDb(server, dbName);
 	}
@@ -58,8 +61,8 @@ public class CouchDbMessageDestination implements IMessageDestination {
 		}
 
 		if (transportMessage.getId() == null) {
+			transportMessage.setId(DateTime.now(DateTimeZone.UTC).toString());
 			db.create(transportMessage);
-			
 		} else {
 			try {
 				TransportMessage oldMsg = db.get(TransportMessage.class,

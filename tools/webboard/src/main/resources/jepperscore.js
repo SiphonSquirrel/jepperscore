@@ -25,11 +25,24 @@ function processMessage(msg) {
 		processTeam(msg.team);
 	} else if (msg.score) {
 		processScore(msg.score);
+	} else if (msg.event) {
+		processEvent(msg.event);
 	}
 }
 
 function makeId(s) {
-	return s.replace(/ /g, '_');
+	if (s) {
+		return s.replace(/ /g, '_');
+	} else {
+		return s;
+	}
+}
+
+function parseEventText(event) {
+	var text = event.eventText;
+	text = text.replace(/{attacker}/g, event.attacker.name);
+	text = text.replace(/{victim}/g, event.victim.name);
+	return text;
 }
 
 function processRound(round) {
@@ -44,12 +57,24 @@ function processScore(score) {
 	updatePlayerScore(score.alias, score.score);
 }
 
+function processEvent(event) {
+	logGameMessage(parseEventText(event));
+}
+
 function getTeamBlockId(team) {
-	return "TEAM_BLOCK_" + makeId(team.teamName);
+	if (team && team.teamName) {
+		return "TEAM_BLOCK_" + makeId(team.teamName);
+	} else {
+		return "TEAM_BLOCK_";
+	}
 }
 
 function getScoreBlockId(team) {
-	return "SCORE_BLOCK_" + makeId(team.teamName);
+	if (team && team.teamName) {
+		return "SCORE_BLOCK_" + makeId(team.teamName);
+	} else {
+		return "SCORE_BLOCK_";
+	}
 }
 
 function getAliasId(alias) {
@@ -70,12 +95,16 @@ function ensureTeamCreated(team) {
 		var teamName = document.createElement("span");
 		teamBlock.appendChild(teamName);
 		teamName.className = "teamName";
-		teamName.appendChild(document.createTextNode(team.teamName));
+		if (team && team.teamName) {
+			teamName.appendChild(document.createTextNode(team.teamName));
+		}
 
 		var teamScore = document.createElement("span");
 		teamBlock.appendChild(teamScore);
 		teamScore.className = "teamScore";
-		teamScore.appendChild(document.createTextNode(team.score));
+		if (team && team.teamName) {
+			teamScore.appendChild(document.createTextNode(team.score));
+		}
 	}
 
 	var scoreBlock = document.getElementById(getScoreBlockId(team));
@@ -130,7 +159,7 @@ function updatePlayerScore(alias, score) {
 			var s1 = $(a).data("score");
 			var s2 = $(b).data("score");
 			if (s1 != s2) {
-				return s1 > s2 ? -1: 1;
+				return s1 > s2 ? -1 : 1;
 			} else {
 				return $(a).data("name") < $(b).data("name") ? -1 : 1;
 			}

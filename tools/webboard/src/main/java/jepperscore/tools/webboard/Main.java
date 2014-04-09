@@ -18,14 +18,14 @@ public class Main {
 	 */
 	public static void main(String[] args) throws ParseException {
 		if (args.length == 0) {
-			throw new RuntimeException("Please specify either Install as the first argument.");
+			throw new RuntimeException("Please specify Install as the first argument.");
 		}
 
 		String[] remainingArgs = args.length == 1 ? new String[0] : Arrays.copyOfRange(args, 1, args.length);
 		if ("Install".equalsIgnoreCase(args[0])) {
 			InstallerMain.main(remainingArgs);
 		} else {
-			throw new RuntimeException("Please specify either Install as the first argument.");
+			throw new RuntimeException("Please specify Install as the first argument.");
 		}
 	}
 }

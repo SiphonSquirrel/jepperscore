@@ -20,9 +20,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * This scraper works with CoD4 + mods.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class CoDScraper implements Scraper, Runnable, QueryClientListener {
 
@@ -78,7 +78,7 @@ public class CoDScraper implements Scraper, Runnable, QueryClientListener {
 
 	/**
 	 * This constructor sets the Call of Duty scraper.
-	 * 
+	 *
 	 * @param messageDestination
 	 *            The message destination to use.
 	 * @param logFile
@@ -145,7 +145,7 @@ public class CoDScraper implements Scraper, Runnable, QueryClientListener {
 		try (InputStream is = new FileInputStream(logFile)) {
 			switch (version) {
 			case COD4: {
-				Cod4LogParser parser = new Cod4LogParser(is, messageDestination, dataManager, dataManager);
+				Cod4LogParser parser = new Cod4LogParser(is, messageDestination, dataManager, dataManager, dataManager);
 				parser.run();
 				break;
 			}

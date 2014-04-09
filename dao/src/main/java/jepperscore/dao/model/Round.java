@@ -114,7 +114,7 @@ public class Round {
 	/**
 	 * @return The time the match started.
 	 */
-	@Nonnull
+	@CheckForNull
 	public DateTime getStart() {
 		return start;
 	}

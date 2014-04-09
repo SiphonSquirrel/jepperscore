@@ -31,7 +31,7 @@ public class Cod4LogParserTest {
 			TestingMessageDestination messageDestination = new TestingMessageDestination(null);
 			SimpleDataManager dataManager = new SimpleDataManager(messageDestination);
 
-			Cod4LogParser parser = new Cod4LogParser(is, messageDestination, dataManager, dataManager);
+			Cod4LogParser parser = new Cod4LogParser(is, messageDestination, dataManager, dataManager, dataManager);
 
 			parser.run();
 		} finally {

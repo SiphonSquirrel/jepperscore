@@ -14,6 +14,7 @@ import jepperscore.dao.model.converter.StringToJodaTime;
 
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -190,6 +191,7 @@ public class Event {
 	 * @return The event text with the placeholders parsed.
 	 */
 	@Nonnull
+	@JsonIgnore
 	public String getParsedEventText() {
 		String text = getEventText();
 

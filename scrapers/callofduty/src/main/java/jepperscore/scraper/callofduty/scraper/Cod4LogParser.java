@@ -16,16 +16,19 @@ import jepperscore.dao.model.Game;
 import jepperscore.dao.model.Round;
 import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
+import jepperscore.scraper.common.GameManager;
 import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.RoundManager;
 import jepperscore.scraper.common.logparser.AbstractLineLogParser;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * This log parser watches the multiplayer log file for relevant events.
+ *
  * @author Chuck
  *
  */
@@ -72,6 +75,11 @@ public class Cod4LogParser extends AbstractLineLogParser {
 	private Round round;
 
 	/**
+	 * The game manager.
+	 */
+	private GameManager gameManager;
+
+	/**
 	 * This constructor parses log entries from a stream.
 	 *
 	 * @param stream
@@ -82,15 +90,18 @@ public class Cod4LogParser extends AbstractLineLogParser {
 	 *            The player manager to use.
 	 * @param roundManager
 	 *            The {@link RoundManager} to use.
+	 * @param gameManager
+	 *            The {@link GameManager} to use.
 	 */
 	public Cod4LogParser(@Nonnull InputStream stream,
 			@Nonnull IMessageDestination messageDestination,
 			@Nonnull PlayerManager playerManager,
-			@Nonnull RoundManager roundManager) {
+			@Nonnull RoundManager roundManager, @Nonnull GameManager gameManager) {
 		super(stream, StandardCharsets.UTF_8, false);
 		this.messageDestination = messageDestination;
 		this.playerManager = playerManager;
 		this.roundManager = roundManager;
+		this.gameManager = gameManager;
 	}
 
 	@Override
@@ -98,10 +109,12 @@ public class Cod4LogParser extends AbstractLineLogParser {
 		if (!line.endsWith(SEP_LINE)) {
 			int sepPosition = line.indexOf(';');
 			if (sepPosition < 0) {
-				sepPosition = Math.max(line.indexOf(": "), line.lastIndexOf(":"));
+				sepPosition = Math.max(line.indexOf(": "),
+						line.lastIndexOf(":"));
 				int spacePosition = line.lastIndexOf(' ', sepPosition);
 				if (sepPosition >= 0) {
-					String state = line.substring(spacePosition + 1, sepPosition).trim();
+					String state = line.substring(spacePosition + 1,
+							sepPosition).trim();
 					String data = line.substring(sepPosition + 1).trim();
 
 					handleStateChange(state, data);
@@ -109,8 +122,7 @@ public class Cod4LogParser extends AbstractLineLogParser {
 					LOG.warn("Not sure how to parse: " + line);
 				}
 				return;
-			}
-			else {
+			} else {
 				int spacePosition = line.lastIndexOf(' ', sepPosition);
 
 				String event = line.substring(spacePosition + 1, sepPosition);
@@ -124,8 +136,11 @@ public class Cod4LogParser extends AbstractLineLogParser {
 
 	/**
 	 * This function handles a change in state.
-	 * @param state The state we changed to.
-	 * @param data Any associated data.
+	 *
+	 * @param state
+	 *            The state we changed to.
+	 * @param data
+	 *            Any associated data.
 	 */
 	private void handleStateChange(String state, String data) {
 		switch (state) {
@@ -144,8 +159,19 @@ public class Cod4LogParser extends AbstractLineLogParser {
 
 			String id = DigestUtils.md5Hex(state) + getLineNumber();
 
+			if (round != null) {
+				round.setEnd(new DateTime());
+				roundManager.provideRoundRecord(round);
+			}
+
 			game = new Game(GAME_NAME, dataMap.get("g_gametype"), "");
-			round = new Round(id, null, null, game, dataMap.get("mapname"));
+			gameManager.provideGameRecord(game);
+
+			round = new Round(id, new DateTime(), null, game,
+					dataMap.get("mapname"));
+
+			playerManager.newRound();
+			roundManager.provideRoundRecord(round);
 
 			break;
 		}
@@ -165,15 +191,19 @@ public class Cod4LogParser extends AbstractLineLogParser {
 
 	/**
 	 * This function handles an event.
-	 * @param event The event.
-	 * @param eventArray The event data, previously semicolon seperated.
+	 *
+	 * @param event
+	 *            The event.
+	 * @param eventArray
+	 *            The event data, previously semicolon seperated.
 	 */
 	private void handleEvent(String event, String[] eventArray) {
 		switch (event) {
 		case "J": // Join: J;00000000000000000000000000000000;1;Mimius
 		case "Q": { // Quit: Q;00000000000000000000000000000000;3;Jsp
 			if (eventArray.length != 3) {
-				LOG.warn("Unrecognized join data: " + Arrays.toString(eventArray));
+				LOG.warn("Unrecognized join data: "
+						+ Arrays.toString(eventArray));
 				break;
 			}
 			String playerId = eventArray[1];
@@ -193,7 +223,8 @@ public class Cod4LogParser extends AbstractLineLogParser {
 		case "D": { // Damage:
 					// D;00000000000000000000000000000000;2;axis;JMLX;00000000000000000000000000000000;1;allies;Mimius;uzi_reflex_mp;29;MOD_PISTOL_BULLET;left_arm_upper
 			if (eventArray.length != 12) {
-				LOG.warn("Unrecognized damage data: " + Arrays.toString(eventArray));
+				LOG.warn("Unrecognized damage data: "
+						+ Arrays.toString(eventArray));
 				break;
 			}
 
@@ -210,7 +241,8 @@ public class Cod4LogParser extends AbstractLineLogParser {
 			if (game != null) {
 				victim.setGame(game);
 			}
-			if ((game != null) && ("dm".equals(game.getGametype())) && (!victimPlayerTeam.isEmpty())) {
+			if ((game != null) && ("dm".equals(game.getGametype()))
+					&& (!victimPlayerTeam.isEmpty())) {
 				victim.setTeam(new Team(victimPlayerTeam));
 			}
 
@@ -220,20 +252,26 @@ public class Cod4LogParser extends AbstractLineLogParser {
 			String attackerPlayerTeam = eventArray[6];
 			String attackerPlayerName = eventArray[7];
 
-			Alias attacker = playerManager.getPlayer(attackerPlayerId);
-			if (attacker == null) {
-				attacker = new Alias();
-				attacker.setId(attackerPlayerId);
-			}
-			attacker.setName(attackerPlayerName);
-			if (game != null) {
-				attacker.setGame(game);
-			}
-			if ((game != null) && ("dm".equals(game.getGametype())) && (!attackerPlayerTeam.isEmpty())) {
-				attacker.setTeam(new Team(attackerPlayerTeam));
-			}
+			Alias attacker;
+			if ("-1".equals(attackerPlayerId)) {
+				attacker = victim;
+			} else {
+				attacker = playerManager.getPlayer(attackerPlayerId);
+				if (attacker == null) {
+					attacker = new Alias();
+					attacker.setId(attackerPlayerId);
+				}
+				attacker.setName(attackerPlayerName);
+				if (game != null) {
+					attacker.setGame(game);
+				}
+				if ((game != null) && ("dm".equals(game.getGametype()))
+						&& (!attackerPlayerTeam.isEmpty())) {
+					attacker.setTeam(new Team(attackerPlayerTeam));
+				}
 
-			playerManager.providePlayerRecord(attacker);
+				playerManager.providePlayerRecord(attacker);
+			}
 
 			if ("K".equals(event)) {
 				String attackerWeapon = eventArray[8];
@@ -247,7 +285,8 @@ public class Cod4LogParser extends AbstractLineLogParser {
 
 				EventCode eventCode = new EventCode();
 				e.setEventCode(eventCode);
-				eventCode.setExtra("type:" + damageType + ",location:" + damageLocation);
+				eventCode.setExtra("type:" + damageType + ",location:"
+						+ damageLocation);
 
 				String prefix = "";
 				if (attackerPlayerId.equals(victimPlayerId)) {
@@ -259,8 +298,8 @@ public class Cod4LogParser extends AbstractLineLogParser {
 
 				e.setEventCode(eventCode);
 
-				e.setEventText(String.format(
-						"{attacker} [%s%s] {victim}", prefix, attackerWeapon));
+				e.setEventText(String.format("{attacker} [%s%s] {victim}",
+						prefix, attackerWeapon));
 
 				TransportMessage transportMessage = new TransportMessage();
 				transportMessage.setEvent(e);

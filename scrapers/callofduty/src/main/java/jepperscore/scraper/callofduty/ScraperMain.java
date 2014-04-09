@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import jepperscore.dao.IMessageDestination;
 import jepperscore.scraper.callofduty.scraper.CoDScraper;
+import jepperscore.scraper.common.ScraperStatus;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -90,7 +91,7 @@ public class ScraperMain {
 				|| !cmd.hasOption(CONSOLE_LOG_ARG)
 				|| !cmd.hasOption(COD_VERSION_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -c [CoD Server Log] {-v [Cod Version]} {-h [Server Hostname]} {-q [Query Port]}");
+					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -l [CoD Server Log] -v [Cod Version] {-h [Server Hostname]} {-q [Query Port]}");
 		}
 
 		String messageDestinationClass = cmd
@@ -98,7 +99,7 @@ public class ScraperMain {
 		String messageDestinationSetup = cmd
 				.getOptionValue(DESTINATION_SETUP_ARG);
 		String logFile = cmd.getOptionValue(CONSOLE_LOG_ARG);
-		CodVersion version = CodVersion.valueOf(cmd.getOptionValue(COD_VERSION_ARG));
+		CodVersion version = CodVersion.valueOf(cmd.getOptionValue(COD_VERSION_ARG, "").toUpperCase());
 		String server = cmd.getOptionValue(SERVER_HOST, DEFAULT_SERVER_HOST);
 		int queryPort = Integer.parseInt(cmd.getOptionValue(QUERY_PORT, DEFAULT_QUERY_PORT));
 
@@ -119,6 +120,14 @@ public class ScraperMain {
 				version, server, queryPort);
 
 		scraper.start();
+		do {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				break;
+			}
+		} while ((scraper.getStatus() != ScraperStatus.NotRunning)
+				&& (scraper.getStatus() != ScraperStatus.InError));
 	}
 
 }
