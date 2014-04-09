@@ -12,11 +12,11 @@ Game Support
  
 **Partially Supported:**
  * [UT2004](https://github.com/SiphonSquirrel/jepperscore/wiki/UT2004)
-
+ * [RTCW : Enemy Territory](https://github.com/SiphonSquirrel/jepperscore/wiki/Enemy-Territory-Legacy)
+ * [Call of Duty 4](https://github.com/SiphonSquirrel/jepperscore/wiki/Call-of-Duty)
+ 
 **Planned:**
  * BattleField 2
- * Call of Duty 4
- * RTCW : Enemy Territory
 
 See [Game Support](https://github.com/SiphonSquirrel/jepperscore/wiki/Game-Support) in online manual for more information.
 
