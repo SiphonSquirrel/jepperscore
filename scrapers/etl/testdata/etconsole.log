@@ -1,0 +1,915 @@
+logfile opened on Tue Apr 08 22:02:22 2014
+
+execing legacy.cfg
+execing mapvotecycle.cfg
+g_gametype will be changed upon restarting.
+------ Server Initialization ------
+Server: oasis
+Hunk_Clear: reset the hunk ok
+
+================
+MAIN log
+================
+260264 MAIN memory in 40 blocks
+259464 MAIN memory overhead
+
+================
+SMALL log
+================
+14304 SMALL memory in 364 blocks
+7024 SMALL memory overhead
+Current search path:
+    C:\Users\Chuck\Documents\WolfETL\Bobot
+    C:\Program Files (x86)\ET-Legacy\Bobot\mp_bin.pk3 (4 files)
+    C:\Program Files (x86)\ET-Legacy\Bobot\Bobot.pk3 (811 files)
+    C:\Program Files (x86)\ET-Legacy\Bobot\bobot-axis-comandos-skin.pk3 (119 files)
+    C:\Program Files (x86)\ET-Legacy\Bobot\bobot-allies-comandos-skin.pk3 (106 files)
+    C:\Program Files (x86)\ET-Legacy\Bobot
+    C:\Users\Chuck\Documents\WolfETL\etmain
+    C:\Program Files (x86)\ET-Legacy\etmain\pak2.pk3 (22 files)
+    C:\Program Files (x86)\ET-Legacy\etmain\pak1.pk3 (10 files)
+    C:\Program Files (x86)\ET-Legacy\etmain\pak0.pk3 (3725 files)
+    C:\Program Files (x86)\ET-Legacy\etmain\mp_bin.pk3 (6 files)
+    C:\Program Files (x86)\ET-Legacy\etmain
+
+handle 1: etconsole.log
+----------------------
+9606 files in pk3 files
+Sys_LoadDll(C:\Users\Chuck\Documents\WolfETL\Bobot\qagame_mp_x86.dll)... failed: "unknown"
+Sys_LoadDll(C:\Program Files (x86)\ET-Legacy\Bobot\qagame_mp_x86.dll)... succeeded
+Sys_LoadDll(qagame) found vmMain function at 20087150
+------- Game Initialization -------
+gamename: Bobot 5.00
+gamedate: Jul 24 2010
+g_gametype 6 is out of range, defaulting to GT_WOLF(2)
+------------------------------------------------------------
+InitGame: \g_maxlivesRespawnPenalty\0\voteFlags\0\g_balancedteams\0\g_maxGameClients\0\g_covertopsChargeTime\30000\g_soldierChargeTime\20000\g_LTChargeTime\40000\g_engineerChargeTime\30000\g_medicChargeTime\45000\g_bluelimbotime\30000\g_redlimbotime\30000\gamename\Bobot 5.00\g_axismaxlives\0\g_alliedmaxlives\0\g_heavyWeaponRestriction\100\g_gametype\2\g_antilag\1\g_voteFlags\0\g_minGameClients\8\g_needpass\0\g_maxlives\0\g_friendlyFire\1\sv_allowAnonymous\0\sv_floodProtect\1\sv_maxPing\0\sv_minPing\0\sv_maxRate\25000\sv_maxclients\24\sv_hostname\ET Legacy Host\sv_privateClients\4\mapname\oasis\protocol\84\timelimit\0\version\ET 2.60b win-x86 May  8 2006
+Gametype changed, clearing session data.
+
+^1BOBOT : Nodes script initialisation (Trigger init)...
+^1BOBOT : Wm_ObjectiveStatus : 4 0 1
+^1BOBOT : Wm_ObjectiveStatus : 4 1 1
+^1BOBOT : Wm_ObjectiveStatus : 3 1 1
+^1BOBOT : Wm_ObjectiveStatus : 6 1 1
+^1BOBOT : Wm_ObjectiveStatus : 6 1 2
+^1BOBOT : Wm_ObjectiveStatus : 7 1 1
+^1BOBOT : Wm_ObjectiveStatus : 7 1 0
+^1BOBOT : Wm_ObjectiveStatus : 8 0 1
+^1BOBOT : Wm_ObjectiveStatus : 8 0 0
+^1BOBOT : Trigger : mg42_clip_1builtfinal
+^1BOBOT : Trigger : mg42_clip_1etatdeath
+^1BOBOT : Wm_ObjectiveStatus : 1 1 1
+^1BOBOT : Wm_ObjectiveStatus : 2 1 1
+^1BOBOT : Script file nodes/oasis.nodscript loaded.
+Enable spawning!
+
+^1BOBOT : Started wm_objectifstatus : ^$7 1 0. 
+^1BOBOT : Started wm_objectifstatus : ^$8 0 0. Disable spawning!
+0 teams with 0 entities
+-----------------------------------
+Setting MOTD...
+readconfig: could not open config file clients.ban
+broadcast: print "Server: timelimit changed to 30\n"
+broadcast: print "Server: g_balancedteams changed to 1\n"
+Setting Allied autospawn to Old City
+Setting Axis autospawn to Old City
+^1Warning: setstate called and no entities found
+-----------------------------------
+execing preset_high.cfg
+Resolving etmaster.idsoftware.com (IPv4)
+etmaster.idsoftware.com resolved to 192.246.40.60:27950
+Sending heartbeat to etmaster.idsoftware.com
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 8 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_static
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 9 is linked to trigger_objective_info
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 35 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_static
+^$BOBOT : Possible link with script_mover
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 49 is linked to trigger_objective_info
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 111 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_explosive
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 119 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_explosive
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 124 is linked to trigger_objective_info
+^$BOBOT : Possible link with script_mover
+^$BOBOT : Possible link with script_mover
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 132 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_static
+Hitch warning: 643 msec frame time
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+Sys_LoadDll(C:\Users\Chuck\Documents\WolfETL\Bobot\qagame_mp_x86.dll)... failed: "unknown"
+Sys_LoadDll(C:\Program Files (x86)\ET-Legacy\Bobot\qagame_mp_x86.dll)... succeeded
+Sys_LoadDll(qagame) found vmMain function at 20087150
+------- Game Initialization -------
+gamename: Bobot 5.00
+gamedate: Jul 24 2010
+------------------------------------------------------------
+InitGame: \g_maxlivesRespawnPenalty\0\voteFlags\4352\g_balancedteams\1\g_maxGameClients\0\g_covertopsChargeTime\30000\g_soldierChargeTime\20000\g_LTChargeTime\40000\g_engineerChargeTime\30000\g_medicChargeTime\45000\g_bluelimbotime\20000\g_redlimbotime\30000\gamename\Bobot 5.00\g_axismaxlives\0\g_alliedmaxlives\0\g_heavyWeaponRestriction\100\g_gametype\2\g_antilag\1\g_voteFlags\0\g_minGameClients\8\g_needpass\0\g_maxlives\0\g_friendlyFire\1\sv_allowAnonymous\0\sv_floodProtect\1\sv_maxPing\0\sv_minPing\0\sv_maxRate\25000\sv_maxclients\24\sv_hostname\ET Legacy Host\sv_privateClients\4\mapname\oasis\protocol\84\timelimit\30\version\ET 2.60b win-x86 May  8 2006
+
+^1BOBOT : Nodes script initialisation (Trigger init)...
+^1BOBOT : Wm_ObjectiveStatus : 4 0 1
+^1BOBOT : Wm_ObjectiveStatus : 4 1 1
+^1BOBOT : Wm_ObjectiveStatus : 3 1 1
+^1BOBOT : Wm_ObjectiveStatus : 6 1 1
+^1BOBOT : Wm_ObjectiveStatus : 6 1 2
+^1BOBOT : Wm_ObjectiveStatus : 7 1 1
+^1BOBOT : Wm_ObjectiveStatus : 7 1 0
+^1BOBOT : Wm_ObjectiveStatus : 8 0 1
+^1BOBOT : Wm_ObjectiveStatus : 8 0 0
+^1BOBOT : Trigger : mg42_clip_1builtfinal
+^1BOBOT : Trigger : mg42_clip_1etatdeath
+^1BOBOT : Wm_ObjectiveStatus : 1 1 1
+^1BOBOT : Wm_ObjectiveStatus : 2 1 1
+^1BOBOT : Script file nodes/oasis.nodscript loaded.
+Enable spawning!
+
+^1BOBOT : Started wm_objectifstatus : ^$7 1 0. 
+^1BOBOT : Started wm_objectifstatus : ^$8 0 0. Disable spawning!
+0 teams with 0 entities
+-----------------------------------
+Setting MOTD...
+readconfig: could not open config file clients.ban
+Setting Allied autospawn to Old City
+Setting Axis autospawn to Old City
+^1Warning: setstate called and no entities found
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 8 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_static
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 9 is linked to trigger_objective_info
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 35 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_static
+^$BOBOT : Possible link with script_mover
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 49 is linked to trigger_objective_info
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 111 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_explosive
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 119 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_explosive
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 124 is linked to trigger_objective_info
+^$BOBOT : Possible link with script_mover
+^$BOBOT : Possible link with script_mover
+^$BOBOT : Possible link with trigger_objective_info
+^$BOBOT : The node 132 is linked to trigger_objective_info
+^$BOBOT : Possible link with func_static
+Hitch warning: 16045 msec frame time
+Client 0 connecting with 50 challenge ping
+ClientConnect: 0
+Userinfo: \cg_etVersion\Enemy Territory, ET 2.60b\cg_uinfo\13 0 100\g_password\none\cl_guid\6491090CB8791D0E4434CFA54FAA6F47\cl_wwwDownload\1\name\Rukus\rate\25000\snaps\20\protocol\84\qport\215\challenge\247797793\ip\192.168.200.140:27961
+ClientUserinfoChanged: 0 n\Rukus\t\3\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0\ref\0
+Sending heartbeat to etmaster.idsoftware.com
+Userinfo: \cg_etVersion\Enemy Territory, ET 2.60b\cg_uinfo\13 0 100\g_password\none\cl_guid\6491090CB8791D0E4434CFA54FAA6F47\cl_wwwDownload\1\name\Rukus\rate\25000\snaps\20\protocol\84\qport\215\challenge\247797793\ip\192.168.200.140:27961
+ClientUserinfoChanged: 0 n\Rukus\t\3\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\3\lw\3\sw\0\mu\0\ref\0
+ClientBegin: 0
+Userinfo: \cg_etVersion\Enemy Territory, ET 2.60b\cg_uinfo\13 0 100\g_password\none\cl_guid\6491090CB8791D0E4434CFA54FAA6F47\cl_wwwDownload\1\name\Rukus\rate\25000\snaps\20\protocol\84\qport\215\challenge\247797793\ip\192.168.200.140:27961
+ClientUserinfoChanged: 0 n\Rukus\t\2\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\3\lw\8\sw\7\mu\0\ref\0
+Userinfo: \cg_etVersion\Enemy Territory, ET 2.60b\cg_uinfo\13 0 100\g_password\none\cl_guid\6491090CB8791D0E4434CFA54FAA6F47\cl_wwwDownload\1\name\Rukus\rate\25000\snaps\20\protocol\84\qport\215\challenge\247797793\ip\192.168.200.140:27961
+ClientUserinfoChanged: 0 n\Rukus\t\2\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\8\lw\8\sw\7\mu\0\ref\0
+broadcast: print "Rukus^7 entered the game\n"
+ClientBegin: 0
+
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+0 : Rukus (N° 0) is not invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+0 : Rukus (N° 0) is not invulnerable. execing addallaxis.cfg
+elitguardelitguardForcing disconnect on active client: 1
+ClientDisconnect: 1
+ClientConnect: 1
+Userinfo: \name\Eva\ip\localhost\team\axis\rate\25000\snaps\20\skill\3
+ClientUserinfoChanged: 1 n\Eva\t\3\skill\3\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\Eva\ip\localhost\team\axis\rate\25000\snaps\20\skill\3
+ClientUserinfoChanged: 1 n\Eva\t\0\skill\3\c\6\r\0\m\0000000\s\0000000\dn\\dr\0\w\54\lw\54\sw\48\mu\0
+Kill: 1 1 64: Eva killed Eva by MOD_SWITCHTEAM
+Userinfo: \name\Eva\ip\localhost\team\axis\rate\25000\snaps\20\skill\3
+ClientUserinfoChanged: 1 n\Eva\t\1\skill\3\c\6\r\0\m\0000000\s\0000000\dn\\dr\0\w\54\lw\54\sw\48\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "Eva^7 entered the game\n"
+ClientBegin: 1
+say: Eva: ich komme an...
+Eva^7: ich komme an...
+biomecanikbiomecanikForcing disconnect on active client: 2
+ClientDisconnect: 2
+ClientConnect: 2
+Userinfo: \name\^1Cyborg\ip\localhost\team\axis\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 2 n\^1Cyborg\t\3\skill\2\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^1Cyborg\ip\localhost\team\axis\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 2 n\^1Cyborg\t\0\skill\2\c\5\r\0\m\0000000\s\0000000\dn\\dr\0\w\50\lw\50\sw\38\mu\0
+Kill: 2 2 64: ^1Cyborg killed ^1Cyborg by MOD_SWITCHTEAM
+Userinfo: \name\^1Cyborg\ip\localhost\team\axis\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 2 n\^1Cyborg\t\1\skill\2\c\5\r\0\m\0000000\s\0000000\dn\\dr\0\w\50\lw\50\sw\38\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^1Cyborg^7 entered the game\n"
+ClientBegin: 2
+say: ^1Cyborg: Heil die Jungen!
+^1Cyborg^7: Heil die Jungen!
+Voice: ^1Cyborg Hi
+biomecanikbiomecanikForcing disconnect on active client: 3
+ClientDisconnect: 3
+ClientConnect: 3
+Userinfo: \name\^1Biomechanik\ip\localhost\team\axis\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 3 n\^1Biomechanik\t\3\skill\2\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^1Biomechanik\ip\localhost\team\axis\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 3 n\^1Biomechanik\t\0\skill\2\c\5\r\0\m\0000000\s\0000000\dn\\dr\0\w\50\lw\50\sw\38\mu\0
+Kill: 3 3 64: ^1Biomechanik killed ^1Biomechanik by MOD_SWITCHTEAM
+Userinfo: \name\^1Biomechanik\ip\localhost\team\axis\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 3 n\^1Biomechanik\t\1\skill\2\c\5\r\0\m\0000000\s\0000000\dn\\dr\0\w\50\lw\50\sw\38\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^1Biomechanik^7 entered the game\n"
+ClientBegin: 3
+say: ^1Biomechanik: ich komme an...
+^1Biomechanik^7: ich komme an...
+Voice: ^1Biomechanik Hi
+engineerengineerForcing disconnect on active client: 4
+ClientDisconnect: 4
+ClientConnect: 4
+Userinfo: \name\Germanimal\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 4 n\Germanimal\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\Germanimal\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 4 n\Germanimal\t\0\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\23\lw\23\sw\2\mu\0
+Kill: 4 4 64: Germanimal killed Germanimal by MOD_SWITCHTEAM
+Userinfo: \name\Germanimal\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 4 n\Germanimal\t\1\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\23\lw\23\sw\2\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "Germanimal^7 entered the game\n"
+ClientBegin: 4
+engineerengineerForcing disconnect on active client: 5
+ClientDisconnect: 5
+ClientConnect: 5
+Userinfo: \name\^1Loki\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 5 n\^1Loki\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^1Loki\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 5 n\^1Loki\t\0\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\53\lw\53\sw\2\mu\0
+Kill: 5 5 64: ^1Loki killed ^1Loki by MOD_SWITCHTEAM
+Userinfo: \name\^1Loki\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 5 n\^1Loki\t\1\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\53\lw\53\sw\2\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^1Loki^7 entered the game\n"
+ClientBegin: 5
+medicmedicForcing disconnect on active client: 6
+ClientDisconnect: 6
+ClientConnect: 6
+Userinfo: \name\^1Odin\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 6 n\^1Odin\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^1Odin\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 6 n\^1Odin\t\0\skill\4\c\1\r\0\m\0000000\s\0000000\dn\\dr\0\w\53\lw\53\sw\2\mu\0
+Kill: 6 6 64: ^1Odin killed ^1Odin by MOD_SWITCHTEAM
+Userinfo: \name\^1Odin\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 6 n\^1Odin\t\1\skill\4\c\1\r\0\m\0000000\s\0000000\dn\\dr\0\w\53\lw\53\sw\2\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^1Odin^7 entered the game\n"
+ClientBegin: 6
+covertopscovertopsForcing disconnect on active client: 7
+ClientDisconnect: 7
+ClientConnect: 7
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\0\skill\4\c\4\r\0\m\0000000\s\0000000\dn\\dr\0\w\54\lw\54\sw\14\mu\0
+Kill: 7 7 64: ^$Siegfried killed ^$Siegfried by MOD_SWITCHTEAM
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\1\skill\4\c\4\r\0\m\0000000\s\0000000\dn\\dr\0\w\54\lw\54\sw\14\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^$Siegfried^7 entered the game\n"
+ClientBegin: 7
+say: ^$Siegfried: Heil die Jungen!
+^$Siegfried^7: Heil die Jungen!
+Voice: ^$Siegfried Hi
+fieldopsfieldopsForcing disconnect on active client: 8
+ClientDisconnect: 8
+ClientConnect: 8
+Userinfo: \name\^4[^ZRW^1]^DCrazy_Dave\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 8 n\^4[^ZRW^1]^DCrazy_Dave\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^4[^ZRW^1]^DCrazy_Dave\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 8 n\^4[^ZRW^1]^DCrazy_Dave\t\0\skill\4\c\3\r\0\m\0000000\s\0000000\dn\\dr\0\w\3\lw\3\sw\2\mu\0
+Kill: 8 8 64: ^4[^ZRW^1]^DCrazy_Dave killed ^4[^ZRW^1]^DCrazy_Dave by MOD_SWITCHTEAM
+Userinfo: \name\^4[^ZRW^1]^DCrazy_Dave\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 8 n\^4[^ZRW^1]^DCrazy_Dave\t\1\skill\4\c\3\r\0\m\0000000\s\0000000\dn\\dr\0\w\3\lw\3\sw\2\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^4[^ZRW^1]^DCrazy_Dave^7 entered the game\n"
+ClientBegin: 8
+soldiersoldierForcing disconnect on active client: 9
+ClientDisconnect: 9
+ClientConnect: 9
+Userinfo: \name\^$Africa^1Corp\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 9 n\^$Africa^1Corp\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^$Africa^1Corp\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 9 n\^$Africa^1Corp\t\0\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\6\lw\6\sw\2\mu\0
+Kill: 9 9 64: ^$Africa^1Corp killed ^$Africa^1Corp by MOD_SWITCHTEAM
+Userinfo: \name\^$Africa^1Corp\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 9 n\^$Africa^1Corp\t\1\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\6\lw\6\sw\2\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^$Africa^1Corp^7 entered the game\n"
+ClientBegin: 9
+Item: 4 weapon_magicammo
+Ammo_Pack: 8 4
+Item: 2 weapon_magicammo
+Item: 8 weapon_magicammo
+Item: 3 weapon_magicammo
+
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. Kill: 0 6 10: Rukus killed ^1Odin by MOD_THOMPSON
+Item: 8 item_health
+Health_Pack: 6 8
+
+0 : Rukus (N° 0) is not invulnerable. Kill: 8 0 9: ^4[^ZRW^1]^DCrazy_Dave killed Rukus by MOD_MP40
+Item: 6 item_health
+Item: 8 item_health
+Health_Pack: 6 8
+Item: 6 weapon_stg44
+
+^1BOBOT : Started Trigger : ^$mg42_clip_1builtfinal. say: Germanimal:  ^7Ich habe es schließlich gebaut, nicht zu früh...
+Germanimal^7:  ^7Ich habe es schließlich gebaut, nicht zu früh...
+Voice: Germanimal cheer
+say: ^1Loki:  ^7Ich habe es schließlich gebaut, nicht zu früh...
+^1Loki^7:  ^7Ich habe es schließlich gebaut, nicht zu früh...
+Voice: ^1Loki cheer
+Item: 8 item_health
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\1\skill\4\c\4\r\0\m\0000000\s\0000000\dn\Rukus\dr\0\w\54\lw\54\sw\14\mu\0
+
+^1BOBOT : Started wm_objectifstatus : ^$8 0 1. say: ^1Loki:  ^7vollständige Zielsetzung...
+^1Loki^7:  ^7vollständige Zielsetzung...
+Voice: ^1Loki cheer
+
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. Sending heartbeat to etmaster.idsoftware.com
+
+0 : Rukus (N° 0) is not invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+0 : Rukus (N° 0) is not invulnerable. execing addallallies.cfg
+biomecanikbiomecanikForcing disconnect on active client: 10
+ClientDisconnect: 10
+ClientConnect: 10
+Userinfo: \name\^4Biomechanics\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 10 n\^4Biomechanics\t\3\skill\2\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^4Biomechanics\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 10 n\^4Biomechanics\t\0\skill\2\c\5\r\0\m\0000000\s\0000000\dn\\dr\0\w\50\lw\50\sw\29618272\mu\0
+Kill: 10 10 64: ^4Biomechanics killed ^4Biomechanics by MOD_SWITCHTEAM
+Userinfo: \name\^4Biomechanics\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 10 n\^4Biomechanics\t\2\skill\2\c\5\r\0\m\0000000\s\0000000\dn\\dr\0\w\50\lw\50\sw\29618272\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^4Biomechanics^7 entered the game\n"
+ClientBegin: 10
+say: ^4Biomechanics: Im here now.
+^4Biomechanics^7: Im here now.
+Voice: ^4Biomechanics Hi
+engineerengineerForcing disconnect on active client: 11
+ClientDisconnect: 11
+ClientConnect: 11
+Userinfo: \name\[7^4C^7i^1e^7]Chaudard\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 11 n\[7^4C^7i^1e^7]Chaudard\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\[7^4C^7i^1e^7]Chaudard\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 11 n\[7^4C^7i^1e^7]Chaudard\t\0\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\24\lw\24\sw\7\mu\0
+Kill: 11 11 64: [7^4C^7i^1e^7]Chaudard killed [7^4C^7i^1e^7]Chaudard by MOD_SWITCHTEAM
+Userinfo: \name\[7^4C^7i^1e^7]Chaudard\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 11 n\[7^4C^7i^1e^7]Chaudard\t\2\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\24\lw\24\sw\7\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "[7^4C^7i^1e^7]Chaudard^7 entered the game\n"
+ClientBegin: 11
+engineerengineerForcing disconnect on active client: 12
+ClientDisconnect: 12
+ClientConnect: 12
+Userinfo: \name\^4Eurypylos\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 12 n\^4Eurypylos\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^4Eurypylos\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 12 n\^4Eurypylos\t\0\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\52\lw\52\sw\7\mu\0
+Kill: 12 12 64: ^4Eurypylos killed ^4Eurypylos by MOD_SWITCHTEAM
+Userinfo: \name\^4Eurypylos\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 12 n\^4Eurypylos\t\2\skill\4\c\2\r\0\m\0000000\s\0000000\dn\\dr\0\w\52\lw\52\sw\7\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^4Eurypylos^7 entered the game\n"
+ClientBegin: 12
+say: ^4Eurypylos: Salut les gars!
+^4Eurypylos^7: Salut les gars!
+Voice: ^4Eurypylos Hi
+medicmedicForcing disconnect on active client: 13
+ClientDisconnect: 13
+ClientConnect: 13
+Userinfo: \name\^4SERIAL^1Killer\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 13 n\^4SERIAL^1Killer\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^4SERIAL^1Killer\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 13 n\^4SERIAL^1Killer\t\0\skill\4\c\1\r\0\m\0000000\s\0000000\dn\\dr\0\w\52\lw\52\sw\7\mu\0
+Kill: 13 13 64: ^4SERIAL^1Killer killed ^4SERIAL^1Killer by MOD_SWITCHTEAM
+Userinfo: \name\^4SERIAL^1Killer\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 13 n\^4SERIAL^1Killer\t\2\skill\4\c\1\r\0\m\0000000\s\0000000\dn\\dr\0\w\52\lw\52\sw\7\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^4SERIAL^1Killer^7 entered the game\n"
+ClientBegin: 13
+say: ^4SERIAL^1Killer: Hi evrybody!
+^4SERIAL^1Killer^7: Hi evrybody!
+Voice: ^4SERIAL^1Killer Hi
+covertopscovertopsForcing disconnect on active client: 14
+ClientDisconnect: 14
+ClientConnect: 14
+Userinfo: \name\^8Mac^0.^$Queen\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 14 n\^8Mac^0.^$Queen\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^8Mac^0.^$Queen\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 14 n\^8Mac^0.^$Queen\t\0\skill\4\c\4\r\0\m\0000000\s\0000000\dn\\dr\0\w\10\lw\10\sw\41\mu\0
+Kill: 14 14 64: ^8Mac^0.^$Queen killed ^8Mac^0.^$Queen by MOD_SWITCHTEAM
+Userinfo: \name\^8Mac^0.^$Queen\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 14 n\^8Mac^0.^$Queen\t\2\skill\4\c\4\r\0\m\0000000\s\0000000\dn\\dr\0\w\10\lw\10\sw\41\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^8Mac^0.^$Queen^7 entered the game\n"
+ClientBegin: 14
+fieldopsfieldopsForcing disconnect on active client: 15
+ClientDisconnect: 15
+ClientConnect: 15
+Userinfo: \name\^8Commander.^$Bond\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 15 n\^8Commander.^$Bond\t\3\skill\2\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\^8Commander.^$Bond\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 15 n\^8Commander.^$Bond\t\0\skill\2\c\3\r\0\m\0000000\s\0000000\dn\\dr\0\w\51\lw\51\sw\7\mu\0
+Kill: 15 15 64: ^8Commander.^$Bond killed ^8Commander.^$Bond by MOD_SWITCHTEAM
+Userinfo: \name\^8Commander.^$Bond\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 15 n\^8Commander.^$Bond\t\2\skill\2\c\3\r\0\m\0000000\s\0000000\dn\\dr\0\w\51\lw\51\sw\7\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "^8Commander.^$Bond^7 entered the game\n"
+ClientBegin: 15
+say: ^8Commander.^$Bond: Salut!
+^8Commander.^$Bond^7: Salut!
+Voice: ^8Commander.^$Bond Hi
+soldiersoldierForcing disconnect on active client: 16
+ClientDisconnect: 16
+ClientConnect: 16
+Userinfo: \name\Athos\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 16 n\Athos\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\Athos\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 16 n\Athos\t\0\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\8\lw\8\sw\7\mu\0
+Kill: 16 16 64: Athos killed Athos by MOD_SWITCHTEAM
+Userinfo: \name\Athos\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 16 n\Athos\t\2\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\8\lw\8\sw\7\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "Athos^7 entered the game\n"
+ClientBegin: 16
+say: Athos: Im here now.
+Athos^7: Im here now.
+Voice: Athos Hi
+soldiersoldierForcing disconnect on active client: 17
+ClientDisconnect: 17
+ClientConnect: 17
+Userinfo: \name\[7^4C^7i^1e^7]Pithiviers\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 17 n\[7^4C^7i^1e^7]Pithiviers\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\[7^4C^7i^1e^7]Pithiviers\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 17 n\[7^4C^7i^1e^7]Pithiviers\t\0\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\55\lw\55\sw\7\mu\0
+Kill: 17 17 64: [7^4C^7i^1e^7]Pithiviers killed [7^4C^7i^1e^7]Pithiviers by MOD_SWITCHTEAM
+Userinfo: \name\[7^4C^7i^1e^7]Pithiviers\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 17 n\[7^4C^7i^1e^7]Pithiviers\t\2\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\55\lw\55\sw\7\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "[7^4C^7i^1e^7]Pithiviers^7 entered the game\n"
+ClientBegin: 17
+say: [7^4C^7i^1e^7]Pithiviers: Salut les gars!
+[7^4C^7i^1e^7]Pithiviers^7: Salut les gars!
+Voice: [7^4C^7i^1e^7]Pithiviers Hi
+soldiersoldierForcing disconnect on active client: 18
+ClientDisconnect: 18
+ClientConnect: 18
+Userinfo: \name\[7^4C^7i^1e^7]Tassin\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 18 n\[7^4C^7i^1e^7]Tassin\t\3\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\0\lw\0\sw\0\mu\0
+Userinfo: \name\[7^4C^7i^1e^7]Tassin\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 18 n\[7^4C^7i^1e^7]Tassin\t\0\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\6\lw\6\sw\7\mu\0
+Kill: 18 18 64: [7^4C^7i^1e^7]Tassin killed [7^4C^7i^1e^7]Tassin by MOD_SWITCHTEAM
+Userinfo: \name\[7^4C^7i^1e^7]Tassin\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 18 n\[7^4C^7i^1e^7]Tassin\t\2\skill\4\c\0\r\0\m\0000000\s\0000000\dn\\dr\0\w\6\lw\6\sw\7\mu\0
+BOBOT : Loading Best Brain file moveBrain, wait...
+BOBOT : The Best Brain file moveBrain is loaded.
+BOBOT : Loading Best Brain file lookBrain, wait...
+BOBOT : The Best Brain file lookBrain is loaded.
+broadcast: print "[7^4C^7i^1e^7]Tassin^7 entered the game\n"
+ClientBegin: 18
+say: [7^4C^7i^1e^7]Tassin: Me vl'a les gars...
+[7^4C^7i^1e^7]Tassin^7: Me vl'a les gars...
+Voice: [7^4C^7i^1e^7]Tassin Hi
+Item: 10 weapon_magicammo
+Ammo_Pack: 15 10
+
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+0 : Rukus (N° 0) is not invulnerable. Kill: 7 0 74: ^$Siegfried killed Rukus by MOD_MP34
+
+^1BOBOT : Started wm_objectifstatus : ^$7 1 1. say: [7^4C^7i^1e^7]Chaudard:  ^7Construction complete...
+[7^4C^7i^1e^7]Chaudard^7:  ^7Construction complete...
+Voice: [7^4C^7i^1e^7]Chaudard cheer
+Kill: 13 4 72: ^4SERIAL^1Killer killed Germanimal by MOD_BAR
+Kill: 11 9 41: [7^4C^7i^1e^7]Chaudard killed ^$Africa^1Corp by MOD_CARBINE
+Voice: Germanimal GreatShot
+say: Germanimal: Great shot!
+Germanimal^7: Great shot!
+Kill: 1 11 74: Eva killed [7^4C^7i^1e^7]Chaudard by MOD_MP34
+Item: 12 item_health
+Health_Pack: 13 12
+Kill: 1 17 74: Eva killed [7^4C^7i^1e^7]Pithiviers by MOD_MP34
+Item: 12 item_health
+Kill: 16 6 10: Athos killed ^1Odin by MOD_THOMPSON
+Voice: ^1Odin medic
+sayteam: ^1Odin: Medic!
+[lof](^1Odin^7) (C,1): Medic!
+Kill: 12 16 72: ^4Eurypylos killed Athos by MOD_BAR
+Kill: 10 4 70: ^4Biomechanics killed Germanimal by MOD_VENOM
+Voice: Germanimal medic
+sayteam: Germanimal: Medic!
+[lof](Germanimal^7) (C,1): Medic!
+Kill: 10 7 70: ^4Biomechanics killed ^$Siegfried by MOD_VENOM
+Kill: 10 5 70: ^4Biomechanics killed ^1Loki by MOD_VENOM
+Kill: 8 12 9: ^4[^ZRW^1]^DCrazy_Dave killed ^4Eurypylos by MOD_MP40
+Voice: Germanimal medic
+sayteam: Germanimal: Medic!
+[lof](Germanimal^7) (C,1): Medic!
+Voice: ^1Odin medic
+sayteam: ^1Odin: Medic!
+[lof](^1Odin^7) (C,1): Medic!
+say: [7^4C^7i^1e^7]Chaudard:  ^7Yes, it's so easy.
+[7^4C^7i^1e^7]Chaudard^7:  ^7Yes, it's so easy.
+Voice: [7^4C^7i^1e^7]Chaudard cheer
+Voice: ^1Odin medic
+sayteam: ^1Odin: Medic!
+[lof](^1Odin^7) (C,1): Medic!
+Kill: 1 11 74: Eva killed [7^4C^7i^1e^7]Chaudard by MOD_MP34
+Voice: [7^4C^7i^1e^7]Chaudard medic
+sayteam: [7^4C^7i^1e^7]Chaudard: Medic!
+[lof]([7^4C^7i^1e^7]Chaudard^7) (D,4): Medic!
+Kill: 5 15 73: ^1Loki killed ^8Commander.^$Bond by MOD_STG44
+Kill: 7 13 74: ^$Siegfried killed ^4SERIAL^1Killer by MOD_MP34
+Voice: ^4SERIAL^1Killer medic
+sayteam: ^4SERIAL^1Killer: Medic!
+[lof](^4SERIAL^1Killer^7) (D,2): Medic!
+Kill: 6 18 73: ^1Odin killed [7^4C^7i^1e^7]Tassin by MOD_STG44
+sayteam: ^8Commander.^$Bond: Heal me!
+[lof](^8Commander.^$Bond^7) (D,2): Heal me!
+Voice: ^8Commander.^$Bond FTHealMe
+Kill: 1 17 74: Eva killed [7^4C^7i^1e^7]Pithiviers by MOD_MP34
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. Kill: 8 4 62: ^4[^ZRW^1]^DCrazy_Dave killed Germanimal by MOD_SMOKEGRENADE
+Voice: Germanimal GreatShot
+say: Germanimal: Great shot!
+Germanimal^7: Great shot!
+Kill: 0 9 18: Rukus killed ^$Africa^1Corp by MOD_GRENADE_LAUNCHER
+Kill: 10 5 70: ^4Biomechanics killed ^1Loki by MOD_VENOM
+Kill: 7 14 74: ^$Siegfried killed ^8Mac^0.^$Queen by MOD_MP34
+Kill: 7 12 74: ^$Siegfried killed ^4Eurypylos by MOD_MP34
+Kill: 0 8 18: Rukus killed ^4[^ZRW^1]^DCrazy_Dave by MOD_GRENADE_LAUNCHER
+Kill: 7 16 74: ^$Siegfried killed Athos by MOD_MP34
+
+0 : Rukus (N° 0) is not invulnerable. sayteam: ^1Loki: ^7 I'm going to the oasis water pump
+[lof](^1Loki^7) (D,1): ^7 I'm going to the oasis water pump
+Item: 8 weapon_magicammo
+Item: 8 weapon_magicammo
+Item: 0 weapon_magicammo
+Ammo_Pack: 15 0
+Item: 0 weapon_magicammo
+Item: 0 item_health
+Health_Pack: 13 0
+Userinfo: \name\^4Biomechanics\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 10 n\^4Biomechanics\t\2\skill\2\c\5\r\1\m\0000000\s\0000100\dn\\dr\0\w\50\lw\50\sw\29618272\mu\0
+
+1 cpmKill: 10 4 70: ^4Biomechanics killed Germanimal by MOD_VENOM
+Item: 0 item_health
+Kill: 12 1 72: ^4Eurypylos killed Eva by MOD_BAR
+Kill: 4 7 43: Germanimal killed ^$Siegfried by MOD_GPG40
+
+1 cpmKill: 10 8 70: ^4Biomechanics killed ^4[^ZRW^1]^DCrazy_Dave by MOD_VENOM
+Voice: Germanimal thanks
+Voice: Germanimal thanks
+Medic_Revive: 6 4
+Voice: ^4[^ZRW^1]^DCrazy_Dave thanks
+Voice: ^4[^ZRW^1]^DCrazy_Dave thanks
+Voice: ^4[^ZRW^1]^DCrazy_Dave thanks
+Voice: ^4[^ZRW^1]^DCrazy_Dave thanks
+Medic_Revive: 6 8
+Item: 6 item_health
+Item: 6 item_health
+
+1 cpmKill: 10 4 70: ^4Biomechanics killed Germanimal by MOD_VENOM
+
+1 cpmKill: 10 6 70: ^4Biomechanics killed ^1Odin by MOD_VENOM
+Userinfo: \name\^8Mac^0.^$Queen\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 14 n\^8Mac^0.^$Queen\t\2\skill\4\c\4\r\0\m\0000000\s\0000000\dn\Eva\dr\0\w\10\lw\10\sw\41\mu\0
+Userinfo: \name\^8Mac^0.^$Queen\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+Userinfo: \name\^8Mac^0.^$Queen\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+
+1 cpmKill: 10 8 70: ^4Biomechanics killed ^4[^ZRW^1]^DCrazy_Dave by MOD_VENOM
+Item: 17 item_health
+say: ^$Siegfried: Nein!
+^$Siegfried^7: Nein!
+Item: 17 item_health
+Item: 17 item_health
+Health_Pack: 13 17
+Voice: ^$Siegfried GreatShot
+say: ^$Siegfried: Great shot!
+^$Siegfried^7: Great shot!
+Item: 17 item_health
+Userinfo: \name\[7^4C^7i^1e^7]Chaudard\ip\localhost\team\allies\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 11 n\[7^4C^7i^1e^7]Chaudard\t\2\skill\4\c\2\r\1\m\0000000\s\0100000\dn\\dr\0\w\24\lw\24\sw\7\mu\0
+Kill: 11 5 44: [7^4C^7i^1e^7]Chaudard killed ^1Loki by MOD_M7
+sayteam: ^1Loki: Revive me!
+[lof](^1Loki^7) (C,2): Revive me!
+Voice: ^1Loki FTReviveMe
+Item: 4 weapon_magicammo
+Ammo_Pack: 8 4
+Kill: 18 12 8: [7^4C^7i^1e^7]Tassin killed ^4Eurypylos by MOD_COLT
+Voice: ^1Loki medic
+sayteam: ^1Loki: Medic!
+[lof](^1Loki^7) (C,2): Medic!
+Kill: 6 18 73: ^1Odin killed [7^4C^7i^1e^7]Tassin by MOD_STG44
+Item: 8 weapon_magicammo
+
+1 cpmKill: 10 4 70: ^4Biomechanics killed Germanimal by MOD_VENOM
+Voice: Germanimal medic
+sayteam: Germanimal: Medic!
+[lof](Germanimal^7) (D,1): Medic!
+Voice: ^1Loki medic
+sayteam: ^1Loki: Medic!
+[lof](^1Loki^7) (C,2): Medic!
+Item: 17 weapon_magicammo
+Item: 1 weapon_magicammo
+Item: 17 item_health
+Item: 17 weapon_magicammo
+Item: 17 item_health
+
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. Item: 7 weapon_magicammo
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\1\skill\4\c\4\r\1\m\0000000\s\0000100\dn\\dr\0\w\54\lw\54\sw\14\mu\0
+Kill: 7 11 74: ^$Siegfried killed [7^4C^7i^1e^7]Chaudard by MOD_MP34
+Voice: Germanimal GreatShot
+say: Germanimal: Great shot!
+Germanimal^7: Great shot!
+Kill: 8 15 9: ^4[^ZRW^1]^DCrazy_Dave killed ^8Commander.^$Bond by MOD_MP40
+Item: 7 weapon_magicammo
+Ammo_Pack: 8 7
+Voice: ^8Commander.^$Bond thanks
+Voice: ^8Commander.^$Bond thanks
+Medic_Revive: 13 15
+Item: 15 item_health
+Item: 8 weapon_magicammo
+Item: 15 weapon_magicammo
+Item: 13 item_health
+Userinfo: \name\Eva\ip\localhost\team\axis\rate\25000\snaps\20\skill\3
+ClientUserinfoChanged: 1 n\Eva\t\1\skill\3\c\6\r\1\m\0000000\s\0000100\dn\\dr\0\w\54\lw\54\sw\48\mu\0
+Kill: 1 14 74: Eva killed ^8Mac^0.^$Queen by MOD_MP34
+Item: 7 item_health
+Health_Pack: 6 7
+Voice: ^1Loki medic
+sayteam: ^1Loki: Medic!
+[lof](^1Loki^7) (C,2): Medic!
+Item: 7 item_health
+Kill: 16 8 10: Athos killed ^4[^ZRW^1]^DCrazy_Dave by MOD_THOMPSON
+
+0 : Rukus (N° 0) is not invulnerable. Kill: 5 16 73: ^1Loki killed Athos by MOD_STG44
+Voice: Athos medic
+sayteam: Athos: Medic!
+[lof](Athos^7) (D,1): Medic!
+Item: 7 item_health
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Item: 1 item_health
+Kill: 6 17 73: ^1Odin killed [7^4C^7i^1e^7]Pithiviers by MOD_STG44
+Voice: Athos medic
+sayteam: Athos: Medic!
+[lof](Athos^7) (D,1): Medic!
+Kill: 8 4 62: ^4[^ZRW^1]^DCrazy_Dave killed Germanimal by MOD_SMOKEGRENADE
+Item: 8 weapon_magicammo
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\1\skill\4\c\4\r\1\m\0000000\s\0000100\dn\Athos\dr\0\w\54\lw\54\sw\14\mu\0
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\1\skill\4\c\4\r\1\m\0000000\s\0000101\dn\Athos\dr\0\w\54\lw\54\sw\14\mu\0
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+sayteam: ^$Siegfried: I steal an allied uniform!
+[lof](^$Siegfried^7) (D,1): I steal an allied uniform!
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 7 n\^$Siegfried\t\1\skill\4\c\4\r\2\m\0000000\s\0000102\dn\Athos\dr\0\w\54\lw\54\sw\14\mu\0
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Userinfo: \name\^$Siegfried\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+Kill: 13 9 72: ^4SERIAL^1Killer killed ^$Africa^1Corp by MOD_BAR
+Item: 6 weapon_magicammo
+Ammo_Pack: 8 6
+Kill: 13 6 72: ^4SERIAL^1Killer killed ^1Odin by MOD_BAR
+Kill: 8 13 9: ^4[^ZRW^1]^DCrazy_Dave killed ^4SERIAL^1Killer by MOD_MP40
+Voice: ^1Odin medic
+sayteam: ^1Odin: Medic!
+[lof](^1Odin^7) (D,1): Medic!
+Userinfo: \name\Eva\ip\localhost\team\axis\rate\25000\snaps\20\skill\3
+ClientUserinfoChanged: 1 n\Eva\t\1\skill\3\c\6\r\1\m\0000000\s\1000100\dn\\dr\0\w\54\lw\54\sw\48\mu\0
+say: ^4Eurypylos: ^7fais chier maintenant! Rukus
+^4Eurypylos^7: ^7fais chier maintenant! Rukus
+Kill: 0 12 10: Rukus killed ^4Eurypylos by MOD_THOMPSON
+Voice: ^4Eurypylos medic
+sayteam: ^4Eurypylos: Medic!
+[lof](^4Eurypylos^7) (C,2): Medic!
+Item: 8 weapon_mp40
+Item: 8 weapon_magicammo
+Userinfo: \name\^4Biomechanics\ip\localhost\team\allies\rate\25000\snaps\20\skill\2
+ClientUserinfoChanged: 10 n\^4Biomechanics\t\2\skill\2\c\5\r\1\m\0000000\s\1000100\dn\\dr\0\w\50\lw\50\sw\29618272\mu\0
+Voice: ^1Odin GreatShot
+say: ^1Odin: Great shot!
+^1Odin^7: Great shot!
+Voice: ^$Africa^1Corp medic
+sayteam: ^$Africa^1Corp: Medic!
+[lof](^$Africa^1Corp^7) (D,2): Medic!
+say: ^4Biomechanics: ^7hey !!
+^4Biomechanics^7: ^7hey !!
+Voice: ^4Biomechanics HoldFire
+Kill: 0 10 10: Rukus killed ^4Biomechanics by MOD_THOMPSON
+Item: 8 weapon_magicammo
+Voice: ^$Africa^1Corp medic
+sayteam: ^$Africa^1Corp: Medic!
+[lof](^$Africa^1Corp^7) (D,2): Medic!
+Item: 1 item_health
+Health_Pack: 6 1
+Sending heartbeat to etmaster.idsoftware.com
+Item: 11 item_health
+Health_Pack: 13 11
+Item: 11 item_health
+Kill: 11 4 44: [7^4C^7i^1e^7]Chaudard killed Germanimal by MOD_M7
+Item: 8 item_health
+Item: 8 item_health
+Kill: 5 11 73: ^1Loki killed [7^4C^7i^1e^7]Chaudard by MOD_STG44
+Kill: 0 18 18: Rukus killed [7^4C^7i^1e^7]Tassin by MOD_GRENADE_LAUNCHER
+Item: 6 item_health
+Item: 5 weapon_stg44
+Item: 6 item_health
+Kill: 13 9 72: ^4SERIAL^1Killer killed ^$Africa^1Corp by MOD_BAR
+Voice: ^$Africa^1Corp GreatShot
+say: ^$Africa^1Corp: Great shot!
+^$Africa^1Corp^7: Great shot!
+Item: 6 item_health
+Kill: 5 14 73: ^1Loki killed ^8Mac^0.^$Queen by MOD_STG44
+Userinfo: \name\^4[^ZRW^1]^DCrazy_Dave\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 8 n\^4[^ZRW^1]^DCrazy_Dave\t\1\skill\4\c\3\r\1\m\0000000\s\1000000\dn\\dr\0\w\3\lw\3\sw\2\mu\0
+
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. 
+1 : Rukus (N° 0) is invulnerable. Voice: ^$Africa^1Corp medic
+sayteam: ^$Africa^1Corp: Medic!
+[lof](^$Africa^1Corp^7) (C,1): Medic!
+Kill: 0 8 10: Rukus killed ^4[^ZRW^1]^DCrazy_Dave by MOD_THOMPSON
+Kill: 0 1 10: Rukus killed Eva by MOD_THOMPSON
+Item: 0 item_health
+Item: 13 item_health
+
+1 cpmKill: 0 6 10: Rukus killed ^1Odin by MOD_THOMPSON
+Voice: ^4[^ZRW^1]^DCrazy_Dave GreatShot
+say: ^4[^ZRW^1]^DCrazy_Dave: Great shot!
+^4[^ZRW^1]^DCrazy_Dave^7: Great shot!
+Voice: ^8Mac^0.^$Queen thanks
+Voice: ^8Mac^0.^$Queen thanks
+Medic_Revive: 13 14
+Kill: 5 13 73: ^1Loki killed ^4SERIAL^1Killer by MOD_STG44
+Item: 5 weapon_magicammo
+Item: 5 weapon_magicammo
+Kill: 14 5 11: ^8Mac^0.^$Queen killed ^1Loki by MOD_STEN
+
+0 : Rukus (N° 0) is not invulnerable. Userinfo: \cg_etVersion\Enemy Territory, ET 2.60b\cg_uinfo\13 0 100\g_password\none\cl_guid\6491090CB8791D0E4434CFA54FAA6F47\cl_wwwDownload\1\name\Rukus\rate\25000\snaps\20\protocol\84\qport\215\challenge\247797793\ip\192.168.200.140:27961
+ClientUserinfoChanged: 0 n\Rukus\t\2\c\0\r\1\m\0000000\s\1000000\dn\\dr\0\w\8\lw\8\sw\7\mu\0\ref\0
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Voice: ^4[^ZRW^1]^DCrazy_Dave FTCallairstrike
+Userinfo: \cg_etVersion\Enemy Territory, ET 2.60b\cg_uinfo\13 0 100\g_password\none\cl_guid\6491090CB8791D0E4434CFA54FAA6F47\cl_wwwDownload\1\name\Rukus\rate\25000\snaps\20\protocol\84\qport\215\challenge\247797793\ip\192.168.200.140:27961
+ClientUserinfoChanged: 0 n\Rukus\t\2\c\0\r\1\m\0000000\s\1000100\dn\\dr\0\w\8\lw\8\sw\7\mu\0\ref\0
+
+1 cpmKill: 0 9 10: Rukus killed ^$Africa^1Corp by MOD_THOMPSON
+Kill: 12 8 72: ^4Eurypylos killed ^4[^ZRW^1]^DCrazy_Dave by MOD_BAR
+Kill: 9 0 19: ^$Africa^1Corp killed Rukus by MOD_FLAMETHROWER
+Item: 12 item_health
+Medic_Revive: 6 8
+Userinfo: \name\^1Odin\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 6 n\^1Odin\t\1\skill\4\c\1\r\1\m\0000000\s\0010000\dn\\dr\0\w\53\lw\53\sw\2\mu\0
+Kill: 1 14 74: Eva killed ^8Mac^0.^$Queen by MOD_MP34
+Item: 6 item_health
+Userinfo: \name\^1Loki\ip\localhost\team\axis\rate\25000\snaps\20\skill\4
+ClientUserinfoChanged: 5 n\^1Loki\t\1\skill\4\c\2\r\1\m\0000000\s\0000100\dn\\dr\0\w\53\lw\53\sw\2\mu\0
+Kill: 5 16 73: ^1Loki killed Athos by MOD_STG44
+Kill: 11 7 41: [7^4C^7i^1e^7]Chaudard killed ^$Siegfried by MOD_CARBINE
+Item: 1 weapon_sten
+
+XPSave for Rukus Recorded.
+WeaponStats: 0 0 67109656 0 0 0 1 0 47 183 5 0 1 0 0 0 1 0 3 4 2 0 0 0 0 0 1 0 1075 472 389 17 25 21
+ClientDisconnect: 0
+Item: 15 weapon_magicammo
+Item: 8 item_health
+Item: 11 weapon_magicammo
+Ammo_Pack: 15 11
+Item: 8 item_health
+Kill: 5 17 73: ^1Loki killed [7^4C^7i^1e^7]Pithiviers by MOD_STG44
+Voice: ^$Siegfried thanks
+Voice: ^$Siegfried thanks
+Voice: ^$Siegfried thanks
+Voice: [7^4C^7i^1e^7]Pithiviers medic
+sayteam: [7^4C^7i^1e^7]Pithiviers: Medic!
+[lof]([7^4C^7i^1e^7]Pithiviers^7) (C,3): Medic!
+Voice: ^$Siegfried thanks
+Item: 11 weapon_magicammo
+Medic_Revive: 6 7
+Item: 8 weapon_mp40
+Kill: 11 11 44: [7^4C^7i^1e^7]Chaudard killed [7^4C^7i^1e^7]Chaudard by MOD_M7
+Kill: 1 12 74: Eva killed ^4Eurypylos by MOD_MP34
+Kill: 10 15 70: ^4Biomechanics killed ^8Commander.^$Bond by MOD_VENOM
+Kill: 10 5 70: ^4Biomechanics killed ^1Loki by MOD_VENOM
+----- Server Shutdown -----
+Sending heartbeat to etmaster.idsoftware.com
+==== ShutdownGame ====
+ShutdownGame:
+------------------------------------------------------------
+---------------------------
