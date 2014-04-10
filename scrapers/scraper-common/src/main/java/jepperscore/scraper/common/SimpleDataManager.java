@@ -218,8 +218,8 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 	 */
 	@Override
 	public synchronized void newRound(Round r) {
-		if ((currentRound == null) || (r != null) || !players.isEmpty() || !teams.isEmpty()
-				|| !scores.isEmpty()) {
+		if ((currentRound == null) || (r != null) || !players.isEmpty()
+				|| !teams.isEmpty() || !scores.isEmpty()) {
 			if (wipePlayers) {
 				players.clear();
 			}
@@ -249,12 +249,7 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 	 */
 	@Override
 	public synchronized Alias getPlayer(String id) {
-		Alias retVal = getPlayer(id, true);
-		if (retVal != null) {
-			return retVal.copy();
-		} else {
-			return null;
-		}
+		return getPlayer(id, true).copy();
 	}
 
 	/**
@@ -329,15 +324,16 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 				roundPrefix = currentRound.getId() + ":";
 				if (!wipePlayers) {
 					Map<String, Alias> newPlayers = new HashMap<String, Alias>();
-					for (Alias player: players.values()) {
-						String newId = roundPrefix + player.getId().substring(oldRoundPrefix.length());
+					for (Alias player : players.values()) {
+						String newId = roundPrefix
+								+ player.getId().substring(
+										oldRoundPrefix.length());
 						player.setId(newId);
 						newPlayers.put(newId, player);
 					}
 					players.clear();
 					players.putAll(newPlayers);
 				}
-
 
 				changeDetected = true;
 			}

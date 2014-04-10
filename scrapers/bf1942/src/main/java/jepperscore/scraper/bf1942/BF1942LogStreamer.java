@@ -414,12 +414,6 @@ public class BF1942LogStreamer implements Runnable {
 
 			if (attackerId != null) {
 				attacker = playerManager.getPlayer(attackerId);
-				if (attacker == null) {
-					attacker = new Alias();
-					attacker.setId(attackerId);
-					attacker.setBot(true);
-					playerManager.providePlayerRecord(attacker);
-				}
 				if (attacker.isBot() == null) {
 					attacker.setBot(true);
 					playerManager.providePlayerRecord(attacker);
@@ -429,13 +423,6 @@ public class BF1942LogStreamer implements Runnable {
 
 			if (victimId != null) {
 				victim = playerManager.getPlayer(victimId);
-
-				if (victim == null) {
-					victim = new Alias();
-					victim.setId(victimId);
-					victim.setBot(true);
-					playerManager.providePlayerRecord(victim);
-				}
 
 				if (victim.isBot() == null) {
 					victim.setBot(true);
@@ -511,9 +498,7 @@ public class BF1942LogStreamer implements Runnable {
 			}
 
 			Alias player = playerManager.getPlayer(playerId);
-			if (player == null) {
-				player = new Alias();
-				player.setId(playerId);
+			if (player.isBot() == null) {
 				player.setBot(true);
 			}
 

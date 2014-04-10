@@ -24,6 +24,5 @@ public interface RoundManager extends BaseDataManager {
 	 * Provides the latest round record, null if none has been provided.
 	 * @return The round record.
 	 */
-	@Nonnull
 	Round getCurrentRound();
 }

@@ -211,7 +211,7 @@ public class Cod4LogParser extends AbstractLineLogParser {
 			Alias alias = new Alias();
 			alias.setId(playerId);
 			alias.setName(playerName);
-			alias.setPresent("J".equals(eventArray));
+			alias.setPresent("J".equals(event));
 			if (game != null) {
 				alias.setGame(game);
 			}
@@ -233,10 +233,6 @@ public class Cod4LogParser extends AbstractLineLogParser {
 			String victimPlayerName = eventArray[3];
 
 			Alias victim = playerManager.getPlayer(victimPlayerId);
-			if (victim == null) {
-				victim = new Alias();
-				victim.setId(victimPlayerId);
-			}
 			victim.setName(victimPlayerName);
 			if (game != null) {
 				victim.setGame(game);
@@ -257,10 +253,6 @@ public class Cod4LogParser extends AbstractLineLogParser {
 				attacker = victim;
 			} else {
 				attacker = playerManager.getPlayer(attackerPlayerId);
-				if (attacker == null) {
-					attacker = new Alias();
-					attacker.setId(attackerPlayerId);
-				}
 				attacker.setName(attackerPlayerName);
 				if (game != null) {
 					attacker.setGame(game);
