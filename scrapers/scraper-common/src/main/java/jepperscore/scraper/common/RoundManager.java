@@ -1,6 +1,5 @@
 package jepperscore.scraper.common;
 
-import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
 import jepperscore.dao.model.Round;
@@ -25,6 +24,6 @@ public interface RoundManager extends BaseDataManager {
 	 * Provides the latest round record, null if none has been provided.
 	 * @return The round record.
 	 */
-	@CheckForNull
+	@Nonnull
 	Round getCurrentRound();
 }

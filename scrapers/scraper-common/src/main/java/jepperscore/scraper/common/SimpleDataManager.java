@@ -194,7 +194,18 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 	 */
 	@Override
 	public synchronized void newRound() {
-		if ((currentRound == null) || !players.isEmpty() || !teams.isEmpty()
+		newRound(null);
+	}
+
+	/**
+	 * This function resets all knowledge about players.
+	 *
+	 * @param r
+	 *            The new round to use.
+	 */
+	@Override
+	public synchronized void newRound(Round r) {
+		if ((currentRound == null) || (r != null) || !players.isEmpty() || !teams.isEmpty()
 				|| !scores.isEmpty()) {
 			if (wipePlayers) {
 				players.clear();
@@ -202,11 +213,17 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			teams.clear();
 			scores.clear();
 
-			currentRound = new Round();
-			currentRound.setId(UUID.randomUUID().toString());
-			currentRound.setGame(currentGame);
+			Round newRound;
+			if (r == null) {
+				newRound = new Round();
+				newRound.setId(UUID.randomUUID().toString());
+				newRound.setGame(currentGame);
+			} else {
+				newRound = r.copy();
+			}
 
-			roundPrefix = currentRound.getId() + ":";
+			provideRoundRecord(newRound);
+			currentRound = newRound;
 		}
 	}
 
@@ -292,8 +309,23 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			changeDetected = true;
 		} else {
 			String id = round.getId();
-			if ((id != null) && (id.equals(round.getId()))) {
+			if ((id != null) && (!id.equals(currentRound.getId()))) {
 				currentRound.setId(round.getId());
+
+				String oldRoundPrefix = roundPrefix;
+				roundPrefix = currentRound.getId() + ":";
+				if (!wipePlayers) {
+					Map<String, Alias> newPlayers = new HashMap<String, Alias>();
+					for (Alias player: players.values()) {
+						String newId = roundPrefix + player.getId().substring(oldRoundPrefix.length());
+						player.setId(newId);
+						newPlayers.put(newId, player);
+					}
+					players.clear();
+					players.putAll(newPlayers);
+				}
+
+
 				changeDetected = true;
 			}
 
