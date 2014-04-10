@@ -71,7 +71,7 @@ public class InstallMain {
 
 		if (!cmd.hasOption(COD_DIRECTORY_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need -d [UT Install Directory] {-i [Server Ini Filename]} {-o [Output Ini Filename]}");
+					"Incorrect arguments! Need -d [COD Install Directory] {-v [COD Version]} {-m [COD Mod]} {-o [Output Cfg Filename]}");
 		}
 
 		File baseDirectory = new File(cmd.getOptionValue(COD_DIRECTORY_ARG));
