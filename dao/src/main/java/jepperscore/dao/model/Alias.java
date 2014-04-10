@@ -22,6 +22,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Alias {
 
 	/**
+	 * No decoration.
+	 */
+	public static final String DECORATION_STYLE_PLAIN = "plain";
+
+	/**
+	 * Quake 3 style of coloring.
+	 */
+	public static final String DECORATION_STYLE_QUAKE3 = "quake3";
+
+	/**
 	 * An identifying id.
 	 */
 	@XmlAttribute(required = true)
@@ -34,6 +44,13 @@ public class Alias {
 	@XmlAttribute(required = true)
 	@JsonProperty
 	private String name;
+
+	/**
+	 * The decoration style of the name.
+	 */
+	@XmlAttribute(required = true)
+	@JsonProperty
+	private String decorationStyle = DECORATION_STYLE_PLAIN;
 
 	/**
 	 * Indicates if the alias represents a bot.
@@ -82,16 +99,18 @@ public class Alias {
 	 *
 	 * @param id An identifying id.
 	 * @param name The alias.
+	 * @param decorationStyle The decoration style of the name.
 	 * @param bot Indicates if the alias represents a bot.
 	 * @param team The team which the alias belongs to.
 	 * @param person The person which the alias belongs to.
 	 * @param game The game the alias is playing.
 	 * @param present If the alias is present in the game.
 	 */
-	public Alias(String id, String name, Boolean bot, Team team, Person person,
+	public Alias(String id, String name, String decorationStyle, Boolean bot, Team team, Person person,
 			Game game, boolean present) {
 		this.id = id;
 		this.name = name;
+		this.decorationStyle = decorationStyle;
 		this.bot = bot;
 		this.team = team;
 		this.person = person;
@@ -139,6 +158,20 @@ public class Alias {
 	 */
 	public void setName(@Nonnull String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return The decoration style.
+	 */
+	public String getDecorationStyle() {
+		return decorationStyle;
+	}
+
+	/**
+	 * @param decorationStyle The decoration style to set.
+	 */
+	public void setDecorationStyle(String decorationStyle) {
+		this.decorationStyle = decorationStyle;
 	}
 
 	/**
@@ -225,6 +258,6 @@ public class Alias {
 	 * @return A copy of the alias.
 	 */
 	public Alias copy() {
-		return new Alias(id, name, bot, team, person, game, present);
+		return new Alias(id, name, decorationStyle, bot, team, person, game, present);
 	}
 }

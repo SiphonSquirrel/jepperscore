@@ -101,6 +101,7 @@ public class ETLScraper implements Scraper, Runnable, QueryClientListener {
 			status = ScraperStatus.Initializing;
 
 			dataManager = new SimpleDataManager(messageDestination);
+			dataManager.setWipePlayersOnNewRound(false);
 
 			try {
 				queryClient = new Quake3QueryClient(server, queryPort);

@@ -141,6 +141,7 @@ public class Quake3QueryClient extends AbstractQueryClient {
 
 					Alias alias = new Alias();
 					alias.setName(name);
+					alias.setDecorationStyle(Alias.DECORATION_STYLE_QUAKE3);
 					Score s = new Score(alias, Float.parseFloat(scoreStr));
 
 					queryInfo.getPlayers().add(alias);

@@ -1,5 +1,11 @@
 var roundsInProgress = new Array();
 var roundFocus = "";
+var quake3colours = [ "#000000", "#ff0000", "#00ff00", "#ffff00", "#0000ff",
+		"#00ffff", "#ff00ff", "#ffffff", "#ff7f00", "#7f7f7f", "#bfbfbf",
+		"#bfbfbf", "#007f00", "#7f7f00", "#00007f", "#7f0000", "#7f3f00",
+		"#ff9919", "#007f7f", "#7f007f", "#007fff", "#7f00ff", "#3399cc",
+		"#ccffcc", "#006633", "#ff0033", "#b21919", "#993300", "#cc9933",
+		"#999933", "#ffffbf", "#ffff7f" ];
 
 function newGame() {
 	$("#teamscores").empty();
@@ -8,10 +14,7 @@ function newGame() {
 }
 
 function logGameMessage(msg) {
-	var msgElement = document.createElement("div");
-	msgElement.appendChild(document.createTextNode(msg));
-
-	$("#messages").prepend(msgElement);
+	$("#messages").prepend("<div>" + msg + "</div>");
 }
 
 function processMessage(msg) {
@@ -27,12 +30,14 @@ function processMessage(msg) {
 		processScore(msg.score);
 	} else if (msg.event) {
 		processEvent(msg.event);
+	} else if (msg.alias) {
+		processAlias(msg.alias);
 	}
 }
 
 function makeId(s) {
 	if (s) {
-		return s.replace(/ /g, '_');
+		return s.replace(/ /g, '_').replace(/:/g, '_');
 	} else {
 		return s;
 	}
@@ -40,8 +45,8 @@ function makeId(s) {
 
 function parseEventText(event) {
 	var text = event.eventText;
-	text = text.replace(/{attacker}/g, event.attacker.name);
-	text = text.replace(/{victim}/g, event.victim.name);
+	text = text.replace(/{attacker}/g, getHtmlForAliasName(event.attacker));
+	text = text.replace(/{victim}/g, getHtmlForAliasName(event.victim));
 	return text;
 }
 
@@ -55,10 +60,56 @@ function processTeam(team) {
 
 function processScore(score) {
 	updatePlayerScore(score.alias, score.score);
+	processAlias(score.alias);
 }
 
 function processEvent(event) {
 	logGameMessage(parseEventText(event));
+}
+
+function getHtmlForAliasName(alias) {
+	if (alias.decorationStyle && (alias.decorationStyle == "quake3")) {
+		var html = '<span>';
+		var i = 0;
+		while (i < alias.name.length) {
+			if (alias.name[i] == "^") {
+				i++;
+				if (html == "<span>") {
+					html = "";
+				} else {
+					html += "</span>"
+				}
+				html += "<span style='color: " + quake3colours[(alias.name.charCodeAt(i) - 16) % 32] + "'>";
+			} else {
+				html += alias.name[i];
+			}
+			i++;
+		}
+		html += '</span>';
+		return html;
+	} else {
+		return '<span>'+alias.name+'</span>';
+	}
+}
+
+function processAlias(alias) {
+	if (alias.present) {
+		ensureTeamCreated(alias.team);
+		ensureAliasCreated(alias);
+		var aliasElement = $(document.getElementById(getAliasId(alias)));
+		if (aliasElement.data("name") != alias.name) {
+			aliasElement.data("name", alias.name);
+			
+			var nameElement = aliasElement.children(".playerName");
+			
+			nameElement.append(getHtmlForAliasName(alias));
+		}
+	} else {
+		var element = document.getElementById(getAliasId(alias));
+		if (element) {
+			element.parentNode.removeChild(element);
+		}
+	}
 }
 
 function getTeamBlockId(team) {
@@ -102,7 +153,7 @@ function ensureTeamCreated(team) {
 		var teamScore = document.createElement("span");
 		teamBlock.appendChild(teamScore);
 		teamScore.className = "teamScore";
-		if (team && team.teamName) {
+		if (team && team.score) {
 			teamScore.appendChild(document.createTextNode(team.score));
 		}
 	}
@@ -130,16 +181,20 @@ function ensureAliasCreated(alias) {
 		scoreBlock.appendChild(aliasElement);
 		aliasElement.id = getAliasId(alias);
 		aliasElement.className = "playerBlock";
-		$(aliasElement).data("name", alias.name);
-
+		
 		var playerName = document.createElement("span");
 		aliasElement.appendChild(playerName);
 		playerName.className = "playerName";
-		playerName.appendChild(document.createTextNode(alias.name));
 
 		var playerScore = document.createElement("span");
 		aliasElement.appendChild(playerScore);
 		playerScore.className = "playerScore";
+	} else {
+		var parent = document.getElementById(getScoreBlockId(alias.team));
+		if (document.getElementById(getScoreBlockId(alias.team)) != aliasElement.parentNode) {
+			aliasElement.parentNode.removeChild(aliasElement);
+			parent.appendChild(aliasElement);
+		}
 	}
 }
 
@@ -166,4 +221,5 @@ function updatePlayerScore(alias, score) {
 		});
 		$(this).append(players);
 	});
+
 }

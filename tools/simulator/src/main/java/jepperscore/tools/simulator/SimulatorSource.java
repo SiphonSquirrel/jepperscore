@@ -132,7 +132,7 @@ public class SimulatorSource extends AbstractMessageSource implements Runnable {
 				}
 			}
 			String name = nameList.remove(index);
-			Alias alias = new Alias(team.getTeamName() + i, name, false, team, person, game, true);
+			Alias alias = new Alias(team.getTeamName() + i, name, Alias.DECORATION_STYLE_PLAIN, false, team, person, game, true);
 			Score score = new Score(alias, 0);
 			retVal.add(score);
 		}

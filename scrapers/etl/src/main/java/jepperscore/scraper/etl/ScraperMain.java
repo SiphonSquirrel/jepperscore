@@ -24,7 +24,7 @@ public class ScraperMain {
 	/**
 	 * This is the default query port.
 	 */
-	private static final String DEFAULT_QUERY_PORT = "28960";
+	private static final String DEFAULT_QUERY_PORT = "27960";
 
 	/**
 	 * This is the default hostname.
@@ -45,11 +45,6 @@ public class ScraperMain {
 	 * Specifies CoD's log location.
 	 */
 	private static final String CONSOLE_LOG_ARG = "l";
-
-	/**
-	 * Specifies the version of Call of Duty.
-	 */
-	private static final String COD_VERSION_ARG = "v";
 
 	/**
 	 * The host to query.
@@ -77,7 +72,7 @@ public class ScraperMain {
 		options.addOption(DESTINATION_SETUP_ARG, true,
 				"Specifies the destination class setup.");
 		options.addOption(CONSOLE_LOG_ARG, true,
-				"Specifies CoD's log location.");
+				"Specifies ETL's log location.");
 
 		options.addOption(SERVER_HOST, true, "Specifies the server hostname.");
 		options.addOption(QUERY_PORT, true, "Specifies the query port.");
@@ -87,10 +82,9 @@ public class ScraperMain {
 
 		if (!cmd.hasOption(DESTINATION_CLASS_ARG)
 				|| !cmd.hasOption(DESTINATION_SETUP_ARG)
-				|| !cmd.hasOption(CONSOLE_LOG_ARG)
-				|| !cmd.hasOption(COD_VERSION_ARG)) {
+				|| !cmd.hasOption(CONSOLE_LOG_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -l [CoD Server Log] -v [Cod Version] {-h [Server Hostname]} {-q [Query Port]}");
+					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -l [ETL's Server Log] {-h [Server Hostname]} {-q [Query Port]}");
 		}
 
 		String messageDestinationClass = cmd

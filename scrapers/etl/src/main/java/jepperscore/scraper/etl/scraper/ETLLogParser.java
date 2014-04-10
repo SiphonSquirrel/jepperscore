@@ -32,6 +32,11 @@ import org.slf4j.LoggerFactory;
 public class ETLLogParser extends AbstractLineLogParser {
 
 	/**
+	 * Log string for client disconnection.
+	 */
+	private static final String LOG_STRING_CLIENT_DISCONNECT = "ClientDisconnect: ";
+
+	/**
 	 * Log string for init game event.
 	 */
 	private static final String LOG_STRING_INIT_GAME = "InitGame: ";
@@ -115,6 +120,12 @@ public class ETLLogParser extends AbstractLineLogParser {
 			// Legacy
 			// Host\sv_privateClients\4\mapname\oasis\protocol\84\timelimit\30\version\ET
 			// 2.60b win-x86 May 8 2006
+			Round oldRound = roundManager.getCurrentRound();
+			if (oldRound != null) {
+				oldRound.setEnd(new DateTime());
+				roundManager.provideRoundRecord(oldRound);
+			}
+
 			String data = line.substring(LOG_STRING_INIT_GAME.length()).trim();
 
 			Game game = new Game();
@@ -125,9 +136,6 @@ public class ETLLogParser extends AbstractLineLogParser {
 			roundManager.newRound();
 
 			Round round = roundManager.getCurrentRound();
-			if (round == null) {
-				round = new Round();
-			}
 			round.setGame(game);
 			round.setId(UUID.randomUUID().toString());
 			round.setStart(new DateTime());
@@ -167,6 +175,7 @@ public class ETLLogParser extends AbstractLineLogParser {
 			int idSpace = data.indexOf(" ");
 
 			Alias alias = new Alias();
+			alias.setDecorationStyle(Alias.DECORATION_STYLE_QUAKE3);
 
 			String id = data.substring(0, idSpace);
 			alias.setId(id);
@@ -182,7 +191,7 @@ public class ETLLogParser extends AbstractLineLogParser {
 					break;
 				}
 				case "t": {
-					if ("0".equals(value)) {
+					if ("1".equals(value)) {
 						Team t = new Team(ETLConstants.TEAM_AXIS);
 						alias.setTeam(t);
 					} else if ("2".equals(value)) {
@@ -197,7 +206,13 @@ public class ETLLogParser extends AbstractLineLogParser {
 			}
 
 			playerManager.providePlayerRecord(alias);
+		} else if (line.startsWith(LOG_STRING_CLIENT_DISCONNECT)) {
+			String id = line.substring(LOG_STRING_CLIENT_DISCONNECT.length()).trim();
+			Alias alias = playerManager.getPlayer(id);
+			alias.setPresent(false);
+			playerManager.providePlayerRecord(alias);
 		} else if (line.startsWith(LOG_STRING_KILL)) {
+
 			// Kill: 1 1 64: Eva killed Eva by MOD_SWITCHTEAM
 			String data = line.substring(LOG_STRING_KILL.length()).trim();
 			String[] arr = data.split(" ");
@@ -208,6 +223,18 @@ public class ETLLogParser extends AbstractLineLogParser {
 
 			Alias victim = playerManager.getPlayer(victimId);
 			Alias attacker = playerManager.getPlayer(attackerId);
+			victim.setDecorationStyle(Alias.DECORATION_STYLE_QUAKE3);
+			attacker.setDecorationStyle(Alias.DECORATION_STYLE_QUAKE3);
+
+			if (victim.getName().isEmpty()) {
+				victim.setName(arr[5]);
+				playerManager.providePlayerRecord(victim);
+			}
+
+			if (attacker.getName().isEmpty()) {
+				attacker.setName(arr[3]);
+				playerManager.providePlayerRecord(attacker);
+			}
 
 			Event e = new Event();
 			e.setVictim(victim);

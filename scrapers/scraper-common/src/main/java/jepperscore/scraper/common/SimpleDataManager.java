@@ -152,6 +152,12 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			changeDetected = true;
 		}
 
+		String newDecorationStyle = player.getDecorationStyle();
+		if ((!newDecorationStyle.equals(oldPlayer.getDecorationStyle()))) {
+			oldPlayer.setDecorationStyle(newDecorationStyle);
+			changeDetected = true;
+		}
+
 		Team newTeam = player.getTeam();
 		if ((newTeam != null) && (!newTeam.equals(oldPlayer.getTeam()))) {
 			oldPlayer.setTeam(newTeam);
@@ -176,8 +182,15 @@ public class SimpleDataManager implements PlayerManager, GameManager,
 			changeDetected = true;
 		}
 
+		boolean present = player.isPresent();
+		if (present != oldPlayer.isPresent()) {
+			oldPlayer.setPresent(present);
+			changeDetected = true;
+		}
+
 		if (changeDetected) {
 			TransportMessage msg = new TransportMessage();
+			msg.setId(oldPlayer.getId());
 			msg.setAlias(oldPlayer);
 			Round round = currentRound;
 			if (round != null) {

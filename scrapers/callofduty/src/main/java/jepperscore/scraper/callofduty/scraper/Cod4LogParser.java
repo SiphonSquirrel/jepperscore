@@ -170,8 +170,7 @@ public class Cod4LogParser extends AbstractLineLogParser {
 			round = new Round(id, new DateTime(), null, game,
 					dataMap.get("mapname"));
 
-			playerManager.newRound();
-			roundManager.provideRoundRecord(round);
+			playerManager.newRound(round);
 
 			break;
 		}
@@ -212,6 +211,7 @@ public class Cod4LogParser extends AbstractLineLogParser {
 			Alias alias = new Alias();
 			alias.setId(playerId);
 			alias.setName(playerName);
+			alias.setPresent("J".equals(eventArray));
 			if (game != null) {
 				alias.setGame(game);
 			}
