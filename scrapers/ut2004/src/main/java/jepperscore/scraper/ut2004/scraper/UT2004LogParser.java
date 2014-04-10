@@ -162,6 +162,13 @@ public class UT2004LogParser extends AbstractLineLogParser {
 			}
 			break;
 		}
+		case "D": { // 204.93	D	1
+			String aliasId = arr[2];
+			Alias player = playerManager.getPlayer(aliasId);
+			player.setPresent(false);
+			playerManager.providePlayerRecord(player);
+		break;
+		}
 		default:
 			// Ignore anything else...
 			break;
