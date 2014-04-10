@@ -1,5 +1,7 @@
 package jepperscore.dao.model;
 
+import java.util.regex.Matcher;
+
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -199,11 +201,11 @@ public class Event {
 		Alias victim = getVictim();
 
 		if (attacker != null) {
-			text = text.replaceAll("\\{attacker\\}", attacker.getName());
+			text = text.replaceAll("\\{attacker\\}", Matcher.quoteReplacement(attacker.getName()));
 		}
 
 		if (victim != null) {
-			text = text.replaceAll("\\{victim\\}", victim.getName());
+			text = text.replaceAll("\\{victim\\}", Matcher.quoteReplacement(victim.getName()));
 		}
 
 		return text;

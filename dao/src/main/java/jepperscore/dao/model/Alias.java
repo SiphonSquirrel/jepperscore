@@ -25,7 +25,7 @@ public class Alias {
 	 * An identifying id.
 	 */
 	@XmlAttribute(required = true)
-	@JsonProperty("_id")
+	@JsonProperty("id")
 	private String id;
 
 	/**
@@ -64,6 +64,13 @@ public class Alias {
 	private Game game;
 
 	/**
+	 * If the alias is present in the game.
+	 */
+	@XmlElement(required = true)
+	@JsonProperty
+	private boolean present = true;
+
+	/**
 	 * Default constructor.
 	 */
 	public Alias() {
@@ -73,21 +80,23 @@ public class Alias {
 	/**
 	 * Full constructor.
 	 *
-	 * @param id
-	 * @param name
-	 * @param bot
-	 * @param team
-	 * @param person
-	 * @param game
+	 * @param id An identifying id.
+	 * @param name The alias.
+	 * @param bot Indicates if the alias represents a bot.
+	 * @param team The team which the alias belongs to.
+	 * @param person The person which the alias belongs to.
+	 * @param game The game the alias is playing.
+	 * @param present If the alias is present in the game.
 	 */
 	public Alias(String id, String name, Boolean bot, Team team, Person person,
-			Game game) {
+			Game game, boolean present) {
 		this.id = id;
 		this.name = name;
 		this.bot = bot;
 		this.team = team;
 		this.person = person;
 		this.game = game;
+		this.present = present;
 	}
 
 	/**
@@ -199,9 +208,23 @@ public class Alias {
 	}
 
 	/**
+	 * @return If the alias is currently playing.
+	 */
+	public boolean isPresent() {
+		return present;
+	}
+
+	/**
+	 * @param present Sets if the Alias is currently playing.
+	 */
+	public void setPresent(boolean present) {
+		this.present = present;
+	}
+
+	/**
 	 * @return A copy of the alias.
 	 */
 	public Alias copy() {
-		return new Alias(id, name, bot, team, person, game);
+		return new Alias(id, name, bot, team, person, game, present);
 	}
 }
