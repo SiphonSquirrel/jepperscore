@@ -1,4 +1,4 @@
-package jepperscore.scraper.etqw;
+package jepperscore.scraper.etqw.scraper;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,10 +1,10 @@
-package jepperscore.scraper.ut2004;
+package jepperscore.scraper.etqw;
 
 import java.lang.reflect.InvocationTargetException;
 
 import jepperscore.dao.IMessageDestination;
 import jepperscore.scraper.common.ScraperStatus;
-import jepperscore.scraper.ut2004.scraper.UT2004Scraper;
+import jepperscore.scraper.etqw.scraper.ETQWScraper;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -31,9 +31,9 @@ public class ScraperMain {
 	private static final String DESTINATION_SETUP_ARG = "s";
 
 	/**
-	 * Specifies UCC's console log location.
+	 * Specifies ETQW's log directory.
 	 */
-	private static final String CONSOLE_LOG_ARG = "l";
+	private static final String LOG_DIRECTORY_ARG = "l";
 
 	/**
 	 * Specifies the hostname of the server.
@@ -48,7 +48,7 @@ public class ScraperMain {
 	/**
 	 * The default query port.
 	 */
-	private static final String DEFAULT_QUERY_PORT  = "7787";
+	private static final String DEFAULT_QUERY_PORT  = "27733";
 
 	/**
 	 * The main function.
@@ -61,21 +61,21 @@ public class ScraperMain {
 
 		options.addOption(DESTINATION_CLASS_ARG, true, "Specifies the destination class.");
 		options.addOption(DESTINATION_SETUP_ARG, true, "Specifies the destination class setup.");
-		options.addOption(CONSOLE_LOG_ARG, true, "Specifies UCC's console log location.");
+		options.addOption(LOG_DIRECTORY_ARG, true, "Specifies ETQW's log directory.");
 		options.addOption(HOSTNAME_ARG, true, "Specifies the hostname of the server.");
 		options.addOption(QUERY_PORT_ARG, true, "Specifies the query port of the server.");
 
 		CommandLineParser parser = new BasicParser();
 		CommandLine cmd = parser.parse( options, args);
 
-		if (!cmd.hasOption(DESTINATION_CLASS_ARG) || !cmd.hasOption(DESTINATION_SETUP_ARG) || !cmd.hasOption(CONSOLE_LOG_ARG) || !cmd.hasOption(HOSTNAME_ARG)) {
+		if (!cmd.hasOption(DESTINATION_CLASS_ARG) || !cmd.hasOption(DESTINATION_SETUP_ARG) || !cmd.hasOption(LOG_DIRECTORY_ARG) || !cmd.hasOption(HOSTNAME_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -l [UCC Console Log] -h [Hostname] {-p [Query Port]}");
+					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -l [ETQW Log Directory] -h [Hostname] {-p [Query Port]}");
 		}
 
 		String messageDestinationClass = cmd.getOptionValue(DESTINATION_CLASS_ARG);
 		String messageDestinationSetup = cmd.getOptionValue(DESTINATION_SETUP_ARG);
-		String logFile = cmd.getOptionValue(CONSOLE_LOG_ARG);
+		String logDirectory = cmd.getOptionValue(LOG_DIRECTORY_ARG);
 		String host = cmd.getOptionValue(HOSTNAME_ARG);
 		int queryPort = 0;
 
@@ -89,6 +89,7 @@ public class ScraperMain {
 			throw new RuntimeException(e);
 		}
 
+
 		String queryPortString = cmd.getOptionValue(QUERY_PORT_ARG, DEFAULT_QUERY_PORT);
 		try {
 			queryPort = Integer.parseInt(queryPortString);
@@ -100,7 +101,7 @@ public class ScraperMain {
 			throw new RuntimeException("Could not parse port: " + queryPortString);
 		}
 
-		UT2004Scraper scraper = new UT2004Scraper(messageDestination, logFile,
+		ETQWScraper scraper = new ETQWScraper(messageDestination, logDirectory,
 				host, queryPort);
 
 		scraper.start();

@@ -1,4 +1,4 @@
-package jepperscore.scraper.bf1942;
+package jepperscore.scraper.bf1942.scraper;
 
 
 /**

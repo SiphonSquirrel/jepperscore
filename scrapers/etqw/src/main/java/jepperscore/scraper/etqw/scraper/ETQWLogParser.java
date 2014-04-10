@@ -1,4 +1,4 @@
-package jepperscore.scraper.etqw;
+package jepperscore.scraper.etqw.scraper;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;

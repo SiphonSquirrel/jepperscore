@@ -1,10 +1,10 @@
-package jepperscore.scraper.ut2004;
+package jepperscore.scraper.bf1942;
 
 import java.lang.reflect.InvocationTargetException;
 
 import jepperscore.dao.IMessageDestination;
+import jepperscore.scraper.bf1942.scraper.BF1942Scraper;
 import jepperscore.scraper.common.ScraperStatus;
-import jepperscore.scraper.ut2004.scraper.UT2004Scraper;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
@@ -31,9 +31,9 @@ public class ScraperMain {
 	private static final String DESTINATION_SETUP_ARG = "s";
 
 	/**
-	 * Specifies UCC's console log location.
+	 * Specifies BF1942 mod directory.
 	 */
-	private static final String CONSOLE_LOG_ARG = "l";
+	private static final String MOD_DIRECTORY_ARG = "d";
 
 	/**
 	 * Specifies the hostname of the server.
@@ -46,9 +46,29 @@ public class ScraperMain {
 	private static final String QUERY_PORT_ARG = "p";
 
 	/**
+	 * Specifies the RCON port of the server.
+	 */
+	private static final String RCON_PORT_ARG = "r";
+
+	/**
+	 * Specifies the RCON username.
+	 */
+	private static final String RCON_USERNAME_ARG = "u";
+
+	/**
+	 * Specifies the RCON password.
+	 */
+	private static final String RCON_PASSWORD_ARG = "P";
+
+	/**
 	 * The default query port.
 	 */
-	private static final String DEFAULT_QUERY_PORT  = "7787";
+	private static final String DEFAULT_QUERY_PORT  = "22000";
+
+	/**
+	 * The default rcon port.
+	 */
+	private static final String DEFAULT_RCON_PORT  = "4711";
 
 	/**
 	 * The main function.
@@ -61,23 +81,29 @@ public class ScraperMain {
 
 		options.addOption(DESTINATION_CLASS_ARG, true, "Specifies the destination class.");
 		options.addOption(DESTINATION_SETUP_ARG, true, "Specifies the destination class setup.");
-		options.addOption(CONSOLE_LOG_ARG, true, "Specifies UCC's console log location.");
+		options.addOption(MOD_DIRECTORY_ARG, true, "Specifies BF1942 mod directory.");
 		options.addOption(HOSTNAME_ARG, true, "Specifies the hostname of the server.");
 		options.addOption(QUERY_PORT_ARG, true, "Specifies the query port of the server.");
+		options.addOption(RCON_PORT_ARG, true, "Specifies the RCON port of the server.");
+		options.addOption(RCON_USERNAME_ARG, true, "Specifies the RCON Username of the server.");
+		options.addOption(RCON_PASSWORD_ARG, true, "Specifies the RCON Password of the server.");
 
 		CommandLineParser parser = new BasicParser();
 		CommandLine cmd = parser.parse( options, args);
 
-		if (!cmd.hasOption(DESTINATION_CLASS_ARG) || !cmd.hasOption(DESTINATION_SETUP_ARG) || !cmd.hasOption(CONSOLE_LOG_ARG) || !cmd.hasOption(HOSTNAME_ARG)) {
+		if (!cmd.hasOption(DESTINATION_CLASS_ARG) || !cmd.hasOption(DESTINATION_SETUP_ARG) || !cmd.hasOption(MOD_DIRECTORY_ARG) || !cmd.hasOption(HOSTNAME_ARG)) {
 			throw new RuntimeException(
-					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -l [UCC Console Log] -h [Hostname] {-p [Query Port]}");
+					"Incorrect arguments! Need -c [Message Destination Class] -s [Message Destination Setup] -d [BF 1942 Mod Directory] -h [Hostname] -u [RCON Username] -P [RCON Password] {-p [Query Port]} {-r [RCON Port]}");
 		}
-
 		String messageDestinationClass = cmd.getOptionValue(DESTINATION_CLASS_ARG);
 		String messageDestinationSetup = cmd.getOptionValue(DESTINATION_SETUP_ARG);
-		String logFile = cmd.getOptionValue(CONSOLE_LOG_ARG);
+		String modDirectory = cmd.getOptionValue(MOD_DIRECTORY_ARG);
 		String host = cmd.getOptionValue(HOSTNAME_ARG);
+		String rconUser = cmd.getOptionValue(RCON_USERNAME_ARG);
+		String rconPassword = cmd.getOptionValue(RCON_PASSWORD_ARG);
+
 		int queryPort = 0;
+		int rconPort = 0;
 
 		IMessageDestination messageDestination;
 		try {
@@ -100,8 +126,19 @@ public class ScraperMain {
 			throw new RuntimeException("Could not parse port: " + queryPortString);
 		}
 
-		UT2004Scraper scraper = new UT2004Scraper(messageDestination, logFile,
-				host, queryPort);
+		String rconPortString = cmd.getOptionValue(RCON_PORT_ARG, DEFAULT_RCON_PORT);
+		try {
+			rconPort = Integer.parseInt(rconPortString);
+		} catch (NumberFormatException e) {
+			throw new RuntimeException("Could not parse RCON port: " + rconPortString);
+		}
+
+		if (rconPort <= 0) {
+			throw new RuntimeException("Could not parse port: " + rconPortString);
+		}
+
+		BF1942Scraper scraper = new BF1942Scraper(messageDestination,
+				modDirectory, host, queryPort, rconPort, rconUser, rconPassword);
 
 		scraper.start();
 		do {

@@ -1,4 +1,4 @@
-package jepperscore.scraper.etqw;
+package jepperscore.scraper.etqw.scraper;
 
 /**
  * Constants for the ETQW Scraper.

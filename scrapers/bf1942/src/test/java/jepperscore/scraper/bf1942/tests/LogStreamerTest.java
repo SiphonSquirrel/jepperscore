@@ -23,7 +23,7 @@ import jepperscore.backends.testing.TestingMessageDestination.MessageHandler;
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.transport.TransportMessage;
-import jepperscore.scraper.bf1942.BF1942LogStreamer;
+import jepperscore.scraper.bf1942.scraper.BF1942LogStreamer;
 import jepperscore.scraper.common.SimpleDataManager;
 
 import org.junit.Test;
@@ -34,7 +34,7 @@ import org.junit.Test;
  */
 public class LogStreamerTest {
 	/**
-	 * Test method for {@link jepperscore.scraper.bf1942.BF1942LogStreamer}.
+	 * Test method for {@link jepperscore.scraper.bf1942.scraper.BF1942LogStreamer}.
 	 *
 	 * @throws Exception
 	 *             If a problem occurs during the test.
@@ -210,7 +210,7 @@ public class LogStreamerTest {
 	}
 
 	/**
-	 * Test method for {@link jepperscore.scraper.bf1942.BF1942LogStreamer}.
+	 * Test method for {@link jepperscore.scraper.bf1942.scraper.BF1942LogStreamer}.
 	 *
 	 * @throws Exception
 	 *             If a problem occurs during the test.
