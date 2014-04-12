@@ -22,6 +22,7 @@
 		<module>callofduty</module>
 		<module>etl</module>
 		<module>etqw</module>
+		<module>sourceengine</module>
 		<module>ut2004</module>
 	</modules>
 

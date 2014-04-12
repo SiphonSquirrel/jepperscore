@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>jepperscore.scrapers</groupId>
+		<artifactId>scrapers-parent</artifactId>
+		<relativePath>../pom.xml</relativePath>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>sourceengine</artifactId>
+	<packaging>jar</packaging>
+
+	<name>JepperScore :: Scrapers :: Source Engine</name>
+	<description>This scraper is designed to work with games based on the SourceEngine. (ie. TF2)</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>scraper-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>jepperscore.scraper.sourceengine.Main</mainClass>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
