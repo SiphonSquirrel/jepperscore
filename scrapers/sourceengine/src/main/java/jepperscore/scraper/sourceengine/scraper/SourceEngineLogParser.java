@@ -100,8 +100,6 @@ public class SourceEngineLogParser implements Runnable {
 	/**
 	 * This constructor parses log entries from a stream.
 	 *
-	 * @param host
-	 *            The hostname of the server.
 	 * @param port
 	 *            The UDP log port of the server.
 	 * @param messageDestination
@@ -113,7 +111,7 @@ public class SourceEngineLogParser implements Runnable {
 	 * @throws SocketException
 	 *             Thrown if something goes wrong setting up the socket.
 	 */
-	public SourceEngineLogParser(@Nonnull String host, @Nonnegative int port,
+	public SourceEngineLogParser(@Nonnegative int port,
 			@Nonnull IMessageDestination messageDestination,
 			@Nonnull PlayerManager playerManager,
 			@Nonnull RoundManager roundManager) throws SocketException {
@@ -182,6 +180,12 @@ public class SourceEngineLogParser implements Runnable {
 		}
 	}
 
+	/**
+	 * This function creates an alias from a {@link Matcher} result.
+	 * @param m The matcher to use.
+	 * @param startIndex The group index to start at.
+	 * @return The created {@link Alias}s.
+	 */
 	protected Alias createAliasFromRegEx(Matcher m, int startIndex) {
 		Alias player = new Alias();
 

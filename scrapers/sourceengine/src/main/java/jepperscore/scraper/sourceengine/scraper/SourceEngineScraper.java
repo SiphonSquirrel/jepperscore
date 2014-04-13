@@ -1,13 +1,23 @@
 package jepperscore.scraper.sourceengine.scraper;
 
+import java.io.IOException;
+
 import jepperscore.dao.IMessageDestination;
 import jepperscore.scraper.common.Scraper;
 import jepperscore.scraper.common.ScraperStatus;
+import jepperscore.scraper.common.SimpleDataManager;
+import jepperscore.scraper.common.query.sourceengine.SourceEngineQueryClient;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SourceEngineScraper implements Scraper, Runnable  {
+/**
+ * This scraper works with Source Engine games. Currently tested with TF2.
+ *
+ * @author Chuck
+ *
+ */
+public class SourceEngineScraper implements Scraper {
 
 	/**
 	 * The class logger.
@@ -36,19 +46,44 @@ public class SourceEngineScraper implements Scraper, Runnable  {
 	private int logPort;
 
 	/**
+	 * The message destination.
+	 */
+	private IMessageDestination messageDestination;
+
+	/**
+	 * The log parser.
+	 */
+	private SourceEngineLogParser logParser;
+
+	/**
+	 * The query client.
+	 */
+	private SourceEngineQueryClient queryClient;
+
+	/**
+	 * The data manager.
+	 */
+	private SimpleDataManager dataManager;
+
+	/**
 	 * This constructor sets the ETQW scraper.
 	 *
 	 * @param messageDestination
 	 *            The message destination to use.
 	 * @param host
 	 *            The hostname of the server.
-	 *            @param queryPort
+	 * @param queryPort
 	 *            The query port of the server.
 	 * @param logPort
 	 *            The query port of the server.
 	 */
 	public SourceEngineScraper(IMessageDestination messageDestination,
 			String host, int queryPort, int logPort) {
+		this.messageDestination = messageDestination;
+		this.host = host;
+		this.queryPort = queryPort;
+		this.logPort = logPort;
+		dataManager = new SimpleDataManager(messageDestination);
 	}
 
 	@Override
@@ -58,17 +93,43 @@ public class SourceEngineScraper implements Scraper, Runnable  {
 
 	@Override
 	public void start() {
+		if (status == ScraperStatus.NotRunning) {
+			try {
+				logParser = new SourceEngineLogParser(logPort,
+						messageDestination, dataManager, dataManager);
+				logParser.start();
 
+				queryClient = new SourceEngineQueryClient(host, queryPort);
+				queryClient.start();
+			} catch (IOException e) {
+				status = ScraperStatus.InError;
+				if (logParser != null) {
+					logParser.stop();
+					logParser = null;
+				}
+
+				if (queryClient != null) {
+					queryClient.stop();
+					queryClient = null;
+				}
+				LOG.error(e.getMessage(), e);
+			}
+
+		}
 	}
 
 	@Override
 	public void stop() {
+		status = ScraperStatus.NotRunning;
+		if (logParser != null) {
+			logParser.stop();
+			logParser = null;
+		}
 
-	}
-
-	@Override
-	public void run() {
-
+		if (queryClient != null) {
+			queryClient.stop();
+			queryClient = null;
+		}
 	}
 
 }
