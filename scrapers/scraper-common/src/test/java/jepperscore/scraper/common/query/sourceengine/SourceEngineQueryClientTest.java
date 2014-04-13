@@ -1,6 +1,9 @@
 package jepperscore.scraper.common.query.sourceengine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -26,17 +29,17 @@ import org.slf4j.LoggerFactory;
 
 /**
  * This tests the {@link SourceEngineQueryClient}.
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class SourceEngineQueryClientTest {
 
 	/**
 	 * This class stands up a fake gamespy test server.
-	 * 
+	 *
 	 * @author Chuck
-	 * 
+	 *
 	 */
 	private static class SourceEngineTestServer implements Runnable {
 		/**
@@ -64,7 +67,7 @@ public class SourceEngineQueryClientTest {
 		 * The players response.
 		 */
 		private byte[] playersResponse = new byte[0];
-		
+
 		/**
 		 * Player serialized lines.
 		 */
@@ -72,7 +75,7 @@ public class SourceEngineQueryClientTest {
 
 		/**
 		 * This constructor creates the server on a random port.
-		 * 
+		 *
 		 * @throws SocketException
 		 *             If there was an issue creating the server.
 		 */
@@ -161,6 +164,12 @@ public class SourceEngineQueryClientTest {
 			buffer.get(rulesResponse);
 		}
 
+		/**
+		 * Adds a player to the players response.
+		 * @param playerName The player name.
+		 * @param playerScore Their score.
+		 * @param playerTime How long they've played...?
+		 */
 		public void addPlayerResponse(String playerName,
 				int playerScore,
 				float playerTime) {
@@ -169,31 +178,31 @@ public class SourceEngineQueryClientTest {
 			playerBuffer.put(playerName.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
 			playerBuffer.putInt(playerScore);
 			playerBuffer.putFloat(playerTime);
-			
+
 			byte[] playerLine = new byte[playerBuffer.position()];
 			playerBuffer.rewind();
 			playerBuffer.get(playerLine);
-			
+
 			playerLines.add(playerLine);
-			
+
 			ByteBuffer buffer = ByteBuffer.allocate(1024);
 			buffer.order(ByteOrder.LITTLE_ENDIAN);
 			buffer.put(SourceEngineQueryClient.MESSAGE_HEADER);
 			buffer.put((byte) 'D');
 			buffer.put((byte) playerLines.size());
-			
+
 			int i = 0;
 			for (byte[] line: playerLines) {
 				buffer.put((byte) i);
 				buffer.put(line);
 				i++;
 			}
-			
+
 			playersResponse = new byte[buffer.position() + 1];
 			buffer.rewind();
 			buffer.get(playersResponse);
 		}
-		
+
 		@Override
 		public void run() {
 			byte[] recvBuffer = new byte[1024 * 8];
@@ -251,7 +260,7 @@ public class SourceEngineQueryClientTest {
 	 * Tracks the returned rules from the other thread.
 	 */
 	private volatile QueryCallbackInfo returnedRules = null;
-	
+
 	/**
 	 * Tracks the returned players from the other thread.
 	 */
@@ -259,7 +268,7 @@ public class SourceEngineQueryClientTest {
 
 	/**
 	 * This tests the {@link SourceEngineQueryClient}.
-	 * 
+	 *
 	 * @throws IOException
 	 *             If something goes boom!
 	 */
@@ -293,11 +302,11 @@ public class SourceEngineQueryClientTest {
 		rules.put("mp_weaponstay", "0");
 		rules.put("mp_forcerespawn", "1");
 		server.setRulesResponse(rules);
-		
+
 		server.addPlayerResponse("Player1", 1, 1.0f);
 		server.addPlayerResponse("Player2", 2, 2.0f);
 		server.addPlayerResponse("Player3", 3, 3.0f);
-		
+
 		SourceEngineQueryClient client = new SourceEngineQueryClient("localhost", server.getPort());
 
 		client.registerListener("info", new QueryClientListener() {
@@ -319,7 +328,7 @@ public class SourceEngineQueryClientTest {
 				}
 			}
 		});
-		
+
 		client.registerListener("players", new QueryClientListener() {
 
 			@Override
@@ -354,17 +363,17 @@ public class SourceEngineQueryClientTest {
 		assertEquals(serverOS, returnedInfo.getServerMetadata().getMetadata().get("serverOS").charAt(0));
 		assertEquals(passworded, Boolean.parseBoolean(returnedInfo.getServerMetadata().getMetadata().get("passworded")));
 		assertEquals(secure, Boolean.parseBoolean(returnedInfo.getServerMetadata().getMetadata().get("secureServer")));
-		
+
 		assertEquals(rules.get("mp_timelimit"), returnedRules.getServerMetadata().getMetadata().get("mp_timelimit"));
 		assertEquals(rules.get("mp_friendlyfire"), returnedRules.getServerMetadata().getMetadata().get("mp_friendlyfire"));
 		assertEquals(rules.get("mp_falldamage"), returnedRules.getServerMetadata().getMetadata().get("mp_falldamage"));
 		assertEquals(rules.get("mp_weaponstay"), returnedRules.getServerMetadata().getMetadata().get("mp_weaponstay"));
 		assertEquals(rules.get("mp_forcerespawn"), returnedRules.getServerMetadata().getMetadata().get("mp_forcerespawn"));
-		
+
 		boolean player1 = false;
 		boolean player2 = false;
 		boolean player3 = false;
-		
+
 		for (Alias a: returnedPlayers.getPlayers()) {
 			if ("Player1".equals(a.getName())) {
 				assertFalse(player1);
@@ -382,15 +391,15 @@ public class SourceEngineQueryClientTest {
 				assertEquals("2", a.getId());
 			}
 		}
-		
+
 		assertTrue(player1);
 		assertTrue(player2);
 		assertTrue(player3);
-		
+
 		boolean score1 = false;
 		boolean score2 = false;
 		boolean score3 = false;
-		
+
 		for (Score s: returnedPlayers.getScores()) {
 			if ("Player1".equals(s.getAlias().getName())) {
 				assertFalse(score1);
@@ -411,7 +420,7 @@ public class SourceEngineQueryClientTest {
 				assertEquals(3.0f, s.getScore(), 0.1f);
 			}
 		}
-		
+
 		assertTrue(score1);
 		assertTrue(score2);
 		assertTrue(score3);

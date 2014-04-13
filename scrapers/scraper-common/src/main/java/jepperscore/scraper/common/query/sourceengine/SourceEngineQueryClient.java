@@ -12,21 +12,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import jepperscore.dao.model.Alias;
 import jepperscore.dao.model.Score;
 import jepperscore.dao.model.ServerMetadata;
 import jepperscore.scraper.common.query.AbstractQueryClient;
 import jepperscore.scraper.common.query.QueryCallbackInfo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This query client works with the Quake3 query protocol.
  * http://int64.org/docs/gamestat-protocols/source.html
- * 
+ *
  * @author Chuck
- * 
+ *
  */
 public class SourceEngineQueryClient extends AbstractQueryClient {
 
@@ -77,7 +77,7 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 
 	/**
 	 * This constructor sets up the query client.
-	 * 
+	 *
 	 * @param host
 	 *            The host to query.
 	 * @param port
@@ -115,6 +115,12 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 		}
 	}
 
+	/**
+	 * Makes the request for the specified query, returns a {@link ByteBuffer}.
+	 * @param queryCode The query code to send.
+	 * @param expectedResultCode The query code to expect.
+	 * @return The data in the packet.
+	 */
 	protected ByteBuffer makeRequest(char queryCode, char expectedResultCode) {
 		ByteBuffer result = ByteBuffer.allocate(0);
 
@@ -160,6 +166,11 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 		return result;
 	}
 
+	/**
+	 * Reads a string from the buffer.
+	 * @param buf The buffer to read from.
+	 * @return The read string.
+	 */
 	protected String readString(ByteBuffer buf) {
 		for (int i = buf.position(); i < buf.capacity(); i++) {
 			if (buf.get(i) == 0) {
@@ -172,6 +183,10 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 		return "";
 	}
 
+	/**
+	 * Sends an info query.
+	 * @param queryType The original passed in query.
+	 */
 	protected void queryInfo(String queryType) {
 		QueryCallbackInfo callbackInfo = new QueryCallbackInfo();
 		ServerMetadata serverMetadata = new ServerMetadata();
@@ -197,49 +212,57 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 		metadata.put("serverOS", Character.toString((char) recvData.get()));
 		metadata.put("passworded", Boolean.toString(recvData.get() != 0));
 		metadata.put("secureServer", Boolean.toString(recvData.get() != 0));
-		
+
 		makeCallbacks(queryType, callbackInfo);
 	}
 
+	/**
+	 * Sends an rules query.
+	 * @param queryType The original passed in query.
+	 */
 	protected void queryRules(String queryType) {
 		QueryCallbackInfo callbackInfo = new QueryCallbackInfo();
 		ServerMetadata serverMetadata = new ServerMetadata();
 		callbackInfo.setServerMetadata(serverMetadata);
 		Map<String, String> metadata = new HashMap<String, String>();
 		serverMetadata.setMetadata(metadata);
-		
+
 		ByteBuffer recvData = makeRequest('V', 'E');
-		
+
 		int count = recvData.getShort();
 		for (int i = 0; i < count; i++) {
 			metadata.put(readString(recvData), readString(recvData));
 		}
-		
+
 		makeCallbacks(queryType, callbackInfo);
 	}
 
+	/**
+	 * Sends an players query.
+	 * @param queryType The original passed in query.
+	 */
 	protected void queryPlayers(String queryType) {
 		QueryCallbackInfo callbackInfo = new QueryCallbackInfo();
-		
+
 		ByteBuffer recvData = makeRequest('U', 'D');
-		
+
 		int count = recvData.get();
 		for (int i = 0; i < count; i++) {
 			Alias player = new Alias();
 			player.setId(Byte.toString(recvData.get()));
 			player.setName(readString(recvData));
-			
+
 			Score score = new Score();
 			score.setAlias(player);
 			score.setScore(recvData.getInt());
-			
+
 			// Skip player time
 			recvData.getFloat();
-			
+
 			callbackInfo.getPlayers().add(player);
 			callbackInfo.getScores().add(score);
 		}
-		
+
 		makeCallbacks(queryType, callbackInfo);
 
 	}
