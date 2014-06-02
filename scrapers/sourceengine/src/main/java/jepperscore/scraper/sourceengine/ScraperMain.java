@@ -46,6 +46,11 @@ public class ScraperMain {
 	private static final String LOG_PORT_ARG = "l";
 
 	/**
+	 * The default query port.
+	 */
+	private static final String DEFAULT_QUERY_PORT = "27015";
+
+	/**
 	 * The main function.
 	 *
 	 * @param args
@@ -111,7 +116,7 @@ public class ScraperMain {
 					+ logPortString);
 		}
 
-		String queryPortString = cmd.getOptionValue(LOG_PORT_ARG, "");
+		String queryPortString = cmd.getOptionValue(QUERY_PORT_ARG, DEFAULT_QUERY_PORT);
 		try {
 			queryPort = Integer.parseInt(queryPortString);
 		} catch (NumberFormatException e) {

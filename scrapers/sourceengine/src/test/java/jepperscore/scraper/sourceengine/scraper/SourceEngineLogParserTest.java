@@ -50,7 +50,7 @@ public class SourceEngineLogParserTest {
 		NullMessageDestination dest = new NullMessageDestination("");
 		SimpleDataManager dataManager = new SimpleDataManager(dest);
 
-		SourceEngineLogParser parser = new SourceEngineLogParser(0, dest, dataManager, dataManager);
+		SourceEngineLogParser parser = new SourceEngineLogParser(0, dest, dataManager, dataManager, dataManager);
 		parser.start();
 		int port = parser.getPort();
 

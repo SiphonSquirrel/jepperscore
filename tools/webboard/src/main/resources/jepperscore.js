@@ -153,7 +153,7 @@ function ensureTeamCreated(team) {
 		var teamScore = document.createElement("span");
 		teamBlock.appendChild(teamScore);
 		teamScore.className = "teamScore";
-		if (team && team.score) {
+		if (team && team.score && (team.score != null)) {
 			teamScore.appendChild(document.createTextNode(team.score));
 		}
 	}

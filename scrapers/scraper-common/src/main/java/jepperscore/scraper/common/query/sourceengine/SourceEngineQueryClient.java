@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This query client works with the Quake3 query protocol.
  * http://int64.org/docs/gamestat-protocols/source.html
+ * https://developer.valvesoftware.com/wiki/Server_queries
  *
  * @author Chuck
  *
@@ -33,12 +34,19 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 	/**
 	 * Logger.
 	 */
-	private static final Logger LOG = LoggerFactory.getLogger(SourceEngineQueryClient.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(SourceEngineQueryClient.class);
 
 	/**
 	 * The message header.
 	 */
-	public static final byte[] MESSAGE_HEADER = new byte[] { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
+	public static final byte[] MESSAGE_HEADER = new byte[] { (byte) 0xFF,
+			(byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
+
+	/**
+	 * Extra data for info query.
+	 */
+	private static final byte[] INFO_EXTRA_DATA;
 
 	/**
 	 * Server type for listen servers.
@@ -76,6 +84,24 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 	private DatagramSocket socket;
 
 	/**
+	 * The player query challenge value.
+	 */
+	private byte[] playerChallenge = null;
+
+	/**
+	 * The player query challenge value.
+	 */
+	private byte[] rulesChallenge = null;
+
+	static {
+		byte[] infoHeader = "Source Engine Query"
+				.getBytes(StandardCharsets.UTF_8);
+		ByteBuffer extraData = ByteBuffer.allocate(infoHeader.length + 1);
+		extraData.put(infoHeader).put((byte) 0);
+		INFO_EXTRA_DATA = extraData.array();
+	}
+
+	/**
 	 * This constructor sets up the query client.
 	 *
 	 * @param host
@@ -85,10 +111,8 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 	 * @throws IOException
 	 *             Thrown when there is a problem setting up the socket.
 	 */
-	public SourceEngineQueryClient(String host, int port)
-			throws IOException {
+	public SourceEngineQueryClient(String host, int port) throws IOException {
 		this.port = port;
-
 		address = InetAddress.getByName(host);
 		socket = new DatagramSocket();
 	}
@@ -117,16 +141,26 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 
 	/**
 	 * Makes the request for the specified query, returns a {@link ByteBuffer}.
-	 * @param queryCode The query code to send.
-	 * @param expectedResultCode The query code to expect.
+	 *
+	 * @param queryCode
+	 *            The query code to send.
+	 * @param expectedResultCode
+	 *            The query code to expect.
+	 * @param extraData
+	 *            Any extra data to send with the response.
 	 * @return The data in the packet.
 	 */
-	protected ByteBuffer makeRequest(char queryCode, char expectedResultCode) {
+	protected ByteBuffer makeRequest(char queryCode, char expectedResultCode,
+			byte[] extraData) {
 		ByteBuffer result = ByteBuffer.allocate(0);
 
-		ByteBuffer sendBuffer = ByteBuffer.allocate(5);
+		ByteBuffer sendBuffer = ByteBuffer.allocate(5 + (extraData == null ? 0
+				: extraData.length));
 		sendBuffer.put(MESSAGE_HEADER);
 		sendBuffer.put((byte) queryCode);
+		if (extraData != null) {
+			sendBuffer.put(extraData);
+		}
 
 		DatagramPacket packet = new DatagramPacket(sendBuffer.array(),
 				sendBuffer.capacity(), address, port);
@@ -155,7 +189,8 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 			if (recvData[4] != (byte) expectedResultCode) {
 				return result;
 			}
-			result = ByteBuffer.wrap(Arrays.copyOfRange(recvData, 5, recvPacket.getLength() - 1));
+			result = ByteBuffer.wrap(Arrays.copyOfRange(recvData, 5,
+					recvPacket.getLength()));
 			result.order(ByteOrder.LITTLE_ENDIAN);
 		} catch (SocketTimeoutException e) {
 			// Do nothing!
@@ -167,8 +202,40 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 	}
 
 	/**
+	 * Makes a player challenge request.
+	 */
+	private synchronized void makePlayerChallengeRequest() {
+		if (playerChallenge != null) {
+			return;
+		}
+
+		byte[] initial = new byte[] { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF,
+				(byte) 0xFF };
+
+		ByteBuffer recvData = makeRequest('U', 'A', initial);
+		playerChallenge = recvData.array();
+	}
+
+	/**
+	 * Makes a player challenge request.
+	 */
+	private synchronized void makeRulesChallengeRequest() {
+		if (rulesChallenge != null) {
+			return;
+		}
+
+		byte[] initial = new byte[] { (byte) 0xFF, (byte) 0xFF, (byte) 0xFF,
+				(byte) 0xFF };
+
+		ByteBuffer recvData = makeRequest('V', 'A', initial);
+		rulesChallenge = recvData.array();
+	}
+
+	/**
 	 * Reads a string from the buffer.
-	 * @param buf The buffer to read from.
+	 *
+	 * @param buf
+	 *            The buffer to read from.
 	 * @return The read string.
 	 */
 	protected String readString(ByteBuffer buf) {
@@ -185,26 +252,35 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 
 	/**
 	 * Sends an info query.
-	 * @param queryType The original passed in query.
+	 *
+	 * @param queryType
+	 *            The original passed in query.
 	 */
 	protected void queryInfo(String queryType) {
+
+		ByteBuffer recvData = makeRequest('T', 'I', INFO_EXTRA_DATA);
+		if (recvData.capacity() == 0) {
+			return;
+		}
+
 		QueryCallbackInfo callbackInfo = new QueryCallbackInfo();
 		ServerMetadata serverMetadata = new ServerMetadata();
 		callbackInfo.setServerMetadata(serverMetadata);
 		Map<String, String> metadata = new HashMap<String, String>();
 		serverMetadata.setMetadata(metadata);
 
-		ByteBuffer recvData = makeRequest('T', 'I');
 		byte version = recvData.get();
-		if (version != 3) {
-			LOG.warn("Not familar with version " + version + ", attempting parse anyway.");
+		if ((version != 3) && (version != 17)) {
+			LOG.warn("Not familar with version " + version
+					+ ", attempting parse anyway.");
 		}
 
 		serverMetadata.setServerName(readString(recvData));
 		metadata.put("mapName", readString(recvData));
 		metadata.put("gameDirectory", readString(recvData));
 		metadata.put("gameDescription", readString(recvData));
-		metadata.put("steamApplicationID", Integer.toString(recvData.getInt()));
+		metadata.put("steamApplicationID",
+				Integer.toString(recvData.getShort()));
 		metadata.put("playerCount", Byte.toString(recvData.get()));
 		metadata.put("maxPlayers", Byte.toString(recvData.get()));
 		metadata.put("botCount", Byte.toString(recvData.get()));
@@ -218,16 +294,25 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 
 	/**
 	 * Sends an rules query.
-	 * @param queryType The original passed in query.
+	 *
+	 * @param queryType
+	 *            The original passed in query.
 	 */
 	protected void queryRules(String queryType) {
+		if (rulesChallenge == null) {
+			makeRulesChallengeRequest();
+		}
+
+		ByteBuffer recvData = makeRequest('V', 'E', rulesChallenge);
+		if (recvData.capacity() == 0) {
+			return;
+		}
+
 		QueryCallbackInfo callbackInfo = new QueryCallbackInfo();
 		ServerMetadata serverMetadata = new ServerMetadata();
 		callbackInfo.setServerMetadata(serverMetadata);
 		Map<String, String> metadata = new HashMap<String, String>();
 		serverMetadata.setMetadata(metadata);
-
-		ByteBuffer recvData = makeRequest('V', 'E');
 
 		int count = recvData.getShort();
 		for (int i = 0; i < count; i++) {
@@ -239,17 +324,27 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 
 	/**
 	 * Sends an players query.
-	 * @param queryType The original passed in query.
+	 *
+	 * @param queryType
+	 *            The original passed in query.
 	 */
 	protected void queryPlayers(String queryType) {
-		QueryCallbackInfo callbackInfo = new QueryCallbackInfo();
+		if (playerChallenge == null) {
+			makePlayerChallengeRequest();
+		}
 
-		ByteBuffer recvData = makeRequest('U', 'D');
+		ByteBuffer recvData = makeRequest('U', 'D', playerChallenge);
+		if (recvData.capacity() == 0) {
+			return;
+		}
+
+		QueryCallbackInfo callbackInfo = new QueryCallbackInfo();
 
 		int count = recvData.get();
 		for (int i = 0; i < count; i++) {
 			Alias player = new Alias();
-			player.setId(Byte.toString(recvData.get()));
+			// Skip player chunk id
+			recvData.get();
 			player.setName(readString(recvData));
 
 			Score score = new Score();

@@ -8,6 +8,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,8 +25,10 @@ import jepperscore.dao.model.Team;
 import jepperscore.dao.transport.TransportMessage;
 import jepperscore.scraper.common.PlayerManager;
 import jepperscore.scraper.common.RoundManager;
+import jepperscore.scraper.common.TeamManager;
 import jepperscore.scraper.common.query.gamespy.GamespyQueryClient;
 
+import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +44,8 @@ public class SourceEngineLogParser implements Runnable {
 	/**
 	 * The message header on incoming packets.
 	 */
-	public static final byte[] MESSAGE_HEADER = new byte[] {(byte) 0xFF,(byte) 0xFF, (byte) 0xFF, (byte) 0xFF};
+	public static final byte[] MESSAGE_HEADER = new byte[] { (byte) 0xFF,
+			(byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
 
 	/**
 	 * The logger for this class.
@@ -65,12 +70,37 @@ public class SourceEngineLogParser implements Runnable {
 	private static final String PLAYER_ID_REGEX_STR = "\"([^<\"]*)<([^>\"]*)><([^>\"]*)><([^>\"]*)>\"";
 
 	/**
+	 * Property matcher.
+	 */
+	private static final Pattern PROPERTY_REGEX = Pattern
+			.compile("(\\(([^ ]+) *(\"([^\"]*)\")?\\) *)");
+
+	/**
 	 * Kill Regex to match: "Name<uid><wonid><team>" killed
 	 * "Name<uid><wonid><team>" with "weapon"
 	 */
 	private static final Pattern KILL_REGEX = Pattern
 			.compile(PLAYER_ID_REGEX_STR + " killed " + PLAYER_ID_REGEX_STR
 					+ " with \"([^\"]+)\"");
+
+	/**
+	 * Regex for a player disconnecting.
+	 */
+	private static final Pattern DISCONNECT_REGEX = Pattern
+			.compile(PLAYER_ID_REGEX_STR + " disconnected");
+
+	/**
+	 * World triggered "EVENT_NAME"
+	 */
+	private static final Pattern WORLD_TRIGGERED_REGEX = Pattern
+			.compile("World triggered \"([^\"]+)\"");
+
+	/**
+	 * Regex to match: Team "TEAM_NAME" current score "SCORE" with
+	 * "PLAYER_COUNT" players
+	 */
+	private static final Pattern TEAM_SCORE_REGEX = Pattern
+			.compile("Team \"([^\"]+)\" current score \"([^\"]+)\" with \"([^\"]+)\" players");
 
 	/**
 	 * The player manager.
@@ -81,6 +111,11 @@ public class SourceEngineLogParser implements Runnable {
 	 * The round manager.
 	 */
 	private RoundManager roundManager;
+
+	/**
+	 * The team manager.
+	 */
+	private TeamManager teamManager;
 
 	/**
 	 * The current message destination.
@@ -108,22 +143,26 @@ public class SourceEngineLogParser implements Runnable {
 	 *            The player manager to use.
 	 * @param roundManager
 	 *            The {@link RoundManager} to use.
+	 * @param teamManager The {@link TeamManager} to use.
 	 * @throws SocketException
 	 *             Thrown if something goes wrong setting up the socket.
 	 */
 	public SourceEngineLogParser(@Nonnegative int port,
 			@Nonnull IMessageDestination messageDestination,
 			@Nonnull PlayerManager playerManager,
-			@Nonnull RoundManager roundManager) throws SocketException {
+			@Nonnull RoundManager roundManager,
+			@Nonnull TeamManager teamManager) throws SocketException {
 		this.messageDestination = messageDestination;
 		this.playerManager = playerManager;
 		this.roundManager = roundManager;
+		this.teamManager = teamManager;
 
 		socket = new DatagramSocket(port);
 	}
 
 	/**
 	 * Returns the port this service is bound to.
+	 *
 	 * @return The port.
 	 */
 	public int getPort() {
@@ -153,6 +192,10 @@ public class SourceEngineLogParser implements Runnable {
 
 	@Override
 	public void run() {
+		Round round = roundManager.getCurrentRound();
+		round.setStart(new DateTime());
+		roundManager.provideRoundRecord(round);
+
 		while (thread != null) {
 			try {
 				socket.setSoTimeout(1000);
@@ -182,8 +225,11 @@ public class SourceEngineLogParser implements Runnable {
 
 	/**
 	 * This function creates an alias from a {@link Matcher} result.
-	 * @param m The matcher to use.
-	 * @param startIndex The group index to start at.
+	 *
+	 * @param m
+	 *            The matcher to use.
+	 * @param startIndex
+	 *            The group index to start at.
 	 * @return The created {@link Alias}s.
 	 */
 	protected Alias createAliasFromRegEx(Matcher m, int startIndex) {
@@ -192,11 +238,15 @@ public class SourceEngineLogParser implements Runnable {
 		String name = m.group(startIndex + 0);
 		String id = m.group(startIndex + 1);
 		String globalId = m.group(startIndex + 2);
-		String team = m.group(startIndex + 3);
+		String teamName = m.group(startIndex + 3);
+		if ((teamName != null) && (!teamName.isEmpty())) {
+			Team team = new Team(teamName);
+			teamManager.provideTeamRecord(team.getTeamName(), team);
+			player.setTeam(team);
+		}
 
 		player.setName(name);
 		player.setId(id);
-		player.setTeam(new Team(team));
 		player.setBot("BOT".equals(globalId));
 
 		return playerManager.providePlayerRecord(player);
@@ -209,9 +259,6 @@ public class SourceEngineLogParser implements Runnable {
 	 *            The line to handle.
 	 */
 	protected void handleNewLine(String line) {
-		System.out.println("---");
-		System.out.println(line);
-
 		Matcher matcher = LOG_LINE_REGEX.matcher(line.trim());
 		if (!matcher.find()) {
 			return;
@@ -219,6 +266,12 @@ public class SourceEngineLogParser implements Runnable {
 
 		String data = matcher.group(7);
 		System.out.println(data);
+
+		Map<String, String> properties = new HashMap<String, String>();
+		Matcher propertyMatcher = PROPERTY_REGEX.matcher(data);
+		while (propertyMatcher.find()) {
+			properties.put(propertyMatcher.group(2), propertyMatcher.group(4));
+		}
 
 		Matcher killRegex = KILL_REGEX.matcher(data);
 		if (killRegex.find()) {
@@ -255,6 +308,38 @@ public class SourceEngineLogParser implements Runnable {
 			}
 			messageDestination.sendMessage(transportMessage);
 
+			return;
+		}
+
+		Matcher disconnectRegex = DISCONNECT_REGEX.matcher(data);
+		if (disconnectRegex.find()) {
+			Alias player = createAliasFromRegEx(killRegex, 1);
+			player.setPresent(false);
+			playerManager.providePlayerRecord(player);
+			return;
+		}
+
+		Matcher teamScoreRegex = TEAM_SCORE_REGEX.matcher(data);
+		if (teamScoreRegex.find()) {
+			Team team = new Team(teamScoreRegex.group(1), Float.parseFloat(teamScoreRegex.group(2)));
+			teamManager.provideTeamRecord(team.getTeamName(), team);
+		}
+
+		Matcher worldEventRegex = WORLD_TRIGGERED_REGEX.matcher(data);
+		if (worldEventRegex.find()) {
+			String event = worldEventRegex.group(1);
+			switch (event) {
+			case "Round_Start": {
+				roundManager.newRound();
+				break;
+			}
+			case "Round_Win": {
+				Round round = roundManager.getCurrentRound();
+				round.setEnd(new DateTime());
+				roundManager.provideRoundRecord(round);
+				break;
+			}
+			}
 			return;
 		}
 	}

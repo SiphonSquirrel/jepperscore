@@ -68,7 +68,7 @@ public class CouchDbUtils {
 			inprogressroundView.put("map",
 					"function(doc) {\n" +
 							"  if (doc.round) {\n" +
-							"    if (!doc.round.end) {\n" +
+							"    if ((doc.round.start) && (!doc.round.end)) {\n" +
 							"      emit(doc.sessionId, doc.round.start);\n" +
 							"    }\n" +
 							"  }" +
