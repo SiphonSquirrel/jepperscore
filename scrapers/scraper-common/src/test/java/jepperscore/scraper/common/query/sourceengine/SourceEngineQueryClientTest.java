@@ -92,6 +92,7 @@ public class SourceEngineQueryClientTest {
 
 		/**
 		 * Sets the info response.
+		 *
 		 * @param protocolVersion
 		 * @param hostName
 		 * @param mapName
@@ -106,19 +107,11 @@ public class SourceEngineQueryClientTest {
 		 * @param passworded
 		 * @param secureServer
 		 */
-		public void setInfoResponse(byte protocolVersion,
-				String hostName,
-				String mapName,
-				String gameDirectory,
-				String gameDescription,
-				int steamApplicationID,
-				byte playerCount,
-				byte maxPlayers,
-				byte botCount,
-				char serverType,
-				char serverOS,
-				boolean passworded,
-				boolean secureServer) {
+		public void setInfoResponse(byte protocolVersion, String hostName,
+				String mapName, String gameDirectory, String gameDescription,
+				short steamApplicationID, byte playerCount, byte maxPlayers,
+				byte botCount, char serverType, char serverOS,
+				boolean passworded, boolean secureServer) {
 			ByteBuffer buffer = ByteBuffer.allocate(1024);
 			buffer.order(ByteOrder.LITTLE_ENDIAN);
 			buffer.put(SourceEngineQueryClient.MESSAGE_HEADER);
@@ -127,10 +120,13 @@ public class SourceEngineQueryClientTest {
 
 			buffer.put(hostName.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
 			buffer.put(mapName.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
-			buffer.put(gameDirectory.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
-			buffer.put(gameDescription.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
+			buffer.put(gameDirectory.getBytes(StandardCharsets.UTF_8)).put(
+					(byte) 0);
+			buffer.put(gameDescription.getBytes(StandardCharsets.UTF_8)).put(
+					(byte) 0);
 
-			buffer.putInt(0);
+			buffer.putShort(steamApplicationID);
+
 			buffer.put(playerCount);
 			buffer.put(maxPlayers);
 			buffer.put(botCount);
@@ -146,7 +142,9 @@ public class SourceEngineQueryClientTest {
 
 		/**
 		 * Sets the rules response.
-		 * @param rules The rules response.
+		 *
+		 * @param rules
+		 *            The rules response.
 		 */
 		public void setRulesResponse(Map<String, String> rules) {
 			ByteBuffer buffer = ByteBuffer.allocate(1024);
@@ -155,8 +153,10 @@ public class SourceEngineQueryClientTest {
 			buffer.put((byte) 'E');
 			buffer.putShort((short) rules.size());
 			for (Entry<String, String> entry : rules.entrySet()) {
-				buffer.put(entry.getKey().getBytes(StandardCharsets.UTF_8)).put((byte) 0);
-				buffer.put(entry.getValue().getBytes(StandardCharsets.UTF_8)).put((byte) 0);
+				buffer.put(entry.getKey().getBytes(StandardCharsets.UTF_8))
+						.put((byte) 0);
+				buffer.put(entry.getValue().getBytes(StandardCharsets.UTF_8))
+						.put((byte) 0);
 			}
 
 			rulesResponse = new byte[buffer.position() + 1];
@@ -166,16 +166,20 @@ public class SourceEngineQueryClientTest {
 
 		/**
 		 * Adds a player to the players response.
-		 * @param playerName The player name.
-		 * @param playerScore Their score.
-		 * @param playerTime How long they've played...?
+		 *
+		 * @param playerName
+		 *            The player name.
+		 * @param playerScore
+		 *            Their score.
+		 * @param playerTime
+		 *            How long they've played...?
 		 */
-		public void addPlayerResponse(String playerName,
-				int playerScore,
+		public void addPlayerResponse(String playerName, int playerScore,
 				float playerTime) {
 			ByteBuffer playerBuffer = ByteBuffer.allocate(1024);
 			playerBuffer.order(ByteOrder.LITTLE_ENDIAN);
-			playerBuffer.put(playerName.getBytes(StandardCharsets.UTF_8)).put((byte) 0);
+			playerBuffer.put(playerName.getBytes(StandardCharsets.UTF_8)).put(
+					(byte) 0);
 			playerBuffer.putInt(playerScore);
 			playerBuffer.putFloat(playerTime);
 
@@ -192,8 +196,8 @@ public class SourceEngineQueryClientTest {
 			buffer.put((byte) playerLines.size());
 
 			int i = 0;
-			for (byte[] line: playerLines) {
-				buffer.put((byte) i);
+			for (byte[] line : playerLines) {
+				buffer.put((byte) i); // Player chunk id
 				buffer.put(line);
 				i++;
 			}
@@ -283,7 +287,7 @@ public class SourceEngineQueryClientTest {
 		String mapName = "Map Name";
 		String gameDirectory = "Game Directory";
 		String gameDescription = "Game Description";
-		int steamApplicationId = 0;
+		short steamApplicationId = 1337;
 		byte currentPlayers = 3;
 		byte maxPlayers = 16;
 		byte botCount = 3;
@@ -291,9 +295,10 @@ public class SourceEngineQueryClientTest {
 		char serverOS = SourceEngineQueryClient.SERVER_OS_LINUX;
 		boolean passworded = false;
 		boolean secure = true;
-		server.setInfoResponse(protocolVersion, hostName, mapName, gameDirectory, gameDescription, steamApplicationId,
-				currentPlayers, maxPlayers, botCount, serverType,
-				serverOS, passworded, secure);
+		server.setInfoResponse(protocolVersion, hostName, mapName,
+				gameDirectory, gameDescription, steamApplicationId,
+				currentPlayers, maxPlayers, botCount, serverType, serverOS,
+				passworded, secure);
 
 		Map<String, String> rules = new HashMap<String, String>();
 		rules.put("mp_timelimit", "0");
@@ -307,7 +312,8 @@ public class SourceEngineQueryClientTest {
 		server.addPlayerResponse("Player2", 2, 2.0f);
 		server.addPlayerResponse("Player3", 3, 3.0f);
 
-		SourceEngineQueryClient client = new SourceEngineQueryClient("localhost", server.getPort());
+		SourceEngineQueryClient client = new SourceEngineQueryClient(
+				"localhost", server.getPort());
 
 		client.registerListener("info", new QueryClientListener() {
 
@@ -341,7 +347,8 @@ public class SourceEngineQueryClientTest {
 		client.start();
 
 		int i = 60;
-		while ((i > 0) && ((returnedInfo == null) || (returnedRules == null) || (returnedPlayers == null))) {
+		while ((i > 0)
+				&& ((returnedInfo == null) || (returnedRules == null) || (returnedPlayers == null))) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -352,43 +359,66 @@ public class SourceEngineQueryClientTest {
 		assertNotEquals(0, i);
 
 		assertEquals(hostName, returnedInfo.getServerMetadata().getServerName());
-		assertEquals(mapName, returnedInfo.getServerMetadata().getMetadata().get("mapName"));
-		assertEquals(gameDirectory, returnedInfo.getServerMetadata().getMetadata().get("gameDirectory"));
-		assertEquals(gameDescription, returnedInfo.getServerMetadata().getMetadata().get("gameDescription"));
-		assertEquals(steamApplicationId, Integer.parseInt(returnedInfo.getServerMetadata().getMetadata().get("steamApplicationID")));
-		assertEquals(currentPlayers, Byte.parseByte(returnedInfo.getServerMetadata().getMetadata().get("playerCount")));
-		assertEquals(maxPlayers, Byte.parseByte(returnedInfo.getServerMetadata().getMetadata().get("maxPlayers")));
-		assertEquals(botCount, Byte.parseByte(returnedInfo.getServerMetadata().getMetadata().get("botCount")));
-		assertEquals(serverType, returnedInfo.getServerMetadata().getMetadata().get("serverType").charAt(0));
-		assertEquals(serverOS, returnedInfo.getServerMetadata().getMetadata().get("serverOS").charAt(0));
-		assertEquals(passworded, Boolean.parseBoolean(returnedInfo.getServerMetadata().getMetadata().get("passworded")));
-		assertEquals(secure, Boolean.parseBoolean(returnedInfo.getServerMetadata().getMetadata().get("secureServer")));
+		assertEquals(mapName, returnedInfo.getServerMetadata().getMetadata()
+				.get("mapName"));
+		assertEquals(gameDirectory, returnedInfo.getServerMetadata()
+				.getMetadata().get("gameDirectory"));
+		assertEquals(gameDescription, returnedInfo.getServerMetadata()
+				.getMetadata().get("gameDescription"));
+		assertEquals(
+				steamApplicationId,
+				Integer.parseInt(returnedInfo.getServerMetadata().getMetadata()
+						.get("steamApplicationID")));
+		assertEquals(
+				currentPlayers,
+				Byte.parseByte(returnedInfo.getServerMetadata().getMetadata()
+						.get("playerCount")));
+		assertEquals(
+				maxPlayers,
+				Byte.parseByte(returnedInfo.getServerMetadata().getMetadata()
+						.get("maxPlayers")));
+		assertEquals(
+				botCount,
+				Byte.parseByte(returnedInfo.getServerMetadata().getMetadata()
+						.get("botCount")));
+		assertEquals(serverType, returnedInfo.getServerMetadata().getMetadata()
+				.get("serverType").charAt(0));
+		assertEquals(serverOS, returnedInfo.getServerMetadata().getMetadata()
+				.get("serverOS").charAt(0));
+		assertEquals(
+				passworded,
+				Boolean.parseBoolean(returnedInfo.getServerMetadata()
+						.getMetadata().get("passworded")));
+		assertEquals(
+				secure,
+				Boolean.parseBoolean(returnedInfo.getServerMetadata()
+						.getMetadata().get("secureServer")));
 
-		assertEquals(rules.get("mp_timelimit"), returnedRules.getServerMetadata().getMetadata().get("mp_timelimit"));
-		assertEquals(rules.get("mp_friendlyfire"), returnedRules.getServerMetadata().getMetadata().get("mp_friendlyfire"));
-		assertEquals(rules.get("mp_falldamage"), returnedRules.getServerMetadata().getMetadata().get("mp_falldamage"));
-		assertEquals(rules.get("mp_weaponstay"), returnedRules.getServerMetadata().getMetadata().get("mp_weaponstay"));
-		assertEquals(rules.get("mp_forcerespawn"), returnedRules.getServerMetadata().getMetadata().get("mp_forcerespawn"));
+		assertEquals(rules.get("mp_timelimit"), returnedRules
+				.getServerMetadata().getMetadata().get("mp_timelimit"));
+		assertEquals(rules.get("mp_friendlyfire"), returnedRules
+				.getServerMetadata().getMetadata().get("mp_friendlyfire"));
+		assertEquals(rules.get("mp_falldamage"), returnedRules
+				.getServerMetadata().getMetadata().get("mp_falldamage"));
+		assertEquals(rules.get("mp_weaponstay"), returnedRules
+				.getServerMetadata().getMetadata().get("mp_weaponstay"));
+		assertEquals(rules.get("mp_forcerespawn"), returnedRules
+				.getServerMetadata().getMetadata().get("mp_forcerespawn"));
 
 		boolean player1 = false;
 		boolean player2 = false;
 		boolean player3 = false;
 
-		for (Alias a: returnedPlayers.getPlayers()) {
+		for (Alias a : returnedPlayers.getPlayers()) {
 			if ("Player1".equals(a.getName())) {
 				assertFalse(player1);
 				player1 = true;
-				assertEquals("0", a.getId());
-			}
-			if ("Player2".equals(a.getName())) {
+			} else if ("Player2".equals(a.getName())) {
 				assertFalse(player2);
 				player2 = true;
-				assertEquals("1", a.getId());
-			}
-			if ("Player3".equals(a.getName())) {
+			} else if ("Player3".equals(a.getName())) {
 				assertFalse(player3);
 				player3 = true;
-				assertEquals("2", a.getId());
 			}
 		}
 
@@ -400,23 +430,18 @@ public class SourceEngineQueryClientTest {
 		boolean score2 = false;
 		boolean score3 = false;
 
-		for (Score s: returnedPlayers.getScores()) {
+		for (Score s : returnedPlayers.getScores()) {
 			if ("Player1".equals(s.getAlias().getName())) {
 				assertFalse(score1);
 				score1 = true;
-				assertEquals("0", s.getAlias().getId());
 				assertEquals(1.0f, s.getScore(), 0.1f);
-			}
-			if ("Player2".equals(s.getAlias().getName())) {
+			} else if ("Player2".equals(s.getAlias().getName())) {
 				assertFalse(score2);
 				score2 = true;
-				assertEquals("1", s.getAlias().getId());
 				assertEquals(2.0f, s.getScore(), 0.1f);
-			}
-			if ("Player3".equals(s.getAlias().getName())) {
+			} else if ("Player3".equals(s.getAlias().getName())) {
 				assertFalse(score3);
 				score3 = true;
-				assertEquals("2", s.getAlias().getId());
 				assertEquals(3.0f, s.getScore(), 0.1f);
 			}
 		}
