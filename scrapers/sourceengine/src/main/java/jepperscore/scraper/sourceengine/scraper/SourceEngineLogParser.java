@@ -232,6 +232,7 @@ public class SourceEngineLogParser implements Runnable {
 	 *            The group index to start at.
 	 * @return The created {@link Alias}s.
 	 */
+	@Nonnull
 	protected Alias createAliasFromRegEx(Matcher m, int startIndex) {
 		Alias player = new Alias();
 
@@ -287,7 +288,7 @@ public class SourceEngineLogParser implements Runnable {
 			EventCode eventCode = new EventCode();
 
 			String prefix = "";
-			if ((victim.getTeam() != null)
+			if ((victim != null) && (attacker != null) && (victim.getTeam() != null)
 					&& victim.getTeam().equals(attacker.getTeam())) {
 				prefix = "TK:";
 				eventCode.setCode(EventCode.EVENT_CODE_TEAMKILL);

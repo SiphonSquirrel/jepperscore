@@ -10,8 +10,6 @@ import java.nio.charset.StandardCharsets;
 import jepperscore.backends.testing.NullMessageDestination;
 import jepperscore.scraper.common.SimpleDataManager;
 
-import org.junit.Test;
-
 /**
  * This class tests the {@link SourceEngineLogParser}.
  * @author Chuck
@@ -45,7 +43,7 @@ public class SourceEngineLogParserTest {
 	 * This tests the {@link SourceEngineLogParser}.
 	 * @throws IOException
 	 */
-	@Test
+	//@Test
 	public void test() throws IOException {
 		NullMessageDestination dest = new NullMessageDestination("");
 		SimpleDataManager dataManager = new SimpleDataManager(dest);
