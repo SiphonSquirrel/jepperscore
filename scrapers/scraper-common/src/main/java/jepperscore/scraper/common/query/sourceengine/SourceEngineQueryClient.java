@@ -40,33 +40,33 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 	/**
 	 * The message header.
 	 */
-	public static final byte[] MESSAGE_HEADER = new byte[] { (byte) 0xFF,
+	static final byte[] MESSAGE_HEADER = new byte[] { (byte) 0xFF,
 			(byte) 0xFF, (byte) 0xFF, (byte) 0xFF };
 
 	/**
 	 * Extra data for info query.
 	 */
-	private static final byte[] INFO_EXTRA_DATA;
+	static final byte[] INFO_EXTRA_DATA;
 
 	/**
 	 * Server type for listen servers.
 	 */
-	public static final char SERVER_TYPE_LISTEN = 'l';
+	static final char SERVER_TYPE_LISTEN = 'l';
 
 	/**
 	 * Server type for dedicated servers.
 	 */
-	public static final char SERVER_TYPE_DEDICATED = 'd';
+	static final char SERVER_TYPE_DEDICATED = 'd';
 
 	/**
 	 * Server OS for Windows.
 	 */
-	public static final char SERVER_OS_WINDOWS = 'w';
+	static final char SERVER_OS_WINDOWS = 'w';
 
 	/**
 	 * Server OS for Linux.
 	 */
-	public static final char SERVER_OS_LINUX = 'l';
+	static final char SERVER_OS_LINUX = 'l';
 
 	/**
 	 * The query port.
@@ -86,12 +86,12 @@ public class SourceEngineQueryClient extends AbstractQueryClient {
 	/**
 	 * The player query challenge value.
 	 */
-	private byte[] playerChallenge = null;
+	private volatile byte[] playerChallenge = null;
 
 	/**
 	 * The player query challenge value.
 	 */
-	private byte[] rulesChallenge = null;
+	private volatile byte[] rulesChallenge = null;
 
 	static {
 		byte[] infoHeader = "Source Engine Query"
